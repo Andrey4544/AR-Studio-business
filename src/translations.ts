@@ -2,8 +2,8 @@ import { Language } from './types';
 
 const translations: Record<Language, Record<string, string>> = {
   en: {
-    heroTitlePart1: "Luxury Dev",
-    heroTitlePart2: "Premium Web Experiences",
+    heroTitlePart1: "AR Studio",
+    heroTitlePart2: "#1 website designers",
     heroSubtitle: "Luxury, bespoke web design and software engineering for companies demanding absolute technical supremacy and striking aesthetics.",
     freeConsult: "Free Consultation",
     getBlueprint: "Architect a Project",
@@ -45,8 +45,8 @@ const translations: Record<Language, Record<string, string>> = {
     close: "Close"
   },
   bg: {
-    heroTitlePart1: "Luxury Dev",
-    heroTitlePart2: "Премиум уеб преживявания",
+    heroTitlePart1: "AR Studio",
+    heroTitlePart2: "#1 уебсайт дизейнери",
     heroSubtitle: "Луксозен, персонализиран уеб дизайн и софтуерно инженерство за брандове, които изискват пълно техническо превъзходство и зашеметяващ стил.",
     freeConsult: "Безплатна Консултация",
     getBlueprint: "Проектирай проект",

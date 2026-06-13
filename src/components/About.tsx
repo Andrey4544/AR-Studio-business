@@ -15,18 +15,18 @@ export const About: React.FC<AboutProps> = ({ language }) => {
     {
       nameEN: 'Andrey Belev',
       nameBG: 'Андрей Белев',
-      roleEN: 'Creative & Visual Director',
-      roleBG: 'Креативен и визуален директор',
-      bioEN: 'Shaping premium user flows and elite layout stylings. Andrey ensures every pixel, font margin, and scrolling detail matches total high-end identity standards.',
-      bioBG: 'Изгражда луксозни визуални интерфейси за брандове. Андрей гарантира, че всеки елемент, отстъп и анимация са в синхрон с бранд идентичността.'
-    },
-    {
-      nameEN: 'Rumen Mirchev',
-      nameBG: 'Румен Мирчев',
       roleEN: 'Lead Systems Architect',
       roleBG: 'Главен системен архитект',
       bioEN: 'Spearheading robust backends, real-time SMTP relays, cloud server configs, and TypeScript performance index engines for maximum speed and security compliance.',
       bioBG: 'Архитект на бекенд системи, сигурни пощенски релета, бързи облачни структури и TypeScript алгоритми, осигуряващи максимална скорост и функционалност.'
+    },
+    {
+      nameEN: 'Rumen Mirchev',
+      nameBG: 'Румен Мирчев',
+      roleEN: 'Creative & Visual Director',
+      roleBG: 'Креативен и визуален директор',
+      bioEN: 'Shaping premium user flows and elite layout stylings. Andrey ensures every pixel, font margin, and scrolling detail matches total high-end identity standards.',
+      bioBG: 'Изгражда луксозни визуални интерфейси за брандове. Андрей гарантира, че всеки елемент, отстъп и анимация са в синхрон с бранд идентичността.'
     }
   ];
 

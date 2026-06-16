@@ -12,9 +12,13 @@ import { useLanguage } from '../context/LanguageContext';
 // Carousel images – add more entries here as new screenshots arrive
 const carouselImages = [
   { src: '/assets/tomato-new.png', alt: 'Tomato Restaurant Mockup' },
+  { src: '/assets/tomato-main-hall.jpg', alt: 'Tomato Main Hall' },
+  { src: '/assets/tomato-garden.jpg', alt: 'Tomato Garden' },
+  { src: '/assets/tomato-bar.jpg', alt: 'Tomato Bar' },
   { src: '/assets/tomato-event.jpg', alt: 'Tomato Restaurant Event' },
   { src: '/assets/tomato-gallery.jpg', alt: 'Tomato Restaurant Gallery' },
   { src: '/assets/tomato-contact.jpg', alt: 'Tomato Restaurant Contact' },
+  { src: '/assets/tomato-reviews.jpg', alt: 'Tomato Customer Reviews' },
 ];
 
 interface PortfolioProps {

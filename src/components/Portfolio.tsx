@@ -19,6 +19,7 @@ const carouselImages = [
   { src: '/assets/tomato-gallery.jpg', alt: 'Tomato Restaurant Gallery' },
   { src: '/assets/tomato-contact.jpg', alt: 'Tomato Restaurant Contact' },
   { src: '/assets/tomato-reviews.jpg', alt: 'Tomato Customer Reviews' },
+  { src: '/assets/tomato-qr.png', alt: 'Tomato QR Code Menu' },
 ];
 
 interface PortfolioProps {

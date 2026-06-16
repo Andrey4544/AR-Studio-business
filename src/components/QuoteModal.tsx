@@ -241,16 +241,25 @@ export default function QuoteModal({ isOpen, onClose }: QuoteModalProps) {
                         className="bg-zinc-950 border border-white/5 focus:border-blue-500 text-xs text-zinc-300 rounded-lg px-4 py-3.5 focus:outline-none transition-colors cursor-pointer"
                       >
                         <option value="basic">
-                          {language === 'en' ? 'Basic Website (starting €200)' : 'Икономичен уебсайт (от 400 лв.)'}
+                          {language === 'en' ? 'Basic Website (starting €250)' : 'Икономичен уебсайт (от 500 лв.)'}
                         </option>
                         <option value="standard">
-                          {language === 'en' ? 'Standard Website • Popular (starting €400)' : 'Професионален сайт • Популярен (от 800 лв.)'}
+                          {language === 'en' ? 'Standard Website • Popular (starting €450)' : 'Професионален сайт • Популярен (от 900 лв.)'}
                         </option>
                         <option value="premium">
                           {language === 'en' ? 'Premium website (starting €600)' : 'Луксозен уебсайт (от 1200 лв.)'}
                         </option>
+                        <option value="maintenance">
+                          {language === 'en' ? 'Website Maintenance (starting €50/mo)' : 'Месечна поддръжка (от 100 лв./месец)'}
+                        </option>
                         <option value="combo">
-                          {language === 'en' ? 'Combo Website + Social package (starting €100/mo)' : 'Комбо сайт + Поддръжка (от 200 лв./месец)'}
+                          {language === 'en' ? 'Combo Website + Social package (starting €110/mo)' : 'Комбо сайт + Поддръжка (от 220 лв./месец)'}
+                        </option>
+                        <option value="qr-code">
+                          {language === 'en' ? 'QR Code Menu & Integration (starting €80)' : 'QR код меню и интеграция (от 160 лв.)'}
+                        </option>
+                        <option value="logo-design">
+                          {language === 'en' ? 'Professional Logo Design (starting €150)' : 'Професионален дизайн на лого (от 300 лв.)'}
                         </option>
                         <option value="custom">
                           {language === 'en' ? 'Other Bespoke Collaboration' : 'Друго индивидуално запитване'}

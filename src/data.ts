@@ -61,7 +61,7 @@ export const pricingPlans: PricingPlan[] = [
   {
     id: 'basic',
     name: 'Basic Website',
-    price: '€200',
+    price: '€250',
     scope: 'Single interactive landing page crafted with modern luxury layouts.',
     features: [
       '1 Page Custom Design',
@@ -75,7 +75,7 @@ export const pricingPlans: PricingPlan[] = [
   {
     id: 'standard',
     name: 'Standard Website',
-    price: '€400',
+    price: '€450',
     popular: true,
     scope: 'Complete corporate or business multi-page/landing experience. Perfect for restaurants & salons.',
     features: [
@@ -104,7 +104,7 @@ export const pricingPlans: PricingPlan[] = [
   {
     id: 'maintenance',
     name: 'Website Maintenance',
-    price: '€40',
+    price: '€50',
     period: 'month',
     scope: 'Complete peace of mind. We handle the tech; you run the business.',
     features: [
@@ -132,7 +132,7 @@ export const pricingPlans: PricingPlan[] = [
   {
     id: 'combo',
     name: 'Website + Social Combo',
-    price: '€100',
+    price: '€110',
     period: 'month',
     scope: 'The ultimate digital growth accelerator for local Bulgarian restaurants and businesses.',
     features: [
@@ -141,6 +141,32 @@ export const pricingPlans: PricingPlan[] = [
       'Unified Brand Aesthetics Across Web & Socials',
       'Lead generation & advertising advice',
       'Direct access to Andrey & Rumen',
+    ],
+  },
+  {
+    id: 'qr-code',
+    name: 'QR Code Menu & Integration',
+    price: '€80',
+    scope: 'Modernize your restaurant or salon with contactless digital interaction.',
+    features: [
+      'Custom Branded QR Code Design',
+      'Interactive Digital Menu / Price List',
+      'Easy Cloud-Based Content Updates',
+      'Table or Reception Stand Setup',
+      'Fast 2-Day Delivery',
+    ],
+  },
+  {
+    id: 'logo-design',
+    name: 'Professional Logo Design',
+    price: '€150',
+    scope: 'Bespoke visual identity that defines your luxury brand.',
+    features: [
+      '3 Unique Logo Concepts',
+      'Unlimited Revisions until Perfect',
+      'High-Resolution Vector Files (AI, SVG, PNG)',
+      'Color & Typography Guidelines',
+      'Social Media Profile Optimization',
     ],
   },
 ];

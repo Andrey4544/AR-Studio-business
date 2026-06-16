@@ -5,7 +5,7 @@
 
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { Sparkles, Check, ArrowUpRight, AlertCircle } from 'lucide-react';
+import { Sparkles, Check, ArrowUpRight, AlertCircle, Gift } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 interface ServicesProps {
@@ -16,21 +16,22 @@ export default function Services({ onQuoteClick }: ServicesProps) {
   const [currency, setCurrency] = useState<'EUR' | 'BGN'>('EUR');
   const { pricingPlans, t, language } = useLanguage();
 
-  // Helper converter for Bulgarian Lev (1 EUR = 2.0 BGN for simplicity or 1.96)
+  // Helper converter for Bulgarian Lev (1 EUR = 2.0 BGN for simplicity)
   const formatPrice = (priceStr: string, activeCurrency: 'EUR' | 'BGN') => {
     const rawVal = parseInt(priceStr.replace(/[^0-9]/g, ''), 10);
     if (!rawVal) return priceStr;
 
     if (activeCurrency === 'BGN') {
-      const bgnVal = Math.round(rawVal * 2.0); // Simple 1:2 conversion for clean numbers
+      const bgnVal = Math.round(rawVal * 2.0);
       return `${bgnVal} лв`;
     }
     return priceStr;
   };
 
-  // Split pricing plans into Design and Monthly
-  const webDesignPlans = pricingPlans.filter(p => !p.period);
-  const monthlyPlans = pricingPlans.filter(p => p.period);
+  // Filter pricing plans
+  const webDesignPlans = pricingPlans.filter(p => !p.period && !p.bundle);
+  const monthlyPlans = pricingPlans.filter(p => p.period && !p.bundle);
+  const bundlePlans = pricingPlans.filter(p => p.bundle);
 
   return (
     <section className="py-24 bg-luxury-black relative overflow-hidden border-t border-white/5">
@@ -69,7 +70,7 @@ export default function Services({ onQuoteClick }: ServicesProps) {
             {t('servicesDesc')}
           </p>
 
-          {/* Currency Toggle (Bulgarian Lev / Euro) */}
+          {/* Currency Toggle */}
           <div className="inline-flex items-center gap-1.5 bg-zinc-950 border border-white/5 p-1 rounded-full">
             <button
               onClick={() => setCurrency('EUR')}
@@ -87,6 +88,82 @@ export default function Services({ onQuoteClick }: ServicesProps) {
             >
               {language === 'en' ? 'Bulgarian Lev (лв)' : 'Български лев (лв)'}
             </button>
+          </div>
+        </div>
+
+        {/* Section: Luxury Bundles (NEW) */}
+        <div className="mb-24">
+          <div className="flex items-center gap-3 mb-10 border-b border-white/5 pb-4">
+            <Gift className="w-4 h-4 text-emerald-400" />
+            <span className="text-xs font-mono font-bold tracking-widest text-emerald-400 uppercase">
+              {language === 'en' ? 'Exclusive // Luxury Bundles' : 'Ексклузивно // Пакетни предложения'}
+            </span>
+            <span className="text-xs text-zinc-500">
+              {language === 'en' ? '(Best value for new brands)' : '(Най-добра стойност за нови брандове)'}
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+            {bundlePlans.map((plan, index) => (
+              <motion.div
+                key={plan.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ y: -6, scale: 1.015 }}
+                className={`relative flex flex-col justify-between rounded-2xl p-8 border ${
+                  plan.popular
+                    ? 'bg-emerald-950/10 border-emerald-500/30 shadow-xl shadow-emerald-500/5'
+                    : 'bg-zinc-900/30 border-white/5'
+                } transition-all duration-300 hover:border-white/15`}
+              >
+                {plan.popular && (
+                  <span className="absolute top-4 right-4 bg-emerald-600 text-white text-[10px] uppercase font-mono font-bold tracking-wider px-3 py-1 rounded-full">
+                    {language === 'en' ? 'Most Popular' : 'Най-популярен'}
+                  </span>
+                )}
+
+                <div>
+                  <h3 className="text-lg font-bold text-white mb-2">{plan.name}</h3>
+                  <p className="text-zinc-400 text-xs min-h-[36px] line-clamp-2 leading-relaxed mb-6 border-b border-white/5 pb-4">
+                    {plan.scope}
+                  </p>
+
+                  <div className="flex items-baseline gap-1.5 mb-8">
+                    <span className="text-3xl sm:text-4xl font-bold font-mono tracking-tight text-white transition-all">
+                      {formatPrice(plan.price, currency)}
+                    </span>
+                    <span className="text-xs text-emerald-400 font-medium">
+                      {language === 'en' ? 'bundle price' : 'пакетна цена'}
+                    </span>
+                  </div>
+
+                  <ul className="space-y-3.5 mb-8">
+                    {plan.features.map((feat, idx) => (
+                      <li key={idx} className="flex items-start gap-2.5 text-xs text-zinc-300 font-sans leading-relaxed">
+                        <Check className="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-0.5" />
+                        <span className={feat.includes('Save') || feat.includes('Спестявате') ? 'text-emerald-400 font-bold' : ''}>
+                          {feat}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <button
+                  onClick={() => onQuoteClick(plan.name)}
+                  className={`w-full py-3.5 rounded-xl font-semibold text-xs transition-all duration-300 flex items-center justify-center gap-1.5 cursor-pointer ${
+                    plan.popular
+                      ? 'bg-emerald-600 hover:bg-emerald-500 text-white shadow-xl shadow-emerald-600/10'
+                      : 'bg-zinc-900 hover:bg-zinc-850 text-white border border-white/5'
+                  }`}
+                >
+                  <span>{language === 'en' ? 'Claim Bundle' : 'Вземи пакета'}</span>
+                  <ArrowUpRight className="w-4 h-4" />
+                </button>
+              </motion.div>
+            ))}
           </div>
         </div>
 
@@ -116,7 +193,6 @@ export default function Services({ onQuoteClick }: ServicesProps) {
                     : 'bg-zinc-900/30 border-white/5'
                 } transition-all duration-300 hover:border-white/15`}
               >
-                {/* Popular Badge */}
                 {plan.popular && (
                   <span className="absolute top-4 right-4 bg-blue-600 text-white text-[10px] uppercase font-mono font-bold tracking-wider px-3 py-1 rounded-full">
                     {language === 'en' ? 'Best Value' : 'Най-добра сделка'}
@@ -190,7 +266,6 @@ export default function Services({ onQuoteClick }: ServicesProps) {
                     : 'bg-zinc-900/30 border-white/5'
                 } transition-all duration-300 hover:border-white/15`}
               >
-                {/* Special Combo Badge */}
                 {plan.id === 'combo' && (
                   <span className="absolute top-4 right-4 bg-blue-600 text-white text-[10px] uppercase font-mono font-bold tracking-wider px-3 py-1 rounded-full">
                     {language === 'en' ? 'Most Popular Combo' : 'Най-популярен избор'}

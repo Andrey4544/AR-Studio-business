@@ -25,6 +25,7 @@ export interface PricingPlan {
   scope: string;
   features: string[];
   popular?: boolean;
+  bundle?: boolean;
 }
 
 export interface Project {

@@ -183,6 +183,46 @@ export const pricingPlans: PricingPlan[] = [
       'Social Media Profile Optimization',
     ],
   },
+  {
+    id: 'bundle-starter',
+    name: 'Starter Pro Bundle',
+    price: '€350',
+    bundle: true,
+    scope: 'The perfect foundation for a new business launch.',
+    features: [
+      'Basic Website (€250 value)',
+      'Professional Logo Design (€150 value)',
+      'Save €50 instantly',
+      'Fast 5-day delivery',
+    ],
+  },
+  {
+    id: 'bundle-business',
+    name: 'Business Elite Bundle',
+    price: '€550',
+    bundle: true,
+    popular: true,
+    scope: 'Complete digital transformation for established businesses.',
+    features: [
+      'Standard Website (€450 value)',
+      'Professional Logo Design (€150 value)',
+      '1 Month Free Maintenance (€50 value)',
+      'Save €100 instantly',
+    ],
+  },
+  {
+    id: 'bundle-ultimate',
+    name: 'Ultimate Digital Growth',
+    price: '€850',
+    bundle: true,
+    scope: 'Dominate your local market with elite web & social presence.',
+    features: [
+      'Premium Website (€600 value)',
+      'Professional Logo Design (€150 value)',
+      '3 Months Combo Package (€330 value)',
+      'Save €230 instantly',
+    ],
+  },
 ];
 
 export const featuredProjects: Project[] = [

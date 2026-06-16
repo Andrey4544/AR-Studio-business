@@ -264,6 +264,17 @@ export default function QuoteModal({ isOpen, onClose }: QuoteModalProps) {
                         <option value="logo-design">
                           {language === 'en' ? 'Professional Logo Design (starting €150)' : 'Професионален дизайн на лого (от €150)'}
                         </option>
+                        <optgroup label={language === 'en' ? 'Luxury Bundles (Save Money)' : 'Пакетни предложения (Спестете пари)'}>
+                          <option value="bundle-starter">
+                            {language === 'en' ? 'Starter Pro Bundle (€350)' : 'Starter Pro Пакет (€350)'}
+                          </option>
+                          <option value="bundle-business">
+                            {language === 'en' ? 'Business Elite Bundle (€550)' : 'Business Elite Пакет (€550)'}
+                          </option>
+                          <option value="bundle-ultimate">
+                            {language === 'en' ? 'Ultimate Digital Growth (€850)' : 'Ultimate Digital Growth Пакет (€850)'}
+                          </option>
+                        </optgroup>
                         <option value="custom">
                           {language === 'en' ? 'Other Bespoke Collaboration' : 'Друго индивидуално запитване'}
                         </option>

@@ -5,11 +5,11 @@
 
 import React from 'react';
 import { motion } from 'motion/react';
-import { Sparkles, Globe, ArrowUpRight, Check, Zap, Smartphone, QrCode } from 'lucide-react';
+import { Sparkles, Globe, ArrowUpRight, Zap, Smartphone, QrCode } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 // Import our custom-generated high-quality mockup image
-import tomatoMockup from '../assets/images/tomato_restaurant_mockup_1781189629851.png';
+import tomatoMockup from '/assets/tomato-new.png';
 
 interface PortfolioProps {
   onQuoteClick: () => void;
@@ -164,7 +164,7 @@ export default function Portfolio({ onQuoteClick }: PortfolioProps) {
             </div>
           </motion.div>
 
-          {/* Screenshot Column using generated image */}
+          {/* Screenshot Column using the new image */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -275,10 +275,9 @@ export default function Portfolio({ onQuoteClick }: PortfolioProps) {
                 onClick={onQuoteClick}
                 className="text-xs font-semibold text-blue-500 text-left hover:text-blue-400 transition-colors cursor-pointer"
               >
-                {language === 'en' ? 'Claim This Space Now \u2192' : 'Запази това място сега \u2192'}
+                {language === 'en' ? 'Claim This Space Now \u2192' : 'Заяви това място сега \u2192'}
               </button>
             </motion.div>
-            
           </div>
         </div>
 

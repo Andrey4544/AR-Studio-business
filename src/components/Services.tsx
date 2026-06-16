@@ -3,9 +3,9 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'motion/react';
-import { Sparkles, Check, ArrowUpRight, HelpCircle, AlertCircle } from 'lucide-react';
+import { Sparkles, Check, ArrowUpRight, AlertCircle } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 interface ServicesProps {
@@ -13,20 +13,7 @@ interface ServicesProps {
 }
 
 export default function Services({ onQuoteClick }: ServicesProps) {
-  const [currency, setCurrency] = useState<'EUR' | 'BGN'>('EUR');
   const { pricingPlans, t, language } = useLanguage();
-
-  // Helper converter for Bulgarian Lev (1 EUR = 1.95583 BGN)
-  const formatPrice = (priceStr: string, activeCurrency: 'EUR' | 'BGN') => {
-    const rawVal = parseInt(priceStr.replace(/[^0-9]/g, ''), 10);
-    if (!rawVal) return priceStr;
-
-    if (activeCurrency === 'BGN') {
-      const bgnVal = Math.round(rawVal * 1.96);
-      return `${bgnVal} лв`;
-    }
-    return priceStr;
-  };
 
   // Split pricing plans into Design and Monthly
   const webDesignPlans = pricingPlans.filter(p => !p.period);
@@ -68,26 +55,6 @@ export default function Services({ onQuoteClick }: ServicesProps) {
           <p className="text-zinc-400 text-sm sm:text-base mb-8">
             {t('servicesDesc')}
           </p>
-
-          {/* Currency Toggle (Bulgarian Lev / Euro) */}
-          <div className="inline-flex items-center gap-1.5 bg-zinc-950 border border-white/5 p-1 rounded-full">
-            <button
-              onClick={() => setCurrency('EUR')}
-              className={`px-4 py-1.5 rounded-full text-[10px] font-mono tracking-wider uppercase transition-all duration-300 ${
-                currency === 'EUR' ? 'bg-blue-600 text-white font-semibold' : 'text-zinc-500 hover:text-zinc-300'
-              }`}
-            >
-              {language === 'en' ? 'Euro (€)' : 'Евро (€)'}
-            </button>
-            <button
-              onClick={() => setCurrency('BGN')}
-              className={`px-4 py-1.5 rounded-full text-[10px] font-mono tracking-wider uppercase transition-all duration-300 ${
-                currency === 'BGN' ? 'bg-blue-600 text-white font-semibold' : 'text-zinc-500 hover:text-zinc-300'
-              }`}
-            >
-              {language === 'en' ? 'Bulgarian Lev (лв)' : 'Български лев (лв)'}
-            </button>
-          </div>
         </div>
 
         {/* Section 1: Web Design & Engineering */}
@@ -101,7 +68,7 @@ export default function Services({ onQuoteClick }: ServicesProps) {
             </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
             {webDesignPlans.map((plan, index) => (
               <motion.div
                 key={plan.id}
@@ -131,7 +98,7 @@ export default function Services({ onQuoteClick }: ServicesProps) {
 
                   <div className="flex items-baseline gap-1.5 mb-8">
                     <span className="text-3xl sm:text-4xl font-bold font-mono tracking-tight text-white transition-all">
-                      {formatPrice(plan.price, currency)}
+                      {plan.price}
                     </span>
                     <span className="text-xs text-zinc-500 font-medium">
                       {language === 'en' ? 'starting' : 'начална цена'}
@@ -175,7 +142,7 @@ export default function Services({ onQuoteClick }: ServicesProps) {
             </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
             {monthlyPlans.map((plan, index) => (
               <motion.div
                 key={plan.id}
@@ -205,7 +172,7 @@ export default function Services({ onQuoteClick }: ServicesProps) {
 
                   <div className="flex items-baseline gap-1.5 mb-8">
                     <span className="text-3xl sm:text-4xl font-bold font-mono tracking-tight text-white">
-                      {formatPrice(plan.price, currency)}
+                      {plan.price}
                     </span>
                     <span className="text-xs text-zinc-500 font-mono">
                       / {language === 'en' ? plan.period : (plan.period === 'month' ? 'месец' : plan.period)}

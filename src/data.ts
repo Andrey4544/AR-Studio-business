@@ -33,7 +33,7 @@ export const agencyFeatures: Feature[] = [
   {
     id: 'affordable-pricing',
     title: 'Affordable Pricing',
-    description: 'Top-tier digital agency quality at prices tailored for local businesses. Unmatched value starting from €200.',
+    description: 'Top-tier digital agency quality at prices tailored for local businesses. Unmatched value starting from €250.',
     iconName: 'DollarSign',
   },
   {

@@ -241,25 +241,25 @@ export default function QuoteModal({ isOpen, onClose }: QuoteModalProps) {
                         className="bg-zinc-950 border border-white/5 focus:border-blue-500 text-xs text-zinc-300 rounded-lg px-4 py-3.5 focus:outline-none transition-colors cursor-pointer"
                       >
                         <option value="basic">
-                          {language === 'en' ? 'Basic Website (starting €250)' : 'Икономичен уебсайт (от 500 лв.)'}
+                          {language === 'en' ? 'Basic Website (starting €250)' : 'Икономичен уебсайт (от €250)'}
                         </option>
                         <option value="standard">
-                          {language === 'en' ? 'Standard Website • Popular (starting €450)' : 'Професионален сайт • Популярен (от 900 лв.)'}
+                          {language === 'en' ? 'Standard Website • Popular (starting €450)' : 'Професионален сайт • Популярен (от €450)'}
                         </option>
                         <option value="premium">
-                          {language === 'en' ? 'Premium website (starting €600)' : 'Луксозен уебсайт (от 1200 лв.)'}
+                          {language === 'en' ? 'Premium website (starting €600)' : 'Луксозен уебсайт (от €600)'}
                         </option>
                         <option value="maintenance">
-                          {language === 'en' ? 'Website Maintenance (starting €50/mo)' : 'Месечна поддръжка (от 100 лв./месец)'}
+                          {language === 'en' ? 'Website Maintenance (starting €50/mo)' : 'Месечна поддръжка (от €50/месец)'}
                         </option>
                         <option value="combo">
-                          {language === 'en' ? 'Combo Website + Social package (starting €110/mo)' : 'Комбо сайт + Поддръжка (от 220 лв./месец)'}
+                          {language === 'en' ? 'Combo Website + Social package (starting €110/mo)' : 'Комбо сайт + Поддръжка (от €110/месец)'}
                         </option>
                         <option value="qr-code">
-                          {language === 'en' ? 'QR Code Menu & Integration (starting €80)' : 'QR код меню и интеграция (от 160 лв.)'}
+                          {language === 'en' ? 'QR Code Menu & Integration (starting €80)' : 'QR код меню и интеграция (от €80)'}
                         </option>
                         <option value="logo-design">
-                          {language === 'en' ? 'Professional Logo Design (starting €150)' : 'Професионален дизайн на лого (от 300 лв.)'}
+                          {language === 'en' ? 'Professional Logo Design (starting €150)' : 'Професионален дизайн на лого (от €150)'}
                         </option>
                         <option value="custom">
                           {language === 'en' ? 'Other Bespoke Collaboration' : 'Друго индивидуално запитване'}
@@ -289,10 +289,10 @@ export default function QuoteModal({ isOpen, onClose }: QuoteModalProps) {
                     <div className="bg-zinc-950/40 p-3 rounded-lg border border-white/5 flex gap-2.5 items-center my-2 text-left">
                       <Award className="w-4 h-4 text-blue-400 shrink-0" />
                       <span className="text-[9.5px] font-mono text-zinc-500 leading-normal">
-                        🛡️ <span className="text-white font-bold">{language === 'en' ? 'No-Risk Pact' : '100% Без Риск'}</span>: {
+                        🛡️                         <span className="text-white font-bold">{language === 'en' ? 'No-Risk Pact' : '100% Без Риск'}</span>: {
                           language === 'en' 
-                            ? 'You pay zero BGN/EUR until you review the final completed web build and are highly thrilled.'
-                            : 'Плащате нула лева, докато не прегледате завършения уебсайт и не го одобрите напълно.'
+                            ? 'You pay zero EUR until you review the final completed web build and are highly thrilled.'
+                            : 'Плащате нула евро, докато не прегледате завършения уебсайт и не го одобрите напълно.'
                         }
                       </span>
                     </div>

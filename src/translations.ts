@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { Feature, TeamMember, PricingPlan, Project, Benefit, Testimonial } from './types';
+import { Feature, TeamMember, PricingPlan, Project, Benefit, Testimonial, FaqItem } from './types';
 
 export interface TranslationDictionary {
   navHome: string;
@@ -267,7 +267,7 @@ export const dynamicTranslations = {
       {
         id: 'affordable-pricing',
         title: 'Affordable Pricing',
-        description: 'Top-tier digital agency quality at prices tailored for local businesses. Unmatched value starting from €200.',
+        description: 'Top-tier digital agency quality at prices tailored for local businesses. Unmatched value starting from €250.',
         iconName: 'DollarSign',
       },
       {
@@ -293,7 +293,7 @@ export const dynamicTranslations = {
       {
         id: 'basic',
         name: 'Basic Website',
-        price: '€200',
+        price: '€250',
         scope: 'Single interactive landing page crafted with modern luxury layouts.',
         features: [
           '1 Page Custom Design',
@@ -307,7 +307,7 @@ export const dynamicTranslations = {
       {
         id: 'standard',
         name: 'Standard Website',
-        price: '€400',
+        price: '€450',
         popular: true,
         scope: 'Complete corporate or business multi-page/landing experience. Perfect for restaurants & salons.',
         features: [
@@ -334,9 +334,23 @@ export const dynamicTranslations = {
         ],
       },
       {
+        id: 'e-commerce',
+        name: 'E-commerce Store',
+        price: '€800',
+        scope: 'Complete high-performance online store with secure payments and product management.',
+        features: [
+          'Custom E-commerce Design & Branding',
+          'Secure Payment Gateway Integration (Stripe/PayPal)',
+          'Product Inventory Management System',
+          'Order Tracking & Email Notifications',
+          'Mobile-First Shopping Experience',
+          'Advanced SEO for Products',
+        ],
+      },
+      {
         id: 'maintenance',
         name: 'Website Maintenance',
-        price: '€40',
+        price: '€50',
         period: 'month',
         scope: 'Complete peace of mind. We handle the tech; you run the business.',
         features: [
@@ -364,7 +378,7 @@ export const dynamicTranslations = {
       {
         id: 'combo',
         name: 'Website + Social Combo',
-        price: '€100',
+        price: '€110',
         period: 'month',
         scope: 'The ultimate digital growth accelerator for local Bulgarian restaurants and businesses.',
         features: [
@@ -373,6 +387,72 @@ export const dynamicTranslations = {
           'Unified Brand Aesthetics Across Web & Socials',
           'Lead generation & advertising advice',
           'Direct access to Andrey & Rumen',
+        ],
+      },
+      {
+        id: 'qr-code',
+        name: 'QR Code Menu & Integration',
+        price: '€80',
+        scope: 'Modernize your restaurant or salon with contactless digital interaction.',
+        features: [
+          'Custom Branded QR Code Design',
+          'Interactive Digital Menu / Price List',
+          'Easy Cloud-Based Content Updates',
+          'Table or Reception Stand Setup',
+          'Fast 2-Day Delivery',
+        ],
+      },
+      {
+        id: 'logo-design',
+        name: 'Professional Logo Design',
+        price: '€150',
+        scope: 'Bespoke visual identity that defines your luxury brand.',
+        features: [
+          '3 Unique Logo Concepts',
+          'Unlimited Revisions until Perfect',
+          'High-Resolution Vector Files (AI, SVG, PNG)',
+          'Color & Typography Guidelines',
+          'Social Media Profile Optimization',
+        ],
+      },
+      {
+        id: 'bundle-starter',
+        name: 'Starter Pro Bundle',
+        price: '€350',
+        bundle: true,
+        scope: 'The perfect foundation for a new business launch.',
+        features: [
+          'Basic Website (€250 value)',
+          'Professional Logo Design (€150 value)',
+          'Save €50 instantly',
+          'Fast 5-day delivery',
+        ],
+      },
+      {
+        id: 'bundle-business',
+        name: 'Business Elite Bundle',
+        price: '€550',
+        bundle: true,
+        popular: true,
+        scope: 'Complete digital transformation for established businesses.',
+        features: [
+          'Standard Website (€450 value)',
+          'Professional Logo Design (€150 value)',
+          '1 Month Free Maintenance (€50 value)',
+          'Save €100 instantly',
+        ],
+      },
+      {
+        id: 'bundle-ultimate',
+        name: 'Ultimate Digital Growth',
+        price: '€850',
+        bundle: true,
+        scope: 'Dominate your local market with elite web & social presence.',
+        features: [
+          'Premium Website (€600 value)',
+          'Professional Logo Design (€150 value)',
+          '3 Months Combo Package (€330 value)',
+          'Save €230 instantly',
         ],
       },
     ],
@@ -463,92 +543,77 @@ export const dynamicTranslations = {
     faqItems: [
       {
         id: 'faq-1',
-        question: 'How does the 100% zero upfront payment model work?',
-        answer: 'We operate purely on absolute mutual trust. Unlike other web agencies that demand 50% upfront, Andrey & Rumen require zero initial deposit. We build your complete custom website layout, host it securely, and let you touch, test, and approve it. You make the payment only when you are 100% thrilled with the final result.'
+        question: 'How fast can you launch my website?',
+        answer: 'Typically between 3 to 7 working days for standard and basic websites. Premium and E-commerce projects may take up to 14 days depending on complexity.',
       },
       {
         id: 'faq-2',
-        question: 'Who will actually design and develop my website?',
-        answer: 'You work directly with the founders, Andrey & Rumen. Andrey executes the high-end UI/UX art directions, premium typography, and custom interactive widgets. Rumen writes the speed-engineered React/Tailwind code and sets up robust technical Google SEO. No sub-contractors, no outsourced freelancers.'
+        question: 'Do I really pay nothing until the site is finished?',
+        answer: 'Yes. We operate on 100% mutual trust. You pay only after you review the final product on our staging server and are completely happy with the result.',
       },
       {
         id: 'faq-3',
-        question: 'How fast can you complete and launch my website?',
-        answer: 'Extremely fast. A basic landing page takes about 3 working days to deliver. Standard corporate websites, multi-page designs, restaurant QR digital menus, or salon reservation profiles are fully launched in 7 working days.'
+        question: 'Will my website work well on mobile phones?',
+        answer: 'Absolutely. We design mobile-first, ensuring your site looks luxurious and functions perfectly on iPhones, Androids, and tablets.',
       },
-      {
-        id: 'faq-4',
-        question: 'Are there any hidden costs, recurring fees, or lock-in contracts?',
-        answer: 'None whatsoever. All our pricing is transparent and paid once upon final approval. Optional support and weekly security monitoring can be reserved for just €40/month, and you can cancel this service at any time.'
-      },
-      {
-        id: 'faq-5',
-        question: 'Will my website look great and load quickly on mobile phones?',
-        answer: 'Absolutely. Over 70% of local Bulgarian digital inquiries originate on mobile screens. We code mobile-first, ensuring sub-1 second page load speeds, fully reactive touch margins, and seamless smartphone menu browsing that rates 98+ on Google Lighthouse audits.'
-      },
-      {
-        id: 'faq-6',
-        question: 'How are direct WhatsApp calls, email submissions, and QR menus set up?',
-        answer: 'We configure and integrate high-conversion contact blueprints directly. Contact forms route email inquiries directly, table QR codes route restaurant guests to interactive menus instantly, and custom direct-dial links let local customers text your business on Viber/WhatsApp in one click.'
-      }
-    ]
+    ],
   },
   bg: {
     agencyFeatures: [
       {
         id: 'fast-delivery',
         title: 'Бърза изработка',
-        description: 'Влезте в онлайн пространството за дни, а не месеци. Изграждаме проекти с високо качество върху бързо оптимизирани технологии.',
+        description: 'Стартирайте Вашия луксозен уебсайт за дни, а не месеци. Ние строим с премиум прецизност върху бързи софтуерни рамки.',
         iconName: 'Zap',
       },
       {
         id: 'mobile-responsive',
-        title: 'Мобилна респонсивност',
-        description: 'Безупречен дизайн за всяко мобилно устройство. Над 70% от местния трафик е на мобилни телефони — затова проектираме мобилно-първо.',
+        title: 'Мобилна адаптивност',
+        description: 'Безупречен дизайн за всеки екран. Над 70% от трафика е мобилен; ние проектираме първо за телефони.',
         iconName: 'Smartphone',
       },
       {
         id: 'modern-design',
-        title: 'Модерен лукс дизайн',
-        description: 'Елегантен и модерен изглед. Контрастни тъмни теми, уникални оформления и стилно подбрана типография.',
+        title: 'Модерен дизайн',
+        description: 'Елегантна, модерна луксозна естетика. Тъмни теми с висок контраст, уникални оформления и стилна типография.',
         iconName: 'Layers',
       },
       {
         id: 'seo-friendly',
         title: 'SEO оптимизация',
-        description: 'Изграден с идеята за класиране в търсачките. Постигнете предни позиции в Google търсения за гр. Пловдив и цяла България.',
+        description: 'Изграден с мисъл за търсачките. Класирайте се високо в резултатите на Google за Пловдив и България.',
         iconName: 'Search',
       },
       {
         id: 'affordable-pricing',
         title: 'Достъпни цени',
-        description: 'Качество от най-висок клас на цени, съобразени с българския пазар. Невероятна стойност, започваща от €200.',
+        description: 'Качество на елитна дигитална агенция на цени за местния бизнес. Ненадмината стойност от €250.',
         iconName: 'DollarSign',
       },
       {
         id: 'ongoing-support',
         title: 'Постоянна поддръжка',
-        description: 'Ние не просто предаваме уебсайта. Ние се грижим за актуализациите, скоростта на сървърите и сигурността.',
+        description: 'Ние не просто предаваме проекта. Управляваме актуализациите, скоростта и месечния мониторинг на сигурността.',
         iconName: 'ShieldCheck',
       },
     ],
     founders: [
       {
         name: 'Андрей',
-        role: 'Съосновател и Главен Дизайнер',
-        bio: 'С око за детайла и луксозната естетика, Андрей създава уникалните визии, анимации и преживявания за потребителите, които помагат на AR Studio да изпъкне сред останалите.',
+        role: 'Основател и главен дизайнер',
+        bio: 'С усет към луксозната естетика и изчистената типография, Андрей създава визиите, анимациите и преживяванията, които отличават сайтовете на AR Studio.',
       },
       {
         name: 'Румен',
-        role: 'Съосновател и Главен Разработчик',
-        bio: 'Румен превръща изящните дизайни в бърз и сигурен код. Специализира в уеб оптимизации, техническо SEO и безкомпромисна производителност.',
+        role: 'Основател и главен разработчик',
+        bio: 'Румен превръща сложните дизайни в светкавично бърз и сигурен код. Специализира в мобилни оптимизации, SEO инженерство и дигитална производителност.',
       },
     ],
     pricingPlans: [
       {
         id: 'basic',
         name: 'Основен уебсайт',
-        price: '€200',
+        price: '€250',
         scope: 'Интерактивна целева страница (Landing Page) с луксозна и модерна визия.',
         features: [
           '1 страница с индивидуален дизайн',
@@ -562,7 +627,7 @@ export const dynamicTranslations = {
       {
         id: 'standard',
         name: 'Стандартен сайт',
-        price: '€400',
+        price: '€450',
         popular: true,
         scope: 'Пълен бизнес сайт от няколко страници. Идеален за ресторанти, кафенета, салони и студиа.',
         features: [
@@ -571,7 +636,7 @@ export const dynamicTranslations = {
           'Пълна динамична мобилна оптимизация',
           'Интеграция на безконтактно дигитално QR меню или Резервационна система',
           'Локално SEO присъствие в Google Карти',
-          '7 дни бърза подготвка на проекта',
+          '7 дни бърза подготовка на проекта',
         ],
       },
       {
@@ -589,45 +654,125 @@ export const dynamicTranslations = {
         ],
       },
       {
+        id: 'e-commerce',
+        name: 'Онлайн магазин',
+        price: '€800',
+        scope: 'Пълнофункционален онлайн магазин с висока производителност и управление на продукти.',
+        features: [
+          'Персонализиран e-commerce дизайн и брандиране',
+          'Интеграция на сигурни плащания (Stripe/PayPal/Наложен платеж)',
+          'Система за управление на инвентара и продуктите',
+          'Проследяване на поръчки и имейл известия',
+          'Оптимизирано пазаруване през мобилни устройства',
+          'Разширено SEO за продукти и категории',
+        ],
+      },
+      {
         id: 'maintenance',
         name: 'Месечна поддръжка',
-        price: '€40',
+        price: '€50',
         period: 'месец',
-        scope: 'Пълно спокойствие. Ние се грижим за уебсайта, а Вие управлявате бизнеса си.',
+        scope: 'Пълно спокойствие. Ние поемаме технологиите; Вие движите бизнеса си.',
         features: [
-          'Бързи промени по съдържанието и текстовете',
-          'Седмични автоматични резервни копия (backups) на базата',
-          'Оптимизиране на скоростта и софтуерната съвместимост',
-          'Актуализации на SSL сертификата и следене за грешки',
-          'Месечен технически доклад от нас',
+          'Бързи актуализации на съдържание и текстове',
+          'Седмични автоматизирани архиви за сигурност',
+          'Оптимизация на скоростта и сървърната работа',
+          'SSL сертификати и технически мониторинг',
+          'Месечен отчет за трафика на сайта',
         ],
       },
       {
         id: 'social',
-        name: 'Маркетинг в Социалните Мрежи',
+        name: 'Социални мрежи',
         price: '€75',
         period: 'месец',
-        scope: 'Увеличете присъствието на марката си органично в Instagram, Facebook и TikTok.',
+        scope: 'Развийте бранда си органично в Instagram, Facebook и TikTok.',
         features: [
           'Създаване на луксозно визуално съдържание',
-          'Планиране на публикации и писане на текстове от копирайтър',
-          'Развиване на таргетирана аудитория в България',
-          'Планиране и дизайн на Instagram мрежа',
-          'Естетически насоки за фотография',
+          'Планиране на постове и писане на текстове',
+          'Ръст на аудиторията, насочен към България',
+          'Планиране на Instagram мрежата (Grid)',
+          'Естетически насоки за изображенията',
         ],
       },
       {
         id: 'combo',
-        name: 'Комбо: Сайт + Социални Мрежи',
-        price: '€100',
+        name: 'Сайт + Социални мрежи',
+        price: '€110',
         period: 'месец',
-        scope: 'Най-силното дигитално комбо за бърз старт и растеж на ресторанти и търговци в България.',
+        scope: 'Най-добрият ускорител на дигитален растеж за български заведения и бизнеси.',
         features: [
-          'Постоянна текуща поддръжка на сайта и редакции',
-          'Пълно управление на профилите в социалните мрежи',
-          'Единна луксозна естетика между уебсайта и социалните медии',
-          'Съвети за генериране на контакти и рекламни кампании',
-          'Директен контакт с Андрей и Румен по всяко време',
+          'Постоянна поддръжка на сайта и редакции',
+          'Пълно управление на социалните мрежи',
+          'Единна бранд естетика в уеб и социални канали',
+          'Съвети за генериране на клиенти и реклама',
+          'Директен достъп до Андрей и Румен по всяко време',
+        ],
+      },
+      {
+        id: 'qr-code',
+        name: 'QR код меню и интеграция',
+        price: '€80',
+        scope: 'Модернизирайте Вашето заведение с безконтактно дигитално взаимодействие.',
+        features: [
+          'Персонализиран брандиран дизайн на QR кода',
+          'Интерактивно дигитално меню / ценоразпис',
+          'Лесни актуализации на съдържанието в облака',
+          'Настройка на стойки за маси или рецепция',
+          'Бърза изработка до 2 дни',
+        ],
+      },
+      {
+        id: 'logo-design',
+        name: 'Професионално лого',
+        price: '€150',
+        scope: 'Уникална визуална идентичност, която дефинира Вашия луксозен бранд.',
+        features: [
+          '3 уникални концепции за лого',
+          'Неограничени корекции до пълно одобрение',
+          'Векторни файлове с висока резолюция (AI, SVG, PNG)',
+          'Насоки за цветове и типография',
+          'Оптимизация за профили в социалните мрежи',
+        ],
+      },
+      {
+        id: 'bundle-starter',
+        name: 'Starter Pro Пакет',
+        price: '€350',
+        bundle: true,
+        scope: 'Перфектната основа за стартиране на нов бизнес.',
+        features: [
+          'Основен уебсайт (стойност €250)',
+          'Професионално лого (стойност €150)',
+          'Спестявате €50 веднага',
+          'Бърза изработка до 5 дни',
+        ],
+      },
+      {
+        id: 'bundle-business',
+        name: 'Business Elite Пакет',
+        price: '€550',
+        bundle: true,
+        popular: true,
+        scope: 'Пълна дигитална трансформация за утвърдени бизнеси.',
+        features: [
+          'Стандартен уебсайт (стойност €450)',
+          'Професионално лого (стойност €150)',
+          '1 месец безплатна поддръжка (стойност €50)',
+          'Спестявате €100 веднага',
+        ],
+      },
+      {
+        id: 'bundle-ultimate',
+        name: 'Ultimate Digital Growth Пакет',
+        price: '€850',
+        bundle: true,
+        scope: 'Доминирайте на местния пазар с елитно уеб и социално присъствие.',
+        features: [
+          'Премиум уебсайт (стойност €600)',
+          'Професионално лого (стойност €150)',
+          '3 месеца Комбо пакет (стойност €330)',
+          'Спестявате €230 веднага',
         ],
       },
     ],
@@ -635,50 +780,50 @@ export const dynamicTranslations = {
       {
         id: 'tomato-restaurant',
         title: 'Ресторант Tomato',
-        category: 'Уебсайт на ресторант с дигитално QR меню',
+        category: 'Сайт за ресторант и QR меню',
         url: 'https://www.tomatorestaurant.online/',
         imageUrl: 'tomato_restaurant_mockup',
         highlights: [
-          'Модерен италиански дизайн, отговарящ на изискания усет',
-          'Напълно адаптивно, потапящо онлайн меню',
-          'Иновативно безконтактно QR меню за масите',
-          'Система за директни онлайн резервации без посредници',
-          'Скорост на зареждане 98+ в Google Lighthouse Mobile',
+          'Модерен елегантен дизайн за италиански ресторант',
+          'Напълно адаптивно интерактивно онлайн меню',
+          'Иновативна интеграция на QR меню за масите',
+          'Директна система за онлайн резервации',
+          'Светкавична скорост (98+ точки в Google Lighthouse)',
         ],
-        description: 'Луксозно дигитално преживяване, разработено за италиански ресторант Tomato в гр. Пловдив. С тъмна луксозна цветова гама, четивна респонсивна типография и прецизни анимации, които подканват към резервация на маса и опростяват поръчките през вградено QR меню.',
-        tags: ['Луксозен Дизайн', 'QR Меню Интеграция', 'Висока Скорост', 'Мобилно Оптимизиран'],
+        description: 'Луксозно уеб преживяване, разработено за ресторант Tomato. Включва елегантна тъмна тема, адаптивна типография и анимации, които стимулират резервациите и улесняват поръчките чрез QR технология.',
+        tags: ['Луксозен дизайн', 'QR меню', 'Бързина', 'Адаптивност'],
       },
     ],
     benefits: [
       {
         id: 'fast-completion',
-        title: 'Бързо изпълнение',
-        description: 'Цвеним Вашето време. Процесът ни е структуриран така, че Вашият нов и завършен уебсайт да е готов между 3 и 7 работни дни.',
+        title: 'Бързо завършване',
+        description: 'Ценим Вашето време. Процесът ни е оптимизиран да предава завършени сайтове в рамките на 3 до 7 работни дни.',
       },
       {
         id: 'affordable-luxury',
-        title: 'Изгоден достъпен лукс',
-        description: 'При нас липсват скъпите разходи на големите агенции, затова можем да Ви предложим продукт от световен клас на цени за България.',
+        title: 'Достъпен лукс',
+        description: 'Нямаме огромните разходи на големите агенции, което ни позволява да предлагаме елитни продукти на цени за българския пазар.',
       },
       {
         id: 'direct-communication',
         title: 'Директна комуникация',
-        description: 'Без досадни технически термини или посредници. Говорите директно с Андрей или Румен във Viber, WhatsApp или по телефона.',
+        description: 'Без посредници и сложни термини. Говорите директно с Андрей и Румен на всеки етап през WhatsApp, Viber или телефон.',
       },
       {
         id: 'modern-tech',
         title: 'Модерни технологии',
-        description: 'Използваме съвременните React, Tailwind CSS и бърз хостинг, за да гарантираме, че сайтът Ви се отваря светкавично.',
+        description: 'Използваме React, Tailwind CSS и светкавичен хостинг, за да гарантираме, че сайтът Ви е бърз и сигурен.',
       },
       {
         id: 'personalized-service',
-        title: 'Персонализиран подход',
-        description: 'Всеки бизнес е уникален. Бутон за повикване, дизайн детайл и структура — всичко се адаптира за Вашата индустрия и цели.',
+        title: 'Персонално отношение',
+        description: 'Всеки бизнес е уникален. Персонализираме всеки пиксел и бутон, за да отговарят точно на Вашите цели.',
       },
       {
         id: 'zero-risk-payment',
-        title: 'Заплащане само при одобрение',
-        description: 'Абсолютно взаимно доверие. Не изискваме никакво авансово плащане. Вие плащате единствено след като уебсайтът бъде напълно готов и го одобрите.',
+        title: 'Плащане при одобрение',
+        description: 'Пълно взаимно доверие. Не плащате нищо авансово, докато не прегледате завършения сайт и не сте напълно доволни.',
       },
     ],
     testimonials: [
@@ -687,65 +832,50 @@ export const dynamicTranslations = {
         name: 'Георги Димитров',
         role: 'Собственик',
         company: 'Ресторант Tomato Пловдив',
-        text: 'AR Studio напълно преобразиха уеб присъствието ни! Направиха ни уебсайт и персонална QR система за менюта само за няколко дни. Клиентите обожават колко бързо е всичко, а онлайн резервациите ни се увеличиха с 35%. Най-добрата част? Плащането беше само след окончателното ни одобрение.',
+        text: 'AR Studio напълно трансформира бизнеса ни! Изградиха сайта и QR менюто ни само за няколко дни. Клиентите обожават скоростта, а онлайн резервациите ни скочиха с 35%. Най-хубавото? Не поискаха плащане, докато не бяхме напълно доволни.',
         rating: 5,
       },
       {
         id: '2',
         name: 'Мария Иванова',
-        role: 'Криейтив дирекор',
-        company: 'Салон Aura',
-        text: 'Работата ни с Андрей и Румен е удоволствие! Директна и бърза комуникация без излишни усложнения. Комбинираха изработката на сайта с маркетинг в социалните ни мрежи за супер достъпна такса. Луксозен изглед, който клиентите ни постоянно хвалят.',
+        role: 'Криейтив директор',
+        company: 'Салон за красота Aura',
+        text: 'Работата с Андрей и Румен беше мечта. Директна комуникация без излишни усложнения. Комбинираха сайта ни с управление на социалните мрежи на страхотна цена. Визията е луксозна и клиентите постоянно ни правят комплименти.',
         rating: 5,
       },
       {
         id: '3',
         name: 'Димитър Василев',
         role: 'Основател',
-        company: 'Адвокатско дружество Василев и сие',
-        text: 'Страхотна изработка от тези амбициозни български професионалисти. Изцяло преобразиха стария ни корпоративен сайт, създавайки много изчистен дигитален образ. Изключително бърз и добре класиран в Гугъл.',
+        company: 'Адвокатска кантора Василев',
+        text: 'Отлична работа от тези амбициозни млади професионалисти. Изградиха наново сайта ни, създавайки сериозен дигитален бранд. Сайтът е много бърз и перфектно оптимизиран за Google. Андрей разбра визията ни веднага.',
         rating: 5,
       },
       {
         id: '4',
         name: 'Елена Петрова',
-        role: 'Управител',
-        company: 'Бутиков Хотел Стария Пловдив',
-        text: 'AR Studio са изключително бързи. Резервациите ни се вдигнаха значително веднага след пускането на новата лендинг страница. Поддържат уебсайта ни всяка седмица за минимална сума. Горещо препоръчвам Андрей и Румен за всеки уеб проект.',
+        role: 'Мениджър',
+        company: 'Бутик Хотел Стария Пловдив',
+        text: 'AR Studio са забележително бързи. Запитванията ни за резервации се увеличиха значително след пускането на новия сайт. Те управляват и цялата техническа част и сигурност. Силно препоръчвам Андрей и Румен!',
         rating: 5,
       },
     ],
     faqItems: [
       {
         id: 'faq-1',
-        question: 'Как работи моделът за 100% безрисково плащане само при пълно одобрение?',
-        answer: 'Ние работим изцяло на база взаимно доверие. За разлика от други уеб агенции, които изискват 50% авансово плащане, Андрей и Румен не изискват първоначален депозит. Ние разработваме Вашия сайт по поръчка, качваме го на тестови хостинг и Ви даваме да го разгледате, тествате и одобрите. Плащате ни единствено когато сте напълно удовлетворени от крайния резултат.'
+        question: 'Колко бързо ще бъде готов сайтът ми?',
+        answer: 'Обикновено между 3 и 7 работни дни за стандартни проекти. Премиум сайтовете и онлайн магазините могат да отнемат до 14 дни в зависимост от сложността.',
       },
       {
         id: 'faq-2',
-        question: 'Кой реално проектира и разработва моя уебсайт?',
-        answer: 'Работите директно с основателите — Андрей и Румен. Андрей се грижи за луксозния дизайн, цветовата съвместимост, типографията и потребителското изживяване. Румен разработва бързия и сигурен уеб код на последно поколение технологии React и Tailwind CSS и настройва челно класиране в Google (SEO). Без външни посредници или пренасочване на проекта към други.'
+        question: 'Наистина ли не плащам нищо авансово?',
+        answer: 'Да. Работим на база пълно взаимно доверие. Плащате едва след като прегледате финалния продукт на наш тестов сървър и сте напълно доволни от резултата.',
       },
       {
         id: 'faq-3',
-        question: 'Колко бързо можете да завършите и стартирате уебсайта ми?',
-        answer: 'Изключително бързо. Основна целева страница (Landing page) е готова и пусната за около 3 работни дни. По-големи бизнес сайтове от няколко страници, интерактивни QR менюта за ресторанти или системи за резервации в салони се изпращат за финално одобрение в рамките на 7 работни дни.'
+        question: 'Ще работи ли сайтът ми добре на мобилни телефони?',
+        answer: 'Абсолютно. Проектираме сайтовете първо за мобилни устройства, гарантирайки, че ще изглеждат луксозно и ще работят перфектно на всеки телефон или таблет.',
       },
-      {
-        id: 'faq-4',
-        question: 'Има ли скрити разходи, месечни такси или обвързващи договори?',
-        answer: 'Няма абсолютно никакви скрити такси. Заплащате цената за изработка еднократно след Вашето одобрение. Допълнителната месечна поддръжка, текстови промени и сигурност са изцяло по желание за €40/месец и могат да бъдат преустановени във всеки момент.'
-      },
-      {
-        id: 'faq-5',
-        question: 'Уебсайтът ми ще се отваря ли бързо на мобилен телефон?',
-        answer: 'Да, напълно. Над 70% от потребителите в България използват смартфони за намиране на локални бизнеси. Затова проектираме мобилно-първо, осигурявайки зареждане за по-малко от секунда, лесно разглеждане с пръсти и безкомпромисна работа на всяко устройство.'
-      },
-      {
-        id: 'faq-6',
-        question: 'Как се настройват WhatsApp бутоните, контактните форми и QR кодовете?',
-        answer: 'Ние конфигурираме и настройваме всички механизми за връзка. Бутонът за Viber/WhatsApp позволява на клиента да Ви пишат веднага, контактните ви форми изпращат запитванията директно до Вашия имейл, а ресторантските QR менюта препращат клиентите директно към ястията без никакво чакане.'
-      }
-    ]
+    ],
   },
 };

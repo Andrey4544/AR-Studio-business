@@ -12,6 +12,7 @@ import { useLanguage } from '../context/LanguageContext';
 // Carousel images – add more entries here as new screenshots arrive
 const carouselImages = [
   { src: '/assets/tomato-new.png', alt: 'Tomato Restaurant Mockup' },
+  { src: '/assets/tomato-event.jpg', alt: 'Tomato Restaurant Event' },
 ];
 
 interface PortfolioProps {

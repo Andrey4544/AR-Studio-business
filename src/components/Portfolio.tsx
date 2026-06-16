@@ -4,12 +4,15 @@
  */
 
 import React from 'react';
+import ImageCarousel from './ImageCarousel';
 import { motion } from 'motion/react';
 import { Sparkles, Globe, ArrowUpRight, Zap, Smartphone, QrCode } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
-// Import our custom-generated high-quality mockup image
-import tomatoMockup from '/assets/tomato-new.png';
+// Carousel images – add more entries here as new screenshots arrive
+const carouselImages = [
+  { src: '/assets/tomato-new.png', alt: 'Tomato Restaurant Mockup' },
+];
 
 interface PortfolioProps {
   onQuoteClick: () => void;
@@ -186,19 +189,9 @@ export default function Portfolio({ onQuoteClick }: PortfolioProps) {
                 <span className="text-zinc-600 text-xs font-semibold tracking-wider font-mono">AR // Case</span>
               </div>
               
-              {/* Image Frame with custom hover zoom */}
-              <div className="relative overflow-hidden rounded-xl mt-3">
-                <img
-                  src={tomatoMockup}
-                  alt="Tomato Restaurant Mockup"
-                  className="w-full h-auto object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-luxury-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none flex items-end p-6">
-                  <span className="text-white text-xs font-semibold backdrop-blur-md bg-zinc-950/50 border border-white/10 px-4 py-2 rounded-full">
-                    {language === 'en' ? 'Active Production Website' : 'Реален уебсайт на живо'}
-                  </span>
-                </div>
+              {/* Image Carousel */}
+              <div className="relative mt-3">
+                <ImageCarousel images={carouselImages} interval={6000} />
               </div>
             </div>
           </motion.div>

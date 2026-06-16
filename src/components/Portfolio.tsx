@@ -13,6 +13,7 @@ import { useLanguage } from '../context/LanguageContext';
 const carouselImages = [
   { src: '/assets/tomato-new.png', alt: 'Tomato Restaurant Mockup' },
   { src: '/assets/tomato-event.jpg', alt: 'Tomato Restaurant Event' },
+  { src: '/assets/tomato-gallery.jpg', alt: 'Tomato Restaurant Gallery' },
 ];
 
 interface PortfolioProps {

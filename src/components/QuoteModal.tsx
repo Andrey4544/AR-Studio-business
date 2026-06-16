@@ -249,6 +249,9 @@ export default function QuoteModal({ isOpen, onClose }: QuoteModalProps) {
                         <option value="premium">
                           {language === 'en' ? 'Premium website (starting €600)' : 'Луксозен уебсайт (от €600)'}
                         </option>
+                        <option value="e-commerce">
+                          {language === 'en' ? 'E-commerce Store (starting €800)' : 'Онлайн магазин (от €800)'}
+                        </option>
                         <option value="maintenance">
                           {language === 'en' ? 'Website Maintenance (starting €50/mo)' : 'Месечна поддръжка (от €50/месец)'}
                         </option>

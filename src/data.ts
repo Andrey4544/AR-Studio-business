@@ -102,6 +102,20 @@ export const pricingPlans: PricingPlan[] = [
     ],
   },
   {
+    id: 'e-commerce',
+    name: 'E-commerce Store',
+    price: '€800',
+    scope: 'Complete high-performance online store with secure payments and product management.',
+    features: [
+      'Custom E-commerce Design & Branding',
+      'Secure Payment Gateway Integration (Stripe/PayPal)',
+      'Product Inventory Management System',
+      'Order Tracking & Email Notifications',
+      'Mobile-First Shopping Experience',
+      'Advanced SEO for Products',
+    ],
+  },
+  {
     id: 'maintenance',
     name: 'Website Maintenance',
     price: '€50',

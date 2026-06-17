@@ -25,6 +25,8 @@ const tomatoCarouselImages = [
 // Carousel images for Teddy's Bar and Grill
 const teddysCarouselImages = [
   { src: '/assets/teddys-logo.jpg', alt: 'Teddy\'s Bar & Grill Logo' },
+  { src: '/assets/teddys-logo-bw.jpg', alt: 'Teddy\'s Bar & Grill Logo B&W' },
+  { src: '/assets/teddys-logo-dark.jpg', alt: 'Teddy\'s Bar & Grill Logo Dark' },
 ];
 
 interface PortfolioProps {
@@ -135,20 +137,24 @@ export default function Portfolio({ onQuoteClick }: PortfolioProps) {
 
                 {/* Action buttons */}
                 <div className="flex items-center gap-4 pt-4 font-sans">
-                  <a
-                    href={project.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 text-xs text-white font-semibold bg-zinc-900 border border-white/10 hover:border-white/20 hover:bg-zinc-850 px-5 py-3 rounded-xl transition-all duration-300 group cursor-pointer"
-                  >
-                    <span>{language === 'en' ? 'Live Website' : 'Уебсайт на живо'}</span>
-                    <ArrowUpRight className="w-4 h-4 text-zinc-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                  </a>
+                  {project.url && (
+                    <a
+                      href={project.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1.5 text-xs text-white font-semibold bg-zinc-900 border border-white/10 hover:border-white/20 hover:bg-zinc-850 px-5 py-3 rounded-xl transition-all duration-300 group cursor-pointer"
+                    >
+                      <span>{language === 'en' ? 'Live Website' : 'Уебсайт на живо'}</span>
+                      <ArrowUpRight className="w-4 h-4 text-zinc-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    </a>
+                  )}
                   <button
                     onClick={onQuoteClick}
                     className="text-xs font-semibold text-blue-400 hover:text-blue-300 transition-colors cursor-pointer"
                   >
-                    {language === 'en' ? 'Request Similar Design →' : 'Искам подобен дизайн →'}
+                    {project.id === 'teddys-bar-grill' 
+                      ? (language === 'en' ? 'Request Similar Logo →' : 'Искам подобно лого →')
+                      : (language === 'en' ? 'Request Similar Design →' : 'Искам подобен дизайн →')}
                   </button>
                 </div>
               </motion.div>
@@ -162,18 +168,28 @@ export default function Portfolio({ onQuoteClick }: PortfolioProps) {
                 className={`lg:col-span-12 xl:col-span-7 flex justify-center w-full ${!isEven ? 'lg:order-1' : ''}`}
               >
                 <div className="relative group overflow-hidden rounded-3xl border border-white/5 bg-zinc-950/20 p-2 sm:p-4 glow-blue w-full max-w-2xl">
-                  {/* Browser Header Bar Representation */}
-                  <div className="w-full flex items-center justify-between px-3 pb-3 border-b border-white/5">
-                    <div className="flex gap-1.5">
-                      <span className="h-2.5 w-2.5 rounded-full bg-red-500/60" />
-                      <span className="h-2.5 w-2.5 rounded-full bg-yellow-500/60" />
-                      <span className="h-2.5 w-2.5 rounded-full bg-green-500/60" />
+                  {/* Browser Header Bar Representation - Only for websites */}
+                  {project.url ? (
+                    <div className="w-full flex items-center justify-between px-3 pb-3 border-b border-white/5">
+                      <div className="flex gap-1.5">
+                        <span className="h-2.5 w-2.5 rounded-full bg-red-500/60" />
+                        <span className="h-2.5 w-2.5 rounded-full bg-yellow-500/60" />
+                        <span className="h-2.5 w-2.5 rounded-full bg-green-500/60" />
+                      </div>
+                      <div className="bg-zinc-900 border border-white/5 text-[9px] text-zinc-500 font-mono px-6 py-0.5 rounded-md truncate max-w-[180px] sm:max-w-xs text-center select-none">
+                        {project.url}
+                      </div>
+                      <span className="text-zinc-600 text-xs font-semibold tracking-wider font-mono">AR // Case</span>
                     </div>
-                    <div className="bg-zinc-900 border border-white/5 text-[9px] text-zinc-500 font-mono px-6 py-0.5 rounded-md truncate max-w-[180px] sm:max-w-xs text-center select-none">
-                      {project.url}
+                  ) : (
+                    <div className="w-full flex items-center justify-between px-3 pb-3 border-b border-white/5">
+                      <div className="flex items-center gap-2">
+                        <Sparkles className="w-3 h-3 text-blue-400" />
+                        <span className="text-[10px] text-zinc-400 font-mono uppercase tracking-widest">Design Asset</span>
+                      </div>
+                      <span className="text-zinc-600 text-xs font-semibold tracking-wider font-mono">AR // Studio</span>
                     </div>
-                    <span className="text-zinc-600 text-xs font-semibold tracking-wider font-mono">AR // Case</span>
-                  </div>
+                  )}
                   
                   {/* Image Carousel */}
                   <div className="relative mt-3">

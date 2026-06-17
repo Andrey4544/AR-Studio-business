@@ -473,6 +473,22 @@ export const dynamicTranslations = {
         description: 'A luxurious custom-designed web experience developed for Tomato Restaurant. Featuring a high-contrast elegant dark theme, responsive typography, and custom animations that drive direct bookings and simplify table ordering via fully integrated QR menu technology.',
         tags: ['Luxury Design', 'QR Menu Integration', 'Speed Optimized', 'Responsive Web'],
       },
+      {
+        id: 'teddys-bar-grill',
+        title: 'Teddy\'s Bar & Grill',
+        category: 'Premium Bar & Grill Branding',
+        url: 'https://www.teddysbargrillplovdiv.com/',
+        imageUrl: 'teddys_bar_grill_mockup',
+        highlights: [
+          'Bold, sophisticated branding for a premium bar & grill experience',
+          'Distinctive logo design featuring iconic bull imagery',
+          'Premium meat & seafood showcase with elegant typography',
+          'Fully responsive modern design optimized for reservations',
+          'High-end visual identity across all digital touchpoints',
+        ],
+        description: 'A premium branding and web experience for Teddy\'s Bar & Grill. Featuring a bold, sophisticated design that captures the essence of a high-end dining establishment. The custom logo showcases a powerful bull motif with gold and black accents, complemented by a fully responsive website optimized for reservations and customer engagement.',
+        tags: ['Premium Branding', 'Logo Design', 'Bar & Grill', 'Luxury Design'],
+      },
     ],
     benefits: [
       {
@@ -792,6 +808,22 @@ export const dynamicTranslations = {
         ],
         description: 'Луксозно уеб преживяване, разработено за ресторант Tomato. Включва елегантна тъмна тема, адаптивна типография и анимации, които стимулират резервациите и улесняват поръчките чрез QR технология.',
         tags: ['Луксозен дизайн', 'QR меню', 'Бързина', 'Адаптивност'],
+      },
+      {
+        id: 'teddys-bar-grill',
+        title: 'Teddy\'s Bar & Grill',
+        category: 'Премиум брандинг за Bar & Grill',
+        url: 'https://www.teddysbargrillplovdiv.com/',
+        imageUrl: 'teddys_bar_grill_mockup',
+        highlights: [
+          'Смел и изтънчен брандинг за първокласно изживяване',
+          'Отличителен дизайн на лого с емблематичен бик',
+          'Представяне на месни и морски деликатеси с елегантна типография',
+          'Напълно адаптивен модерен дизайн, оптимизиран за резервации',
+          'Висококачествена визуална идентичност във всички дигитални канали',
+        ],
+        description: 'Премиум брандинг и уеб изживяване за Teddy\'s Bar & Grill. Смел и изтънчен дизайн, който улавя същността на елитно заведение. Персонализираното лого включва мощен мотив на бик със златни и черни акценти, допълнено от напълно адаптивен уебсайт.',
+        tags: ['Премиум брандинг', 'Дизайн на лого', 'Bar & Grill', 'Луксозен дизайн'],
       },
     ],
     benefits: [

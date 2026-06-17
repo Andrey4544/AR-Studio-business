@@ -280,13 +280,13 @@ export const dynamicTranslations = {
     founders: [
       {
         name: 'Andrey',
-        role: 'Founder & Lead Designer',
-        bio: 'With an eye for luxurious aesthetics and sleek typography, Andrey crafts the custom visuals, animations, and high-conversion client experiences that make AR Studio websites stand out.',
+        role: 'Founder & Lead Developer',
+        bio: 'Andrey translates sophisticated designs into lightning-fast, secure code. He specializes in responsive optimizations, SEO engineering, and seamless digital performance.',
       },
       {
         name: 'Rumen',
-        role: 'Founder & Lead Developer',
-        bio: 'Rumen translates sophisticated designs into lightning-fast, secure code. He specializes in responsive optimizations, SEO engineering, and seamless digital performance.',
+        role: 'Founder & Lead Designer',
+        bio: 'With an eye for luxurious aesthetics and sleek typography, Rumen crafts the custom visuals, animations, and high-conversion client experiences that make AR Studio websites stand out.',
       },
     ],
     pricingPlans: [
@@ -635,13 +635,13 @@ export const dynamicTranslations = {
     founders: [
       {
         name: 'Андрей',
-        role: 'Основател и главен дизайнер',
-        bio: 'С усет към луксозната естетика и изчистената типография, Андрей създава визиите, анимациите и преживяванията, които отличават сайтовете на AR Studio.',
+        role: 'Основател и главен разработчик',
+        bio: 'Андрей превръща сложните дизайни в светкавично бърз и сигурен код. Специализира в мобилни оптимизации, SEO инженерство и дигитална производителност.',
       },
       {
         name: 'Румен',
-        role: 'Основател и главен разработчик',
-        bio: 'Румен превръща сложните дизайни в светкавично бърз и сигурен код. Специализира в мобилни оптимизации, SEO инженерство и дигитална производителност.',
+        role: 'Основател и главен дизайнер',
+        bio: 'С усет към луксозната естетика и изчистената типография, Румен създава визиите, анимациите и преживяванията, които отличават сайтовете на AR Studio.',
       },
     ],
     pricingPlans: [

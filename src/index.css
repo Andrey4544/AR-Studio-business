@@ -13,11 +13,18 @@
 }
 
 /* Base resets & styling for a premium feel */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: #050505;
   color: #E2E8F0;
   font-family: var(--font-sans);
   overflow-x: hidden;
+  /* Ensure smooth scrolling and prevent jitter */
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* Custom glassmorphism utilities matching the Immersive UI Design template */

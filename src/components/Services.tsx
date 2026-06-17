@@ -124,7 +124,7 @@ export default function Services({ onQuoteClick }: ServicesProps) {
                 )}
 
                 <div>
-                  <h3 className="text-lg font-bold text-white mb-2">{plan.name}</h3>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3 tracking-tight">{plan.name}</h3>
                   <p className="text-zinc-400 text-xs min-h-[36px] line-clamp-2 leading-relaxed mb-6 border-b border-white/5 pb-4 font-sans">
                     {plan.scope}
                   </p>
@@ -197,7 +197,7 @@ export default function Services({ onQuoteClick }: ServicesProps) {
                 )}
 
                 <div>
-                  <h3 className="text-lg font-bold text-white mb-2">{plan.name}</h3>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3 tracking-tight">{plan.name}</h3>
                   <p className="text-zinc-400 text-xs min-h-[36px] line-clamp-2 leading-relaxed mb-6 border-b border-white/5 pb-4">
                     {plan.scope}
                   </p>
@@ -271,7 +271,7 @@ export default function Services({ onQuoteClick }: ServicesProps) {
                 )}
 
                 <div>
-                  <h3 className="text-lg font-bold text-white mb-2">{plan.name}</h3>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3 tracking-tight">{plan.name}</h3>
                   <p className="text-zinc-400 text-xs min-h-[36px] line-clamp-2 leading-relaxed mb-6 border-b border-white/5 pb-4">
                     {plan.scope}
                   </p>

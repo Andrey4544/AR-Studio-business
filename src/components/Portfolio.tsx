@@ -96,7 +96,7 @@ export default function Portfolio({ onQuoteClick }: PortfolioProps) {
                 className={`lg:col-span-5 space-y-6 ${!isEven ? 'lg:order-2' : ''}`}
               >
                 <div className="flex items-center gap-2">
-                  <span className="px-3 py-1 bg-blue-500/10 border border-blue-500/20 text-[#3B82F6] font-mono font-semibold text-[10px] rounded-full uppercase tracking-wider">
+                  <span className="px-4 py-1.5 bg-blue-500/10 border border-blue-500/20 text-[#3B82F6] font-mono font-bold text-xs rounded-full uppercase tracking-widest shadow-[0_0_15px_rgba(59,130,246,0.1)]">
                     {project.category}
                   </span>
                 </div>

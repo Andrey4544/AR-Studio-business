@@ -571,6 +571,26 @@ export const dynamicTranslations = {
         question: 'Will my website work well on mobile phones?',
         answer: 'Absolutely. We design mobile-first, ensuring your site looks luxurious and functions perfectly on iPhones, Androids, and tablets.',
       },
+      {
+        id: 'faq-4',
+        question: 'Who owns the website once it is finished?',
+        answer: 'You do. Once the final payment is made, you have 100% ownership of the website, the code, and all design assets. We can manage it for you, but it is entirely yours.',
+      },
+      {
+        id: 'faq-5',
+        question: 'Do you offer logo design and branding separately?',
+        answer: 'Yes! While we specialize in websites, we also offer professional logo design and full visual identity packages for businesses that want to build a strong brand from scratch.',
+      },
+      {
+        id: 'faq-6',
+        question: 'Can I add more features to my site later?',
+        answer: 'Yes, our websites are built on scalable frameworks. You can start with a basic landing page and later add an online store, booking system, or blog as your business grows.',
+      },
+      {
+        id: 'faq-7',
+        question: 'Is hosting and domain included?',
+        answer: 'We help you set up everything. We provide premium high-speed hosting and security monitoring for a low monthly fee, ensuring your site is always live and protected.',
+      },
     ],
   },
   bg: {
@@ -905,6 +925,26 @@ export const dynamicTranslations = {
         id: 'faq-3',
         question: 'Ще работи ли сайтът ми добре на мобилни телефони?',
         answer: 'Абсолютно. Проектираме сайтовете първо за мобилни устройства, гарантирайки, че ще изглеждат луксозно и ще работят перфектно на всеки телефон или таблет.',
+      },
+      {
+        id: 'faq-4',
+        question: 'Кой притежава сайта след завършването му?',
+        answer: 'Вие. След финалното плащане получавате 100% собственост върху уебсайта, кода и всички дизайнерски активи. Ние можем да го поддържаме вместо Вас, но той е изцяло Ваш.',
+      },
+      {
+        id: 'faq-5',
+        question: 'Предлагате ли само дизайн на лого и брандинг?',
+        answer: 'Да! Въпреки че специализираме в уебсайтове, предлагаме и професионален дизайн на лого и цялостни пакети за визуална идентичност за бизнеси, които започват от нулата.',
+      },
+      {
+        id: 'faq-6',
+        question: 'Мога ли да добавям нови функции към сайта си по-късно?',
+        answer: 'Да, нашите сайтове са изградени върху гъвкави софтуерни рамки. Можете да започнете с една страница и по-късно да добавите онлайн магазин, резервационна система или блог.',
+      },
+      {
+        id: 'faq-7',
+        question: 'Включени ли са хостинг и домейн?',
+        answer: 'Ние съдействаме за всичко. Предлагаме премиум високоскоростен хостинг и мониторинг на сигурността срещу ниска месечна такса, за да е сайтът Ви винаги достъпен и защитен.',
       },
     ],
   },

@@ -9,8 +9,8 @@ import { motion } from 'motion/react';
 import { Sparkles, Globe, ArrowUpRight, Zap, Smartphone, QrCode } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
-// Carousel images – add more entries here as new screenshots arrive
-const carouselImages = [
+// Carousel images for Tomato Restaurant
+const tomatoCarouselImages = [
   { src: '/assets/tomato-new.png', alt: 'Tomato Restaurant Mockup' },
   { src: '/assets/tomato-main-hall.jpg', alt: 'Tomato Main Hall' },
   { src: '/assets/tomato-garden.jpg', alt: 'Tomato Garden' },
@@ -22,13 +22,17 @@ const carouselImages = [
   { src: '/assets/tomato-qr.png', alt: 'Tomato QR Code Menu' },
 ];
 
+// Carousel images for Teddy's Bar and Grill
+const teddysCarouselImages = [
+  { src: '/assets/teddys-logo.jpg', alt: 'Teddy\'s Bar & Grill Logo' },
+];
+
 interface PortfolioProps {
   onQuoteClick: () => void;
 }
 
 export default function Portfolio({ onQuoteClick }: PortfolioProps) {
   const { featuredProjects, language, t } = useLanguage();
-  const project = featuredProjects[0];
 
   return (
     <section className="py-24 bg-luxury-black relative overflow-hidden border-t border-white/5">
@@ -73,137 +77,113 @@ export default function Portfolio({ onQuoteClick }: PortfolioProps) {
           </p>
         </motion.div>
 
-        {/* Featured Project: Tomato Restaurant */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-24">
-          
-          {/* Project Details Columns */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.7 }}
-            className="lg:col-span-5 space-y-6"
-          >
-            <div className="flex items-center gap-2">
-              <span className="px-3 py-1 bg-blue-500/10 border border-blue-500/20 text-[#3B82F6] font-mono font-semibold text-[10px] rounded-full uppercase tracking-wider">
-                {project.category}
-              </span>
-            </div>
+        {/* Featured Projects */}
+        {featuredProjects.map((project, index) => {
+          const isEven = index % 2 === 0;
+          const carouselImages = project.id === 'teddys-bar-grill' ? teddysCarouselImages : tomatoCarouselImages;
 
-            <h3 className="font-serif text-2xl sm:text-4xl font-bold text-white tracking-tight">
-              {project.title}
-            </h3>
-
-            <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
-              {project.description}
-            </p>
-
-            {/* Structured Client Requested Highlights */}
-            <div className="space-y-4 pt-4 border-t border-white/5">
-              <h4 className="text-xs font-mono font-bold uppercase text-zinc-500 tracking-wider">
-                {language === 'en' ? 'Core Implementations:' : 'Основни имплементации:'}
-              </h4>
+          return (
+            <div key={project.id} className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-24">
               
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 font-sans">
-                <div className="flex items-start gap-3 p-3 rounded-xl bg-zinc-950/40 border border-white/5">
-                  <Globe className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
-                  <div>
-                    <span className="text-xs font-semibold text-white block">
-                      {language === 'en' ? 'Modern Design' : 'Модерен дизайн'}
-                    </span>
-                    <span className="text-[10px] text-zinc-500 mt-0.5 block">
-                      {language === 'en' ? 'Italian premium branding.' : 'Италиански премиум стил.'}
-                    </span>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3 p-3 rounded-xl bg-zinc-950/40 border border-white/5">
-                  <Zap className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
-                  <div>
-                    <span className="text-xs font-semibold text-white block">
-                      {language === 'en' ? 'Speed Optimizations' : 'Оптимизация за скорост'}
-                    </span>
-                    <span className="text-[10px] text-zinc-500 mt-0.5 block">
-                      {language === 'en' ? 'Sub 1s fully interactive load.' : 'Зареждане под 1 секунда.'}
-                    </span>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3 p-3 rounded-xl bg-zinc-950/40 border border-white/5">
-                  <Smartphone className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
-                  <div>
-                    <span className="text-xs font-semibold text-white block">
-                      {language === 'en' ? 'Mobile Perfect' : 'Мобилна версия'}
-                    </span>
-                    <span className="text-[10px] text-zinc-500 mt-0.5 block">
-                      {language === 'en' ? 'Designed for smartphone menu browsing.' : 'Удобно разглеждане през смартфон.'}
-                    </span>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3 p-3 rounded-xl bg-zinc-950/40 border border-white/5">
-                  <QrCode className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
-                  <div>
-                    <span className="text-xs font-semibold text-white block">
-                      {language === 'en' ? 'QR Code Integration' : 'QR Код интеграция'}
-                    </span>
-                    <span className="text-[10px] text-zinc-500 mt-0.5 block">
-                      {language === 'en' ? 'Instant table menu redirection.' : 'Бързо отваряне на дигитално меню.'}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Action buttons */}
-            <div className="flex items-center gap-4 pt-4 font-sans">
-              <a
-                href={project.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-xs text-white font-semibold bg-zinc-900 border border-white/10 hover:border-white/20 hover:bg-zinc-850 px-5 py-3 rounded-xl transition-all duration-300 group cursor-pointer"
+              {/* Project Details Columns */}
+              <motion.div
+                initial={{ opacity: 0, x: isEven ? -30 : 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.7 }}
+                className={`lg:col-span-5 space-y-6 ${!isEven ? 'lg:order-2' : ''}`}
               >
-                <span>{language === 'en' ? 'Live Website' : 'Уебсайт на живо'}</span>
-                <ArrowUpRight className="w-4 h-4 text-zinc-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-              </a>
-              <button
-                onClick={onQuoteClick}
-                className="text-xs font-semibold text-blue-400 hover:text-blue-300 transition-colors cursor-pointer"
-              >
-                {language === 'en' ? 'Request Similar Design →' : 'Искам подобен дизайн →'}
-              </button>
-            </div>
-          </motion.div>
+                <div className="flex items-center gap-2">
+                  <span className="px-3 py-1 bg-blue-500/10 border border-blue-500/20 text-[#3B82F6] font-mono font-semibold text-[10px] rounded-full uppercase tracking-wider">
+                    {project.category}
+                  </span>
+                </div>
 
-          {/* Screenshot Column using the new image */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="lg:col-span-12 xl:col-span-7 flex justify-center w-full"
-          >
-            <div className="relative group overflow-hidden rounded-3xl border border-white/5 bg-zinc-950/20 p-2 sm:p-4 glow-blue w-full max-w-2xl">
-              {/* Browser Header Bar Representation */}
-              <div className="w-full flex items-center justify-between px-3 pb-3 border-b border-white/5">
-                <div className="flex gap-1.5">
-                  <span className="h-2.5 w-2.5 rounded-full bg-red-500/60" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-yellow-500/60" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-green-500/60" />
+                <h3 className="font-serif text-2xl sm:text-4xl font-bold text-white tracking-tight">
+                  {project.title}
+                </h3>
+
+                <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
+                  {project.description}
+                </p>
+
+                {/* Structured Client Requested Highlights */}
+                <div className="space-y-4 pt-4 border-t border-white/5">
+                  <h4 className="text-xs font-mono font-bold uppercase text-zinc-500 tracking-wider">
+                    {language === 'en' ? 'Core Implementations:' : 'Основни имплементации:'}
+                  </h4>
+                  
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 font-sans">
+                    {project.highlights.slice(0, 4).map((highlight, idx) => (
+                      <div key={idx} className="flex items-start gap-3 p-3 rounded-xl bg-zinc-950/40 border border-white/5">
+                        {idx === 0 && <Globe className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />}
+                        {idx === 1 && <Zap className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />}
+                        {idx === 2 && <Smartphone className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />}
+                        {idx === 3 && <QrCode className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />}
+                        <div>
+                          <span className="text-xs font-semibold text-white block">
+                            {highlight.split(' - ')[0]}
+                          </span>
+                          <span className="text-[10px] text-zinc-500 mt-0.5 block">
+                            {highlight.split(' - ')[1] || highlight}
+                          </span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-                <div className="bg-zinc-900 border border-white/5 text-[9px] text-zinc-500 font-mono px-6 py-0.5 rounded-md truncate max-w-[180px] sm:max-w-xs text-center select-none">
-                  {project.url}
+
+                {/* Action buttons */}
+                <div className="flex items-center gap-4 pt-4 font-sans">
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 text-xs text-white font-semibold bg-zinc-900 border border-white/10 hover:border-white/20 hover:bg-zinc-850 px-5 py-3 rounded-xl transition-all duration-300 group cursor-pointer"
+                  >
+                    <span>{language === 'en' ? 'Live Website' : 'Уебсайт на живо'}</span>
+                    <ArrowUpRight className="w-4 h-4 text-zinc-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  </a>
+                  <button
+                    onClick={onQuoteClick}
+                    className="text-xs font-semibold text-blue-400 hover:text-blue-300 transition-colors cursor-pointer"
+                  >
+                    {language === 'en' ? 'Request Similar Design →' : 'Искам подобен дизайн →'}
+                  </button>
                 </div>
-                <span className="text-zinc-600 text-xs font-semibold tracking-wider font-mono">AR // Case</span>
-              </div>
-              
-              {/* Image Carousel */}
-              <div className="relative mt-3">
-                <ImageCarousel images={carouselImages} interval={6000} />
-              </div>
+              </motion.div>
+
+              {/* Screenshot Column using the new image */}
+              <motion.div
+                initial={{ opacity: 0, x: isEven ? 30 : -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.7, delay: 0.1 }}
+                className={`lg:col-span-12 xl:col-span-7 flex justify-center w-full ${!isEven ? 'lg:order-1' : ''}`}
+              >
+                <div className="relative group overflow-hidden rounded-3xl border border-white/5 bg-zinc-950/20 p-2 sm:p-4 glow-blue w-full max-w-2xl">
+                  {/* Browser Header Bar Representation */}
+                  <div className="w-full flex items-center justify-between px-3 pb-3 border-b border-white/5">
+                    <div className="flex gap-1.5">
+                      <span className="h-2.5 w-2.5 rounded-full bg-red-500/60" />
+                      <span className="h-2.5 w-2.5 rounded-full bg-yellow-500/60" />
+                      <span className="h-2.5 w-2.5 rounded-full bg-green-500/60" />
+                    </div>
+                    <div className="bg-zinc-900 border border-white/5 text-[9px] text-zinc-500 font-mono px-6 py-0.5 rounded-md truncate max-w-[180px] sm:max-w-xs text-center select-none">
+                      {project.url}
+                    </div>
+                    <span className="text-zinc-600 text-xs font-semibold tracking-wider font-mono">AR // Case</span>
+                  </div>
+                  
+                  {/* Image Carousel */}
+                  <div className="relative mt-3">
+                    <ImageCarousel images={carouselImages} interval={6000} />
+                  </div>
+                </div>
+              </motion.div>
             </div>
-          </motion.div>
-        </div>
+          );
+        })}
 
         {/* Future Client Projects grid slots */}
         <div className="border-t border-white/5 pt-16">

@@ -209,8 +209,8 @@ export default function About() {
                   </span>
                   <span className="text-xs font-semibold text-white bg-zinc-900 px-3 py-1 rounded-full border border-white/5">
                     {member.name === 'Andrey' || member.name === 'Андрей' 
-                      ? (language === 'en' ? 'UI/UX & Brand Aesthetics' : 'UI/UX дизайн и Лукс брандинг') 
-                      : (language === 'en' ? 'TypeScript & SEO Engine' : 'Код, Архитектура и техническо SEO')}
+                      ? (language === 'en' ? 'TypeScript & SEO Engine' : 'Код, Архитектура и техническо SEO')
+                      : (language === 'en' ? 'UI/UX & Brand Aesthetics' : 'UI/UX дизайн и Лукс брандинг')}
                   </span>
                 </div>
               </motion.div>

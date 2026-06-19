@@ -79,7 +79,7 @@ export const pricingPlans: PricingPlan[] = [
     popular: true,
     scope: 'Complete corporate or business multi-page/landing experience. Perfect for restaurants & salons.',
     features: [
-      'Bespoke Business Design',
+      'Bespoke Business Design (like Tomato Restaurant)',
       'Up to 5 Pages or Interactive Sections',
       'Complete Mobile & Dynamic Optimization',
       'QR Menu or Booking Integration',
@@ -225,7 +225,24 @@ export const pricingPlans: PricingPlan[] = [
   },
 ];
 
-export const featuredProjects: Project[] = [];
+export const featuredProjects: Project[] = [
+  {
+    id: 'tomato-restaurant',
+    title: 'Tomato Restaurant',
+    category: 'Restaurant & QR Menu Website',
+    url: 'https://www.tomatorestaurant.online/',
+    imageUrl: 'tomato_restaurant_mockup', // We can generate this image or use beautiful styling representing this
+    highlights: [
+      'Modern elegant layout fitting an Italian high-end restaurant',
+      'Fully responsive, immersive online interactive menu',
+      'Innovative contactless QR menu integration for physical tables',
+      'Direct, zero-friction booking system',
+      'Fast loading speed scoring 98+ on Google Lighthouse Mobile',
+    ],
+    description: 'A luxurious custom-designed web experience developed for Tomato Restaurant. Featuring a high-contrast elegant dark theme, responsive typography, and custom animations that drive direct bookings and simplify table ordering via fully integrated QR menu technology.',
+    tags: ['Luxury Design', 'QR Menu Integration', 'Speed Optimized', 'Responsive Web'],
+  },
+];
 
 export const benefits: Benefit[] = [
   {

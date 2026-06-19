@@ -95,7 +95,7 @@ export default function App() {
       case 'portfolio':
         return (
           <PageTransition>
-            <Portfolio onQuoteClick={() => openQuoteModalWithPlan('Tomato Restaurant Clone')} />
+            <Portfolio onQuoteClick={openQuoteModalWithPlan} />
           </PageTransition>
         );
       case 'why-us':

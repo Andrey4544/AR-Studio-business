@@ -79,7 +79,7 @@ export const pricingPlans: PricingPlan[] = [
     popular: true,
     scope: 'Complete corporate or business multi-page/landing experience. Perfect for restaurants & salons.',
     features: [
-      'Bespoke Business Design (like Tomato Restaurant)',
+      'Bespoke Business Design',
       'Up to 5 Pages or Interactive Sections',
       'Complete Mobile & Dynamic Optimization',
       'QR Menu or Booking Integration',
@@ -225,24 +225,7 @@ export const pricingPlans: PricingPlan[] = [
   },
 ];
 
-export const featuredProjects: Project[] = [
-  {
-    id: 'tomato-restaurant',
-    title: 'Tomato Restaurant',
-    category: 'Restaurant & QR Menu Website',
-    url: 'https://www.tomatorestaurant.online/',
-    imageUrl: 'tomato_restaurant_mockup', // We can generate this image or use beautiful styling representing this
-    highlights: [
-      'Modern elegant layout fitting an Italian high-end restaurant',
-      'Fully responsive, immersive online interactive menu',
-      'Innovative contactless QR menu integration for physical tables',
-      'Direct, zero-friction booking system',
-      'Fast loading speed scoring 98+ on Google Lighthouse Mobile',
-    ],
-    description: 'A luxurious custom-designed web experience developed for Tomato Restaurant. Featuring a high-contrast elegant dark theme, responsive typography, and custom animations that drive direct bookings and simplify table ordering via fully integrated QR menu technology.',
-    tags: ['Luxury Design', 'QR Menu Integration', 'Speed Optimized', 'Responsive Web'],
-  },
-];
+export const featuredProjects: Project[] = [];
 
 export const benefits: Benefit[] = [
   {
@@ -278,14 +261,6 @@ export const benefits: Benefit[] = [
 ];
 
 export const testimonials: Testimonial[] = [
-  {
-    id: '1',
-    name: 'George Dimitrov',
-    role: 'Owner',
-    company: 'Tomato Restaurant Plovdiv',
-    text: 'AR Studio completely transformed our restaurant business! They built our website and custom table QR menu system in just a few days. Our customers love the speed, and we have seen a 35% increase in tables booked online. The best part? No payment was requested until we were completely happy with the site.',
-    rating: 5,
-  },
   {
     id: '2',
     name: 'Maria Ivanova',

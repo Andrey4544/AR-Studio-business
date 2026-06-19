@@ -13,9 +13,9 @@ interface LogoProps {
 
 export default function Logo({ className = '', showText = true, size = 'md' }: LogoProps) {
   const sizeClasses = {
-    sm: 'h-6 w-6',
-    md: 'h-9 w-9',
-    lg: 'h-14 w-14',
+    sm: 'h-8 w-8',
+    md: 'h-12 w-12',
+    lg: 'h-18 w-18',
   };
 
   const textSizes = {

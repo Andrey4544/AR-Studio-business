@@ -31,6 +31,7 @@ const teddysCarouselImages = [
 
 // Carousel images for BelEstateGroup
 const belestateCarouselImages = [
+  { src: '/assets/belestate-8.png', alt: 'BelEstateGroup Hero' },
   { src: '/assets/belestate-1.png', alt: 'BelEstateGroup Home' },
   { src: '/assets/belestate-2.png', alt: 'BelEstateGroup Articles' },
   { src: '/assets/belestate-3.png', alt: 'BelEstateGroup Booking' },
@@ -38,7 +39,6 @@ const belestateCarouselImages = [
   { src: '/assets/belestate-5.png', alt: 'BelEstateGroup Principles' },
   { src: '/assets/belestate-6.png', alt: 'BelEstateGroup Search' },
   { src: '/assets/belestate-7.png', alt: 'BelEstateGroup Properties' },
-  { src: '/assets/belestate-8.png', alt: 'BelEstateGroup Hero' },
 ];
 
 interface PortfolioProps {

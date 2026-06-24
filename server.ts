@@ -168,29 +168,59 @@ async function startServer() {
     const { password } = req.body;
     const adminPass = process.env.ADMIN_PASS || 'admin123';
     if (password === adminPass) {
-      res.json({ status: 'ok', token: 'fake-jwt-token' });
+      // Generate a simple token with timestamp
+      const token = Buffer.from(`${adminPass}:${Date.now()}`).toString('base64');
+      res.json({ status: 'ok', token });
     } else {
       res.status(401).json({ status: 'error', message: 'Invalid password' });
     }
   });
 
+  // Middleware to verify admin token
+  const verifyAdminToken = (req: any, res: any, next: any) => {
+    const token = req.headers['x-admin-token'];
+    const adminPass = process.env.ADMIN_PASS || 'admin123';
+    if (!token) {
+      return res.status(401).json({ status: 'error', message: 'No token provided' });
+    }
+    try {
+      const decoded = Buffer.from(token as string, 'base64').toString('utf-8');
+      const [pass] = decoded.split(':');
+      if (pass === adminPass) {
+        next();
+      } else {
+        res.status(401).json({ status: 'error', message: 'Invalid token' });
+      }
+    } catch (err) {
+      res.status(401).json({ status: 'error', message: 'Invalid token format' });
+    }
+  };
+
   // API Route - Admin Get All Reviews
-  app.get('/api/admin/reviews', (req, res) => {
-    // In a real app, check token here
+  app.get('/api/admin/reviews', verifyAdminToken, (req, res) => {
     res.json(getReviews());
   });
 
   // API Route - Admin Moderate Review
-  app.post('/api/admin/reviews/moderate', (req, res) => {
+  app.post('/api/admin/reviews/moderate', verifyAdminToken, (req, res) => {
     const { id, action } = req.body; // action: 'approve' or 'delete'
+    if (!id || !action) {
+      return res.status(400).json({ status: 'error', message: 'Missing id or action' });
+    }
     let reviews = getReviews();
+    const reviewIndex = reviews.findIndex((r: any) => r.id === id);
+    if (reviewIndex === -1) {
+      return res.status(404).json({ status: 'error', message: 'Review not found' });
+    }
     if (action === 'approve') {
-      reviews = reviews.map((r: any) => r.id === id ? { ...r, status: 'approved' } : r);
+      reviews[reviewIndex].status = 'approved';
     } else if (action === 'delete') {
-      reviews = reviews.filter((r: any) => r.id !== id);
+      reviews.splice(reviewIndex, 1);
+    } else {
+      return res.status(400).json({ status: 'error', message: 'Invalid action' });
     }
     saveReviews(reviews);
-    res.json({ status: 'ok' });
+    res.json({ status: 'ok', message: `Review ${action}d successfully` });
   });
 
   // API Route - Contact Form / Consult Requests

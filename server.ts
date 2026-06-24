@@ -110,43 +110,57 @@ async function startServer() {
 
   // API Route - Submit Review (Pending Approval)
   app.post('/api/reviews', async (req, res) => {
-    const { name, role, company, text, rating } = req.body;
-    const reviews = getReviews();
-    const newReview = {
-      id: Date.now().toString(),
-      name: name || 'Anonymous',
-      role: role || 'Client',
-      company: company || 'N/A',
-      text: text || '',
-      rating: parseInt(rating, 10) || 5,
-      status: 'pending',
-      timestamp: new Date().toISOString()
-    };
-    reviews.push(newReview);
-    saveReviews(reviews);
+    try {
+      const { name, role, company, text, rating } = req.body;
+      
+      // 1. Create the review object
+      const newReview = {
+        id: Date.now().toString(),
+        name: String(name || 'Anonymous').trim(),
+        role: String(role || 'Client').trim(),
+        company: String(company || 'N/A').trim(),
+        text: String(text || '').trim(),
+        rating: Math.min(Math.max(parseInt(rating, 10) || 5, 1), 5),
+        status: 'pending',
+        timestamp: new Date().toISOString()
+      };
 
-    // Send notification email for new review
-    const emailHtml = `
-      <div style="font-family: sans-serif; background-color: #0c0a09; color: #e4e4e7; padding: 40px; border-radius: 8px; max-width: 600px; margin: 0 auto; border: 1px solid #27272a;">
-        <h2 style="color: #f59e0b; font-family: serif; border-bottom: 1px solid #27272a; padding-bottom: 12px; margin-top: 0;">🌟 НОВ ОТЗИВ ЗА ОДОБРЕНИЕ</h2>
-        <p style="font-size: 14px; color: #a1a1aa; font-family: monospace; margin-bottom: 24px;">
-          Получихте нов коментар от клиент, който чака вашето одобрение.
-        </p>
-        <div style="background-color: #18181b; padding: 20px; border-radius: 6px; border: 1px solid #27272a; margin-bottom: 20px;">
-          <p style="margin: 8px 0;"><strong>От / From:</strong> ${newReview.name} (${newReview.role} @ ${newReview.company})</p>
-          <p style="margin: 8px 0;"><strong>Оценка / Rating:</strong> ${'⭐'.repeat(newReview.rating)}</p>
-          <div style="margin-top: 16px; padding-top: 16px; border-top: 1px solid #27272a; font-style: italic; color: #d4d4d8;">
-            "${newReview.text}"
+      // 2. Save to database immediately
+      const reviews = getReviews();
+      reviews.push(newReview);
+      saveReviews(reviews);
+      
+      // 3. Prepare Email
+      const stars = '⭐'.repeat(newReview.rating);
+      const emailHtml = `
+        <div style="font-family: sans-serif; background-color: #0c0a09; color: #e4e4e7; padding: 40px; border-radius: 8px; max-width: 600px; margin: 0 auto; border: 1px solid #27272a;">
+          <h2 style="color: #f59e0b; font-family: serif; border-bottom: 1px solid #27272a; padding-bottom: 12px; margin-top: 0;">🌟 НОВ ОТЗИВ ЗА ОДОБРЕНИЕ</h2>
+          <p style="font-size: 14px; color: #a1a1aa; font-family: monospace; margin-bottom: 24px;">
+            Получихте нов коментар от клиент, който чака вашето одобрение.
+          </p>
+          <div style="background-color: #18181b; padding: 20px; border-radius: 6px; border: 1px solid #27272a; margin-bottom: 20px;">
+            <p style="margin: 8px 0;"><strong>От / From:</strong> ${newReview.name} (${newReview.role} @ ${newReview.company})</p>
+            <p style="margin: 8px 0;"><strong>Оценка / Rating:</strong> ${stars}</p>
+            <div style="margin-top: 16px; padding-top: 16px; border-top: 1px solid #27272a; font-style: italic; color: #d4d4d8;">
+              "${newReview.text}"
+            </div>
           </div>
+          <p style="font-size: 12px; color: #71717a; text-align: center;">
+            Отворете сайта и използвайте админ панела, за да публикувате отзива.
+          </p>
         </div>
-        <p style="font-size: 12px; color: #71717a; text-align: center;">
-          Отворете сайта и използвайте админ панела, за да публикувате отзива.
-        </p>
-      </div>
-    `;
-    await sendEmailNotification(`[AR Studio] НОВ ОТЗИВ ЗА ОДОБРЕНИЕ - ${newReview.name}`, emailHtml);
+      `;
 
-    res.json({ status: 'ok', message: 'Review submitted for approval' });
+      // 4. Send Email asynchronously (don't await to avoid blocking response)
+      sendEmailNotification(`[AR Studio] НОВ ОТЗИВ ЗА ОДОБРЕНИЕ - ${newReview.name}`, emailHtml)
+        .catch(err => console.error('Background email failed:', err));
+
+      // 5. Respond to client
+      return res.status(200).json({ status: 'ok', message: 'Review captured' });
+    } catch (error) {
+      console.error('Review submission error:', error);
+      return res.status(500).json({ status: 'error', message: 'Failed to save review' });
+    }
   });
 
   // API Route - Admin Login (Simple)

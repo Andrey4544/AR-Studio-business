@@ -29,6 +29,18 @@ const teddysCarouselImages = [
   { src: '/assets/teddys-logo-dark.jpg', alt: 'Teddy\'s Bar & Grill Logo Dark' },
 ];
 
+// Carousel images for BelEstateGroup
+const belestateCarouselImages = [
+  { src: '/assets/belestate-1.png', alt: 'BelEstateGroup Home' },
+  { src: '/assets/belestate-2.png', alt: 'BelEstateGroup Articles' },
+  { src: '/assets/belestate-3.png', alt: 'BelEstateGroup Booking' },
+  { src: '/assets/belestate-4.png', alt: 'BelEstateGroup Contact' },
+  { src: '/assets/belestate-5.png', alt: 'BelEstateGroup Principles' },
+  { src: '/assets/belestate-6.png', alt: 'BelEstateGroup Search' },
+  { src: '/assets/belestate-7.png', alt: 'BelEstateGroup Properties' },
+  { src: '/assets/belestate-8.png', alt: 'BelEstateGroup Hero' },
+];
+
 interface PortfolioProps {
   onQuoteClick: () => void;
 }
@@ -82,7 +94,9 @@ export default function Portfolio({ onQuoteClick }: PortfolioProps) {
         {/* Featured Projects */}
         {featuredProjects.map((project, index) => {
           const isEven = index % 2 === 0;
-          const carouselImages = project.id === 'teddys-bar-grill' ? teddysCarouselImages : tomatoCarouselImages;
+          let carouselImages = tomatoCarouselImages;
+          if (project.id === 'teddys-bar-grill') carouselImages = teddysCarouselImages;
+          if (project.id === 'belestate-group') carouselImages = belestateCarouselImages;
 
           return (
             <div key={project.id} className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-24">

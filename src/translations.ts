@@ -458,6 +458,22 @@ export const dynamicTranslations = {
     ],
     featuredProjects: [
       {
+        id: 'belestate-group',
+        title: 'BelEstateGroup',
+        category: 'Real Estate Agency Website',
+        url: 'https://www.belestategroup.site/',
+        imageUrl: 'belestate_group_mockup',
+        highlights: [
+          'Luxury property showcase with high-end visual aesthetics',
+          'Interactive property search and advanced filtering system',
+          'Automated booking and consultation request pipelines',
+          'Full legal and investment security information modules',
+          'Premium mobile-first responsive design for elite clients',
+        ],
+        description: 'A high-performance real estate platform developed for BelEstateGroup. The website features a sophisticated corporate identity, interactive property catalogs, and seamless lead generation tools, ensuring a premium experience for investors and property seekers in Bulgaria.',
+        tags: ['Real Estate', 'Luxury Design', 'Interactive Catalog', 'Lead Generation'],
+      },
+      {
         id: 'tomato-restaurant',
         title: 'Tomato Restaurant',
         category: 'Restaurant & QR Menu Website',
@@ -804,6 +820,22 @@ export const dynamicTranslations = {
       },
     ],
     featuredProjects: [
+      {
+        id: 'belestate-group',
+        title: 'BelEstateGroup',
+        category: 'Сайт за агенция за недвижими имоти',
+        url: 'https://www.belestategroup.site/',
+        imageUrl: 'belestate_group_mockup',
+        highlights: [
+          'Луксозно представяне на имоти с висок клас естетика',
+          'Интерактивно търсене и разширена система за филтриране',
+          'Автоматизирани запитвания за огледи и консултации',
+          'Информационни модули за правна и инвестиционна сигурност',
+          'Премиум адаптивен дизайн, оптимизиран за мобилни устройства',
+        ],
+        description: 'Високоефективна платформа за недвижими имоти, разработена за BelEstateGroup. Сайтът разполага с изискана корпоративна идентичност, интерактивни каталози за имоти и инструменти за генериране на запитвания, осигурявайки премиум изживяване за инвеститори и купувачи.',
+        tags: ['Недвижими имоти', 'Луксозен дизайн', 'Интерактивен каталог', 'Генериране на запитвания'],
+      },
       {
         id: 'tomato-restaurant',
         title: 'Ресторант Tomato',

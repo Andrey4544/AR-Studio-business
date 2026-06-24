@@ -227,6 +227,22 @@ export const pricingPlans: PricingPlan[] = [
 
 export const featuredProjects: Project[] = [
   {
+    id: 'belestate-group',
+    title: 'BelEstateGroup',
+    category: 'Real Estate Agency Website',
+    url: 'https://www.belestategroup.site/',
+    imageUrl: 'belestate_group_mockup',
+    highlights: [
+      'Luxury property showcase with high-end visual aesthetics',
+      'Interactive property search and advanced filtering system',
+      'Automated booking and consultation request pipelines',
+      'Full legal and investment security information modules',
+      'Premium mobile-first responsive design for elite clients',
+    ],
+    description: 'A high-performance real estate platform developed for BelEstateGroup. The website features a sophisticated corporate identity, interactive property catalogs, and seamless lead generation tools, ensuring a premium experience for investors and property seekers in Bulgaria.',
+    tags: ['Real Estate', 'Luxury Design', 'Interactive Catalog', 'Lead Generation'],
+  },
+  {
     id: 'tomato-restaurant',
     title: 'Tomato Restaurant',
     category: 'Restaurant & QR Menu Website',

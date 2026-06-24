@@ -1,0 +1,32 @@
+[
+  {
+    "id": "1",
+    "name": "Maria Ivanova",
+    "role": "Creative Director",
+    "company": "Aura Beauty Salon",
+    "text": "Working with Andrey and Rumen was an absolute dream. Direct, quick communication with zero corporate jargon. They combined our website design and social media management for a very affordable monthly rate. High-end, premium luxury appearance that our clients constantly compliment.",
+    "rating": 5,
+    "status": "approved",
+    "timestamp": "2026-06-15T10:00:00.000Z"
+  },
+  {
+    "id": "2",
+    "name": "Dimitar Vasilev",
+    "role": "Founder",
+    "company": "Vasilev Legal Partners",
+    "text": "Excellent work from these ambitious young Bulgarian professionals. They rebuilt our old lawyer agency website, establishing a highly polished digital legal brand. Highly responsive on mobile and perfectly SEO optimized. Andrey understood our brand guidelines immediately.",
+    "rating": 5,
+    "status": "approved",
+    "timestamp": "2026-06-18T14:30:00.000Z"
+  },
+  {
+    "id": "3",
+    "name": "Elena Petrova",
+    "role": "Manager",
+    "company": "Boutique Hotel Old Plovdiv",
+    "text": "AR Studio is remarkably fast. Our booking request rates rose significantly after the luxury dark-theme landing page went live. They manage all weekly updates and hosting security for a very low monthly fee. Highly recommend Andrey & Rumen for any Bulgarian business.",
+    "rating": 5,
+    "status": "approved",
+    "timestamp": "2026-06-20T09:15:00.000Z"
+  }
+]

@@ -3,13 +3,32 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { Sparkles, Quote, Star } from 'lucide-react';
+import { Sparkles, Quote, Star, MessageSquarePlus } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import ReviewForm from './ReviewForm';
 
 export default function Testimonials() {
-  const { testimonials, language, t } = useLanguage();
+  const { language, t } = useLanguage();
+  const [reviews, setReviews] = useState<any[]>([]);
+  const [isFormOpen, setIsFormOpen] = useState(false);
+
+  const fetchReviews = async () => {
+    try {
+      const response = await fetch('/api/reviews');
+      if (response.ok) {
+        const data = await response.json();
+        setReviews(data);
+      }
+    } catch (error) {
+      console.error('Error fetching reviews:', error);
+    }
+  };
+
+  useEffect(() => {
+    fetchReviews();
+  }, []);
 
   return (
     <section className="py-24 bg-luxury-black relative overflow-hidden border-t border-white/5">
@@ -48,9 +67,22 @@ export default function Testimonials() {
           </p>
         </div>
 
+        {/* Review Action Button */}
+        <div className="flex justify-center mb-12">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => setIsFormOpen(true)}
+            className="flex items-center gap-2 px-6 py-3 bg-blue-500/10 border border-blue-500/20 rounded-full text-blue-400 font-bold hover:bg-blue-500/20 transition-all group"
+          >
+            <MessageSquarePlus className="w-4 h-4" />
+            <span>{language === 'en' ? 'Leave a Review' : 'Остави отзив'}</span>
+          </motion.button>
+        </div>
+
         {/* Testimonials Grid Layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {testimonials.map((review, idx) => (
+          {reviews.map((review, idx) => (
             <div
               key={review.id}
               className="relative rounded-2xl p-8 border bg-zinc-900/30 border-white/5 hover:border-white/10 hover:bg-zinc-950/40 transition-all duration-300 flex flex-col justify-between"
@@ -88,6 +120,12 @@ export default function Testimonials() {
             </div>
           ))}
         </div>
+
+        <ReviewForm 
+          isOpen={isFormOpen} 
+          onClose={() => setIsFormOpen(false)} 
+          onSuccess={fetchReviews}
+        />
 
       </div>
     </section>

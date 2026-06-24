@@ -19,6 +19,7 @@ import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import QuoteModal from './components/QuoteModal';
 import FAQ from './components/FAQ';
+import AdminPanel from './components/AdminPanel';
 
 
 export default function App() {
@@ -175,6 +176,7 @@ export default function App() {
         isOpen={isQuoteModalOpen}
         onClose={() => setIsQuoteModalOpen(false)}
       />
+      <AdminPanel />
 
     </div>
   );

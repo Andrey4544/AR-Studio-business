@@ -14,6 +14,22 @@ async function startServer() {
 
   // Helper to ensure submissions dir exists
   const submissionsFilePath = path.join(process.cwd(), 'submissions_backup.json');
+  const reviewsFilePath = path.join(process.cwd(), 'reviews.json');
+
+  // Helper to get reviews
+  const getReviews = () => {
+    if (!fs.existsSync(reviewsFilePath)) return [];
+    try {
+      return JSON.parse(fs.readFileSync(reviewsFilePath, 'utf-8'));
+    } catch {
+      return [];
+    }
+  };
+
+  // Helper to save reviews
+  const saveReviews = (reviews: any[]) => {
+    fs.writeFileSync(reviewsFilePath, JSON.stringify(reviews, null, 2), 'utf-8');
+  };
 
   const saveSubmissionToBackup = (data: any) => {
     try {
@@ -83,6 +99,76 @@ async function startServer() {
 
   // API Route - Health Check
   app.get('/api/health', (req, res) => {
+    res.json({ status: 'ok' });
+  });
+
+  // API Route - Get Approved Reviews
+  app.get('/api/reviews', (req, res) => {
+    const reviews = getReviews().filter((r: any) => r.status === 'approved');
+    res.json(reviews);
+  });
+
+  // API Route - Submit Review (Pending Approval)
+  app.post('/api/reviews', async (req, res) => {
+    const { name, role, company, text, rating } = req.body;
+    const reviews = getReviews();
+    const newReview = {
+      id: Date.now().toString(),
+      name,
+      role,
+      company,
+      text,
+      rating: parseInt(rating, 10) || 5,
+      status: 'pending',
+      timestamp: new Date().toISOString()
+    };
+    reviews.push(newReview);
+    saveReviews(reviews);
+
+    // Send notification email for new review
+    const emailHtml = `
+      <div style="font-family: sans-serif; background-color: #0c0a09; color: #e4e4e7; padding: 40px; border-radius: 8px; max-width: 600px; margin: 0 auto; border: 1px solid #27272a;">
+        <h2 style="color: #f59e0b; font-family: serif; border-bottom: 1px solid #27272a; padding-bottom: 12px; margin-top: 0;">🌟 Нов отзив за одобрение</h2>
+        <div style="background-color: #18181b; padding: 20px; border-radius: 6px; border: 1px solid #27272a; margin-bottom: 20px;">
+          <p><strong>От:</strong> ${name} (${role} @ ${company})</p>
+          <p><strong>Оценка:</strong> ${'⭐'.repeat(newReview.rating)}</p>
+          <p style="font-style: italic;">"${text}"</p>
+        </div>
+        <p style="font-size: 12px; color: #71717a;">Влезте в админ панела, за да одобрите или изтриете този отзив.</p>
+      </div>
+    `;
+    await sendEmailNotification(`[Нов Отзив] от ${name}`, emailHtml);
+
+    res.json({ status: 'ok', message: 'Review submitted for approval' });
+  });
+
+  // API Route - Admin Login (Simple)
+  app.post('/api/admin/login', (req, res) => {
+    const { password } = req.body;
+    const adminPass = process.env.ADMIN_PASS || 'admin123';
+    if (password === adminPass) {
+      res.json({ status: 'ok', token: 'fake-jwt-token' });
+    } else {
+      res.status(401).json({ status: 'error', message: 'Invalid password' });
+    }
+  });
+
+  // API Route - Admin Get All Reviews
+  app.get('/api/admin/reviews', (req, res) => {
+    // In a real app, check token here
+    res.json(getReviews());
+  });
+
+  // API Route - Admin Moderate Review
+  app.post('/api/admin/reviews/moderate', (req, res) => {
+    const { id, action } = req.body; // action: 'approve' or 'delete'
+    let reviews = getReviews();
+    if (action === 'approve') {
+      reviews = reviews.map((r: any) => r.id === id ? { ...r, status: 'approved' } : r);
+    } else if (action === 'delete') {
+      reviews = reviews.filter((r: any) => r.id !== id);
+    }
+    saveReviews(reviews);
     res.json({ status: 'ok' });
   });
 

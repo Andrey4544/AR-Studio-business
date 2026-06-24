@@ -114,10 +114,10 @@ async function startServer() {
     const reviews = getReviews();
     const newReview = {
       id: Date.now().toString(),
-      name,
-      role,
-      company,
-      text,
+      name: name || 'Anonymous',
+      role: role || 'Client',
+      company: company || 'N/A',
+      text: text || '',
       rating: parseInt(rating, 10) || 5,
       status: 'pending',
       timestamp: new Date().toISOString()
@@ -128,16 +128,23 @@ async function startServer() {
     // Send notification email for new review
     const emailHtml = `
       <div style="font-family: sans-serif; background-color: #0c0a09; color: #e4e4e7; padding: 40px; border-radius: 8px; max-width: 600px; margin: 0 auto; border: 1px solid #27272a;">
-        <h2 style="color: #f59e0b; font-family: serif; border-bottom: 1px solid #27272a; padding-bottom: 12px; margin-top: 0;">🌟 Нов отзив за одобрение</h2>
+        <h2 style="color: #f59e0b; font-family: serif; border-bottom: 1px solid #27272a; padding-bottom: 12px; margin-top: 0;">🌟 НОВ ОТЗИВ ЗА ОДОБРЕНИЕ</h2>
+        <p style="font-size: 14px; color: #a1a1aa; font-family: monospace; margin-bottom: 24px;">
+          Получихте нов коментар от клиент, който чака вашето одобрение.
+        </p>
         <div style="background-color: #18181b; padding: 20px; border-radius: 6px; border: 1px solid #27272a; margin-bottom: 20px;">
-          <p><strong>От:</strong> ${name} (${role} @ ${company})</p>
-          <p><strong>Оценка:</strong> ${'⭐'.repeat(newReview.rating)}</p>
-          <p style="font-style: italic;">"${text}"</p>
+          <p style="margin: 8px 0;"><strong>От / From:</strong> ${newReview.name} (${newReview.role} @ ${newReview.company})</p>
+          <p style="margin: 8px 0;"><strong>Оценка / Rating:</strong> ${'⭐'.repeat(newReview.rating)}</p>
+          <div style="margin-top: 16px; padding-top: 16px; border-top: 1px solid #27272a; font-style: italic; color: #d4d4d8;">
+            "${newReview.text}"
+          </div>
         </div>
-        <p style="font-size: 12px; color: #71717a;">Влезте в админ панела, за да одобрите или изтриете този отзив.</p>
+        <p style="font-size: 12px; color: #71717a; text-align: center;">
+          Отворете сайта и използвайте админ панела, за да публикувате отзива.
+        </p>
       </div>
     `;
-    await sendEmailNotification(`[Нов Отзив] от ${name}`, emailHtml);
+    await sendEmailNotification(`[AR Studio] НОВ ОТЗИВ ЗА ОДОБРЕНИЕ - ${newReview.name}`, emailHtml);
 
     res.json({ status: 'ok', message: 'Review submitted for approval' });
   });

@@ -74,12 +74,19 @@ export default function AdminPanel() {
 
   return (
     <>
-      {/* Hidden Trigger (Bottom Left Corner) */}
+      {/* Admin Trigger Button (Visible but discrete) */}
       <div 
-        className="fixed bottom-4 left-4 z-[90] opacity-0 hover:opacity-100 transition-opacity"
-        onClick={() => setIsOpen(true)}
+        className="fixed bottom-6 right-6 z-[90]"
       >
-        <Shield className="w-6 h-6 text-zinc-800 cursor-pointer" />
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          onClick={() => setIsOpen(true)}
+          className="w-12 h-12 bg-zinc-900/80 backdrop-blur-md border border-white/10 rounded-full flex items-center justify-center text-zinc-500 hover:text-blue-400 hover:border-blue-500/30 transition-all shadow-2xl"
+          title="Admin Panel"
+        >
+          <Shield className="w-5 h-5" />
+        </motion.button>
       </div>
 
       <AnimatePresence>

@@ -138,8 +138,8 @@ export default function QuoteModal({ isOpen, onClose }: QuoteModalProps) {
                   </h3>
                   <p className="text-zinc-400 text-xs leading-relaxed max-w-sm mx-auto">
                     {language === 'en' 
-                      ? `Andrey and Rumen are drafting a luxury vision layout summary tailored for your business. We will coordinate via your phone ${phone} shortly.`
-                      : `Андрей и Румен изготвят луксозен идеен уеб проект за Вашия бизнес. Ще се свържем с Вас на телефон ${phone} съвсем скоро.`}
+                      ? `Andrey, Rumen & Nikolay are drafting a luxury vision layout summary tailored for your business. We will coordinate via your phone ${phone} shortly.`
+                      : `Андрей, Румен и Николай изготвят луксозен идеен уеб проект за Вашия бизнес. Ще се свържем с Вас на телефон ${phone} съвсем скоро.`}
                   </p>
                 </motion.div>
               ) : (
@@ -162,8 +162,8 @@ export default function QuoteModal({ isOpen, onClose }: QuoteModalProps) {
                     </h3>
                     <p className="text-zinc-400 text-xs mt-1.5">
                       {language === 'en' 
-                        ? 'Direct consultation with design founders. No upfront risks.' 
-                        : 'Директна връзка с дизайнерите основатели Андрей и Румен.'}
+                        ? 'Direct consultation with our team. No upfront risks.' 
+                        : 'Директна връзка с нашия екип - Андрей, Румен и Николай.'}
                     </p>
                   </div>
 

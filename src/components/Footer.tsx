@@ -61,7 +61,7 @@ export default function Footer({ setActivePage, openQuoteModal }: FooterProps) {
             <ul className="space-y-3.5 text-xs sm:text-sm font-sans">
               {[
                 { id: 'home', label: language === 'en' ? 'Home Experience' : 'Начало' },
-                { id: 'about', label: language === 'en' ? 'About Andrey & Rumen' : 'За Андрей и Румен' },
+                { id: 'about', label: language === 'en' ? 'About Andrey, Rumen & Nikolay' : 'За Андрей, Румен и Николай' },
                 { id: 'services', label: language === 'en' ? 'Services & Pricing' : 'Услуги и цени' },
                 { id: 'portfolio', label: language === 'en' ? 'Featured Portfolio' : 'Реални проекти' },
                 { id: 'why-us', label: language === 'en' ? 'Our Model (Why Us)' : 'Защо нас' },
@@ -143,8 +143,8 @@ export default function Footer({ setActivePage, openQuoteModal }: FooterProps) {
             </h4>
             <p className="text-[11px] text-zinc-500 leading-normal">
               {language === 'en' 
-                ? "Need immediate digital growth? Request Andrey & Rumen's dynamic blueprints today."
-                : 'Имате нужда от уебсайт в Пловдив или цяла България? Поръчайте своя безплатен проект днес.'}
+                ? "Need immediate digital growth? Request Andrey, Rumen & Nikolay's dynamic blueprints today."
+                : 'Имате нужда от уебсайт в Пловдив или цяла България? Поръчайте своя безплатен проект от Андрей, Румен и Николай днес.'}
             </p>
             <button
               onClick={openQuoteModal}
@@ -182,7 +182,7 @@ export default function Footer({ setActivePage, openQuoteModal }: FooterProps) {
             </span>
             <Heart className="w-3 h-3 text-red-500 fill-red-500 inline mx-0.5" />
             <span>
-              {language === 'en' ? 'by Andrey & Rumen.' : 'от Андрей и Румен.'}
+              {language === 'en' ? 'by Andrey, Rumen & Nikolay.' : 'от Андрей, Румен и Николай.'}
             </span>
           </div>
 

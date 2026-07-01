@@ -122,8 +122,8 @@ export default function FAQ() {
               </h4>
               <p className="text-xs text-zinc-500">
                 {language === 'en' 
-                  ? 'Ask Andrey and Rumen directly. We deliver honest guidance.' 
-                  : 'Задайте го на Андрей и Румен лично. Ще Ви отговорим откровено до два часа.'}
+                  ? 'Ask Andrey, Rumen & Nikolay directly. We deliver honest guidance.' 
+                  : 'Тадайте го на Андрей, Румен и Николай лично. Ще Ви отговорим откровено до два часа.'}
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-2 shrink-0 w-full sm:w-auto">

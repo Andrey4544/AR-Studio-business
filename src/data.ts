@@ -55,6 +55,11 @@ export const founders: TeamMember[] = [
     role: 'Founder & Lead Developer',
     bio: 'Rumen translates sophisticated designs into lightning-fast, secure code. He specializes in responsive optimizations, SEO engineering, and seamless digital performance.',
   },
+  {
+    name: 'Nikolay',
+    role: 'All Around Help',
+    bio: 'Nikolay provides comprehensive support across all aspects of AR Studio operations, ensuring seamless project delivery and exceptional client satisfaction.',
+  },
 ];
 
 export const pricingPlans: PricingPlan[] = [

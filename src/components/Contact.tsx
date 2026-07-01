@@ -403,7 +403,7 @@ export default function Contact({ preselectedPlan = '' }: ContactProps) {
                       {language === 'en' ? (
                         <>
                           Thank you, <span className="text-white font-semibold">{formData.name}</span>. 
-                          Andrey &amp; Rumen have received your details for <span className="text-white font-medium font-mono">{formData.businessName || 'your business'}</span>. 
+                          Andrey, Rumen &amp; Nikolay have received your details for <span className="text-white font-medium font-mono">{formData.businessName || 'your business'}</span>. 
                           {formType === 'quote' 
                             ? ' We will review your vision and call you at ' 
                             : ' We are locking your slot and will meet you online on '}
@@ -414,7 +414,7 @@ export default function Contact({ preselectedPlan = '' }: ContactProps) {
                       ) : (
                         <>
                           Благодарим Ви, <span className="text-white font-semibold">{formData.name}</span>. 
-                          Андрей и Румен получиха Вашите данни за <span className="text-white font-medium font-mono">{formData.businessName || 'Вашия бизнес'}</span>. 
+                          Андрей, Румен и Николай получиха Вашите данни за <span className="text-white font-medium font-mono">{formData.businessName || 'Вашия бизнес'}</span>. 
                           {formType === 'quote' 
                             ? ' Ще разгледаме идеята Ви и ще Ви се обадим на ' 
                             : ' Запазваме Вашия час и ще се срещнем онлайн на '}

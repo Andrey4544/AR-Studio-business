@@ -288,6 +288,11 @@ export const dynamicTranslations = {
         role: 'Founder & Lead Designer',
         bio: 'With an eye for luxurious aesthetics and sleek typography, Rumen crafts the custom visuals, animations, and high-conversion client experiences that make AR Studio websites stand out.',
       },
+      {
+        name: 'Nikolay',
+        role: 'All Around Help',
+        bio: 'Nikolay provides comprehensive support across all aspects of AR Studio operations, ensuring seamless project delivery and exceptional client satisfaction.',
+      },
     ],
     pricingPlans: [
       {
@@ -650,6 +655,11 @@ export const dynamicTranslations = {
         name: 'Румен',
         role: 'Основател и главен дизайнер',
         bio: 'С усет към луксозната естетика и изчистената типография, Румен създава визиите, анимациите и преживяванията, които отличават сайтовете на AR Studio.',
+      },
+      {
+        name: 'Николай',
+        role: 'Всестранна помощ',
+        bio: 'Николай предоставя комплексна поддръжка във всички аспекти на операциите на AR Studio, гарантирайки безпроблемна реализация на проекти и изключително задоволство на клиентите.',
       },
     ],
     pricingPlans: [

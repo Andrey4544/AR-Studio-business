@@ -327,8 +327,8 @@ export default function Services({ onQuoteClick }: ServicesProps) {
               </h4>
               <p className="text-zinc-400 text-xs mt-1">
                 {language === 'en' 
-                  ? 'Andrey & Rumen offer direct architecture calls to draft bespoke designs.' 
-                  : 'Андрей и Румен предлагат директни безплатни консултации за обсъждане на Вашите изисквания.'}
+                  ? 'Andrey, Rumen & Nikolay offer direct architecture calls to draft bespoke designs.' 
+                  : 'Андрей, Румен и Николай предлагат директни безплатни консултации за обсъждане на Вашите изисквания.'}
               </p>
             </div>
           </div>

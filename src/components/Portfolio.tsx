@@ -41,6 +41,11 @@ const belestateCarouselImages = [
   { src: '/assets/belestate-7.png', alt: 'BelEstateGroup Properties' },
 ];
 
+// Carousel images for CBL Fight Store
+const cblCarouselImages = [
+  { src: '/assets/cbl-1.png', alt: 'CBL Fight Store Hero' },
+];
+
 interface PortfolioProps {
   onQuoteClick: () => void;
 }
@@ -97,6 +102,7 @@ export default function Portfolio({ onQuoteClick }: PortfolioProps) {
           let carouselImages = tomatoCarouselImages;
           if (project.id === 'teddys-bar-grill') carouselImages = teddysCarouselImages;
           if (project.id === 'belestate-group') carouselImages = belestateCarouselImages;
+          if (project.id === 'cbl-fight-store') carouselImages = cblCarouselImages;
 
           return (
             <div key={project.id} className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-24">

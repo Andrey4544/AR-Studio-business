@@ -479,6 +479,20 @@ export const dynamicTranslations = {
         tags: ['Real Estate', 'Luxury Design', 'Interactive Catalog', 'Lead Generation'],
       },
       {
+        id: 'cbl-fight-store',
+        title: 'CBL Fight Store',
+        category: 'E-commerce Store',
+        imageUrl: 'cbl_fight_store_mockup',
+        highlights: [
+          'Premium Boxing Equipment - High-performance gear for professional athletes',
+          'E-commerce Integration - Seamless shopping experience with secure checkout',
+          'Mobile-First Design - Optimized for shopping on the go',
+          'Dynamic Product Showcase - Interactive galleries for fight gear',
+        ],
+        description: 'A high-end e-commerce platform developed for CBL Fight Store, specializing in premium boxing and Muay Thai equipment. The store features a sleek dark aesthetic, intuitive navigation, and a robust shopping system designed for champions.',
+        tags: ['E-commerce', 'Boxing Gear', 'Luxury Design', 'Muay Thai'],
+      },
+      {
         id: 'tomato-restaurant',
         title: 'Tomato Restaurant',
         category: 'Restaurant & QR Menu Website',
@@ -845,6 +859,20 @@ export const dynamicTranslations = {
         ],
         description: 'Високоефективна платформа за недвижими имоти, разработена за BelEstateGroup. Сайтът разполага с изискана корпоративна идентичност, интерактивни каталози за имоти и инструменти за генериране на запитвания, осигурявайки премиум изживяване за инвеститори и купувачи.',
         tags: ['Недвижими имоти', 'Луксозен дизайн', 'Интерактивен каталог', 'Генериране на запитвания'],
+      },
+      {
+        id: 'cbl-fight-store',
+        title: 'CBL Fight Store',
+        category: 'Онлайн магазин',
+        imageUrl: 'cbl_fight_store_mockup',
+        highlights: [
+          'Премиум боксова екипировка - Висококачествени стоки за професионални атлети',
+          'E-commerce интеграция - Безпроблемно пазаруване и сигурни плащания',
+          'Mobile-First дизайн - Оптимизиран за пазаруване през телефон',
+          'Динамично представяне - Интерактивни галерии за бойна екипировка',
+        ],
+        description: 'Високотехнологична платформа за онлайн търговия, разработена за CBL Fight Store, специализирана в премиум екипировка за бокс и муай тай. Магазинът се отличава с изчистена тъмна естетика, интуитивна навигация и надеждна система за пазаруване, създадена за шампиони.',
+        tags: ['Онлайн магазин', 'Боксови стоки', 'Луксозен дизайн', 'Муай тай'],
       },
       {
         id: 'tomato-restaurant',

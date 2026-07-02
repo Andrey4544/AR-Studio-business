@@ -48,6 +48,7 @@ const cblCarouselImages = [
   { src: '/assets/cbl-3.png', alt: 'CBL Fight Store Products' },
   { src: '/assets/cbl-4.png', alt: 'CBL Fight Store Product Detail' },
   { src: '/assets/cbl-5.png', alt: 'CBL Fight Store Curved Shield' },
+  { src: '/assets/cbl-6.png', alt: 'CBL Fight Store Backpack' },
 ];
 
 interface PortfolioProps {

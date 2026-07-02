@@ -44,6 +44,7 @@ const belestateCarouselImages = [
 // Carousel images for CBL Fight Store
 const cblCarouselImages = [
   { src: '/assets/cbl-1.png', alt: 'CBL Fight Store Hero' },
+  { src: '/assets/cbl-2.png', alt: 'CBL Fight Store Collection' },
 ];
 
 interface PortfolioProps {

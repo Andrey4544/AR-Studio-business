@@ -482,6 +482,7 @@ export const dynamicTranslations = {
         id: 'cbl-fight-store',
         title: 'CBL Fight Store',
         category: 'E-commerce Store',
+        url: 'https://cblfightstore.com',
         imageUrl: 'cbl_fight_store_mockup',
         highlights: [
           'Premium Boxing Equipment - High-performance gear for professional athletes',
@@ -865,6 +866,7 @@ export const dynamicTranslations = {
         id: 'cbl-fight-store',
         title: 'CBL Fight Store',
         category: 'Онлайн магазин',
+        url: 'https://cblfightstore.com',
         imageUrl: 'cbl_fight_store_mockup',
         highlights: [
           'Премиум боксова екипировка - Висококачествени стоки за професионални атлети',

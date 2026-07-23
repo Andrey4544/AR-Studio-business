@@ -107,9 +107,9 @@ export const staticTranslations: { en: TranslationDictionary; bg: TranslationDic
     selectPlan: 'Select a Plan',
     statusAvailable: 'Status: Available for new projects',
 
-    heroTitleHighlight: 'Professional Websites That',
-    heroTitleText: 'Grow Your Business',
-    heroSub: 'Luxurious, custom web design and software engineering for brands that demand complete technical excellence and stunning style.',
+    heroTitleHighlight: 'Bespoke Web Design &',
+    heroTitleText: 'Development in Plovdiv',
+    heroSub: 'Elevate your brand with luxurious, custom web design and professional software engineering. We build high-performance websites that rank on Google and convert visitors into clients.',
 
     featuresSubTitle: 'WHAT WE DELIVER',
     featuresTitle: 'Engineered for Elite Digital Performance',
@@ -183,9 +183,9 @@ export const staticTranslations: { en: TranslationDictionary; bg: TranslationDic
     selectPlan: 'Изберете план',
     statusAvailable: 'Статус: Свободни за нови проекти',
 
-    heroTitleHighlight: 'Професионални уебсайтове, които',
-    heroTitleText: 'развиват бизнеса Ви',
-    heroSub: 'Луксозен, персонализиран уеб дизайн и софтуерно инженерство за брандове, които изискват пълно техническо превъзходство и зашеметяващ стил.',
+    heroTitleHighlight: 'Изработка на уебсайтове &',
+    heroTitleText: 'Уеб дизайн в Пловдив',
+    heroSub: 'Професионална изработка на уебсайтове и луксозен уеб дизайн за Вашия бизнес. Създаваме бързи, SEO оптимизирани и модерни сайтове, които продават.',
 
     featuresSubTitle: 'КАКВО ПРЕДЛАГАМЕ',
     featuresTitle: 'Проектирани за елитно дигитално представяне',

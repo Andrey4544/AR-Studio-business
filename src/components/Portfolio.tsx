@@ -11,15 +11,15 @@ import { useLanguage } from '../context/LanguageContext';
 
 // Carousel images for Tomato Restaurant
 const tomatoCarouselImages = [
-  { src: '/assets/tomato-new.png', alt: 'Tomato Restaurant Mockup' },
-  { src: '/assets/tomato-main-hall.jpg', alt: 'Tomato Main Hall' },
-  { src: '/assets/tomato-garden.jpg', alt: 'Tomato Garden' },
-  { src: '/assets/tomato-bar.jpg', alt: 'Tomato Bar' },
-  { src: '/assets/tomato-event.jpg', alt: 'Tomato Restaurant Event' },
-  { src: '/assets/tomato-gallery.jpg', alt: 'Tomato Restaurant Gallery' },
-  { src: '/assets/tomato-contact.jpg', alt: 'Tomato Restaurant Contact' },
-  { src: '/assets/tomato-reviews.jpg', alt: 'Tomato Customer Reviews' },
-  { src: '/assets/tomato-qr.png', alt: 'Tomato QR Code Menu' },
+  { src: '/assets/tomato-new.png', alt: 'Изработка на уебсайт за Ресторант Tomato Пловдив - Дизайн от AR Studio' },
+  { src: '/assets/tomato-main-hall.jpg', alt: 'Интериор на Ресторант Tomato Пловдив - Уеб дизайн проект' },
+  { src: '/assets/tomato-garden.jpg', alt: 'Градина на Ресторант Tomato Пловдив - Уеб разработка' },
+  { src: '/assets/tomato-bar.jpg', alt: 'Бар на Ресторант Tomato - Професионален уеб дизайн' },
+  { src: '/assets/tomato-event.jpg', alt: 'Събития в Ресторант Tomato - Оптимизиран уебсайт' },
+  { src: '/assets/tomato-gallery.jpg', alt: 'Галерия на Ресторант Tomato - Модерен уеб дизайн' },
+  { src: '/assets/tomato-contact.jpg', alt: 'Контакти на Ресторант Tomato - Изработка от AR Studio' },
+  { src: '/assets/tomato-reviews.jpg', alt: 'Отзиви за Ресторант Tomato - SEO оптимизиран сайт' },
+  { src: '/assets/tomato-qr.png', alt: 'QR Меню за Ресторант Tomato Пловдив - Дигитални решения' },
 ];
 
 // Carousel images for Teddy's Bar and Grill
@@ -31,14 +31,14 @@ const teddysCarouselImages = [
 
 // Carousel images for BelEstateGroup
 const belestateCarouselImages = [
-  { src: '/assets/belestate-8.png', alt: 'BelEstateGroup Hero' },
-  { src: '/assets/belestate-1.png', alt: 'BelEstateGroup Home' },
-  { src: '/assets/belestate-2.png', alt: 'BelEstateGroup Articles' },
-  { src: '/assets/belestate-3.png', alt: 'BelEstateGroup Booking' },
-  { src: '/assets/belestate-4.png', alt: 'BelEstateGroup Contact' },
-  { src: '/assets/belestate-5.png', alt: 'BelEstateGroup Principles' },
-  { src: '/assets/belestate-6.png', alt: 'BelEstateGroup Search' },
-  { src: '/assets/belestate-7.png', alt: 'BelEstateGroup Properties' },
+  { src: '/assets/belestate-8.png', alt: 'Уеб дизайн за недвижими имоти BelEstateGroup - AR Studio' },
+  { src: '/assets/belestate-1.png', alt: 'Начална страница на сайт за имоти BelEstateGroup' },
+  { src: '/assets/belestate-2.png', alt: 'Статии и блог за недвижими имоти - Разработка на сайтове' },
+  { src: '/assets/belestate-3.png', alt: 'Система за резервации на имоти - Софтуерни решения' },
+  { src: '/assets/belestate-4.png', alt: 'Контактна форма за имоти - Уеб разработка Пловдив' },
+  { src: '/assets/belestate-5.png', alt: 'Принципи и ценности на BelEstateGroup - Дизайн проект' },
+  { src: '/assets/belestate-6.png', alt: 'Търсачка за имоти - Функционален уеб дизайн' },
+  { src: '/assets/belestate-7.png', alt: 'Списък с имоти - Оптимизирано потребителско изживяване' },
 ];
 
 // Carousel images for CBL Fight Store

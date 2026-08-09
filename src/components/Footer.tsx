@@ -4,23 +4,18 @@
  */
 
 import React from 'react';
-import { Mail, Phone, MapPin, Heart, ArrowUp, Send, Check } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Mail, Phone, MapPin, Heart, ArrowUp, Send, Facebook, Instagram, Linkedin } from 'lucide-react';
 import Logo from './Logo';
 import { useLanguage } from '../context/LanguageContext';
 
 interface FooterProps {
-  setActivePage: (page: string) => void;
   openQuoteModal: () => void;
 }
 
-export default function Footer({ setActivePage, openQuoteModal }: FooterProps) {
+export default function Footer({ openQuoteModal }: FooterProps) {
   const currentYear = new Date().getFullYear();
   const { language, t } = useLanguage();
-
-  const handleNavClick = (pageId: string) => {
-    setActivePage(pageId);
-    window.scrollTo(0, 0);
-  };
 
   const handleScrollTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -38,9 +33,9 @@ export default function Footer({ setActivePage, openQuoteModal }: FooterProps) {
           
           {/* Column A: Logo / Taglines */}
           <div className="md:col-span-4 flex flex-col gap-6">
-            <div className="cursor-pointer" onClick={() => handleNavClick('home')}>
+            <Link to="/" className="cursor-pointer">
               <Logo size="md" />
-            </div>
+            </Link>
             <p className="text-xs text-zinc-400 leading-relaxed max-w-sm mt-2">
               {language === 'en' 
                 ? 'AR Studio is a premier boutique web design and development team based in Plovdiv, Bulgaria. We architect luxury-grade, ultra-responsive digital products engineered to grow local businesses model by model.'
@@ -51,6 +46,37 @@ export default function Footer({ setActivePage, openQuoteModal }: FooterProps) {
               <span className="flex h-1.5 w-4 rounded-sm bg-gradient-to-b from-white via-green-600 to-red-600 border border-white/10" />
               <span>{language === 'en' ? 'Plovdiv, Bulgaria \u22c5 EU' : 'Пловдив, България \u22c5 ЕС'}</span>
             </div>
+
+            {/* Social Links */}
+            <div className="flex items-center gap-4 pt-4">
+              <a
+                href="https://facebook.com/arstudio"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-lg bg-zinc-900/50 text-zinc-400 hover:text-blue-400 hover:bg-blue-500/10 transition-all"
+                title="Facebook"
+              >
+                <Facebook className="w-4 h-4" />
+              </a>
+              <a
+                href="https://instagram.com/arstudio"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-lg bg-zinc-900/50 text-zinc-400 hover:text-pink-400 hover:bg-pink-500/10 transition-all"
+                title="Instagram"
+              >
+                <Instagram className="w-4 h-4" />
+              </a>
+              <a
+                href="https://linkedin.com/company/ar-studio"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-lg bg-zinc-900/50 text-zinc-400 hover:text-blue-500 hover:bg-blue-500/10 transition-all"
+                title="LinkedIn"
+              >
+                <Linkedin className="w-4 h-4" />
+              </a>
+            </div>
           </div>
 
           {/* Column B: Directories */}
@@ -60,22 +86,23 @@ export default function Footer({ setActivePage, openQuoteModal }: FooterProps) {
             </h4>
             <ul className="space-y-3.5 text-xs sm:text-sm font-sans">
               {[
-                { id: 'home', label: language === 'en' ? 'Home Experience' : 'Начало' },
-                { id: 'about', label: language === 'en' ? 'About Andrey, Rumen & Nikolay' : 'За Андрей, Румен и Николай' },
-                { id: 'services', label: language === 'en' ? 'Services & Pricing' : 'Услуги и цени' },
-                { id: 'portfolio', label: language === 'en' ? 'Featured Portfolio' : 'Реални проекти' },
-                { id: 'why-us', label: language === 'en' ? 'Our Model (Why Us)' : 'Защо нас' },
-                { id: 'testimonials', label: language === 'en' ? 'Customer Reviews' : 'Клиентски отзиви' },
-                { id: 'faq', label: language === 'en' ? 'Frequently Asked Questions' : 'Често задавани въпроси (ЧЗВ)' },
-                { id: 'contact', label: language === 'en' ? 'Direct Board' : 'Контакти' },
+                { path: '/', label: language === 'en' ? 'Home Experience' : 'Начало' },
+                { path: '/za-nas', label: language === 'en' ? 'About Andrey, Rumen & Nikolay' : 'За Андрей, Румен и Николай' },
+                { path: '/uslugi', label: language === 'en' ? 'Services & Pricing' : 'Услуги и цени' },
+                { path: '/portfolio', label: language === 'en' ? 'Featured Portfolio' : 'Реални проекти' },
+                { path: '/zashto-nas', label: language === 'en' ? 'Our Model (Why Us)' : 'Защо нас' },
+                { path: '/otzivy', label: language === 'en' ? 'Customer Reviews' : 'Клиентски отзиви' },
+                { path: '/chzv', label: language === 'en' ? 'Frequently Asked Questions' : 'Често задавани въпроси (ЧЗВ)' },
+                { path: '/kontakti', label: language === 'en' ? 'Direct Board' : 'Контакти' },
+                { path: '/blog', label: language === 'en' ? 'Blog' : 'Блог' },
               ].map((link) => (
-                <li key={link.id}>
-                  <button
-                    onClick={() => handleNavClick(link.id)}
-                    className="hover:text-blue-400 hover:translate-x-1.5 transition-all duration-300 cursor-pointer"
+                <li key={link.path}>
+                  <Link
+                    to={link.path}
+                    className="hover:text-blue-400 hover:translate-x-1.5 transition-all duration-300"
                   >
                     {link.label}
-                  </button>
+                  </Link>
                 </li>
               ))}
             </ul>

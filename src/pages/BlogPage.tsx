@@ -7,6 +7,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PageTransition from '../components/PageTransition';
 import { useLanguage } from '../context/LanguageContext';
+import { usePageMeta } from '../hooks/usePageMeta';
 import { Calendar, ArrowRight } from 'lucide-react';
 
 interface BlogPost {
@@ -52,11 +53,18 @@ const blogPosts: BlogPost[] = [
 export default function BlogPage() {
   const { language } = useLanguage();
 
-  React.useEffect(() => {
-    document.title = language === 'en' 
+  usePageMeta({
+    title: language === 'en' 
       ? 'Blog | AR Studio - Web Design Tips & Insights'
-      : 'Блог | AR Studio - Съвети и инсайти';
-  }, [language]);
+      : 'Блог | AR Studio - Съвети и инсайти',
+    description: language === 'en'
+      ? 'Read our latest blog posts about web design, SEO, and digital marketing for Bulgarian businesses.'
+      : 'Прочетете нашите статии за уеб дизайн, SEO оптимизация и дигитален маркетинг за българския бизнес.',
+    keywords: language === 'en'
+      ? 'blog, web design, SEO, tips, insights'
+      : 'блог, уеб дизайн, SEO, съвети, инсайти',
+    canonical: 'https://ar-studio.site/blog'
+  });
 
   return (
     <PageTransition>

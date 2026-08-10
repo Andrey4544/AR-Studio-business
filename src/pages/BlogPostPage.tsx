@@ -7,6 +7,7 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import PageTransition from '../components/PageTransition';
 import { useLanguage } from '../context/LanguageContext';
+import { usePageMeta } from '../hooks/usePageMeta';
 import { Calendar, ArrowLeft } from 'lucide-react';
 
 interface BlogPost {
@@ -109,11 +110,12 @@ export default function BlogPostPage() {
   const { language } = useLanguage();
   const post = slug ? blogPostsData[slug] : null;
 
-  React.useEffect(() => {
-    if (post) {
-      document.title = `${post.title} | AR Studio Blog`;
-    }
-  }, [post]);
+  usePageMeta({
+    title: post ? `${post.title} | AR Studio Blog` : 'Blog | AR Studio',
+    description: post ? post.excerpt : 'Прочетете нашите статии за уеб дизайн и дигитален маркетинг.',
+    keywords: post ? post.category : 'блог',
+    canonical: post ? `https://ar-studio.site/blog/${slug}` : 'https://ar-studio.site/blog'
+  })
 
   if (!post) {
     return (

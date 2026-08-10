@@ -7,6 +7,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import FloatingSocialButtons from './components/FloatingSocialButtons';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ServicesPage from './pages/ServicesPage';
@@ -92,6 +93,9 @@ export default function App() {
         <Footer
           openQuoteModal={() => openQuoteModalWithPlan('General Partner Brief')}
         />
+
+        {/* Floating Social Buttons */}
+        <FloatingSocialButtons />
 
         <AdminPanel />
       </div>

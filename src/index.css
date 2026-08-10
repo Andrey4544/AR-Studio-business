@@ -22,9 +22,10 @@ body {
   color: #E2E8F0;
   font-family: var(--font-sans);
   overflow-x: hidden;
+  overflow-y: scroll;
   /* Ensure smooth scrolling and prevent jitter */
-  overflow-y: auto;
   -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
 }
 
 /* Custom glassmorphism utilities matching the Immersive UI Design template */

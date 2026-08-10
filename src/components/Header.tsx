@@ -6,7 +6,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, PhoneCall, ArrowUpRight, Globe, Facebook, Instagram, Linkedin } from 'lucide-react';
+import { Menu, X, PhoneCall, ArrowUpRight, Globe, Facebook, Instagram } from 'lucide-react';
 import Logo from './Logo';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -95,7 +95,7 @@ export default function Header({ openQuoteModal }: HeaderProps) {
             {/* Social Links */}
             <div className="hidden md:flex items-center gap-3 px-4 py-2 border-l border-white/5">
               <a
-                href="https://facebook.com/arstudio"
+                href="https://www.facebook.com/share/18n7DfUWJW/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-zinc-400 hover:text-blue-400 transition-colors"
@@ -104,7 +104,7 @@ export default function Header({ openQuoteModal }: HeaderProps) {
                 <Facebook className="w-4 h-4" />
               </a>
               <a
-                href="https://instagram.com/arstudio"
+                href="https://www.instagram.com/arstudio.site?igsh=MWVuejR2ZWVjd3c1cw=="
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-zinc-400 hover:text-pink-400 transition-colors"
@@ -113,13 +113,15 @@ export default function Header({ openQuoteModal }: HeaderProps) {
                 <Instagram className="w-4 h-4" />
               </a>
               <a
-                href="https://linkedin.com/company/ar-studio"
+                href="https://www.tiktok.com/@ar_studio_web?_r=1&_t=ZN-98m3jc1KODD"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-zinc-400 hover:text-blue-500 transition-colors"
-                title="LinkedIn"
+                className="text-zinc-400 hover:text-white transition-colors"
+                title="TikTok"
               >
-                <Linkedin className="w-4 h-4" />
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.68v13.67a2.4 2.4 0 1 1-4.77-1.58A2.4 2.4 0 0 1 9.1 13.46v3.83a6.8 6.8 0 1 0 12.46 4s0-4.07-1.97-4.77z" />
+                </svg>
               </a>
             </div>
 
@@ -129,7 +131,7 @@ export default function Header({ openQuoteModal }: HeaderProps) {
               className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-zinc-900/50 border border-white/10 hover:border-blue-500/30 text-xs font-medium text-zinc-300 hover:text-white transition-all"
             >
               <Globe className="w-3.5 h-3.5" />
-              <span>{language === 'en' ? 'BG' : 'EN'}</span>
+              <span>{language === 'bg' ? 'EN' : 'BG'}</span>
             </button>
 
             {/* CTA Button */}
@@ -160,7 +162,7 @@ export default function Header({ openQuoteModal }: HeaderProps) {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="lg:hidden fixed inset-0 top-16 bg-luxury-black/95 backdrop-blur-md border-b border-white/5"
+            className="lg:hidden fixed inset-0 top-16 bg-luxury-black backdrop-blur-md border-b border-white/5"
           >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-4">
               {navItems.map((item) => (
@@ -181,7 +183,7 @@ export default function Header({ openQuoteModal }: HeaderProps) {
               {/* Mobile Social Links */}
               <div className="flex items-center gap-4 px-4 py-4 border-t border-white/5 mt-4">
                 <a
-                  href="https://facebook.com/arstudio"
+                  href="https://www.facebook.com/share/18n7DfUWJW/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-zinc-400 hover:text-blue-400 transition-colors"
@@ -189,7 +191,7 @@ export default function Header({ openQuoteModal }: HeaderProps) {
                   <Facebook className="w-5 h-5" />
                 </a>
                 <a
-                  href="https://instagram.com/arstudio"
+                  href="https://www.instagram.com/arstudio.site?igsh=MWVuejR2ZWVjd3c1cw=="
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-zinc-400 hover:text-pink-400 transition-colors"
@@ -197,14 +199,25 @@ export default function Header({ openQuoteModal }: HeaderProps) {
                   <Instagram className="w-5 h-5" />
                 </a>
                 <a
-                  href="https://linkedin.com/company/ar-studio"
+                  href="https://www.tiktok.com/@ar_studio_web?_r=1&_t=ZN-98m3jc1KODD"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-zinc-400 hover:text-blue-500 transition-colors"
+                  className="text-zinc-400 hover:text-white transition-colors"
                 >
-                  <Linkedin className="w-5 h-5" />
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.68v13.67a2.4 2.4 0 1 1-4.77-1.58A2.4 2.4 0 0 1 9.1 13.46v3.83a6.8 6.8 0 1 0 12.46 4s0-4.07-1.97-4.77z" />
+                  </svg>
                 </a>
               </div>
+
+              {/* Mobile Language Switcher */}
+              <button
+                onClick={toggleLanguage}
+                className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-zinc-900/50 border border-white/10 hover:border-blue-500/30 text-white font-semibold transition-all"
+              >
+                <Globe className="w-4 h-4" />
+                <span>{language === 'bg' ? 'Switch to English' : 'Смяна на български'}</span>
+              </button>
 
               {/* Mobile CTA */}
               <button

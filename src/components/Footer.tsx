@@ -5,7 +5,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin, Heart, ArrowUp, Send, Facebook, Instagram, Linkedin } from 'lucide-react';
+import { Mail, Phone, MapPin, Heart, ArrowUp, Send, Facebook, Instagram } from 'lucide-react';
 import Logo from './Logo';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -50,7 +50,7 @@ export default function Footer({ openQuoteModal }: FooterProps) {
             {/* Social Links */}
             <div className="flex items-center gap-4 pt-4">
               <a
-                href="https://facebook.com/arstudio"
+                href="https://www.facebook.com/share/18n7DfUWJW/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 rounded-lg bg-zinc-900/50 text-zinc-400 hover:text-blue-400 hover:bg-blue-500/10 transition-all"
@@ -59,7 +59,7 @@ export default function Footer({ openQuoteModal }: FooterProps) {
                 <Facebook className="w-4 h-4" />
               </a>
               <a
-                href="https://instagram.com/arstudio"
+                href="https://www.instagram.com/arstudio.site?igsh=MWVuejR2ZWVjd3c1cw=="
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 rounded-lg bg-zinc-900/50 text-zinc-400 hover:text-pink-400 hover:bg-pink-500/10 transition-all"
@@ -68,13 +68,15 @@ export default function Footer({ openQuoteModal }: FooterProps) {
                 <Instagram className="w-4 h-4" />
               </a>
               <a
-                href="https://linkedin.com/company/ar-studio"
+                href="https://www.tiktok.com/@ar_studio_web?_r=1&_t=ZN-98m3jc1KODD"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 rounded-lg bg-zinc-900/50 text-zinc-400 hover:text-blue-500 hover:bg-blue-500/10 transition-all"
-                title="LinkedIn"
+                className="p-2 rounded-lg bg-zinc-900/50 text-zinc-400 hover:text-white hover:bg-white/10 transition-all"
+                title="TikTok"
               >
-                <Linkedin className="w-4 h-4" />
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.68v13.67a2.4 2.4 0 1 1-4.77-1.58A2.4 2.4 0 0 1 9.1 13.46v3.83a6.8 6.8 0 1 0 12.46 4s0-4.07-1.97-4.77z" />
+                </svg>
               </a>
             </div>
           </div>

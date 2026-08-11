@@ -12,8 +12,10 @@ interface PageMetaProps {
 }
 
 const siteName = 'AR Studio';
-const defaultImage = 'https://www.ar-studio.site/assets/logo.png';
-const defaultCanonical = 'https://www.ar-studio.site/';
+export const SITE_URL = 'https://www.ar-studio.site';
+export const DEFAULT_IMAGE = `${SITE_URL}/assets/logo.png`;
+const defaultImage = DEFAULT_IMAGE;
+const defaultCanonical = `${SITE_URL}/`;
 
 function setMeta(attribute: 'name' | 'property', key: string, content: string) {
   let element = document.querySelector(`meta[${attribute}="${key}"]`) as HTMLMetaElement | null;
@@ -71,7 +73,7 @@ export function usePageMeta({
     const schemaId = 'page-structured-data';
     const existingSchema = document.getElementById(schemaId);
     if (jsonLd) {
-      const script = existingSchema || document.createElement('script');
+      const script = (existingSchema as HTMLScriptElement | null) || document.createElement('script');
       script.id = schemaId;
       script.type = 'application/ld+json';
       script.textContent = JSON.stringify(jsonLd);

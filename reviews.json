@@ -38,5 +38,15 @@
     "rating": 5,
     "status": "approved",
     "timestamp": "2026-08-11T19:26:12.469Z"
+  },
+  {
+    "id": "1786476372469",
+    "name": "AR Studio system test",
+    "role": "Automated verification",
+    "company": "AR Studio",
+    "text": "This is a test review submitted to confirm that the email approval workflow is working correctly.",
+    "rating": 5,
+    "status": "approved",
+    "timestamp": "2026-08-11T19:26:12.469Z"
   }
 ]

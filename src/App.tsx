@@ -9,6 +9,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import FloatingSocialButtons from './components/FloatingSocialButtons';
 import ScrollToTop from './components/ScrollToTop';
+import ConsentAnalytics from './components/ConsentAnalytics';
 const HomePage = React.lazy(() => import('./pages/HomePage'));
 const AboutPage = React.lazy(() => import('./pages/AboutPage'));
 const ServicesPage = React.lazy(() => import('./pages/ServicesPage'));
@@ -63,6 +64,7 @@ export default function App() {
   return (
     <Router>
       <ScrollToTop />
+      <ConsentAnalytics />
       <div className="relative min-h-screen bg-[#050505] overflow-x-hidden flex flex-col justify-between">
         
         {/* Slim Scroll Progress Bar */}

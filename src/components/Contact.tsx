@@ -7,6 +7,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Mail, Phone, Clock, FileCheck, ArrowRight, PhoneCall, Calendar, AlertCircle, Sparkles } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { trackAnalyticsEvent } from '../lib/analytics';
 
 interface ContactProps {
   preselectedPlan?: string;
@@ -29,6 +30,7 @@ export default function Contact({ preselectedPlan = '' }: ContactProps) {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState('');
   const [selectedDay, setSelectedDay] = useState('');
   const [selectedMonth, setSelectedMonth] = useState('');
   const [selectedTime, setSelectedTime] = useState('');
@@ -143,6 +145,7 @@ export default function Contact({ preselectedPlan = '' }: ContactProps) {
     e.preventDefault();
     if (!validate()) return;
 
+    setSubmitError('');
     setIsSubmitting(true);
     try {
       const response = await fetch('/api/contact', {
@@ -163,15 +166,19 @@ export default function Contact({ preselectedPlan = '' }: ContactProps) {
         throw new Error('API request failed');
       }
 
-      setIsSubmitting(false);
+      trackAnalyticsEvent('generate_lead', {
+        lead_source: 'contact_form',
+        form_type: formType,
+      });
       setIsSubmitted(true);
       window.scrollTo({ top: 300, behavior: 'smooth' });
     } catch (err) {
       console.error('Error submitting form:', err);
-      // Fallback gracefully so the website remains perfectly usable offline or during config
+      setSubmitError(language === 'en'
+        ? 'Your request could not be sent. Please call us or try again shortly.'
+        : 'Запитването не можа да бъде изпратено. Моля, обадете ни се или опитайте отново след малко.');
+    } finally {
       setIsSubmitting(false);
-      setIsSubmitted(true);
-      window.scrollTo({ top: 300, behavior: 'smooth' });
     }
   };
 
@@ -187,6 +194,7 @@ export default function Contact({ preselectedPlan = '' }: ContactProps) {
     setSelectedMonth('');
     setSelectedTime('');
     setErrors({});
+    setSubmitError('');
     setIsSubmitted(false);
   };
 
@@ -489,6 +497,11 @@ export default function Contact({ preselectedPlan = '' }: ContactProps) {
                     </div>
 
                     <form onSubmit={handleSubmit} className="space-y-5">
+                      {submitError && (
+                        <div role="alert" className="rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-xs text-red-200">
+                          {submitError}
+                        </div>
+                      )}
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                         
                         {/* Name input */}

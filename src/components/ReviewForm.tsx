@@ -7,6 +7,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, Star, Send, CheckCircle2, AlertCircle } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { trackAnalyticsEvent } from '../lib/analytics';
 
 interface ReviewFormProps {
   isOpen: boolean;
@@ -91,6 +92,10 @@ export default function ReviewForm({ isOpen, onClose, onSuccess }: ReviewFormPro
       });
       
       if (response.ok) {
+        trackAnalyticsEvent('submit_review', {
+          review_rating: rating,
+          submission_type: 'moderated_website_review',
+        });
         setIsSuccess(true);
         setTimeout(() => {
           onSuccess();

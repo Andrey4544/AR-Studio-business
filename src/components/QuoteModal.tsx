@@ -7,6 +7,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, Check, ArrowRight, Award, Sparkles } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { trackAnalyticsEvent } from '../lib/analytics';
 
 interface QuoteModalProps {
   isOpen: boolean;
@@ -24,6 +25,7 @@ export default function QuoteModal({ isOpen, onClose }: QuoteModalProps) {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   React.useEffect(() => {
     if (isOpen) {
@@ -55,6 +57,7 @@ export default function QuoteModal({ isOpen, onClose }: QuoteModalProps) {
     e.preventDefault();
     if (!validate()) return;
 
+    setSubmitError('');
     setIsSubmitting(true);
     try {
       const response = await fetch('/api/quote', {
@@ -74,10 +77,11 @@ export default function QuoteModal({ isOpen, onClose }: QuoteModalProps) {
       if (!response.ok) {
         throw new Error('API request failed');
       }
-    } catch (err) {
-      console.error('Error submitting quote:', err);
-    } finally {
-      setIsSubmitting(false);
+
+      trackAnalyticsEvent('generate_lead', {
+        lead_source: 'quote_modal',
+        selected_plan: plan,
+      });
       setIsSubmitted(true);
       setTimeout(() => {
         setIsSubmitted(false);
@@ -87,6 +91,13 @@ export default function QuoteModal({ isOpen, onClose }: QuoteModalProps) {
         setDescription('');
         onClose();
       }, 3500);
+    } catch (err) {
+      console.error('Error submitting quote:', err);
+      setSubmitError(language === 'en'
+        ? 'Your quote request could not be sent. Please try again or call us directly.'
+        : 'Запитването за оферта не можа да бъде изпратено. Опитайте отново или ни се обадете директно.');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -168,6 +179,11 @@ export default function QuoteModal({ isOpen, onClose }: QuoteModalProps) {
                   </div>
 
                   <form onSubmit={handleSubmit} className="space-y-4">
+                    {submitError && (
+                      <div role="alert" className="rounded-lg border border-red-500/30 bg-red-500/10 px-3 py-2.5 text-xs text-red-200">
+                        {submitError}
+                      </div>
+                    )}
                     
                     {/* Name */}
                     <div className="flex flex-col text-left">

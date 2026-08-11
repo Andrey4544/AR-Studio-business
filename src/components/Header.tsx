@@ -92,46 +92,14 @@ export default function Header({ openQuoteModal }: HeaderProps) {
 
           {/* Action Call / Contact info / Call to action */}
           <div className="flex items-center gap-2 sm:gap-4">
-            {/* Elegant Language Switcher Pill - Now visible on mobile too */}
+            {/* Elegant Language Switcher Pill - Hidden on mobile to save space */}
             <button
               onClick={toggleLanguage}
-              className="flex items-center gap-2 px-2 py-1.5 sm:px-3 rounded-full bg-zinc-900/50 border border-white/10 hover:border-blue-500/30 text-[10px] sm:text-xs font-medium text-zinc-300 hover:text-white transition-all"
+              className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-zinc-900/50 border border-white/10 hover:border-blue-500/30 text-xs font-medium text-zinc-300 hover:text-white transition-all"
             >
-              <Globe className="w-3 sm:w-3.5 h-3 sm:h-3.5" />
-              <span>{language === 'bg' ? 'Български' : 'English'}</span>
+              <Globe className="w-3.5 h-3.5" />
+              <span>{language === 'bg' ? 'BG' : 'EN'}</span>
             </button>
-            {/* Social Links */}
-            <div className="hidden md:flex items-center gap-3 px-4 py-2 border-l border-white/5">
-              <a
-                href="https://www.facebook.com/share/18n7DfUWJW/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-zinc-400 hover:text-blue-400 transition-colors"
-                title="Facebook"
-              >
-                <Facebook className="w-4 h-4" />
-              </a>
-              <a
-                href="https://www.instagram.com/arstudio.site?igsh=MWVuejR2ZWVjd3c1cw=="
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-zinc-400 hover:text-pink-400 transition-colors"
-                title="Instagram"
-              >
-                <Instagram className="w-4 h-4" />
-              </a>
-              <a
-                href="https://www.tiktok.com/@ar_studio_web?_r=1&_t=ZN-98m3jc1KODD"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-zinc-400 hover:text-white transition-colors"
-                title="TikTok"
-              >
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.68v13.67a2.4 2.4 0 1 1-4.77-1.58A2.4 2.4 0 0 1 9.1 13.46v3.83a6.8 6.8 0 1 0 12.46 4s0-4.07-1.97-4.77z" />
-                </svg>
-              </a>
-            </div>
 
 
 
@@ -206,7 +174,7 @@ export default function Header({ openQuoteModal }: HeaderProps) {
                   className="text-zinc-400 hover:text-white transition-colors"
                 >
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.68v13.67a2.4 2.4 0 1 1-4.77-1.58A2.4 2.4 0 0 1 9.1 13.46v3.83a6.8 6.8 0 1 0 12.46 4s0-4.07-1.97-4.77z" />
+                    <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.06 3.42-.01 6.83-.02 10.25-.03 1.28-.31 2.59-.97 3.69-1.32 2.2-3.84 3.53-6.39 3.54-2.52.03-4.97-1.24-6.13-3.48-1.23-2.3-1.07-5.32.49-7.41 1.43-1.92 3.84-2.9 6.19-2.56.03-1.49-.02-2.98-.03-4.48-2.48-.36-5.02.29-6.96 1.87-2.3 1.82-3.5 4.88-3.06 7.82.46 3.48 3.12 6.46 6.56 7.18 3.5.76 7.33-1.08 8.84-4.3.7-1.5.81-3.21.78-4.87-.02-4.58-.01-9.17-.02-13.75z" />
                   </svg>
                 </a>
               </div>
@@ -217,7 +185,7 @@ export default function Header({ openQuoteModal }: HeaderProps) {
                 className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-zinc-900/50 border border-white/10 hover:border-blue-500/30 text-white font-semibold transition-all"
               >
                 <Globe className="w-4 h-4" />
-                <span>{language === 'bg' ? 'Български' : 'English'}</span>
+                <span>{language === 'bg' ? 'BG' : 'EN'}</span>
               </button>
 
               {/* Mobile CTA */}

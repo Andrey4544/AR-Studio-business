@@ -8,47 +8,10 @@ import { Link } from 'react-router-dom';
 import PageTransition from '../components/PageTransition';
 import { useLanguage } from '../context/LanguageContext';
 import { usePageMeta } from '../hooks/usePageMeta';
+import { getBlogPostsList } from '../data/blogData';
 import { Calendar, ArrowRight } from 'lucide-react';
 
-interface BlogPost {
-  id: string;
-  slug: string;
-  title: string;
-  excerpt: string;
-  date: string;
-  category: string;
-  readTime: string;
-}
-
-const blogPosts: BlogPost[] = [
-  {
-    id: '1',
-    slug: 'kolko-struva-izrabotka-na-sait',
-    title: 'Колко струва изработката на уебсайт в България през 2026?',
-    excerpt: 'Разберете реалните цени за професионална изработка на сайт. Анализ на пазара и какво получавате за парите си.',
-    date: '2026-08-08',
-    category: 'Ценообразуване',
-    readTime: '5 мин'
-  },
-  {
-    id: '2',
-    slug: '5-neshta-koito-vseki-nov-biznes-sait-trjabva-da-pritezava',
-    title: '5 неща, които всеки нов бизнес сайт трябва да притежава',
-    excerpt: 'Ключови функции, които трябва да има вашия сайт, за да привлече клиенти и да конвертира посетители.',
-    date: '2026-08-07',
-    category: 'Ръководства',
-    readTime: '7 мин'
-  },
-  {
-    id: '3',
-    slug: 'restorant-plovdiv-digitalno-menu-i-sait',
-    title: 'Защо вашият ресторант в Пловдив се нуждае от дигитално меню и собствен сайт?',
-    excerpt: 'Как модерният ресторант привлича клиенти онлайн. Практически съвети за хотели и заведения.',
-    date: '2026-08-06',
-    category: 'Индустрия',
-    readTime: '6 мин'
-  }
-];
+const blogPosts = getBlogPostsList();
 
 export default function BlogPage() {
   const { language } = useLanguage();
@@ -56,13 +19,13 @@ export default function BlogPage() {
   usePageMeta({
     title: language === 'en' 
       ? 'Blog | AR Studio - Web Design Tips & Insights'
-      : 'Блог | AR Studio - Съвети и инсайти',
+      : 'Блог | AR Studio - Съвети и инсайти за уеб дизайн и SEO',
     description: language === 'en'
-      ? 'Read our latest blog posts about web design, SEO, and digital marketing for Bulgarian businesses.'
-      : 'Прочетете нашите статии за уеб дизайн, SEO оптимизация и дигитален маркетинг за българския бизнес.',
+      ? 'Read our latest blog posts about web design, SEO optimization, and digital marketing for Bulgarian businesses. Learn about website development, pricing, and industry tips.'
+      : 'Прочетете нашите статии за уеб дизайн, SEO оптимизация и дигитален маркетинг за българския бизнес. Научете за изработка на сайтове, цени и индустриални съвети.',
     keywords: language === 'en'
-      ? 'blog, web design, SEO, tips, insights'
-      : 'блог, уеб дизайн, SEO, съвети, инсайти',
+      ? 'blog, web design, SEO, tips, insights, website development, web design tips'
+      : 'блог, уеб дизайн, SEO, съвети, инсайти, изработка на сайтове, уеб дизайн съвети',
     canonical: 'https://ar-studio.site/blog'
   });
 

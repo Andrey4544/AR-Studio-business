@@ -4,6 +4,7 @@
  */
 
 import React from 'react';
+import { motion } from 'motion/react';
 import * as Icons from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -18,7 +19,13 @@ export default function Features() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-20">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: '-100px' }}
+          className="text-center max-w-3xl mx-auto mb-20"
+        >
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 mb-4">
             <Icons.Sparkles className="w-3.5 h-3.5 text-blue-400" />
             <span className="text-[10px] font-mono tracking-widest uppercase text-blue-400 font-semibold">
@@ -45,7 +52,7 @@ export default function Features() {
           <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
             {t('featuresDesc')}
           </p>
-        </div>
+        </motion.div>
 
         {/* Feature Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -54,8 +61,12 @@ export default function Features() {
             const IconComponent = (Icons as any)[feature.iconName] || Icons.HelpCircle;
 
             return (
-              <div
+              <motion.div
                 key={feature.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                viewport={{ once: true, margin: '-50px' }}
                 className="group relative rounded-2xl glass-panel p-8 pl-10 border border-white/5 transition-all duration-300 hover:border-blue-500/20 hover:bg-zinc-950/40 hover:translate-y-[-4px] overflow-hidden"
               >
                 {/* Subtle top left neon light on hover */}
@@ -79,7 +90,7 @@ export default function Features() {
                 <div className="absolute bottom-4 right-6 text-sm font-mono font-bold text-zinc-900/30 select-none pointer-events-none group-hover:text-blue-900/10 transition-colors duration-300">
                   0{idx + 1}
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>

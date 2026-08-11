@@ -8,114 +8,60 @@ import { useParams, Link } from 'react-router-dom';
 import PageTransition from '../components/PageTransition';
 import { useLanguage } from '../context/LanguageContext';
 import { usePageMeta } from '../hooks/usePageMeta';
+import { getBlogPostBySlug } from '../data/blogData';
 import { Calendar, ArrowLeft } from 'lucide-react';
-
-interface BlogPost {
-  slug: string;
-  title: string;
-  date: string;
-  category: string;
-  readTime: string;
-  author: string;
-  content: string;
-  excerpt: string;
-}
-
-const blogPostsData: { [key: string]: BlogPost } = {
-  'kolko-struva-izrabotka-na-sait': {
-    slug: 'kolko-struva-izrabotka-na-sait',
-    title: 'Колко струва изработката на уебсайт в България през 2026?',
-    date: '2026-08-08',
-    category: 'Ценообразуване',
-    readTime: '5 мин',
-    author: 'Андрей',
-    excerpt: 'Разберете реалните цени за професионална изработка на сайт.',
-    content: `
-      <h2>Реалните цени на пазара</h2>
-      <p>Когато търсите уебсайт за вашия бизнес, един от първите въпроси е "Колко ще струва?". Отговорът зависи от много фактори, но ние ще ви помогнем да разберете какво е справедливо.</p>
-      
-      <h3>Ценови диапазони в България</h3>
-      <ul>
-        <li><strong>Лендинг страница:</strong> €200-500 - Идеално за стартъпи и малки бизнеси</li>
-        <li><strong>Бизнес сайт (5-10 страници):</strong> €400-1000 - За ресторанти, хотели, адвокати</li>
-        <li><strong>Онлайн магазин:</strong> €800-2000 - За е-комерс и продажби</li>
-        <li><strong>Персонализирана система:</strong> €2000+ - За комплексни решения</li>
-      </ul>
-
-      <h3>Какво влияе на цената?</h3>
-      <p>Дизайнът, функционалността, SEO оптимизацията и поддръжката - всичко това влияе на крайната цена. В AR Studio ние предлагаме прозрачно ценообразуване без скрити разходи.</p>
-
-      <h3>Инвестиция или разход?</h3>
-      <p>Помислете за сайта като инвестиция, която ще генерира нови клиенти. Добър сайт може да се окупи в първите 3-6 месеца чрез нови запитвания и продажби.</p>
-    `
-  },
-  '5-neshta-koito-vseki-nov-biznes-sait-trjabva-da-pritezava': {
-    slug: '5-neshta-koito-vseki-nov-biznes-sait-trjabva-da-pritezava',
-    title: '5 неща, които всеки нов бизнес сайт трябва да притежава',
-    date: '2026-08-07',
-    category: 'Ръководства',
-    readTime: '7 мин',
-    author: 'Румен',
-    excerpt: 'Ключови функции, които трябва да има вашия сайт.',
-    content: `
-      <h2>Основни елементи на успешния бизнес сайт</h2>
-      
-      <h3>1. Бързо зареждане</h3>
-      <p>Посетителите напускат сайтовете, които се зареждат повече от 3 секунди. Убедете се, че вашия сайт е оптимизиран за скорост.</p>
-
-      <h3>2. Мобилна адаптивност</h3>
-      <p>70% от трафика идва от мобилни устройства. Вашия сайт трябва да изглежда перфектно на телефон.</p>
-
-      <h3>3. Ясен Call-to-Action</h3>
-      <p>Посетителите трябва да знаят точно какво да направят - да позвонят, да напишат имейл или да попълнят форма.</p>
-
-      <h3>4. SEO оптимизация</h3>
-      <p>Без SEO, никой няма да намери вашия сайт в Google. Включете релевантни ключови думи и оптимизирайте метаданните.</p>
-
-      <h3>5. Контактна информация</h3>
-      <p>Направете лесно за клиентите да се свържат с вас - телефон, имейл, форма за контакт.</p>
-    `
-  },
-  'restorant-plovdiv-digitalno-menu-i-sait': {
-    slug: 'restorant-plovdiv-digitalno-menu-i-sait',
-    title: 'Защо вашият ресторант в Пловдив се нуждае от дигитално меню и собствен сайт?',
-    date: '2026-08-06',
-    category: 'Индустрия',
-    readTime: '6 мин',
-    author: 'Андрей',
-    excerpt: 'Как модерният ресторант привлича клиенти онлайн.',
-    content: `
-      <h2>Дигиталната трансформация на ресторантите</h2>
-      
-      <h3>Защо е важно дигиталното меню?</h3>
-      <p>Гостите могат да видят вашето меню преди да дойдат. Това означава повече резервации и по-добра подготовка.</p>
-
-      <h3>Собствен сайт срещу Facebook страница</h3>
-      <p>Facebook е добро начало, но собствен сайт ви дава пълен контрол и по-добра видимост в Google.</p>
-
-      <h3>Онлайн резервации</h3>
-      <p>Позволете на клиентите да резервират маса директно от вашия сайт. Това увеличава броя на гостите.</p>
-
-      <h3>Отзиви и рейтинги</h3>
-      <p>Добрите отзиви в Google привличат нови клиенти. Насърчавайте гостите да оставят мнение.</p>
-
-      <h3>Примери от Пловдив</h3>
-      <p>Ресторант Tomato и други успешни заведения в Пловдив вече имат модерни сайтове и дигитални менюта, което им помага да привличат повече клиенти.</p>
-    `
-  }
-};
 
 export default function BlogPostPage() {
   const { slug } = useParams<{ slug: string }>();
   const { language } = useLanguage();
-  const post = slug ? blogPostsData[slug] : null;
+  const post = slug ? getBlogPostBySlug(slug) : null;
 
+  // Generate SEO meta tags
   usePageMeta({
     title: post ? `${post.title} | AR Studio Blog` : 'Blog | AR Studio',
-    description: post ? post.excerpt : 'Прочетете нашите статии за уеб дизайн и дигитален маркетинг.',
-    keywords: post ? post.category : 'блог',
+    description: post ? (language === 'en' ? post.descriptionEn : post.description) : 'Прочетете нашите статии за уеб дизайн и дигитален маркетинг.',
+    keywords: post ? (language === 'en' ? post.keywordsEn : post.keywords) : 'блог',
     canonical: post ? `https://ar-studio.site/blog/${slug}` : 'https://ar-studio.site/blog'
-  })
+  });
+
+  // Add Article schema for SEO
+  React.useEffect(() => {
+    if (post) {
+      const articleSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'BlogPosting',
+        'headline': post.title,
+        'description': language === 'en' ? post.descriptionEn : post.description,
+        'image': post.ogImage || 'https://ar-studio.site/assets/logo.png',
+        'datePublished': post.date,
+        'author': {
+          '@type': 'Person',
+          'name': post.author
+        },
+        'publisher': {
+          '@type': 'Organization',
+          'name': 'AR Studio',
+          'logo': {
+            '@type': 'ImageObject',
+            'url': 'https://ar-studio.site/assets/logo.png'
+          }
+        },
+        'mainEntityOfPage': {
+          '@type': 'WebPage',
+          '@id': `https://ar-studio.site/blog/${post.slug}`
+        }
+      };
+
+      let script = document.querySelector('script[data-article-schema]');
+      if (!script) {
+        script = document.createElement('script');
+        script.setAttribute('type', 'application/ld+json');
+        script.setAttribute('data-article-schema', 'true');
+        document.head.appendChild(script);
+      }
+      script.textContent = JSON.stringify(articleSchema);
+    }
+  }, [post, language]);
 
   if (!post) {
     return (

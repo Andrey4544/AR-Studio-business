@@ -9,7 +9,7 @@
           "value": "ar-studio-business.vercel.app"
         }
       ],
-      "destination": "https://ar-studio.site/$1",
+      "destination": "https://www.ar-studio.site/$1",
       "permanent": true
     }
   ],

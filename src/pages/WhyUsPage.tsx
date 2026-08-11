@@ -13,7 +13,7 @@ export default function WhyUsPage() {
     title: 'Защо нас | AR Studio - Преимущества и предложение',
     description: 'Защо да изберете AR Studio? Бързо, качествено и достъпно. Без авансово плащане, 100% гарантия и дългосрочна поддръжка.',
     keywords: 'защо нас, преимущества, качество, цена, гарантия',
-    canonical: 'https://ar-studio.site/zashto-nas'
+    canonical: 'https://www.ar-studio.site/zashto-nas'
   });
 
   return (

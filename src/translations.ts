@@ -132,7 +132,7 @@ export const staticTranslations: { en: TranslationDictionary; bg: TranslationDic
 
     testimonialsSubTitle: 'TESTIMONIALS',
     testimonialsTitle: 'What Our High-Performance Clients Say',
-    testimonialsDesc: 'We pride ourselves on 100% positive reviews and long-term partnerships with leading Bulgarian brands.',
+    testimonialsDesc: 'Read verified feedback from clients who choose to publish their experience with AR Studio.',
 
     contactSubTitle: 'GET IN TOUCH',
     contactTitle: "Let's Craft Your High-End Website Together",
@@ -208,7 +208,7 @@ export const staticTranslations: { en: TranslationDictionary; bg: TranslationDic
 
     testimonialsSubTitle: 'ОТЗИВИ ОТ КЛИЕНТИ',
     testimonialsTitle: 'Какво казват нашите доволни клиенти',
-    testimonialsDesc: 'Гордеем се със 100% положителни отзиви и дългосрочни партньорства с водещи български марки и заведения.',
+    testimonialsDesc: 'Прочетете проверена обратна връзка от клиенти, които изберат да публикуват своя опит с AR Studio.',
 
     contactSubTitle: 'СВЪРЖЕТЕ СЕ С НАС',
     contactTitle: 'Нека създадем Вашия премиум уебсайт заедно',
@@ -558,32 +558,7 @@ export const dynamicTranslations = {
         description: 'Absolute mutual trust. You make zero upfront commitments or payments until we present the final, completed website design and you are fully thrilled with it.',
       },
     ],
-    testimonials: [
-      {
-        id: '2',
-        name: 'Maria Ivanova',
-        role: 'Creative Director',
-        company: 'Aura Beauty Salon',
-        text: 'Working with Andrey and Rumen was an absolute dream. Direct, quick communication with zero corporate jargon. They combined our website design and social media management for a very affordable monthly rate. High-end, premium luxury appearance that our clients constantly compliment.',
-        rating: 5,
-      },
-      {
-        id: '3',
-        name: 'Dimitar Vasilev',
-        role: 'Founder',
-        company: 'Vasilev Legal Partners',
-        text: 'Excellent work from these ambitious young Bulgarian professionals. They rebuilt our old lawyer agency website, establishing a highly polished digital legal brand. Highly responsive on mobile and perfectly SEO optimized. Andrey understood our brand guidelines immediately.',
-        rating: 5,
-      },
-      {
-        id: '4',
-        name: 'Elena Petrova',
-        role: 'Manager',
-        company: 'Boutique Hotel Old Plovdiv',
-        text: 'AR Studio is remarkably fast. Our booking request rates rose significantly after the luxury dark-theme landing page went live. They manage all weekly updates and hosting security for a very low monthly fee. Highly recommend Andrey & Rumen for any Bulgarian business.',
-        rating: 5,
-      },
-    ],
+    testimonials: [],
     faqItems: [
       {
         id: 'faq-1',
@@ -942,32 +917,7 @@ export const dynamicTranslations = {
         description: 'Пълно взаимно доверие. Не плащате нищо авансово, докато не прегледате завършения сайт и не сте напълно доволни.',
       },
     ],
-    testimonials: [
-      {
-        id: '2',
-        name: 'Мария Иванова',
-        role: 'Криейтив директор',
-        company: 'Салон за красота Aura',
-        text: 'Работата с Андрей и Румен беше мечта. Директна комуникация без излишни усложнения. Комбинираха сайта ни с управление на социалните мрежи на страхотна цена. Визията е луксозна и клиентите постоянно ни правят комплименти.',
-        rating: 5,
-      },
-      {
-        id: '3',
-        name: 'Димитър Василев',
-        role: 'Основател',
-        company: 'Адвокатска кантора Василев',
-        text: 'Отлична работа от тези амбициозни млади професионалисти. Изградиха наново сайта ни, създавайки сериозен дигитален бранд. Сайтът е много бърз и перфектно оптимизиран за Google. Андрей разбра визията ни веднага.',
-        rating: 5,
-      },
-      {
-        id: '4',
-        name: 'Елена Петрова',
-        role: 'Мениджър',
-        company: 'Бутик Хотел Стария Пловдив',
-        text: 'AR Studio са забележително бързи. Запитванията ни за резервации се увеличиха значително след пускането на новия сайт. Те управляват и цялата техническа част и сигурност. Силно препоръчвам Андрей и Румен!',
-        rating: 5,
-      },
-    ],
+    testimonials: [],
     faqItems: [
       {
         id: 'faq-1',

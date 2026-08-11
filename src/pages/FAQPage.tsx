@@ -13,7 +13,7 @@ export default function FAQPage() {
     title: 'ЧЗВ | AR Studio - Често задавани въпроси',
     description: 'Отговори на често задавани въпроси за услугите, цените и процеса на работа с AR Studio.',
     keywords: 'ЧЗВ, въпроси, отговори, процес, цена, срок',
-    canonical: 'https://ar-studio.site/chzv'
+    canonical: 'https://www.ar-studio.site/chzv'
   });
 
   return (

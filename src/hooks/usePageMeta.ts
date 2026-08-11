@@ -1,8 +1,3 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
-
 import { useEffect } from 'react';
 
 interface PageMetaProps {
@@ -11,41 +6,46 @@ interface PageMetaProps {
   keywords?: string;
   ogImage?: string;
   canonical?: string;
+  ogType?: 'website' | 'article';
+  noIndex?: boolean;
+}
+
+const siteName = 'AR Studio';
+const defaultImage = 'https://www.ar-studio.site/assets/logo.png';
+const defaultCanonical = 'https://www.ar-studio.site/';
+
+function setMeta(attribute: 'name' | 'property', key: string, content: string) {
+  let element = document.querySelector(`meta[${attribute}="${key}"]`) as HTMLMetaElement | null;
+
+  if (!element) {
+    element = document.createElement('meta');
+    element.setAttribute(attribute, key);
+    document.head.appendChild(element);
+  }
+
+  element.setAttribute('content', content);
 }
 
 export function usePageMeta({
   title,
   description,
   keywords,
-  ogImage = 'https://ar-studio.site/assets/logo.png',
-  canonical = 'https://ar-studio.site',
+  ogImage = defaultImage,
+  canonical = defaultCanonical,
+  ogType = 'website',
+  noIndex = false,
 }: PageMetaProps) {
   useEffect(() => {
-    // Update title
     document.title = title;
 
-    // Update meta description
-    let metaDescription = document.querySelector('meta[name="description"]');
-    if (!metaDescription) {
-      metaDescription = document.createElement('meta');
-      metaDescription.setAttribute('name', 'description');
-      document.head.appendChild(metaDescription);
-    }
-    metaDescription.setAttribute('content', description);
+    setMeta('name', 'description', description);
+    setMeta('name', 'robots', noIndex ? 'noindex, nofollow' : 'index, follow');
 
-    // Update keywords
     if (keywords) {
-      let metaKeywords = document.querySelector('meta[name="keywords"]');
-      if (!metaKeywords) {
-        metaKeywords = document.createElement('meta');
-        metaKeywords.setAttribute('name', 'keywords');
-        document.head.appendChild(metaKeywords);
-      }
-      metaKeywords.setAttribute('content', keywords);
+      setMeta('name', 'keywords', keywords);
     }
 
-    // Update canonical
-    let canonicalLink = document.querySelector('link[rel="canonical"]');
+    let canonicalLink = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
     if (!canonicalLink) {
       canonicalLink = document.createElement('link');
       canonicalLink.setAttribute('rel', 'canonical');
@@ -53,37 +53,17 @@ export function usePageMeta({
     }
     canonicalLink.setAttribute('href', canonical);
 
-    // Update OG tags
-    let ogTitle = document.querySelector('meta[property="og:title"]');
-    if (!ogTitle) {
-      ogTitle = document.createElement('meta');
-      ogTitle.setAttribute('property', 'og:title');
-      document.head.appendChild(ogTitle);
-    }
-    ogTitle.setAttribute('content', title);
+    setMeta('property', 'og:type', ogType);
+    setMeta('property', 'og:title', title);
+    setMeta('property', 'og:description', description);
+    setMeta('property', 'og:image', ogImage);
+    setMeta('property', 'og:url', canonical);
+    setMeta('property', 'og:site_name', siteName);
+    setMeta('property', 'og:locale', 'bg_BG');
 
-    let ogDescription = document.querySelector('meta[property="og:description"]');
-    if (!ogDescription) {
-      ogDescription = document.createElement('meta');
-      ogDescription.setAttribute('property', 'og:description');
-      document.head.appendChild(ogDescription);
-    }
-    ogDescription.setAttribute('content', description);
-
-    let ogImageTag = document.querySelector('meta[property="og:image"]');
-    if (!ogImageTag) {
-      ogImageTag = document.createElement('meta');
-      ogImageTag.setAttribute('property', 'og:image');
-      document.head.appendChild(ogImageTag);
-    }
-    ogImageTag.setAttribute('content', ogImage);
-
-    let ogUrl = document.querySelector('meta[property="og:url"]');
-    if (!ogUrl) {
-      ogUrl = document.createElement('meta');
-      ogUrl.setAttribute('property', 'og:url');
-      document.head.appendChild(ogUrl);
-    }
-    ogUrl.setAttribute('content', canonical);
-  }, [title, description, keywords, ogImage, canonical]);
+    setMeta('name', 'twitter:card', 'summary_large_image');
+    setMeta('name', 'twitter:title', title);
+    setMeta('name', 'twitter:description', description);
+    setMeta('name', 'twitter:image', ogImage);
+  }, [title, description, keywords, ogImage, canonical, ogType, noIndex]);
 }

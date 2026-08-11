@@ -9,16 +9,17 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import FloatingSocialButtons from './components/FloatingSocialButtons';
 import ScrollToTop from './components/ScrollToTop';
-import HomePage from './pages/HomePage';
-import AboutPage from './pages/AboutPage';
-import ServicesPage from './pages/ServicesPage';
-import PortfolioPage from './pages/PortfolioPage';
-import WhyUsPage from './pages/WhyUsPage';
-import TestimonialsPage from './pages/TestimonialsPage';
-import ContactPage from './pages/ContactPage';
-import FAQPage from './pages/FAQPage';
-import BlogPage from './pages/BlogPage';
-import BlogPostPage from './pages/BlogPostPage';
+const HomePage = React.lazy(() => import('./pages/HomePage'));
+const AboutPage = React.lazy(() => import('./pages/AboutPage'));
+const ServicesPage = React.lazy(() => import('./pages/ServicesPage'));
+const PortfolioPage = React.lazy(() => import('./pages/PortfolioPage'));
+const WhyUsPage = React.lazy(() => import('./pages/WhyUsPage'));
+const TestimonialsPage = React.lazy(() => import('./pages/TestimonialsPage'));
+const ContactPage = React.lazy(() => import('./pages/ContactPage'));
+const FAQPage = React.lazy(() => import('./pages/FAQPage'));
+const BlogPage = React.lazy(() => import('./pages/BlogPage'));
+const BlogPostPage = React.lazy(() => import('./pages/BlogPostPage'));
+const WebDesignPlovdivPage = React.lazy(() => import('./pages/WebDesignPlovdivPage'));
 
 
 export default function App() {
@@ -82,10 +83,14 @@ export default function App() {
 
         {/* Main Content Area with routing */}
         <main className="flex-grow">
+          <React.Suspense
+            fallback={<div className="min-h-[55vh] flex items-center justify-center text-sm text-zinc-400">Loading AR Studio…</div>}
+          >
           <Routes>
             <Route path="/" element={<HomePage openQuoteModal={openQuoteModalWithPlan} />} />
             <Route path="/za-nas" element={<AboutPage />} />
             <Route path="/uslugi" element={<ServicesPage openQuoteModal={openQuoteModalWithPlan} />} />
+            <Route path="/web-design-plovdiv" element={<WebDesignPlovdivPage openQuoteModal={openQuoteModalWithPlan} />} />
             <Route path="/portfolio" element={<PortfolioPage openQuoteModal={openQuoteModalWithPlan} />} />
             <Route path="/zashto-nas" element={<WhyUsPage />} />
             <Route path="/otzivy" element={<TestimonialsPage />} />
@@ -94,6 +99,7 @@ export default function App() {
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/blog/:slug" element={<BlogPostPage />} />
           </Routes>
+          </React.Suspense>
         </main>
 
         {/* Persistent Premium Footer */}

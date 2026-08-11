@@ -17,16 +17,16 @@ export default function BlogPage() {
   const { language } = useLanguage();
 
   usePageMeta({
-    title: language === 'en' 
-      ? 'Blog | AR Studio - Web Design Tips & Insights'
-      : 'Блог | AR Studio - Съвети и инсайти за уеб дизайн и SEO',
+    title: language === 'en'
+      ? 'Web Design, SEO & Business Growth Blog | AR Studio Plovdiv'
+      : 'Блог за уеб дизайн, SEO и растеж на бизнеса | AR Studio Пловдив',
     description: language === 'en'
-      ? 'Read our latest blog posts about web design, SEO optimization, and digital marketing for Bulgarian businesses. Learn about website development, pricing, and industry tips.'
-      : 'Прочетете нашите статии за уеб дизайн, SEO оптимизация и дигитален маркетинг за българския бизнес. Научете за изработка на сайтове, цени и индустриални съвети.',
+      ? 'Practical articles on web design, website development, local SEO, pricing, and digital growth for businesses in Plovdiv and Bulgaria.'
+      : 'Практични статии за уеб дизайн, изработка на сайтове, локално SEO, цени и дигитален растеж за бизнеси в Пловдив и България.',
     keywords: language === 'en'
-      ? 'blog, web design, SEO, tips, insights, website development, web design tips'
-      : 'блог, уеб дизайн, SEO, съвети, инсайти, изработка на сайтове, уеб дизайн съвети',
-    canonical: 'https://ar-studio.site/blog'
+      ? 'web design Plovdiv blog, local SEO Bulgaria, website development, business website advice'
+      : 'блог уеб дизайн Пловдив, локално SEO България, изработка на сайтове, съвети за бизнес сайт',
+    canonical: 'https://www.ar-studio.site/blog'
   });
 
   return (

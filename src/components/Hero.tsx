@@ -4,6 +4,7 @@
  */
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { ArrowRight, Sparkles, Zap, Shield, HelpCircle, Trophy, Globe } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
@@ -39,7 +40,7 @@ export default function Hero({ onQuoteClick, onWorkClick, onAboutClick }: HeroPr
           <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
           <span className="flex h-2 w-3 rounded-sm bg-gradient-to-b from-white via-green-600 to-red-600 border border-white/10" title="Proudly Bulgaria" />
           <span className="text-[10px] font-mono tracking-wider uppercase text-zinc-400">
-            {language === 'en' ? 'Plovdiv, Bulgaria • Leading Web Agency' : 'Пловдив, България • Лидер в изработката на уебсайтове'}
+            {language === 'en' ? 'Plovdiv, Bulgaria • Web Design Studio' : 'Пловдив, България • Студио за уеб дизайн'}
           </span>
         </motion.div>
 
@@ -50,13 +51,13 @@ export default function Hero({ onQuoteClick, onWorkClick, onAboutClick }: HeroPr
           transition={{ duration: 0.8, delay: 0.1 }}
           className="max-w-4xl mx-auto flex flex-col items-center"
         >
-          <h1 className="font-serif text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tight leading-none mb-4">
+          <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-tight mb-4">
             <span className="bg-gradient-to-r from-white via-zinc-200 to-zinc-400 bg-clip-text text-transparent silver-chrome">
-              AR Studio
+              {language === 'en' ? 'Web Design & Website Development in Plovdiv' : 'Уеб дизайн и изработка на сайтове в Пловдив'}
             </span>
           </h1>
           <div className="font-mono text-xs sm:text-sm lg:text-base tracking-[0.22em] uppercase text-blue-400 font-semibold mb-8 glow-blue-text">
-            {language === 'en' ? '#1 website designers' : '#1 уеб дизайнери'}
+            {language === 'en' ? 'AR Studio • Custom Websites for Bulgarian Businesses' : 'AR Studio • Персонализирани сайтове за българския бизнес'}
           </div>
         </motion.div>
 
@@ -69,6 +70,14 @@ export default function Hero({ onQuoteClick, onWorkClick, onAboutClick }: HeroPr
         >
           {t('heroSub')}
         </motion.p>
+
+        <Link
+          to="/web-design-plovdiv"
+          className="inline-flex items-center gap-2 text-sm font-semibold text-blue-300 hover:text-blue-100 transition-colors mb-10"
+        >
+          {language === 'en' ? 'Discover our web design services in Plovdiv' : 'Разгледайте услугите ни за уеб дизайн в Пловдив'}
+          <ArrowRight className="w-4 h-4" />
+        </Link>
 
         {/* Buttons */}
         <motion.div

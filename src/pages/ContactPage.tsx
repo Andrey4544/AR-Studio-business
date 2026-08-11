@@ -14,10 +14,10 @@ interface ContactPageProps {
 
 export default function ContactPage({ selectedPlan }: ContactPageProps) {
   usePageMeta({
-    title: 'Контакти | AR Studio - Свържете се с нас',
-    description: 'Свържете се с AR Studio за безплатна консултация. Телефон, имейл или форма - изберете удобния за вас начин.',
-    keywords: 'контакти, свържете се, консултация, телефон, имейл',
-    canonical: 'https://ar-studio.site/kontakti'
+    title: 'Контакти за уеб дизайн в Пловдив | Безплатна консултация | AR Studio',
+    description: 'Свържете се с AR Studio за безплатна консултация за уеб дизайн, бизнес сайт или онлайн магазин в Пловдив и България. Изберете телефон, имейл или кратка форма.',
+    keywords: 'контакти уеб дизайн Пловдив, безплатна консултация сайт, изработка на сайтове, телефон, имейл',
+    canonical: 'https://www.ar-studio.site/kontakti'
   });
 
   return (

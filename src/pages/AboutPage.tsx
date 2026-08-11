@@ -13,7 +13,7 @@ export default function AboutPage() {
     title: 'За нас | AR Studio - Уеб дизайн и разработка',
     description: 'Запознайте се с Андрей, Румен и Николай - екипът зад AR Studio. Дигитални занаятчии, посветени на луксозни персонализирани сайтове за българския бизнес.',
     keywords: 'за нас, екип, дизайнери, разработчици, пловдив',
-    canonical: 'https://ar-studio.site/za-nas'
+    canonical: 'https://www.ar-studio.site/za-nas'
   });
 
   return (

@@ -48,16 +48,16 @@ export default function Testimonials() {
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 tracking-tight">
             {language === 'en' ? (
               <>
-                Loved By Local <br />
+                Client Feedback <br />
                 <span className="bg-gradient-to-r from-zinc-100 via-zinc-400 to-zinc-600 bg-clip-text text-transparent">
-                  Bulgarian Entrepreneurs
+                  Published With Permission
                 </span>
               </>
             ) : (
               <>
-                Обичани от местния <br />
+                Клиентска обратна връзка <br />
                 <span className="bg-gradient-to-r from-zinc-100 via-zinc-400 to-zinc-600 bg-clip-text text-transparent">
-                  български бизнес
+                  публикувана с разрешение
                 </span>
               </>
             )}
@@ -120,6 +120,14 @@ export default function Testimonials() {
             </div>
           ))}
         </div>
+
+        {reviews.length === 0 && (
+          <p className="max-w-2xl mx-auto mt-8 text-center text-sm leading-relaxed text-zinc-500">
+            {language === 'en'
+              ? 'No customer feedback has been published yet. AR Studio displays only reviews approved for publication by its team.'
+              : 'Все още няма публикувана клиентска обратна връзка. AR Studio показва само отзиви, одобрени за публикуване от екипа.'}
+          </p>
+        )}
 
         <ReviewForm 
           isOpen={isFormOpen} 

@@ -17,7 +17,7 @@ export default function PortfolioPage({ openQuoteModal }: PortfolioPageProps) {
     title: 'Портфолио | AR Studio - Реални проекти и примери',
     description: 'Преглед на реализирани проекти от AR Studio. Ресторанти, хотели, адвокати и други успешни сайтове, които генерират реални резултати.',
     keywords: 'портфолио, проекти, примери, ресторант, хотел, адвокат',
-    canonical: 'https://ar-studio.site/portfolio'
+    canonical: 'https://www.ar-studio.site/portfolio'
   });
 
   return (

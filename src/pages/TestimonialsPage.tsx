@@ -13,7 +13,7 @@ export default function TestimonialsPage() {
     title: 'Отзиви | AR Studio - Мнения на клиентите',
     description: 'Прочетете отзивите на нашите доволни клиенти. 100% положителни отзиви от ресторанти, хотели, адвокати и други успешни бизнеси.',
     keywords: 'отзиви, мнения, клиенти, доволни, успех',
-    canonical: 'https://ar-studio.site/otzivy'
+    canonical: 'https://www.ar-studio.site/otzivy'
   });
 
   return (

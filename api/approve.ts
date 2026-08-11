@@ -78,7 +78,7 @@ export default async function handler(req: any, res: any) {
         <p>Благодарим ви! Отзивът на <strong>${review.name}</strong> беше добавен успешно.</p>
         <p>Сайтът ще се обнови автоматично след около 1-2 минути.</p>
         <br>
-        <a href="https://ar-studio.site" style="color: #3b82f6; text-decoration: none;">← Към сайта</a>
+        <a href="https://www.ar-studio.site" style="color: #3b82f6; text-decoration: none;">← Към сайта</a>
       </div>
     `);
   } catch (error: any) {

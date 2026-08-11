@@ -14,10 +14,10 @@ interface ServicesPageProps {
 
 export default function ServicesPage({ openQuoteModal }: ServicesPageProps) {
   usePageMeta({
-    title: 'Услуги и цени | AR Studio - Уеб дизайн Пловдив',
-    description: 'Преглед на услугите и цените на AR Studio. От лендинг страници до онлайн магазини - всичко с прозрачно ценообразуване и без скрити разходи.',
-    keywords: 'услуги, цени, уеб дизайн, онлайн магазин, лендинг страница',
-    canonical: 'https://ar-studio.site/uslugi'
+    title: 'Уеб дизайн, сайтове и онлайн магазини | Пловдив | AR Studio',
+    description: 'Разгледайте услугите на AR Studio за уеб дизайн, бизнес сайтове, лендинг страници и онлайн магазини в Пловдив и цяла България. Прозрачни обхвати и ясни следващи стъпки.',
+    keywords: 'уеб дизайн услуги Пловдив, изработка на сайтове, бизнес сайт, онлайн магазин, лендинг страница, SEO основа',
+    canonical: 'https://www.ar-studio.site/uslugi'
   });
 
   return (

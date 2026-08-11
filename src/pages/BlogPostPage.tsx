@@ -21,7 +21,8 @@ export default function BlogPostPage() {
     title: post ? `${post.title} | AR Studio Blog` : 'Blog | AR Studio',
     description: post ? (language === 'en' ? post.descriptionEn : post.description) : 'Прочетете нашите статии за уеб дизайн и дигитален маркетинг.',
     keywords: post ? (language === 'en' ? post.keywordsEn : post.keywords) : 'блог',
-    canonical: post ? `https://ar-studio.site/blog/${slug}` : 'https://ar-studio.site/blog'
+    canonical: post ? `https://www.ar-studio.site/blog/${slug}` : 'https://www.ar-studio.site/blog',
+    ogType: post ? 'article' : 'website'
   });
 
   // Add Article schema for SEO
@@ -32,7 +33,7 @@ export default function BlogPostPage() {
         '@type': 'BlogPosting',
         'headline': post.title,
         'description': language === 'en' ? post.descriptionEn : post.description,
-        'image': post.ogImage || 'https://ar-studio.site/assets/logo.png',
+        'image': post.ogImage || 'https://www.ar-studio.site/assets/logo.png',
         'datePublished': post.date,
         'author': {
           '@type': 'Person',
@@ -43,12 +44,12 @@ export default function BlogPostPage() {
           'name': 'AR Studio',
           'logo': {
             '@type': 'ImageObject',
-            'url': 'https://ar-studio.site/assets/logo.png'
+            'url': 'https://www.ar-studio.site/assets/logo.png'
           }
         },
         'mainEntityOfPage': {
           '@type': 'WebPage',
-          '@id': `https://ar-studio.site/blog/${post.slug}`
+          '@id': `https://www.ar-studio.site/blog/${post.slug}`
         }
       };
 

@@ -91,6 +91,7 @@ export default function Footer({ openQuoteModal }: FooterProps) {
                 { path: '/', label: language === 'en' ? 'Home Experience' : 'Начало' },
                 { path: '/za-nas', label: language === 'en' ? 'About Andrey, Rumen & Nikolay' : 'За Андрей, Румен и Николай' },
                 { path: '/uslugi', label: language === 'en' ? 'Services & Pricing' : 'Услуги и цени' },
+                { path: '/web-design-plovdiv', label: language === 'en' ? 'Web Design in Plovdiv' : 'Уеб дизайн в Пловдив' },
                 { path: '/portfolio', label: language === 'en' ? 'Featured Portfolio' : 'Реални проекти' },
                 { path: '/zashto-nas', label: language === 'en' ? 'Our Model (Why Us)' : 'Защо нас' },
                 { path: '/otzivy', label: language === 'en' ? 'Customer Reviews' : 'Клиентски отзиви' },

@@ -20,6 +20,7 @@ const FAQPage = React.lazy(() => import('./pages/FAQPage'));
 const BlogPage = React.lazy(() => import('./pages/BlogPage'));
 const BlogPostPage = React.lazy(() => import('./pages/BlogPostPage'));
 const WebDesignPlovdivPage = React.lazy(() => import('./pages/WebDesignPlovdivPage'));
+const ServiceLandingPage = React.lazy(() => import('./pages/ServiceLandingPage'));
 
 
 export default function App() {
@@ -91,6 +92,12 @@ export default function App() {
             <Route path="/za-nas" element={<AboutPage />} />
             <Route path="/uslugi" element={<ServicesPage openQuoteModal={openQuoteModalWithPlan} />} />
             <Route path="/web-design-plovdiv" element={<WebDesignPlovdivPage openQuoteModal={openQuoteModalWithPlan} />} />
+            <Route path="/uslugi/izrabotka-na-sait-plovdiv" element={<ServiceLandingPage serviceKey="website-plovdiv" openQuoteModal={openQuoteModalWithPlan} />} />
+            <Route path="/uslugi/sait-za-restorant-plovdiv" element={<ServiceLandingPage serviceKey="restaurant-website-plovdiv" openQuoteModal={openQuoteModalWithPlan} />} />
+            <Route path="/uslugi/sait-za-kozmetichen-salon-plovdiv" element={<ServiceLandingPage serviceKey="beauty-salon-website-plovdiv" openQuoteModal={openQuoteModalWithPlan} />} />
+            <Route path="/uslugi/sait-za-hotel-plovdiv" element={<ServiceLandingPage serviceKey="hotel-website-plovdiv" openQuoteModal={openQuoteModalWithPlan} />} />
+            <Route path="/uslugi/sait-za-advokatska-kantora" element={<ServiceLandingPage serviceKey="law-firm-website-bulgaria" openQuoteModal={openQuoteModalWithPlan} />} />
+            <Route path="/uslugi/izrabotka-na-onlayn-magazin" element={<ServiceLandingPage serviceKey="ecommerce-website-bulgaria" openQuoteModal={openQuoteModalWithPlan} />} />
             <Route path="/portfolio" element={<PortfolioPage openQuoteModal={openQuoteModalWithPlan} />} />
             <Route path="/zashto-nas" element={<WhyUsPage />} />
             <Route path="/otzivy" element={<TestimonialsPage />} />

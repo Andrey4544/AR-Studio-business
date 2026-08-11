@@ -8,6 +8,7 @@ interface PageMetaProps {
   canonical?: string;
   ogType?: 'website' | 'article';
   noIndex?: boolean;
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
 
 const siteName = 'AR Studio';
@@ -34,6 +35,7 @@ export function usePageMeta({
   canonical = defaultCanonical,
   ogType = 'website',
   noIndex = false,
+  jsonLd,
 }: PageMetaProps) {
   useEffect(() => {
     document.title = title;
@@ -65,5 +67,21 @@ export function usePageMeta({
     setMeta('name', 'twitter:title', title);
     setMeta('name', 'twitter:description', description);
     setMeta('name', 'twitter:image', ogImage);
-  }, [title, description, keywords, ogImage, canonical, ogType, noIndex]);
+
+    const schemaId = 'page-structured-data';
+    const existingSchema = document.getElementById(schemaId);
+    if (jsonLd) {
+      const script = existingSchema || document.createElement('script');
+      script.id = schemaId;
+      script.type = 'application/ld+json';
+      script.textContent = JSON.stringify(jsonLd);
+      if (!existingSchema) document.head.appendChild(script);
+    } else {
+      existingSchema?.remove();
+    }
+
+    return () => {
+      document.getElementById(schemaId)?.remove();
+    };
+  }, [title, description, keywords, ogImage, canonical, ogType, noIndex, jsonLd]);
 }

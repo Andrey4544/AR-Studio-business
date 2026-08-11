@@ -65,7 +65,7 @@ export default function App() {
     <Router>
       <ScrollToTop />
       <ConsentAnalytics />
-      <div className="relative min-h-screen bg-[#050505] overflow-x-hidden flex flex-col justify-between">
+      <div className="relative min-h-screen bg-[#050505] overflow-x-clip flex flex-col justify-between">
         
         {/* Slim Scroll Progress Bar */}
         <div className="fixed top-0 left-0 w-full h-[3px] bg-zinc-950/40 z-[100] pointer-events-none">

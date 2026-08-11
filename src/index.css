@@ -22,8 +22,8 @@ body {
   color: #E2E8F0;
   font-family: var(--font-sans);
   overflow-x: hidden;
-  overflow-y: scroll;
-  /* Optimize scrolling performance */
+  /* Let the document own a single native scrollbar; forcing `scroll` can create a second track. */
+  overflow-y: auto;
   -webkit-overflow-scrolling: auto;
   scroll-behavior: auto;
   will-change: scroll-position;

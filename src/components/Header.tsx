@@ -74,7 +74,7 @@ export default function Header({ openQuoteModal }: HeaderProps) {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`relative px-4 py-1.5 rounded-full text-xs font-medium tracking-wide transition-colors duration-300 ${
+                className={`relative px-4 py-1.5 rounded-full text-xs font-medium tracking-wide transition-colors duration-300 text-center min-w-[90px] ${
                   isActive(item.path) ? 'text-white font-semibold' : 'text-zinc-400 hover:text-white'
                 }`}
               >
@@ -92,7 +92,7 @@ export default function Header({ openQuoteModal }: HeaderProps) {
 
           {/* Action Call / Contact info / Call to action */}
           <div className="flex items-center gap-2 sm:gap-4">
-            {/* Elegant Language Switcher Pill - Hidden on mobile to save space */}
+            {/* Language Switcher Pill - Desktop */}
             <button
               onClick={toggleLanguage}
               className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-zinc-900/50 border border-white/10 hover:border-blue-500/30 text-xs font-medium text-zinc-300 hover:text-white transition-all"
@@ -101,15 +101,22 @@ export default function Header({ openQuoteModal }: HeaderProps) {
               <span>{language === 'bg' ? 'BG' : 'EN'}</span>
             </button>
 
+            {/* Language Switcher for Mobile - Replaces CTA on mobile */}
+            <button
+              onClick={toggleLanguage}
+              className="flex sm:hidden items-center justify-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold rounded-lg transition-all shadow-lg shadow-blue-500/20 min-w-[60px]"
+            >
+              <Globe className="w-3.5 h-3.5" />
+              <span>{language === 'bg' ? 'BG' : 'EN'}</span>
+            </button>
 
-
-            {/* CTA Button */}
+            {/* CTA Button - Desktop Only */}
             <button
               onClick={openQuoteModal}
-              className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold rounded-lg transition-all hover:shadow-lg hover:shadow-blue-500/30"
+              className="hidden sm:flex items-center justify-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold rounded-lg transition-all hover:shadow-lg hover:shadow-blue-500/30 min-w-[140px]"
             >
               <PhoneCall className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">{t('freeQuote')}</span>
+              <span>{t('freeQuote')}</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
             </button>
           </div>

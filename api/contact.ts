@@ -81,7 +81,11 @@ export default async function handler(req: any, res: any) {
     const subject = `[Запитване] ${data.formData?.name || 'Клиент'} - ${formTypeLabel}`;
     const emailResult = await sendEmailNotification(subject, emailHtml);
 
-    return res.status(200).json({ status: 'ok', emailSent: emailResult.success });
+    if (!emailResult.success) {
+      return res.status(500).json({ status: 'error', message: 'Failed to send email', details: emailResult.error });
+    }
+
+    return res.status(200).json({ status: 'ok', message: 'Message sent successfully' });
   } catch (err: any) {
     return res.status(500).json({ error: err.message });
   }

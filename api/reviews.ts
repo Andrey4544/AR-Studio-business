@@ -106,7 +106,11 @@ export default async function handler(req: any, res: any) {
         </div>
       `;
 
-      await sendEmailNotification(`[AR Studio] Нов отзив от ${newReview.name}`, emailHtml);
+      const emailResult = await sendEmailNotification(`[AR Studio] Нов отзив от ${newReview.name}`, emailHtml);
+      
+      if (!emailResult.success) {
+        return res.status(500).json({ status: 'error', message: 'Failed to send approval email', details: emailResult.error });
+      }
 
       return res.status(200).json({ status: 'ok', message: 'Review submitted for approval' });
     } catch (error: any) {

@@ -15,8 +15,20 @@
   ],
   "rewrites": [
     {
-      "source": "/api/(.*)",
+      "source": "/api/contact",
       "destination": "/api/contact"
+    },
+    {
+      "source": "/api/reviews",
+      "destination": "/api/reviews"
+    },
+    {
+      "source": "/api/approve",
+      "destination": "/api/approve"
+    },
+    {
+      "source": "/api/quote",
+      "destination": "/api/quote"
     }
   ]
 }

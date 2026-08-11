@@ -70,13 +70,13 @@ export function usePageMeta({
     }
     ogDescription.setAttribute('content', description);
 
-    let ogImage = document.querySelector('meta[property="og:image"]');
-    if (!ogImage) {
-      ogImage = document.createElement('meta');
-      ogImage.setAttribute('property', 'og:image');
-      document.head.appendChild(ogImage);
+    let ogImageTag = document.querySelector('meta[property="og:image"]');
+    if (!ogImageTag) {
+      ogImageTag = document.createElement('meta');
+      ogImageTag.setAttribute('property', 'og:image');
+      document.head.appendChild(ogImageTag);
     }
-    ogImage.setAttribute('content', ogImage);
+    ogImageTag.setAttribute('content', ogImage);
 
     let ogUrl = document.querySelector('meta[property="og:url"]');
     if (!ogUrl) {

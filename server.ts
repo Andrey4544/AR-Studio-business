@@ -336,6 +336,10 @@ async function startServer() {
       appType: 'spa',
     });
     app.use(vite.middlewares);
+    // SPA fallback: serve index.html for all non-API routes in development
+    app.get('*', (req, res) => {
+      res.redirect('/');
+    });
   } else {
     const distPath = path.join(process.cwd(), 'dist');
     app.use(express.static(distPath));

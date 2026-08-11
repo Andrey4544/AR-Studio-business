@@ -27,15 +27,20 @@ export default function App() {
 
   React.useEffect(() => {
     let ticking = false;
+    let lastProgress = 0;
     const handleScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
           const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
           if (totalHeight > 0) {
             const progress = (window.scrollY / totalHeight) * 100;
-            setScrollProgress(progress);
+            if (Math.abs(progress - lastProgress) > 0.5) {
+              setScrollProgress(progress);
+              lastProgress = progress;
+            }
           } else {
             setScrollProgress(0);
+            lastProgress = 0;
           }
           ticking = false;
         });

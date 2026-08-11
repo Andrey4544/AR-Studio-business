@@ -23,7 +23,7 @@ export default function TechBackground() {
     }> = [];
 
     const initParticles = (width: number, height: number) => {
-      const particleCount = Math.min(Math.floor((width * height) / 10000), 120);
+      const particleCount = Math.min(Math.floor((width * height) / 15000), 80);
       particles = [];
       const colors = ['rgba(59, 130, 246, 0.55)', 'rgba(99, 102, 241, 0.55)', 'rgba(14, 165, 233, 0.6)'];
       
@@ -31,9 +31,9 @@ export default function TechBackground() {
         particles.push({
           x: Math.random() * width,
           y: Math.random() * height,
-          vx: (Math.random() - 0.5) * 0.45,
-          vy: (Math.random() - 0.5) * 0.45,
-          size: Math.random() * 2.2 + 0.9,
+          vx: (Math.random() - 0.5) * 0.35,
+          vy: (Math.random() - 0.5) * 0.35,
+          size: Math.random() * 1.8 + 0.8,
           baseColor: colors[Math.floor(Math.random() * colors.length)],
         });
       }
@@ -107,15 +107,17 @@ export default function TechBackground() {
         p.x = Math.max(0, Math.min(width, p.x));
         p.y = Math.max(0, Math.min(height, p.y));
 
-        // Connect particles with lines
+        // Connect particles with lines (optimized with early exit)
         for (let j = idx + 1; j < particles.length; j++) {
           const p2 = particles[j];
           const dx = p.x - p2.x;
           const dy = p.y - p2.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
+          const distSq = dx * dx + dy * dy;
+          const maxDistSq = 100 * 100;
 
-          if (dist < 120) {
-            const alpha = (1 - dist / 120) * 0.22;
+          if (distSq < maxDistSq) {
+            const dist = Math.sqrt(distSq);
+            const alpha = (1 - dist / 100) * 0.22;
             ctx.strokeStyle = `rgba(99, 102, 241, ${alpha})`;
             ctx.lineWidth = 0.5;
             ctx.beginPath();
@@ -125,12 +127,15 @@ export default function TechBackground() {
           }
         }
 
-        // Mouse interaction (gravity pull / hover glow)
+        // Mouse interaction (gravity pull / hover glow) - optimized
         if (mouse.x > -500) {
           const dx = p.x - mouse.x;
           const dy = p.y - mouse.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < mouse.radius) {
+          const distSq = dx * dx + dy * dy;
+          const radiusSq = mouse.radius * mouse.radius;
+          
+          if (distSq < radiusSq) {
+            const dist = Math.sqrt(distSq);
             const force = (mouse.radius - dist) / mouse.radius;
             // Draw link to mouse
             const lineAlpha = force * 0.14;

@@ -129,7 +129,7 @@ export default function Hero({ onQuoteClick, onWorkClick, onAboutClick }: HeroPr
             </span>
           </div>
 
-          <div className="glass-panel p-6 rounded-2xl border border-white/5 flex flex-col items-center justify-center text-center col-span-2 lg:col-span-1">
+          <div className="glass-panel p-6 rounded-2xl border border-white/5 flex flex-col items-center justify-center text-center">
             <span className="text-3xl font-bold font-mono tracking-tight text-white mb-1">
               100%{" "}
               <span className="text-xs font-sans text-emerald-400 font-normal">

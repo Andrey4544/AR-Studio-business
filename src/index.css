@@ -14,7 +14,7 @@
 
 /* Base resets & styling for a premium feel */
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
 }
 
 body {
@@ -23,9 +23,10 @@ body {
   font-family: var(--font-sans);
   overflow-x: hidden;
   overflow-y: scroll;
-  /* Ensure smooth scrolling and prevent jitter */
-  -webkit-overflow-scrolling: touch;
-  scroll-behavior: smooth;
+  /* Optimize scrolling performance */
+  -webkit-overflow-scrolling: auto;
+  scroll-behavior: auto;
+  will-change: scroll-position;
 }
 
 /* Custom glassmorphism utilities matching the Immersive UI Design template */

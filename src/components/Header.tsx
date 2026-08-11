@@ -91,7 +91,15 @@ export default function Header({ openQuoteModal }: HeaderProps) {
           </nav>
 
           {/* Action Call / Contact info / Call to action */}
-          <div className="hidden sm:flex items-center gap-4">
+          <div className="flex items-center gap-2 sm:gap-4">
+            {/* Elegant Language Switcher Pill - Now visible on mobile too */}
+            <button
+              onClick={toggleLanguage}
+              className="flex items-center gap-2 px-2 py-1.5 sm:px-3 rounded-full bg-zinc-900/50 border border-white/10 hover:border-blue-500/30 text-[10px] sm:text-xs font-medium text-zinc-300 hover:text-white transition-all"
+            >
+              <Globe className="w-3 sm:w-3.5 h-3 sm:h-3.5" />
+              <span>{language === 'bg' ? 'Български' : 'English'}</span>
+            </button>
             {/* Social Links */}
             <div className="hidden md:flex items-center gap-3 px-4 py-2 border-l border-white/5">
               <a
@@ -125,14 +133,7 @@ export default function Header({ openQuoteModal }: HeaderProps) {
               </a>
             </div>
 
-            {/* Elegant Language Switcher Pill */}
-            <button
-              onClick={toggleLanguage}
-              className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-zinc-900/50 border border-white/10 hover:border-blue-500/30 text-xs font-medium text-zinc-300 hover:text-white transition-all"
-            >
-              <Globe className="w-3.5 h-3.5" />
-              <span>{language === 'bg' ? 'EN' : 'BG'}</span>
-            </button>
+
 
             {/* CTA Button */}
             <button
@@ -216,7 +217,7 @@ export default function Header({ openQuoteModal }: HeaderProps) {
                 className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-zinc-900/50 border border-white/10 hover:border-blue-500/30 text-white font-semibold transition-all"
               >
                 <Globe className="w-4 h-4" />
-                <span>{language === 'bg' ? 'Switch to English' : 'Смяна на български'}</span>
+                <span>{language === 'bg' ? 'Български' : 'English'}</span>
               </button>
 
               {/* Mobile CTA */}

@@ -18,7 +18,7 @@ import ContactPage from './pages/ContactPage';
 import FAQPage from './pages/FAQPage';
 import BlogPage from './pages/BlogPage';
 import BlogPostPage from './pages/BlogPostPage';
-import AdminPanel from './components/AdminPanel';
+
 
 export default function App() {
   const [isQuoteModalOpen, setIsQuoteModalOpen] = React.useState<boolean>(false);
@@ -97,7 +97,7 @@ export default function App() {
         {/* Floating Social Buttons */}
         <FloatingSocialButtons />
 
-        <AdminPanel />
+
       </div>
     </Router>
   );

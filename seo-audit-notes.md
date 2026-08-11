@@ -66,3 +66,11 @@ The new `/web-design-plovdiv` route renders with the intended Bulgarian page tit
 ## Supporting article verification
 
 The new blog article at `/blog/kak-da-izberem-uebdizain-agenciya-plovdiv` renders with the intended locally relevant title, practical decision-making content, an article date and author, and working contextual links to the Plovdiv service page and services page. The footer link to the Plovdiv page is also present across the article route.
+
+## Production publication
+
+The SEO commit `74c227d` was deployed successfully to the production Vercel project. The production deployment reached `READY` state before final public-route verification.
+
+## Public crawler-file verification
+
+The public `https://www.ar-studio.site/sitemap.xml` is live and includes both newly added URLs: `/web-design-plovdiv` and `/blog/kak-da-izberem-uebdizain-agenciya-plovdiv`. It uses the canonical `www` domain consistently.

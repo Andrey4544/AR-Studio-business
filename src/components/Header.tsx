@@ -56,8 +56,8 @@ export default function Header({ openQuoteModal }: HeaderProps) {
   return (
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'py-3 bg-luxury-black/80 backdrop-blur-md border-b border-white/5'
+        isScrolled || isOpen
+          ? 'py-3 bg-luxury-black border-b border-white/5'
           : 'py-5 bg-transparent'
       }`}
     >
@@ -138,7 +138,7 @@ export default function Header({ openQuoteModal }: HeaderProps) {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="lg:hidden fixed inset-0 top-16 bg-luxury-black backdrop-blur-md border-b border-white/5"
+            className="lg:hidden fixed inset-0 top-[70px] bg-luxury-black border-b border-white/5 z-[60]"
           >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-4">
               {navItems.map((item) => (

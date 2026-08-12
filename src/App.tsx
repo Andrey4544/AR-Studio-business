@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import FloatingSocialButtons from './components/FloatingSocialButtons';
+import QuoteModal from './components/QuoteModal';
 import ScrollToTop from './components/ScrollToTop';
 import ConsentAnalytics from './components/ConsentAnalytics';
 const HomePage = React.lazy(() => import('./pages/HomePage'));
@@ -119,6 +120,11 @@ export default function App() {
         {/* Floating Social Buttons */}
         <FloatingSocialButtons />
 
+        {/* Global Free Quote modal used by the header, footer, and page CTAs */}
+        <QuoteModal
+          isOpen={isQuoteModalOpen}
+          onClose={() => setIsQuoteModalOpen(false)}
+        />
 
       </div>
     </Router>

@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, Star, Send, CheckCircle2, AlertCircle } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
@@ -33,6 +33,31 @@ export default function ReviewForm({ isOpen, onClose, onSuccess }: ReviewFormPro
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [errors, setErrors] = useState<FormError[]>([]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const previousBodyOverflow = document.body.style.overflow;
+    const previousBodyPaddingRight = document.body.style.paddingRight;
+    const previousBodyOverscrollBehavior = document.body.style.overscrollBehavior;
+    const previousDocumentOverflow = document.documentElement.style.overflow;
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+
+    // Lock both scroll roots so the page underneath cannot move while the dialog is open.
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
+    document.body.style.overscrollBehavior = 'none';
+    if (scrollbarWidth > 0) {
+      document.body.style.paddingRight = `${scrollbarWidth}px`;
+    }
+
+    return () => {
+      document.documentElement.style.overflow = previousDocumentOverflow;
+      document.body.style.overflow = previousBodyOverflow;
+      document.body.style.paddingRight = previousBodyPaddingRight;
+      document.body.style.overscrollBehavior = previousBodyOverscrollBehavior;
+    };
+  }, [isOpen]);
 
   const validateForm = (): FormError[] => {
     const newErrors: FormError[] = [];
@@ -129,20 +154,22 @@ export default function ReviewForm({ isOpen, onClose, onSuccess }: ReviewFormPro
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center px-4">
+        <div className="fixed inset-0 z-[100] flex items-start sm:items-center justify-center overflow-hidden p-4 sm:p-6">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+            className="absolute inset-0 bg-[#050505]"
           />
           
           <motion.div
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            className="relative w-full max-w-lg bg-zinc-950 border border-white/10 rounded-3xl p-8 shadow-2xl overflow-hidden"
+            role="dialog"
+            aria-modal="true"
+            className="relative my-auto w-full max-w-lg max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-3rem)] overflow-y-auto overscroll-contain bg-zinc-950 border border-white/10 rounded-3xl p-5 sm:p-8 shadow-2xl"
           >
             {/* Background Glow */}
             <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 blur-[60px] pointer-events-none" />
@@ -308,7 +335,7 @@ export default function ReviewForm({ isOpen, onClose, onSuccess }: ReviewFormPro
                   <button
                     disabled={isSubmitting}
                     type="submit"
-                    className="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 rounded-xl flex items-center justify-center gap-2 transition-all disabled:opacity-50 group"
+                    className="sticky bottom-0 z-10 w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 rounded-xl flex items-center justify-center gap-2 shadow-[0_-12px_20px_rgba(9,9,11,0.95)] transition-all disabled:opacity-50 group"
                   >
                     {isSubmitting ? (
                       <span className="animate-pulse">{language === 'en' ? 'Submitting...' : 'Изпраща се...'}</span>

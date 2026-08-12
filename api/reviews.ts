@@ -77,11 +77,16 @@ export default async function handler(req: any, res: any) {
       // Create approval token
       const payload = JSON.stringify(newReview);
       const hmac = crypto.createHmac('sha256', APPROVE_SECRET).update(payload).digest('hex');
-      const token = Buffer.from(payload).toString('base64');
-      
-      const protocol = req.headers['x-forwarded-proto'] || 'https';
-      const host = req.headers['host'];
-      const approveUrl = `${protocol}://${host}/api/approve?token=${token}&hmac=${hmac}`;
+      // Use base64url so the signed token is safe inside an email URL. Standard
+      // base64 can contain "+", which mail clients and query parsers may turn into spaces.
+      const token = Buffer.from(payload).toString('base64url');
+
+      const forwardedProto = req.headers['x-forwarded-proto'];
+      const protocol = Array.isArray(forwardedProto) ? forwardedProto[0] : forwardedProto || 'https';
+      const host = req.headers['x-forwarded-host'] || req.headers['host'];
+      const approveUrl = new URL('/api/approve', `${protocol}://${host}`);
+      approveUrl.searchParams.set('token', token);
+      approveUrl.searchParams.set('hmac', hmac);
 
       const stars = '⭐'.repeat(newReview.rating);
       const emailHtml = `
@@ -98,7 +103,7 @@ export default async function handler(req: any, res: any) {
             </div>
           </div>
           <div style="text-align: center;">
-            <a href="${approveUrl}" style="background-color: #3b82f6; color: white; padding: 14px 28px; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block;">ОДОБРИ И ПУБЛИКУВАЙ</a>
+            <a href="${approveUrl.toString()}" style="background-color: #3b82f6; color: white; padding: 14px 28px; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block;">ОДОБРИ И ПУБЛИКУВАЙ</a>
           </div>
           <p style="font-size: 12px; color: #71717a; text-align: center; margin-top: 24px;">
             Ако не искате да публикувате този отзив, просто игнорирайте това съобщение.

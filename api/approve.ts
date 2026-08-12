@@ -9,17 +9,35 @@ export default async function handler(req: any, res: any) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { token, hmac } = req.query;
+  const rawToken = Array.isArray(req.query.token) ? req.query.token[0] : req.query.token;
+  const rawHmac = Array.isArray(req.query.hmac) ? req.query.hmac[0] : req.query.hmac;
 
-  if (!token || !hmac) {
+  if (typeof rawToken !== 'string' || typeof rawHmac !== 'string') {
     return res.status(400).send('<h1>Грешка: Липсващ токен</h1>');
   }
 
-  // Verify HMAC
-  const payload = Buffer.from(token, 'base64').toString('utf8');
-  const expectedHmac = crypto.createHmac('sha256', APPROVE_SECRET).update(payload).digest('hex');
+  let payload: string;
+  try {
+    // New links use base64url. Replace spaces for backward compatibility with
+    // older standard-base64 links whose "+" was converted by a query parser.
+    const token = rawToken.replace(/ /g, '+');
+    const decoded = Buffer.from(token, 'base64url');
+    payload = decoded.toString('utf8');
+    if (!payload || !JSON.parse(payload)) {
+      throw new Error('Invalid token payload');
+    }
+  } catch {
+    return res.status(403).send('<h1>Грешка: Невалиден токен</h1>');
+  }
 
-  if (hmac !== expectedHmac) {
+  const expectedHmac = crypto.createHmac('sha256', APPROVE_SECRET).update(payload).digest('hex');
+  const providedHmac = Buffer.from(rawHmac, 'hex');
+  const expectedHmacBuffer = Buffer.from(expectedHmac, 'hex');
+
+  if (
+    providedHmac.length !== expectedHmacBuffer.length ||
+    !crypto.timingSafeEqual(providedHmac, expectedHmacBuffer)
+  ) {
     return res.status(403).send('<h1>Грешка: Невалиден токен</h1>');
   }
 

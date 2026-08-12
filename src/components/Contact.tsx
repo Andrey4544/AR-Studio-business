@@ -225,17 +225,13 @@ export default function Contact({ preselectedPlan = '' }: ContactProps) {
     '11:00 AM', '11:30 AM', '12:00 PM', '12:30 PM',
     '01:00 PM', '01:30 PM', '02:00 PM', '02:30 PM',
     '03:00 PM', '03:30 PM', '04:00 PM', '04:30 PM',
-    '05:00 PM', '05:30 PM', '06:00 PM', '06:30 PM',
-    '07:00 PM', '07:30 PM', '08:00 PM', '08:30 PM',
-    '09:00 PM'
+    '05:00 PM', '05:30 PM'
   ] : [
     '09:00 часа', '09:30 часа', '10:00 часа', '10:30 часа',
     '11:00 часа', '11:30 часа', '12:00 часа', '12:30 часа',
     '13:00 часа', '13:30 часа', '14:00 часа', '14:30 часа',
     '15:00 часа', '15:30 часа', '16:00 часа', '16:30 часа',
-    '17:00 часа', '17:30 часа', '18:00 часа', '18:30 часа',
-    '19:00 часа', '19:30 часа', '20:00 часа', '20:30 часа',
-    '21:00 часа'
+    '17:00 часа', '17:30 часа'
   ];
 
   return (
@@ -355,7 +351,7 @@ export default function Contact({ preselectedPlan = '' }: ContactProps) {
                       {language === 'en' ? 'Operating Hours' : 'Работно време'}
                     </h4>
                     <p className="text-xs font-medium text-white mt-1">
-                      {language === 'en' ? 'Mon - Sun \u2022 9:00 AM - 9:00 PM' : 'Пон - Нед \u2022 9:00 - 21:00 часа'}
+                      {language === 'en' ? 'Mon - Sun \u2022 9:00 AM - 6:00 PM' : 'Пон - Нед \u2022 9:00 - 18:00 часа'}
                     </p>
                     <span className="text-[10px] text-zinc-500 mt-1 block">
                       {language === 'en' ? 'Available for emergency support 24/7' : 'На разположение за спешни случаи 24/7'}

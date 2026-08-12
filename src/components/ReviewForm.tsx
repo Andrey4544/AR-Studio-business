@@ -87,20 +87,6 @@ export default function ReviewForm({ isOpen, onClose, onSuccess }: ReviewFormPro
       });
     }
     
-    if (!formData.company.trim()) {
-      newErrors.push({ 
-        field: 'company', 
-        message: language === 'en' ? 'Company is required' : 'Фирма е задължителна' 
-      });
-    }
-    
-    if (!formData.role.trim()) {
-      newErrors.push({ 
-        field: 'role', 
-        message: language === 'en' ? 'Role is required' : 'Длъжност е задължителна' 
-      });
-    }
-    
     if (!formData.text.trim()) {
       newErrors.push({ 
         field: 'text', 
@@ -301,10 +287,9 @@ export default function ReviewForm({ isOpen, onClose, onSuccess }: ReviewFormPro
                     </div>
                     <div className="space-y-1.5">
                       <label className="text-xs font-mono text-zinc-500 uppercase">
-                        {language === 'en' ? 'Company' : 'Фирма'}
+                        {language === 'en' ? 'Company (optional)' : 'Фирма (незадължително)'}
                       </label>
                       <input
-                        required
                         type="text"
                         value={formData.company}
                         onChange={(e) => setFormData({ ...formData, company: e.target.value })}
@@ -320,10 +305,9 @@ export default function ReviewForm({ isOpen, onClose, onSuccess }: ReviewFormPro
 
                   <div className="space-y-1.5">
                     <label className="text-xs font-mono text-zinc-500 uppercase">
-                      {language === 'en' ? 'Role / Title' : 'Длъжност'}
+                      {language === 'en' ? 'Role / Title (optional)' : 'Длъжност (незадължително)'}
                     </label>
                     <input
-                      required
                       type="text"
                       value={formData.role}
                       onChange={(e) => setFormData({ ...formData, role: e.target.value })}

@@ -4,6 +4,7 @@
  */
 
 import React, { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, Star, Send, CheckCircle2, AlertCircle } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
@@ -37,14 +38,25 @@ export default function ReviewForm({ isOpen, onClose, onSuccess }: ReviewFormPro
   useEffect(() => {
     if (!isOpen) return;
 
+    const scrollY = window.scrollY;
     const previousBodyOverflow = document.body.style.overflow;
     const previousBodyPaddingRight = document.body.style.paddingRight;
     const previousBodyOverscrollBehavior = document.body.style.overscrollBehavior;
+    const previousBodyPosition = document.body.style.position;
+    const previousBodyTop = document.body.style.top;
+    const previousBodyLeft = document.body.style.left;
+    const previousBodyRight = document.body.style.right;
+    const previousBodyWidth = document.body.style.width;
     const previousDocumentOverflow = document.documentElement.style.overflow;
     const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
 
-    // Lock both scroll roots so the page underneath cannot move while the dialog is open.
+    // Freeze the body at its current position so wheel/touch gestures cannot move the page underneath.
     document.documentElement.style.overflow = 'hidden';
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.left = '0';
+    document.body.style.right = '0';
+    document.body.style.width = '100%';
     document.body.style.overflow = 'hidden';
     document.body.style.overscrollBehavior = 'none';
     if (scrollbarWidth > 0) {
@@ -56,6 +68,12 @@ export default function ReviewForm({ isOpen, onClose, onSuccess }: ReviewFormPro
       document.body.style.overflow = previousBodyOverflow;
       document.body.style.paddingRight = previousBodyPaddingRight;
       document.body.style.overscrollBehavior = previousBodyOverscrollBehavior;
+      document.body.style.position = previousBodyPosition;
+      document.body.style.top = previousBodyTop;
+      document.body.style.left = previousBodyLeft;
+      document.body.style.right = previousBodyRight;
+      document.body.style.width = previousBodyWidth;
+      window.scrollTo(0, scrollY);
     };
   }, [isOpen]);
 
@@ -151,25 +169,32 @@ export default function ReviewForm({ isOpen, onClose, onSuccess }: ReviewFormPro
     }
   };
 
-  return (
+  return createPortal(
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-[100] flex items-start sm:items-center justify-center overflow-hidden p-4 sm:p-6">
+        <div
+          className="fixed inset-0 z-[100] isolate flex items-start justify-center overflow-hidden bg-[#050505] p-4 sm:items-center sm:p-6"
+          onWheel={(event) => event.preventDefault()}
+          onTouchMove={(event) => event.preventDefault()}
+        >
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
+            aria-hidden="true"
             className="absolute inset-0 bg-[#050505]"
           />
-          
+
           <motion.div
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             role="dialog"
             aria-modal="true"
-            className="relative my-auto w-full max-w-lg max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-3rem)] overflow-y-auto overscroll-contain bg-zinc-950 border border-white/10 rounded-3xl p-5 sm:p-8 shadow-2xl"
+            onWheel={(event) => event.stopPropagation()}
+            onTouchMove={(event) => event.stopPropagation()}
+            className="relative my-auto min-h-0 w-full max-w-lg max-h-[calc(100dvh-2rem)] overflow-y-auto overscroll-contain bg-zinc-950 border border-white/10 rounded-3xl p-5 shadow-2xl sm:max-h-[calc(100dvh-3rem)] sm:p-8"
           >
             {/* Background Glow */}
             <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 blur-[60px] pointer-events-none" />
@@ -352,6 +377,7 @@ export default function ReviewForm({ isOpen, onClose, onSuccess }: ReviewFormPro
           </motion.div>
         </div>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body,
   );
 }

@@ -117,7 +117,7 @@ export default function FloatingSocialButtons() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 20 }}
-              className="absolute bottom-[4.5rem] right-0 flex flex-col items-end gap-4"
+              className="absolute bottom-20 right-0 flex flex-col items-end gap-4"
             >
               {socialLinks.map((social, index) => {
                 const Icon = social.icon;
@@ -148,10 +148,10 @@ export default function FloatingSocialButtons() {
 
         <motion.button
           onClick={() => setIsExpanded(!isExpanded)}
-          className="w-14 h-14 rounded-full bg-gradient-to-br from-blue-600 to-blue-700 text-white shadow-2xl border border-blue-400/30 flex items-center justify-center"
+          className="flex h-16 w-16 items-center justify-center rounded-full border border-blue-400/30 bg-gradient-to-br from-blue-600 to-blue-700 text-white shadow-2xl"
           whileTap={{ scale: 0.9 }}
         >
-          {isExpanded ? <X className="w-6 h-6" /> : <Share2 className="w-6 h-6" />}
+          {isExpanded ? <X className="h-7 w-7" /> : <Share2 className="h-7 w-7" />}
         </motion.button>
       </div>
     </>

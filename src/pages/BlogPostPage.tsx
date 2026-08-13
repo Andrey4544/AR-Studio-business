@@ -10,6 +10,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { getBlogPostBySlug } from '../data/blogData';
 import { Calendar, ArrowLeft } from 'lucide-react';
+import { localizedPath } from '../lib/localizedRoutes';
 
 export default function BlogPostPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -18,9 +19,9 @@ export default function BlogPostPage() {
 
   // Generate SEO meta tags
   usePageMeta({
-    title: post ? `${post.title} | AR Studio Blog` : 'Blog | AR Studio',
-    description: post ? (language === 'en' ? post.descriptionEn : post.description) : 'Прочетете нашите статии за уеб дизайн и дигитален маркетинг.',
-    keywords: post ? (language === 'en' ? post.keywordsEn : post.keywords) : 'блог',
+    title: post ? `${language === 'en' ? post.titleEn || post.title : post.title} | AR Studio Blog` : (language === 'en' ? 'Blog | AR Studio' : 'Блог | AR Studio'),
+    description: post ? (language === 'en' ? post.descriptionEn || post.description : post.description) : (language === 'en' ? 'Read practical articles about web design and digital growth.' : 'Прочетете нашите статии за уеб дизайн и дигитален маркетинг.'),
+    keywords: post ? (language === 'en' ? post.keywordsEn || post.keywords : post.keywords) : (language === 'en' ? 'web design blog' : 'блог'),
     canonical: post ? `https://www.ar-studio.site/blog/${slug}` : 'https://www.ar-studio.site/blog',
     ogType: post ? 'article' : 'website'
   });
@@ -31,8 +32,8 @@ export default function BlogPostPage() {
       const articleSchema = {
         '@context': 'https://schema.org',
         '@type': 'BlogPosting',
-        'headline': post.title,
-        'description': language === 'en' ? post.descriptionEn : post.description,
+        'headline': language === 'en' ? post.titleEn || post.title : post.title,
+        'description': language === 'en' ? post.descriptionEn || post.description : post.description,
         'image': post.ogImage || 'https://www.ar-studio.site/assets/logo.webp',
         'datePublished': post.date,
         'author': {
@@ -49,7 +50,7 @@ export default function BlogPostPage() {
         },
         'mainEntityOfPage': {
           '@type': 'WebPage',
-          '@id': `https://www.ar-studio.site/blog/${post.slug}`
+          '@id': `${window.location.origin}${window.location.pathname}`
         }
       };
 
@@ -72,7 +73,7 @@ export default function BlogPostPage() {
             <h1 className="text-3xl font-bold text-white mb-4">
               {language === 'en' ? 'Post not found' : 'Статията не е намерена'}
             </h1>
-            <Link to="/blog" className="text-blue-400 hover:text-blue-300">
+            <Link to={localizedPath('/blog', language)} className="text-blue-400 hover:text-blue-300">
               {language === 'en' ? 'Back to blog' : 'Назад към блога'}
             </Link>
           </div>
@@ -88,7 +89,7 @@ export default function BlogPostPage() {
           
           {/* Back Link */}
           <Link 
-            to="/blog" 
+            to={localizedPath('/blog', language)}
             className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 mb-8 transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
@@ -100,18 +101,18 @@ export default function BlogPostPage() {
             <header className="mb-8">
               <div className="flex items-center gap-3 mb-4">
                 <span className="px-3 py-1 bg-blue-500/10 border border-blue-500/20 rounded-full text-xs font-semibold text-blue-400">
-                  {post.category}
+                  {language === 'en' ? post.categoryEn || post.category : post.category}
                 </span>
               </div>
               
               <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                {post.title}
+                {language === 'en' ? post.titleEn || post.title : post.title}
               </h1>
 
               <div className="flex items-center gap-4 text-sm text-zinc-400 pb-8 border-b border-white/5">
                 <div className="flex items-center gap-2">
                   <Calendar className="w-4 h-4" />
-                  <span>{new Date(post.date).toLocaleDateString('bg-BG')}</span>
+                  <span>{new Date(post.date).toLocaleDateString(language === 'en' ? 'en-GB' : 'bg-BG')}</span>
                 </div>
                 <span>•</span>
                 <span>{post.readTime}</span>
@@ -124,7 +125,7 @@ export default function BlogPostPage() {
             <div className="prose prose-invert max-w-none mb-12">
               <div 
                 className="text-zinc-300 space-y-4"
-                dangerouslySetInnerHTML={{ __html: post.content }}
+                dangerouslySetInnerHTML={{ __html: language === 'en' ? post.contentEn || post.content : post.content }}
               />
             </div>
 
@@ -141,7 +142,7 @@ export default function BlogPostPage() {
                   : 'Свържете се с нас за безплатна консултация.'}
               </p>
               <Link
-                to="/kontakti"
+                to={localizedPath('/kontakti', language)}
                 className="inline-block px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors"
               >
                 {language === 'en' ? 'Get in touch' : 'Свържете се'}

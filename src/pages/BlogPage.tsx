@@ -51,29 +51,29 @@ export default function BlogPage() {
             {blogPosts.map((post) => (
               <Link
                 key={post.id}
-                to={`/blog/${post.slug}`}
+                to={language === 'en' ? `/en/blog/${post.slug}` : `/blog/${post.slug}`}
                 className="group bg-zinc-900/50 border border-white/5 rounded-xl p-8 hover:border-blue-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10"
               >
                 <div className="flex items-start justify-between mb-4">
                   <div>
                     <span className="inline-block px-3 py-1 bg-blue-500/10 border border-blue-500/20 rounded-full text-xs font-semibold text-blue-400 mb-3">
-                      {post.category}
+                      {language === 'en' ? post.categoryEn || post.category : post.category}
                     </span>
                     <h2 className="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors mb-3">
-                      {post.title}
+                      {language === 'en' ? post.titleEn || post.title : post.title}
                     </h2>
                   </div>
                   <ArrowRight className="w-5 h-5 text-zinc-500 group-hover:text-blue-400 transition-colors mt-1" />
                 </div>
 
                 <p className="text-zinc-400 mb-4">
-                  {post.excerpt}
+                  {language === 'en' ? post.excerptEn || post.excerpt : post.excerpt}
                 </p>
 
                 <div className="flex items-center gap-4 text-sm text-zinc-500">
                   <div className="flex items-center gap-2">
                     <Calendar className="w-4 h-4" />
-                    <span>{new Date(post.date).toLocaleDateString('bg-BG')}</span>
+                    <span>{new Date(post.date).toLocaleDateString(language === 'en' ? 'en-GB' : 'bg-BG')}</span>
                   </div>
                   <span>•</span>
                   <span>{post.readTime}</span>

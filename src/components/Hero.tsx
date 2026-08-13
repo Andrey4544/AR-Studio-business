@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { ArrowRight, Sparkles, Zap, Shield, HelpCircle, Trophy, Globe } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { localizedPath } from '../lib/localizedRoutes';
 import TechBackground from './TechBackground';
 
 interface HeroProps {
@@ -72,7 +73,7 @@ export default function Hero({ onQuoteClick, onWorkClick, onAboutClick }: HeroPr
         </motion.p>
 
         <Link
-          to="/web-design-plovdiv"
+          to={localizedPath('/web-design-plovdiv', language)}
           className="inline-flex items-center gap-2 text-sm font-semibold text-blue-300 hover:text-blue-100 transition-colors mb-10"
         >
           {language === 'en' ? 'Discover our web design services in Plovdiv' : 'Разгледайте услугите ни за уеб дизайн в Пловдив'}

@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, Heart, ArrowUp, Send, Facebook, Instagram } from 'lucide-react';
 import Logo from './Logo';
 import { useLanguage } from '../context/LanguageContext';
+import { localizedPath } from '../lib/localizedRoutes';
 
 interface FooterProps {
   openQuoteModal: () => void;
@@ -33,7 +34,7 @@ export default function Footer({ openQuoteModal }: FooterProps) {
           
           {/* Column A: Logo / Taglines */}
           <div className="md:col-span-4 flex flex-col gap-6">
-            <Link to="/" className="cursor-pointer">
+            <Link to={localizedPath('/', language)} className="cursor-pointer">
               <Logo size="md" />
             </Link>
             <p className="text-xs text-zinc-400 leading-relaxed max-w-sm mt-2">
@@ -101,7 +102,7 @@ export default function Footer({ openQuoteModal }: FooterProps) {
               ].map((link) => (
                 <li key={link.path}>
                   <Link
-                    to={link.path}
+                    to={localizedPath(link.path, language)}
                     className="hover:text-blue-400 hover:translate-x-1.5 transition-all duration-300"
                   >
                     {link.label}

@@ -48,7 +48,8 @@ export default async function handler(req: any, res: any) {
 
   try {
     const isConsult = data.formType === 'consult';
-    const formTypeLabel = isConsult ? 'Бърза консултация' : 'Запитване за Оферта';
+    const isBrief = data.formType === 'brief';
+    const formTypeLabel = isConsult ? 'Бърза консултация' : isBrief ? 'Кратък проектен бриф' : 'Запитване за оферта';
     
     let appointmentDetails = '';
     if (isConsult) {

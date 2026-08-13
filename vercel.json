@@ -87,6 +87,22 @@
     {
       "source": "/uslugi/:slug",
       "destination": "/uslugi/:slug/index.html"
+    },
+    {
+      "source": "/en",
+      "destination": "/en/index.html"
+    },
+    {
+      "source": "/en/:page",
+      "destination": "/en/:page/index.html"
+    },
+    {
+      "source": "/en/blog/:slug",
+      "destination": "/en/blog/:slug/index.html"
+    },
+    {
+      "source": "/en/services/:slug",
+      "destination": "/en/services/:slug/index.html"
     }
   ]
 }

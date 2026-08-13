@@ -5,6 +5,7 @@
 
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { staticTranslations, TranslationDictionary, dynamicTranslations } from '../translations';
+import { alternateLanguagePath, languageFromPath } from '../lib/localizedRoutes';
 import { Feature, TeamMember, PricingPlan, Project, Benefit, Testimonial, FaqItem } from '../types';
 
 interface LanguageContextType {
@@ -23,10 +24,11 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  // Use localStorage to persist the user's language selection if available
+  // The URL is the source of truth for indexable language versions.
+  // This keeps every existing Bulgarian route Bulgarian and every /en route English.
   const [language, setLanguage] = useState<'en' | 'bg'>(() => {
-    const saved = localStorage.getItem('ar_studio_lang');
-    return (saved === 'en' || saved === 'bg') ? saved : 'bg'; // Default to Bulgarian since local target is local businesses
+    if (typeof window === 'undefined') return 'bg';
+    return languageFromPath(window.location.pathname);
   });
 
   useEffect(() => {
@@ -35,7 +37,9 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   }, [language]);
 
   const toggleLanguage = () => {
-    setLanguage((prev) => (prev === 'en' ? 'bg' : 'en'));
+    if (typeof window === 'undefined') return;
+    const nextPath = alternateLanguagePath(window.location.pathname);
+    window.location.assign(`${nextPath}${window.location.search}${window.location.hash}`);
   };
 
   const t = (key: keyof TranslationDictionary): string => {

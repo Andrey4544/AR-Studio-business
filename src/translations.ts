@@ -145,13 +145,13 @@ export const staticTranslations: { en: TranslationDictionary; bg: TranslationDic
 
     contactSubTitle: 'GET IN TOUCH',
     contactTitle: "Let's Craft Your High-End Website Together",
-    contactDesc: 'Have questions or ready to launch? Fill out the brief below. Andrey or Rumen will reach out directly on WhatsApp or phone within 1 hour.',
+    contactDesc: 'Have questions or ready to launch? Fill out the brief below. Andrey or Rumen will respond directly within 3–4 hours during the working day.',
     contactYourNamePlaceholder: 'e.g., Ivan Georgiev',
     contactEmailPlaceholder: 'e.g., ivan@gmail.com',
     contactPhonePlaceholder: 'e.g., 0888 123 456',
     contactMessagePlaceholder: 'Tell us about your brand vision...',
     contactSubmitting: 'Sending...',
-    contactSuccess: 'Message Sent Successfully! Andrey or Rumen will call you back within 1 hour.',
+    contactSuccess: 'Message sent successfully. Andrey or Rumen will respond within 3–4 hours during the working day.',
 
     portfolioSubTitle: 'SELECTED WORKS',
     portfolioTitle: 'Bespoke Websites Live & Serving Customers',
@@ -230,13 +230,13 @@ export const staticTranslations: { en: TranslationDictionary; bg: TranslationDic
 
     contactSubTitle: 'СВЪРЖЕТЕ СЕ С НАС',
     contactTitle: 'Нека създадем Вашия премиум уебсайт заедно',
-    contactDesc: 'Имате въпроси или сте готови да започнем? Попълнете кратката форма. Андрей или Румен ще се свържат директно с Вас в рамките на 1 час.',
+    contactDesc: 'Имате въпроси или сте готови да започнем? Попълнете кратката форма. Андрей или Румен ще Ви отговорят директно до 3–4 часа в рамките на работния ден.',
     contactYourNamePlaceholder: 'напр., Иван Георгиев',
     contactEmailPlaceholder: 'напр., ivan@gmail.com',
     contactPhonePlaceholder: 'напр., 0888 123 456',
     contactMessagePlaceholder: 'Разкажете ни за визията на Вашия бранд...',
     contactSubmitting: 'Изпраща се...',
-    contactSuccess: 'Съобщението е изпратено успешно! Андрей или Румен ще се свържат с Вас до 1 час.',
+    contactSuccess: 'Съобщението е изпратено успешно! Андрей или Румен ще Ви отговорят до 3–4 часа в рамките на работния ден.',
 
     portfolioSubTitle: 'ИЗБРАНИ ПРОЕКТИ',
     portfolioTitle: 'Уникални уебсайтове на живо, обслужващие клиенти',

@@ -96,6 +96,15 @@ const routes = {
     bullets: ['Какъв е бизнесът и кой е основният Ви клиент', 'Каква услуга или продукт искате да представите', 'Имате ли готово лого, снимки, текстове или сайт за редизайн', 'Кой контакт е най-удобен за обратна връзка'],
     schemaType: 'contact',
   },
+  '/brief': {
+    title: 'Кратък проектен бриф | AR Studio',
+    description: 'Кратък проектен бриф за уебсайт: споделете бизнеса, целта, наличните материали и предпочитаното съдържание преди безплатната консултация.',
+    h1: 'Кратък проектен бриф преди да започнем',
+    summary: 'Няколко ясни отговора за бизнеса, целта и съдържанието помагат първият разговор да бъде по-полезен и фокусиран.',
+    h2: 'Какво е полезно да подготвите',
+    bullets: ['Какво предлага бизнесът и за кого', 'Какво трябва да може да направи посетителят', 'Лого, снимки, текстове или стар сайт, ако разполагате с тях', 'Примери за сайтове, които харесвате'],
+    schemaType: 'webpage',
+  },
   '/chzv': {
     title: 'Често задавани въпроси за уеб дизайн | AR Studio',
     description: 'Отговори на често задавани въпроси за срок, цена, SEO основа, мобилен дизайн, собственост и поддръжка на уеб сайт.',
@@ -240,6 +249,59 @@ const routes = {
   },
 };
 
+const englishRouteMap = {
+  '/': '/en', '/za-nas': '/en/about', '/uslugi': '/en/services', '/web-design-plovdiv': '/en/web-design-plovdiv',
+  '/uslugi/izrabotka-na-sait-plovdiv': '/en/services/website-development-plovdiv',
+  '/uslugi/sait-za-restorant-plovdiv': '/en/services/restaurant-website-plovdiv',
+  '/uslugi/sait-za-kozmetichen-salon-plovdiv': '/en/services/beauty-salon-website-plovdiv',
+  '/uslugi/sait-za-hotel-plovdiv': '/en/services/hotel-website-plovdiv',
+  '/uslugi/sait-za-advokatska-kantora': '/en/services/law-firm-website-bulgaria',
+  '/uslugi/izrabotka-na-onlayn-magazin': '/en/services/ecommerce-website-bulgaria',
+  '/portfolio': '/en/portfolio', '/zashto-nas': '/en/why-us', '/otzivy': '/en/testimonials', '/kontakti': '/en/contact', '/brief': '/en/brief', '/chzv': '/en/faq', '/blog': '/en/blog',
+};
+for (const route of Object.keys(routes)) {
+  if (route.startsWith('/blog/')) englishRouteMap[route] = `/en${route}`;
+}
+const englishToBulgarianRoute = Object.fromEntries(Object.entries(englishRouteMap).map(([bg, en]) => [en, bg]));
+
+const englishOverrides = {
+  '/': { title: 'AR Studio | Web Design & Website Development in Plovdiv', description: 'AR Studio creates fast, bespoke, search-ready websites for businesses in Plovdiv and Bulgaria.', h1: 'Web Design and Website Development in Plovdiv', summary: 'AR Studio is a boutique web design and development studio. We build clear, fast, mobile-friendly websites that explain your offer and make the next customer action easier.', h2: 'Services for local and growing businesses', bullets: ['Custom web design and business websites', 'Digital menus, QR integrations, and restaurant websites', 'Online stores and product catalogues', 'Technical SEO foundations, content, and support'] },
+  '/za-nas': { title: 'About AR Studio | Design & Development Team in Plovdiv', description: 'Meet the direct design and development team behind AR Studio in Plovdiv.', h1: 'The team behind AR Studio', summary: 'AR Studio combines design, development, and practical communication for businesses that want a professional online presence without unnecessary complexity.', h2: 'How we work on a project', bullets: ['We start with the business goal and client needs', 'We organise content and structure before visual detail', 'We test the mobile experience, contact paths, and core SEO elements', 'We stay available for future development and support'] },
+  '/uslugi': { title: 'Web Design, Websites & Online Stores | AR Studio Plovdiv', description: 'Explore AR Studio services for custom web design, business websites, online stores, and search-ready technical foundations.', h1: 'Web services for businesses in Plovdiv and Bulgaria', summary: 'We choose a scope around the project goal: enquiries, reservations, visits, sales, or a clearer presentation of a professional service.', h2: 'Specialised services', bullets: ['Business website development', 'Restaurant websites, menus, and reservations', 'Beauty, hotel, and professional service websites', 'Online stores and product catalogues'] },
+  '/web-design-plovdiv': { title: 'Web Design in Plovdiv | Custom Websites for Businesses | AR Studio', description: 'AR Studio creates fast, bespoke websites for businesses in Plovdiv and Bulgaria, with clear structure and search-ready foundations.', h1: 'Web design in Plovdiv for businesses with a clear goal', summary: 'We plan a site around the people you want to reach, the information they need, and the action you want them to take.', h2: 'What a strong foundation includes', bullets: ['Clear service structure and local positioning', 'Responsive design for phone, tablet, and desktop', 'Technical SEO elements and internal links', 'Easy contact paths for calls, enquiries, or bookings'] },
+  '/portfolio': { title: 'Portfolio | AR Studio Real Website Projects', description: 'Explore selected AR Studio web projects for real estate, restaurants, online retail, and local businesses.', h1: 'Portfolio: real website projects', summary: 'See how different business goals become a clear structure, visual direction, and useful website experience.', h2: 'Projects and directions', bullets: ['Tomato Restaurant — website, digital menu, and QR experience', 'BelEstateGroup — catalogue and real estate presentation', 'CBL Fight Store — product and e-commerce experience', 'Projects for local services, hospitality, and professional businesses'] },
+  '/zashto-nas': { title: 'Why AR Studio | Direct Web Design Partnership', description: 'Learn how AR Studio works: direct communication, focused design, technical development, and a clear project process.', h1: 'A practical process and direct communication', summary: 'A strong website comes from a clear goal, the right structure, and careful checking. That is why we work in short stages with useful feedback.', h2: 'Reasons to start a conversation', bullets: ['Direct contact with the people designing and developing the work', 'Clear scope, timing, and next steps', 'Mobile-first approach and technical SEO preparation', 'A path for future website development'] },
+  '/otzivy': { title: 'Client Reviews | AR Studio', description: 'Read client feedback published with permission and learn how to share your experience with AR Studio.', h1: 'Client feedback published with permission', summary: 'We show approved reviews and aim to present every piece of feedback clearly and fairly.', h2: 'Your experience matters', bullets: ['We publish only approved reviews', 'Each review is shown once', 'You can share feedback through the page form'] },
+  '/kontakti': { title: 'Contact AR Studio | Free Web Design Consultation', description: 'Contact AR Studio for a free consultation about web design, a business website, online store, or digital menu.', h1: 'Let’s talk about your website', summary: 'Send a short description of the business, service, or idea. We will discuss a relevant structure, timing, and next step.', h2: 'What to send', bullets: ['What the business does and who the core customer is', 'Which service or product you want to present', 'Whether you have a logo, photos, copy, or a website to redesign', 'Which contact method is most convenient'] },
+  '/brief': { title: 'Project Brief | AR Studio', description: 'A short website project brief: share your business, goal, available materials, and preferences before a free consultation.', h1: 'A short project brief before we start', summary: 'A few clear answers about the business, goal, and available content help make the first conversation more useful and focused.', h2: 'What is useful to prepare', bullets: ['What the business offers and for whom', 'What the visitor should be able to do', 'Logo, photos, copy, or a previous website if available', 'Examples of websites you like'] },
+  '/chzv': { title: 'FAQ | AR Studio Web Design', description: 'Answers to common questions about website timing, pricing, SEO foundations, mobile design, ownership, and support.', h1: 'Frequently asked questions about websites', summary: 'Practical answers about process, timing, pricing, and what you receive after a project launches.', h2: 'Before we start', bullets: ['Which website is right for your business', 'How timing and price are determined', 'What basic SEO preparation includes', 'How a website can grow later'] },
+  '/blog': { title: 'Web Design, SEO & Business Growth Blog | AR Studio', description: 'Practical articles about web design, local SEO, online stores, digital menus, and choosing a web partner in Plovdiv and Bulgaria.', h1: 'A practical blog for a stronger online business', summary: 'We publish clear resources that help business owners make better decisions about their website, content, and visibility.', h2: 'Topics we cover', bullets: ['Website pricing and scope', 'SEO foundations and useful content', 'Websites for restaurants, hotels, and local services', 'How to choose a web design partner'] },
+};
+
+Object.assign(englishOverrides, {
+  '/uslugi/izrabotka-na-sait-plovdiv': { title: 'Website Development in Plovdiv | AR Studio', description: 'Custom business website development in Plovdiv with mobile-first design, clear contact paths, and a search-ready technical foundation.', h1: 'Website development in Plovdiv', summary: 'We create a website that explains your business clearly and guides a visitor toward a call, enquiry, booking, or purchase.', h2: 'Suitable for', bullets: ['Restaurants, salons, hotels, and local retailers', 'Professionals and service companies', 'Businesses starting with a focused landing page', 'Existing websites that need a redesign'] },
+  '/uslugi/sait-za-restorant-plovdiv': { title: 'Restaurant Website in Plovdiv | Menus & Reservations — AR Studio', description: 'Restaurant websites in Plovdiv with digital menus, QR codes, reservations, maps, and a mobile-first customer journey.', h1: 'Restaurant website in Plovdiv', summary: 'Guests need to quickly see the menu, atmosphere, address, and reservation path. We organise the website around those actions.', h2: 'Useful elements for hospitality', bullets: ['A digital menu that works well on a phone', 'QR access for tables, reception, and print materials', 'A gallery for food, interiors, and atmosphere', 'Direct paths to reservations and directions'] },
+  '/uslugi/sait-za-kozmetichen-salon-plovdiv': { title: 'Beauty Salon Website in Plovdiv | AR Studio', description: 'Elegant websites for beauty and hair salons in Plovdiv with services, pricing, galleries, appointment paths, and local SEO foundations.', h1: 'Beauty salon website in Plovdiv', summary: 'Present services, atmosphere, and results in a way that helps a client feel confident to book an appointment.', h2: 'A focus on booking', bullets: ['Services, pricing, and FAQ sections', 'A gallery for real results and atmosphere', 'Appointment, phone, Instagram, and map links', 'Mobile-first structure for clients on the move'] },
+  '/uslugi/sait-za-hotel-plovdiv': { title: 'Hotel Website in Plovdiv | Direct Enquiries & Bookings — AR Studio', description: 'Professional websites for hotels, guesthouses, and apartments in Plovdiv with rooms, amenities, galleries, maps, and direct enquiry paths.', h1: 'Hotel website in Plovdiv', summary: 'A website should answer the guest’s questions: where you are, what the rooms look like, which amenities you offer, and how to enquire.', h2: 'Information that builds trust', bullets: ['Pages for rooms, amenities, location, and experience', 'A gallery that presents the place realistically', 'Multilingual structure where needed', 'A form or clear path to a booking process'] },
+  '/uslugi/sait-za-advokatska-kantora': { title: 'Law Firm Website | Professional Legal Website — AR Studio', description: 'Professional websites for lawyers, law firms, and consultants with clear services, team information, contacts, and a trust-focused structure.', h1: 'Law firm website in Bulgaria', summary: 'A legal website should feel calm, accurate, and trustworthy. We organise practice areas, people, and contacts in an understandable way.', h2: 'A structure for professional services', bullets: ['Clear presentation of practice areas and services', 'Team profiles and professional biographies', 'Easy enquiries without unnecessary fields', 'FAQs and content in understandable language'] },
+  '/uslugi/izrabotka-na-onlayn-magazin': { title: 'E-commerce Website Development in Bulgaria | AR Studio', description: 'Custom online store development with mobile-first design, products, categories, payments, and a search-ready foundation.', h1: 'E-commerce website development in Bulgaria', summary: 'We work on clear categories, product pages, mobile checkout, and useful content that helps a customer decide.', h2: 'A foundation for online sales', bullets: ['Product and category structure', 'Responsive product pages and cart', 'Payment and delivery integrations based on needs', 'SEO foundations for categories, products, and images'] },
+  '/blog/kolko-struva-izrabotka-na-sait': { title: 'How Much Does Website Development Cost in Bulgaria in 2026? | AR Studio', description: 'A practical view of website pricing in Bulgaria: landing pages, business websites, online stores, and the factors that change the scope.', h1: 'How Much Does Website Development Cost in Bulgaria in 2026?', summary: 'See what usually sits behind different price ranges and how to compare proposals by real scope.', h2: 'What influences the price', bullets: ['Number and purpose of pages', 'Design, content, and functionality', 'Payments, integrations, and catalogues', 'SEO foundations, support, and future development'] },
+  '/blog/5-neshta-koito-vseki-nov-biznes-sait-trjabva-da-pritezava': { title: '5 Things Every New Business Website Must Have | AR Studio', description: 'Five practical elements for a useful business website: speed, mobile experience, clear actions, SEO foundations, and contact information.', h1: '5 Things Every New Business Website Must Have', summary: 'Before launch, check whether the website helps a visitor understand the offer and take the next step.', h2: 'Foundations that should not be missing', bullets: ['Fast, stable loading', 'Mobile-friendly experience', 'A clear call to action', 'Search-ready structure and contact information'] },
+  '/blog/restorant-plovdiv-digitalno-menu-i-sait': { title: 'Why a Plovdiv Restaurant Needs a Digital Menu and Website | AR Studio', description: 'Practical ideas for a restaurant website in Plovdiv: digital menu, QR code, reservations, gallery, map, and local visibility.', h1: 'Why a Plovdiv Restaurant Needs a Digital Menu and Website', summary: 'Help guests see the menu, atmosphere, and reservation path before their visit.', h2: 'Digital elements for a venue', bullets: ['A menu that opens comfortably on a phone', 'A QR journey from table to current content', 'Direct reservations and contact', 'Local information, reviews, and directions'] },
+  '/blog/kak-ai-i-ar-transformirat-biznesa-v-balgarija-2026': { title: 'How AI and AR Are Transforming Business in Bulgaria in 2026 | AR Studio', description: 'A practical look at AI, augmented reality, and digital experiences that can help Bulgarian businesses solve real customer problems.', h1: 'How AI and AR Are Transforming Business in Bulgaria in 2026', summary: 'Technology is useful when it solves a specific problem: faster answers, better product presentation, or easier customer action.', h2: 'From technology to business value', bullets: ['AI support for common questions', 'AR visualisation for products and spaces', 'Automated processes with human control', 'A clear link between a feature and customer action'] },
+  '/blog/kak-da-izberem-uebdizain-agenciya-plovdiv': { title: 'How to Choose a Web Design Agency in Plovdiv | Practical Guide', description: 'A practical guide to comparing web design agencies in Plovdiv: portfolio, process, SEO foundations, communication, and real scope.', h1: 'How to Choose a Web Design Agency in Plovdiv', summary: 'Compare more than design and price: look at process, relevant portfolio, SEO foundations, communication, and what comes after launch.', h2: 'Criteria for an informed choice', bullets: ['Relevant portfolio and real case studies', 'A clear process and scope', 'Technical SEO preparation without ranking promises', 'Direct communication and a support path'] },
+  '/blog/sobstven-sait-sreshtu-socialni-mrezhi': { title: 'Social Media or Your Own Website? A Practical Local Business Guide | AR Studio', description: 'Learn when a local business needs its own website as well as Facebook or Instagram: services, contacts, reservations, and enquiries.', h1: 'Social Media or Your Own Website? What Does a Local Business Need?', summary: 'Social media creates attention; an owned website organises information and guides a visitor toward a practical next step.', h2: 'When a social profile is not enough', bullets: ['Services, pricing, and different customer types', 'Local visibility and clear offer information', 'Reservations, enquiries, or online orders', 'Portfolio, reviews, and process in one place'] },
+  '/blog/sait-za-agenciya-imoti-obqvi': { title: 'Real Estate Website: Own Listings and More Enquiries | AR Studio', description: 'A practical real estate website structure: owned catalogue, filters, listing details, viewing requests, and direct contact.', h1: 'A Real Estate Website: How Own Listings Turn Interest into Enquiries', summary: 'An owned catalogue gives an agency a place to present listings and gives a visitor a clearer path from browsing to enquiry.', h2: 'Foundations of a useful real estate website', bullets: ['A catalogue with practical filters', 'Detailed listing pages', 'Viewing requests and clear contact paths', 'Trust, current information, and a mobile-friendly experience'] },
+});
+
+for (const [bgRoute, enRoute] of Object.entries(englishRouteMap)) {
+  const bgPage = routes[bgRoute];
+  if (!bgPage) continue;
+  const fallback = { ...bgPage, language: 'en' };
+  const override = englishOverrides[bgRoute];
+  routes[enRoute] = override ? { ...fallback, ...override, language: 'en' } : { ...fallback, title: `${bgPage.title} | AR Studio`, language: 'en' };
+}
+
 function escapeHtml(value) {
   return String(value)
     .replaceAll('&', '&amp;')
@@ -269,6 +331,7 @@ function breadcrumbSchema(route, title) {
 
 function schemaFor(route, page) {
   const url = absoluteUrl(route);
+  const language = page.language || 'bg';
   const base = { '@context': 'https://schema.org', '@graph': [] };
   if (page.schemaType === 'home') {
     base['@graph'].push({
@@ -287,7 +350,7 @@ function schemaFor(route, page) {
       areaServed: [{ '@type': 'City', name: 'Пловдив' }, { '@type': 'Country', name: 'България' }],
       serviceType: ['Уеб дизайн', 'Изработка на сайтове', 'Онлайн магазини', 'Техническа SEO основа'],
       sameAs: ['https://www.facebook.com/share/18n7DfUWJW/', 'https://www.instagram.com/arstudio.site', 'https://www.tiktok.com/@ar_studio_web'],
-    }, { '@type': 'WebSite', '@id': `${SITE}/#website`, url: SITE, name: 'AR Studio', alternateName: 'AR Studio — Уеб дизайн и изработка на сайтове в Пловдив', inLanguage: 'bg-BG', publisher: { '@id': `${SITE}/#business` } });
+    }, { '@type': 'WebSite', '@id': `${SITE}/#website`, url: SITE, name: 'AR Studio', alternateName: language === 'en' ? 'AR Studio — Web Design & Website Development in Plovdiv' : 'AR Studio — Уеб дизайн и изработка на сайтове в Пловдив', inLanguage: language === 'en' ? 'en' : 'bg', publisher: { '@id': `${SITE}/#business` } });
   } else if (page.schemaType === 'service') {
     base['@graph'].push({ '@type': 'Service', '@id': `${url}#service`, name: page.h1, serviceType: page.h1, description: page.description, provider: { '@id': `${SITE}/#business` }, areaServed: [{ '@type': 'City', name: 'Пловдив' }, { '@type': 'Country', name: 'България' }], url });
   } else if (page.schemaType === 'article') {
@@ -295,25 +358,40 @@ function schemaFor(route, page) {
   } else if (page.schemaType === 'faq') {
     base['@graph'].push({ '@type': 'FAQPage', '@id': `${url}#faq`, mainEntity: [] });
   } else {
-    base['@graph'].push({ '@type': 'WebPage', '@id': `${url}#webpage`, url, name: page.title, description: page.description, inLanguage: 'bg-BG' });
+    base['@graph'].push({ '@type': 'WebPage', '@id': `${url}#webpage`, url, name: page.title, description: page.description, inLanguage: language === 'en' ? 'en' : 'bg' });
   }
   if (route !== '/') base['@graph'].push(breadcrumbSchema(route, page.h1));
   return base;
 }
 
 function staticBody(route, page) {
-  const nav = navLinks.map(([label, href]) => `<a href="${href}">${escapeHtml(label)}</a>`).join('');
+  const isEnglish = page.language === 'en';
+  const localize = (href) => isEnglish ? englishRouteMap[href] || (href.startsWith('/blog/') ? `/en${href}` : href) : href;
+  const navItems = isEnglish ? [['Home', '/'], ['Services', '/uslugi'], ['Web Design in Plovdiv', '/web-design-plovdiv'], ['Portfolio', '/portfolio'], ['About', '/za-nas'], ['Blog', '/blog'], ['Contact', '/kontakti']] : navLinks;
+  const nav = navItems.map(([label, href]) => `<a href="${localize(href)}">${escapeHtml(label)}</a>`).join('');
   const bullets = page.bullets.map((item) => `<li>${escapeHtml(item)}</li>`).join('');
-  const relatedServices = serviceLinks.map(([href, label]) => `<a href="${href}">${escapeHtml(label)}</a>`).join(' · ');
-  return `<main class="seo-prerender"><div class="seo-prerender__frame"><header class="seo-prerender__header"><a class="seo-prerender__brand" href="/" aria-label="AR Studio — Начало"><span class="seo-prerender__mark" aria-hidden="true">AR</span><span>AR Studio</span></a><nav class="seo-prerender__nav" aria-label="Основна навигация">${nav}</nav></header><article class="seo-prerender__hero"><p class="seo-prerender__eyebrow">Пловдив, България · Уеб дизайн студио</p><h1>${escapeHtml(page.h1)}</h1><p class="seo-prerender__summary">${escapeHtml(page.summary)}</p><p class="seo-prerender__actions"><a class="seo-prerender__button seo-prerender__button--primary" href="/kontakti">Поискайте безплатна консултация</a><a class="seo-prerender__button" href="/portfolio">Разгледайте портфолиото</a></p></article><section class="seo-prerender__content" aria-label="Полезна информация"><section class="seo-prerender__card"><h2>${escapeHtml(page.h2)}</h2><ul>${bullets}</ul></section><section class="seo-prerender__card"><h2>Свързани услуги</h2><p class="seo-prerender__related">${relatedServices}</p></section></section></div></main>`;
+  const relatedServices = serviceLinks.map(([href, label]) => `<a href="${localize(href)}">${escapeHtml(isEnglish ? 'Specialised service' : label)}</a>`).join(' · ');
+  const home = localize('/');
+  const contact = localize('/kontakti');
+  const portfolio = localize('/portfolio');
+  const eyebrow = isEnglish ? 'Plovdiv, Bulgaria · Web design studio' : 'Пловдив, България · Уеб дизайн студио';
+  const consultation = isEnglish ? 'Request a free consultation' : 'Поискайте безплатна консултация';
+  const work = isEnglish ? 'Explore the portfolio' : 'Разгледайте портфолиото';
+  const related = isEnglish ? 'Related services' : 'Свързани услуги';
+  const navLabel = isEnglish ? 'Primary navigation' : 'Основна навигация';
+  return `<main class="seo-prerender"><div class="seo-prerender__frame"><header class="seo-prerender__header"><a class="seo-prerender__brand" href="${home}" aria-label="AR Studio"><span class="seo-prerender__mark" aria-hidden="true">AR</span><span>AR Studio</span></a><nav class="seo-prerender__nav" aria-label="${navLabel}">${nav}</nav></header><article class="seo-prerender__hero"><p class="seo-prerender__eyebrow">${eyebrow}</p><h1>${escapeHtml(page.h1)}</h1><p class="seo-prerender__summary">${escapeHtml(page.summary)}</p><p class="seo-prerender__actions"><a class="seo-prerender__button seo-prerender__button--primary" href="${contact}">${consultation}</a><a class="seo-prerender__button" href="${portfolio}">${work}</a></p></article><section class="seo-prerender__content" aria-label="${isEnglish ? 'Useful information' : 'Полезна информация'}"><section class="seo-prerender__card"><h2>${escapeHtml(page.h2)}</h2><ul>${bullets}</ul></section><section class="seo-prerender__card"><h2>${related}</h2><p class="seo-prerender__related">${relatedServices}</p></section></section></div></main>`;
 }
 
 function updateHead(html, route, page) {
   const canonical = absoluteUrl(route);
+  const isEnglish = page.language === 'en';
+  const bgRoute = isEnglish ? englishToBulgarianRoute[route] : route;
+  const enRoute = isEnglish ? route : englishRouteMap[route];
   const tags = {
     title: `<title>${escapeHtml(page.title)}</title>`,
     description: `<meta name="description" content="${escapeHtml(page.description)}" />`,
     canonical: `<link rel="canonical" href="${canonical}" />`,
+    alternates: bgRoute && enRoute ? `<link rel="alternate" hreflang="bg" href="${absoluteUrl(bgRoute)}" /><link rel="alternate" hreflang="en" href="${absoluteUrl(enRoute)}" />` : '',
     ogUrl: `<meta property="og:url" content="${canonical}" />`,
     ogTitle: `<meta property="og:title" content="${escapeHtml(page.title)}" />`,
     ogDescription: `<meta property="og:description" content="${escapeHtml(page.description)}" />`,
@@ -323,7 +401,8 @@ function updateHead(html, route, page) {
   let result = html
     .replace(/<title>[\s\S]*?<\/title>/, tags.title)
     .replace(/<meta name="description"[^>]*>/, tags.description)
-    .replace(/<link rel="canonical"[^>]*>/, tags.canonical)
+    .replace(/<link rel="canonical"[^>]*>/, `${tags.canonical}${tags.alternates}`)
+    .replace(/<html lang="[^"]*"/, `<html lang="${isEnglish ? 'en' : 'bg'}"`)
     .replace(/<meta property="og:url"[^>]*>/, tags.ogUrl)
     .replace(/<meta property="og:title"[^>]*>/, tags.ogTitle)
     .replace(/<meta property="og:description"[^>]*>/, tags.ogDescription)
@@ -344,4 +423,17 @@ for (const [route, page] of Object.entries(routes)) {
   fs.mkdirSync(outputDir, { recursive: true });
   fs.writeFileSync(path.join(outputDir, 'index.html'), updateHead(template, route, page));
 }
-console.log(`SEO prerendered ${Object.keys(routes).length} routes.`);
+const sitemapEntries = Object.entries(routes).map(([route, page]) => {
+  const isEnglish = page.language === 'en';
+  const bgRoute = isEnglish ? englishToBulgarianRoute[route] : route;
+  const enRoute = isEnglish ? route : englishRouteMap[route];
+  const alternates = bgRoute && enRoute
+    ? `\n    <xhtml:link rel="alternate" hreflang="bg" href="${absoluteUrl(bgRoute)}" />\n    <xhtml:link rel="alternate" hreflang="en" href="${absoluteUrl(enRoute)}" />`
+    : '';
+  return `  <url>\n    <loc>${absoluteUrl(route)}</loc>${alternates}\n    <lastmod>2026-08-14</lastmod>\n  </url>`;
+}).join('\n');
+
+const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${sitemapEntries}\n</urlset>\n`;
+fs.writeFileSync(path.resolve('public', 'sitemap.xml'), sitemap);
+
+console.log(`SEO prerendered ${Object.keys(routes).length} routes and updated sitemap.xml.`);

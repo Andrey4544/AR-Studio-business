@@ -24,6 +24,7 @@ const BlogPage = React.lazy(() => import('./pages/BlogPage'));
 const BlogPostPage = React.lazy(() => import('./pages/BlogPostPage'));
 const WebDesignPlovdivPage = React.lazy(() => import('./pages/WebDesignPlovdivPage'));
 const ServiceLandingPage = React.lazy(() => import('./pages/ServiceLandingPage'));
+const ProjectBriefPage = React.lazy(() => import('./pages/ProjectBriefPage'));
 
 function BrandedLoadingPreview() {
   return (
@@ -130,9 +131,30 @@ export default function App() {
             <Route path="/zashto-nas" element={<WhyUsPage />} />
             <Route path="/otzivy" element={<TestimonialsPage />} />
             <Route path="/kontakti" element={<ContactPage selectedPlan={selectedPlanFromQuote} />} />
+            <Route path="/brief" element={<ProjectBriefPage />} />
             <Route path="/chzv" element={<FAQPage />} />
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/blog/:slug" element={<BlogPostPage />} />
+
+            {/* English URL equivalents: additive routes, independent from Bulgarian URLs */}
+            <Route path="/en" element={<HomePage openQuoteModal={openQuoteModalWithPlan} />} />
+            <Route path="/en/about" element={<AboutPage />} />
+            <Route path="/en/services" element={<ServicesPage openQuoteModal={openQuoteModalWithPlan} />} />
+            <Route path="/en/web-design-plovdiv" element={<WebDesignPlovdivPage openQuoteModal={openQuoteModalWithPlan} />} />
+            <Route path="/en/services/website-development-plovdiv" element={<ServiceLandingPage serviceKey="website-plovdiv" openQuoteModal={openQuoteModalWithPlan} />} />
+            <Route path="/en/services/restaurant-website-plovdiv" element={<ServiceLandingPage serviceKey="restaurant-website-plovdiv" openQuoteModal={openQuoteModalWithPlan} />} />
+            <Route path="/en/services/beauty-salon-website-plovdiv" element={<ServiceLandingPage serviceKey="beauty-salon-website-plovdiv" openQuoteModal={openQuoteModalWithPlan} />} />
+            <Route path="/en/services/hotel-website-plovdiv" element={<ServiceLandingPage serviceKey="hotel-website-plovdiv" openQuoteModal={openQuoteModalWithPlan} />} />
+            <Route path="/en/services/law-firm-website-bulgaria" element={<ServiceLandingPage serviceKey="law-firm-website-bulgaria" openQuoteModal={openQuoteModalWithPlan} />} />
+            <Route path="/en/services/ecommerce-website-bulgaria" element={<ServiceLandingPage serviceKey="ecommerce-website-bulgaria" openQuoteModal={openQuoteModalWithPlan} />} />
+            <Route path="/en/portfolio" element={<PortfolioPage openQuoteModal={openQuoteModalWithPlan} />} />
+            <Route path="/en/why-us" element={<WhyUsPage />} />
+            <Route path="/en/testimonials" element={<TestimonialsPage />} />
+            <Route path="/en/contact" element={<ContactPage selectedPlan={selectedPlanFromQuote} />} />
+            <Route path="/en/brief" element={<ProjectBriefPage />} />
+            <Route path="/en/faq" element={<FAQPage />} />
+            <Route path="/en/blog" element={<BlogPage />} />
+            <Route path="/en/blog/:slug" element={<BlogPostPage />} />
           </Routes>
           </React.Suspense>
         </main>

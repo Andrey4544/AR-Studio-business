@@ -5,7 +5,7 @@
 
 import React from 'react';
 import { motion } from 'motion/react';
-import { Sparkles, MessageCircle, Heart, Award, Eye, FileSignature } from 'lucide-react';
+import { Sparkles, MessageCircle, Heart, Award, Code2, Palette, Clock3 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 export default function About() {
@@ -81,11 +81,11 @@ export default function About() {
               <p>
                 {language === 'en' ? (
                   <>
-                    We split our powers symmetrically: <span className="text-white">Andrey</span> shapes the luxury visual language and user psychology; <span className="text-white">Rumen</span> maps and writes ultra-secure, speed-optimized code. This combination means you get the aesthetic quality of massive multi-national agencies without the slow delivery times and staggering bills.
+                    We work as a focused design-and-development partnership: <span className="text-white">Andrey</span> leads the code, technical structure, and SEO-ready foundation; <span className="text-white">Rumen</span> leads the visual direction, interface, and the way the website feels to use. You speak directly with the people making the decisions and building the work.
                   </>
                 ) : (
                   <>
-                    Разделихме силите си симетрично: <span className="text-white">Андрей</span> оформя луксозния визуален език и потребителската психология; <span className="text-white">Румен</span> планира и разработва изключително сигурен и оптимизиран за скорост код. Тази синергия Ви носи качеството на големите агенции, но без бавното изпълнение и огромните такси.
+                    Работим като фокусирано партньорство между дизайн и разработка: <span className="text-white">Андрей</span> води кода, техническата структура и SEO-ready основата; <span className="text-white">Румен</span> води визуалната посока, интерфейса и начина, по който сайтът се усеща при използване. Говорите директно с хората, които вземат решенията и изграждат проекта.
                   </>
                 )}
               </p>
@@ -117,8 +117,8 @@ export default function About() {
                     </h4>
                     <p className="text-xs text-zinc-400 mt-1">
                       {language === 'en' 
-                        ? 'Talk straight to Andrey and Rumen at any hour. No helpdesks, no middle agents.' 
-                        : 'Говорите директно с Андрей и Румен по всяко време. Без досадни оператори или посредници.'}
+                        ? 'Talk directly to Andrey and Rumen. We respond within 3–4 hours during the working day, without helpdesks or middle agents.'
+                        : 'Говорите директно с Андрей и Румен. Отговаряме до 3–4 часа в рамките на работния ден, без оператори и посредници.'}
                     </p>
                   </div>
                 </div>
@@ -157,6 +157,61 @@ export default function About() {
               </div>
             </div>
           </motion.div>
+        </div>
+
+        {/* Roles and communication */}
+        <div className="mb-24 border-t border-white/5 pt-20">
+          <div className="mx-auto mb-12 max-w-2xl text-center">
+            <p className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-blue-400">
+              {language === 'en' ? 'WHO DOES WHAT' : 'КОЙ КАКВО ПРАВИ'}
+            </p>
+            <h3 className="mt-3 font-serif text-3xl font-bold tracking-tight text-white sm:text-4xl">
+              {language === 'en' ? 'A direct team, from first call to launch' : 'Директен екип — от първия разговор до старта'}
+            </h3>
+            <p className="mt-4 text-sm leading-relaxed text-zinc-400 sm:text-base">
+              {language === 'en'
+                ? 'No account manager sits between you and the work. Every decision has a clear owner and a direct conversation.'
+                : 'Няма account manager между Вас и работата. Всяко решение има ясен отговорник и директен разговор.'}
+            </p>
+          </div>
+
+          <div className="grid gap-5 md:grid-cols-3">
+            {[
+              {
+                icon: Code2,
+                title: language === 'en' ? 'Andrey · Development' : 'Андрей · Разработка',
+                text: language === 'en' ? 'Code, technical structure, integrations, speed checks, and the foundations that help the website be found and used.' : 'Код, техническа структура, интеграции, проверки за бързина и основите, които помагат сайтът да бъде намиран и използван.',
+              },
+              {
+                icon: Palette,
+                title: language === 'en' ? 'Rumen · Design' : 'Румен · Дизайн',
+                text: language === 'en' ? 'Visual direction, typography, hierarchy, and the user experience that makes the business feel credible from the first screen.' : 'Визуална посока, типография, йерархия и потребителско изживяване, които създават доверие още от първия екран.',
+              },
+              {
+                icon: Clock3,
+                title: language === 'en' ? 'Direct communication' : 'Директна комуникация',
+                text: language === 'en' ? 'You can ask questions while the project moves forward. We respond directly within 3–4 hours during the working day.' : 'Можете да задавате въпроси, докато проектът се движи напред. Отговаряме директно до 3–4 часа в рамките на работния ден.',
+              },
+            ].map((item, index) => {
+              const Icon = item.icon;
+              return (
+                <motion.article
+                  key={item.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: '-70px' }}
+                  transition={{ duration: 0.45, delay: index * 0.07 }}
+                  className="rounded-2xl border border-white/10 bg-white/[0.025] p-7 transition-colors duration-200 hover:border-blue-400/30 hover:bg-white/[0.05]"
+                >
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-blue-400/20 bg-blue-500/10 text-blue-300">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <h4 className="mt-7 font-serif text-xl font-semibold text-white">{item.title}</h4>
+                  <p className="mt-3 text-sm leading-relaxed text-zinc-400">{item.text}</p>
+                </motion.article>
+              );
+            })}
+          </div>
         </div>
 
         {/* Founders Profiles */}

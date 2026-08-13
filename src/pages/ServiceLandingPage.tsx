@@ -143,6 +143,70 @@ const servicePages = {
   },
 } satisfies Record<string, ServicePage>;
 
+const englishServicePages: Record<keyof typeof servicePages, ServicePage> = {
+  'website-plovdiv': {
+    title: 'Website Development in Plovdiv', metaTitle: 'Website Development in Plovdiv | AR Studio',
+    description: 'Custom website development in Plovdiv for small and growing businesses. Modern design, mobile-first delivery, clear calls to action, and a search-ready foundation.',
+    keywords: 'website development Plovdiv, business website Bulgaria, custom web design Plovdiv', eyebrow: 'AR Studio core service',
+    intro: 'We build websites that explain a business clearly, look professional on a phone, and guide visitors toward a useful next action: a call, enquiry, booking, or purchase.', price: 'From €250', priceNote: 'The final investment depends on the number of pages, available content, and required functionality.',
+    audience: 'Suitable for restaurants, salons, hotels, professionals, local retailers, and companies that need a stronger online presence.',
+    benefits: ['A custom structure built around the business goal', 'Responsive design for phone, tablet, and desktop', 'Clear information architecture and technical SEO foundations', 'Contact forms, WhatsApp/Viber links, and Google Maps where useful', 'A foundation for future additions such as a blog, bookings, or a store'],
+    process: ['A short conversation about the goal', 'Page structure and content direction', 'Visual direction and development', 'Mobile, form, and core SEO checks', 'Handover, guidance, and an optional support path'],
+    faq: [{ question: 'How long does it take?', answer: 'Standard projects are usually planned for 3–7 working days when content and feedback are available on time.' }, { question: 'Can I start with a small website?', answer: 'Yes. You can start with a focused landing page and later add services, a blog, bookings, or an online store.' }, { question: 'What do I need to provide?', answer: 'Basic information about the business, services, contacts, photos, and a logo if you have one. We can also help shape the content structure.' }],
+    related: [{ label: 'Services and pricing', href: '/uslugi' }, { label: 'Portfolio', href: '/portfolio' }, { label: 'Business website resources', href: '/blog' }],
+  },
+  'restaurant-website-plovdiv': {
+    title: 'Restaurant Website in Plovdiv', metaTitle: 'Restaurant Website in Plovdiv | Menus & Reservations — AR Studio',
+    description: 'Restaurant websites in Plovdiv with digital menus, galleries, reservations, Google Maps, and a mobile-first visitor experience.', keywords: 'restaurant website Plovdiv, digital menu, QR menu, online restaurant reservations', eyebrow: 'For restaurants, cafés, and venues',
+    intro: 'When a guest searches for a restaurant, they want to quickly see the menu, atmosphere, address, and how to reserve. We organise those details so the website helps the venue instead of acting as a static brochure.', price: 'From €450', priceNote: 'QR menus and additional functionality are scoped around the menu size and preferred update process.',
+    audience: 'Suitable for restaurants, bars, cafés, bakeries, and hospitality venues in Plovdiv and across Bulgaria.',
+    benefits: ['An interactive menu that is easy to open on a phone', 'QR access for tables, reception, or printed materials', 'A gallery for the interior, dishes, events, and atmosphere', 'Clear buttons for calling, booking, and directions', 'Local search structure with address, services, and useful FAQs'],
+    process: ['Collect menu, opening hours, contacts, and photos', 'Build the visitor path around reservations and visits', 'Prepare the visual direction, menu, and mobile experience', 'Test the QR journey from scan to contact', 'Launch the site and define an update process'],
+    faq: [{ question: 'Can the menu be updated?', answer: 'Yes. We can build it so updates are practical for the chosen setup and support plan.' }, { question: 'Does a QR menu work without an app?', answer: 'Yes. The QR code opens a mobile web page, so guests do not need to install anything.' }, { question: 'Can the site include reservations?', answer: 'Yes. We can add direct contact, a form, an external booking tool, or a more specialised system.' }],
+    related: [{ label: 'Tomato Restaurant project', href: '/portfolio' }, { label: 'Services and pricing', href: '/uslugi' }, { label: 'Restaurant website guide', href: '/blog/restorant-plovdiv-digitalno-menu-i-sait' }],
+  },
+  'beauty-salon-website-plovdiv': {
+    title: 'Beauty Salon Website in Plovdiv', metaTitle: 'Beauty Salon Website in Plovdiv | AR Studio',
+    description: 'Elegant websites for beauty salons, hair salons, and beauty brands in Plovdiv, with services, galleries, appointment paths, and local SEO foundations.', keywords: 'beauty salon website Plovdiv, hair salon website Bulgaria, beauty web design', eyebrow: 'For beauty, wellness, and personal care businesses',
+    intro: 'A salon website should show the result, atmosphere, and services before the first visit. We create a clear experience that makes booking easier and supports trust in the team.', price: 'From €450', priceNote: 'Online calendars, larger service menus, and multilingual content are scoped in the proposal.',
+    audience: 'Suitable for beauty salons, hairdressers, nail studios, spas, and independent beauty professionals.',
+    benefits: ['Service, pricing, and FAQ sections', 'A gallery that presents real results and atmosphere', 'Clear paths to appointments, calls, Instagram, and a map', 'A mobile structure for clients on the move', 'Local content that explains services clearly'],
+    process: ['Define key services and target customers', 'Organise content around booking', 'Choose the visual direction and photos', 'Develop and test the mobile version', 'Connect the site to contact channels and support'],
+    faq: [{ question: 'Can the website show prices?', answer: 'Yes. We can show full prices, starting prices, or a custom quote depending on how the salon works.' }, { question: 'Can clients book an appointment?', answer: 'Yes. Options include a form, phone, Viber/WhatsApp, an external booking system, or an integrated calendar.' }, { question: 'Can it connect to Instagram?', answer: 'Yes. We can add clear Instagram links and align the visual direction across the site and social profile.' }],
+    related: [{ label: 'Services and pricing', href: '/uslugi' }, { label: 'Why AR Studio', href: '/zashto-nas' }, { label: 'Contact us', href: '/kontakti' }],
+  },
+  'hotel-website-plovdiv': {
+    title: 'Hotel Website in Plovdiv', metaTitle: 'Hotel Website in Plovdiv | Direct Enquiries & Bookings — AR Studio',
+    description: 'Professional websites for hotels, guesthouses, and apartments in Plovdiv with galleries, rooms, amenities, maps, and direct enquiry paths.', keywords: 'hotel website Plovdiv, guesthouse website Bulgaria, direct booking website', eyebrow: 'For hotels, guesthouses, and accommodation',
+    intro: 'A good hotel website answers a guest’s questions before they open another platform: where you are, how the rooms look, which amenities you offer, and how an enquiry is made.', price: 'Custom proposal', priceNote: 'Timing and price depend on room count, languages, booking flow, and the required integrations.',
+    audience: 'Suitable for boutique hotels, family hotels, guesthouses, and short-stay apartments in Plovdiv and the region.',
+    benefits: ['Pages for rooms, amenities, location, and experience', 'A gallery that builds trust before a booking', 'Multilingual structure when needed', 'Map, transport information, and local recommendations', 'A form or clear route to a booking process'],
+    process: ['Clarify accommodation type and booking process', 'Collect photos, amenities, rules, and local information', 'Design the path from browsing to enquiry', 'Build the responsive site and search-ready foundation', 'Check phones, forms, links, and language versions'],
+    faq: [{ question: 'Can the website be bilingual?', answer: 'Yes. We can plan Bulgarian and English versions, with more languages if they are genuinely needed.' }, { question: 'Can it accept direct bookings?', answer: 'We can set up an enquiry form or connect the site to a chosen booking system.' }, { question: 'What is needed to start?', answer: 'Photos, room and amenity details, address, rules, contacts, and your preferred reservation process.' }],
+    related: [{ label: 'Portfolio', href: '/portfolio' }, { label: 'Services and pricing', href: '/uslugi' }, { label: 'Free consultation', href: '/kontakti' }],
+  },
+  'law-firm-website-bulgaria': {
+    title: 'Law Firm Website in Bulgaria', metaTitle: 'Law Firm Website | Professional Legal Website — AR Studio',
+    description: 'Professional websites for lawyers, law firms, and consultants with clear services, team information, contact paths, and a trust-focused structure.', keywords: 'law firm website Bulgaria, lawyer website, legal web design', eyebrow: 'For lawyers, firms, and professional services',
+    intro: 'A legal website should feel calm, accurate, and trustworthy. We organise services, people, and contact details so a potential client can understand whether you are the right partner and how to take the first step.', price: 'From €450', priceNote: 'Larger firms, many practice areas, and multilingual websites receive an individual proposal.',
+    audience: 'Suitable for lawyers, law firms, mediators, accountants, and other professionals where trust is central.',
+    benefits: ['Clear presentation of practice areas and services', 'Team profiles and professional biographies', 'An enquiry structure without unnecessary fields', 'Content and FAQs in understandable language', 'Local SEO foundations for cities and practice areas'],
+    process: ['Clarify practice areas and client types', 'Organise information around problems and services', 'Create a trust-focused visual system', 'Develop and check forms and mobile experience', 'Hand over the site with room for future resources or a blog'],
+    faq: [{ question: 'Can the website cover multiple practice areas?', answer: 'Yes. Each area can have its own section or page with a clear path to contact.' }, { question: 'Can it include a blog?', answer: 'Yes. A blog can explain topics and answer questions that potential clients search for.' }, { question: 'How do we avoid overly complex legal language?', answer: 'We can organise the text so it remains professionally accurate while being understandable to people without legal training.' }],
+    related: [{ label: 'Legal website portfolio', href: '/portfolio' }, { label: 'Our process', href: '/zashto-nas' }, { label: 'Contact us', href: '/kontakti' }],
+  },
+  'ecommerce-website-bulgaria': {
+    title: 'E-commerce Website Development in Bulgaria', metaTitle: 'E-commerce Website Development in Bulgaria | AR Studio',
+    description: 'Custom online store development with mobile-first design, products, categories, payments, and a search-ready foundation. Request an individual proposal from AR Studio.', keywords: 'ecommerce website Bulgaria, online store development, custom webshop', eyebrow: 'For retail and product brands',
+    intro: 'An online store should reduce doubt between the first visit and the order. We focus on clear categories, product pages, mobile checkout, and content that helps a customer decide.', price: 'From €800', priceNote: 'The exact price depends on product count, payments, delivery, integrations, and the chosen platform.',
+    audience: 'Suitable for boutique brands, online retailers, product lines, and physical shops that want to sell online.',
+    benefits: ['Product and category structure', 'Responsive product pages and cart', 'Payment and delivery integration based on needs', 'SEO foundations for products and categories', 'Administrative guidance and a support plan'],
+    process: ['Map the catalogue, products, and order flow', 'Choose the approach and integrations', 'Design UX for catalogue, product, cart, and checkout', 'Run test orders and mobile checks', 'Handover, guidance, and a growth plan'],
+    faq: [{ question: 'Can we start with a small catalogue?', answer: 'Yes. We can plan a structure that grows with new products and categories.' }, { question: 'How is the price determined?', answer: 'It depends on the platform, product count, payments, delivery, and required integrations.' }, { question: 'Is product SEO included?', answer: 'We can prepare structure for categories, product titles, descriptions, imagery, and internal links.' }],
+    related: [{ label: 'Online store services', href: '/uslugi' }, { label: 'CBL Fight Store portfolio', href: '/portfolio' }, { label: 'Request a proposal', href: '/kontakti' }],
+  },
+};
+
 const serviceRouteSlugs: Record<keyof typeof servicePages, string> = {
   'website-plovdiv': 'izrabotka-na-sait-plovdiv',
   'restaurant-website-plovdiv': 'sait-za-restorant-plovdiv',
@@ -154,7 +218,7 @@ const serviceRouteSlugs: Record<keyof typeof servicePages, string> = {
 
 export default function ServiceLandingPage({ serviceKey, openQuoteModal }: ServiceLandingPageProps) {
   const { language } = useLanguage();
-  const page = servicePages[serviceKey];
+  const page = language === 'en' ? englishServicePages[serviceKey] : servicePages[serviceKey];
   const canonical = `${SITE_URL}/uslugi/${serviceRouteSlugs[serviceKey]}`;
   const faqSchema = page.faq.map((item) => ({
     '@type': 'Question',
@@ -210,7 +274,7 @@ export default function ServiceLandingPage({ serviceKey, openQuoteModal }: Servi
                 {language === 'en' ? 'Request a free consultation' : 'Поискай безплатна консултация'}
                 <ArrowRight className="w-4 h-4" />
               </button>
-              <Link to="/portfolio" className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-zinc-900 border border-white/10 hover:border-blue-500/30 text-white rounded-xl font-semibold transition-colors">
+              <Link to={language === 'en' ? '/en/portfolio' : '/portfolio'} className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-zinc-900 border border-white/10 hover:border-blue-500/30 text-white rounded-xl font-semibold transition-colors">
                 {language === 'en' ? 'See related projects' : 'Виж сходни проекти'}
               </Link>
             </div>
@@ -238,11 +302,11 @@ export default function ServiceLandingPage({ serviceKey, openQuoteModal }: Servi
           </section>
 
           <section className="grid lg:grid-cols-2 gap-8 mb-20">
-            <div><p className="text-blue-400 text-sm uppercase tracking-widest font-semibold mb-3">FAQ</p><h2 className="text-3xl text-white font-bold mb-6">Въпроси преди започване</h2>{page.faq.map((item) => <details key={item.question} className="group border-b border-white/10 py-4"><summary className="cursor-pointer list-none text-white font-semibold flex justify-between gap-4">{item.question}<span className="text-blue-400">+</span></summary><p className="text-zinc-400 text-sm leading-relaxed mt-3">{item.answer}</p></details>)}</div>
-            <div className="p-8 rounded-2xl bg-zinc-950/70 border border-white/10 self-start"><MessageCircle className="w-7 h-7 text-blue-400 mb-5" /><h2 className="text-2xl text-white font-bold mb-3">Имаш конкретен бизнес?</h2><p className="text-zinc-400 leading-relaxed mb-6">Изпрати ни кратка информация за бизнеса, целта и срока. Ще върнем подходяща посока и следваща стъпка, без да започваме с обща шаблонна оферта.</p><button onClick={() => openQuoteModal(page.title)} className="w-full px-5 py-3 bg-white text-black rounded-xl font-semibold hover:bg-zinc-200 transition-colors">Започни разговор</button></div>
+            <div><p className="text-blue-400 text-sm uppercase tracking-widest font-semibold mb-3">FAQ</p><h2 className="text-3xl text-white font-bold mb-6">{language === 'en' ? 'Questions before we start' : 'Въпроси преди започване'}</h2>{page.faq.map((item) => <details key={item.question} className="group border-b border-white/10 py-4"><summary className="cursor-pointer list-none text-white font-semibold flex justify-between gap-4">{item.question}<span className="text-blue-400">+</span></summary><p className="text-zinc-400 text-sm leading-relaxed mt-3">{item.answer}</p></details>)}</div>
+            <div className="p-8 rounded-2xl bg-zinc-950/70 border border-white/10 self-start"><MessageCircle className="w-7 h-7 text-blue-400 mb-5" /><h2 className="text-2xl text-white font-bold mb-3">{language === 'en' ? 'Do you have a specific business in mind?' : 'Имаш конкретен бизнес?'}</h2><p className="text-zinc-400 leading-relaxed mb-6">{language === 'en' ? 'Send a short note about the business, goal, and timing. We will return with a relevant direction and next step rather than a generic template proposal.' : 'Изпрати ни кратка информация за бизнеса, целта и срока. Ще върнем подходяща посока и следваща стъпка, без да започваме с обща шаблонна оферта.'}</p><button onClick={() => openQuoteModal(page.title)} className="w-full px-5 py-3 bg-white text-black rounded-xl font-semibold hover:bg-zinc-200 transition-colors">{language === 'en' ? 'Start a conversation' : 'Започни разговор'}</button></div>
           </section>
 
-          <nav aria-label="Свързани страници" className="border-t border-white/10 pt-8 flex flex-wrap gap-3">{page.related.map((item) => <Link key={item.href} to={item.href} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900 text-zinc-300 hover:text-white hover:bg-blue-600/20 border border-white/5 transition-colors">{item.label}<ArrowRight className="w-3.5 h-3.5" /></Link>)}</nav>
+          <nav aria-label="Свързани страници" className="border-t border-white/10 pt-8 flex flex-wrap gap-3">{page.related.map((item) => <Link key={item.href} to={language === 'en' ? item.href.replace(/^\/(?!en)/, '/en/') : item.href} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900 text-zinc-300 hover:text-white hover:bg-blue-600/20 border border-white/5 transition-colors">{item.label}<ArrowRight className="w-3.5 h-3.5" /></Link>)}</nav>
         </div>
       </div>
     </PageTransition>

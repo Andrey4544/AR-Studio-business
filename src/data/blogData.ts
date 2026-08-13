@@ -16,6 +16,7 @@ export interface BlogPost {
   readTime: string;
   author: string;
   content: string;
+  contentEn?: string;
   keywords: string;
   keywordsEn?: string;
   description: string;
@@ -304,14 +305,31 @@ export const blogPostsData: { [key: string]: BlogPost } = {
   }
 };
 
+const englishContentBySlug: Record<string, string> = {
+  'kolko-struva-izrabotka-na-sait': `<h2>Website pricing is a scope question</h2><p>A website price depends on what the business needs the site to do: present services, collect enquiries, support reservations, sell products, or connect to an existing system. Comparing only the first number usually hides the important details.</p><h3>What should be clear in a proposal?</h3><ul><li>The pages and purpose of each page</li><li>The content and images needed</li><li>The functions included</li><li>How launch and future support are handled</li></ul><p>A useful proposal explains the scope, decisions, and next steps without hidden assumptions.</p>`,
+  '5-neshta-koito-vseki-nov-biznes-sait-trjabva-da-pritezava': `<h2>Five foundations for a useful business website</h2><h3>1. A clear next action</h3><p>Visitors should quickly understand whether to call, send an enquiry, reserve, or buy. The primary action must be visible on a phone too.</p><h3>2. Mobile-first information</h3><p>Services, prices, location, and contact details should remain readable and easy to use on a small screen.</p><h3>3. A structure search engines can understand</h3><p>Descriptive titles, useful headings, internal links, and a sitemap give people and search engines a clearer path through the site.</p><h3>4. Proof and context</h3><p>Real projects, permission-based reviews, and specific examples build more trust than generic claims.</p><h3>5. A maintainable path forward</h3><p>A site should be ready for updated content and future functions without needing to start over.</p>`,
+  'restorant-plovdiv-digitalno-menu-i-sait': `<h2>A restaurant website should reduce friction before the visit</h2><p>Guests usually want the menu, current location, opening information, and a simple reservation path. If those details are difficult to find, the visitor often moves on.</p><h3>Make the menu comfortable on a phone</h3><p>A digital menu should open quickly, stay readable without zooming, and be practical to update. A QR code can point directly to it without requiring an app.</p><h3>Let guests choose how to contact you</h3><p>Some people prefer a call, others a form, booking tool, or map link. A useful restaurant website makes these routes visible without unnecessary steps.</p>`,
+  'kak-da-izberem-uebdizain-agenciya-plovdiv': `<h2>Choose a partner, not only a visual style</h2><p>When comparing web design agencies, start with the business goal: who should the website reach and what should that person do next? A polished first screen is useful only when it supports that journey.</p><h3>Ask to see real work</h3><p>Open live projects. Check the mobile experience, the clarity of information, and whether it is easy to take the next action.</p><h3>Ask how the process works</h3><p>A reliable partner can explain how content, design, development, approval, testing, and launch fit together.</p><h3>Compare scope, not only price</h3><p>Look at page structure, contact paths, mobile work, technical SEO foundations, content guidance, and future support.</p>`,
+  'kak-ai-i-ar-transformirat-biznesa-v-balgarija-2026': `<h2>Technology helps when it removes a real problem</h2><p>AI and AR are not automatically valuable because they are new. They matter when they make information easier to find, help a team respond faster, or let a customer understand an offer before contacting the business.</p><h3>Start with a narrow use case</h3><p>For a local business, that can mean a better product finder, clearer support information, an automated internal task, or an interactive way to show an item or space.</p><p>A fast, understandable website and direct contact path matter before advanced features. New technology should strengthen that foundation.</p>`,
+  'sobstven-sait-sreshtu-socialni-mrezhi': `<h2>Social platforms and a website do different jobs</h2><p>Instagram and Facebook are useful for reach, updates, and conversation. A business website provides a controlled home for the full offer, services, contacts, proof, and the action a customer should take next.</p><h3>What a business controls on its own website</h3><ul><li>Its structure and messaging</li><li>Its enquiry, booking, or sales path</li><li>Its portfolio, reviews, and longer-term content</li><li>The connection between social profiles and contact details</li></ul><p>For many local businesses the sensible approach is not social media or a website. It is social channels for discovery and a website for clear information and conversion.</p>`,
+  'sait-za-agenciya-imoti-obqvi': `<h2>Own listings give an agency a home it can develop</h2><p>Property portals can be useful channels, but an agency’s own website creates a place where listings, brand, contact paths, and future content can be organised without relying on a single external platform.</p><h3>Help the visitor find the right property</h3><p>Useful filters, clear listing cards, strong photos, price and location details, and an uncomplicated enquiry path help a visitor move from interest to a specific question.</p><h3>Help the team manage the conversation</h3><p>When each listing has a clear page and contact action, the agency can guide enquiries to the right person while keeping the presentation consistent with its own brand.</p>`,
+};
+
+for (const post of Object.values(blogPostsData)) {
+  post.contentEn = englishContentBySlug[post.slug];
+}
+
 export function getBlogPostsList() {
   return Object.values(blogPostsData).sort((a, b) => b.date.localeCompare(a.date)).map(post => ({
     id: post.id,
     slug: post.slug,
     title: post.title,
+    titleEn: post.titleEn,
     excerpt: post.excerpt,
+    excerptEn: post.excerptEn,
     date: post.date,
     category: post.category,
+    categoryEn: post.categoryEn,
     readTime: post.readTime
   }));
 }

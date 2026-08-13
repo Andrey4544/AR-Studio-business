@@ -25,6 +25,7 @@ import {
 } from 'lucide-react';
 import Logo from './Logo';
 import { useLanguage } from '../context/LanguageContext';
+import { localizedPath } from '../lib/localizedRoutes';
 
 interface HeaderProps {
   openQuoteModal: () => void;
@@ -48,6 +49,7 @@ export default function Header({ openQuoteModal }: HeaderProps) {
   const { language, toggleLanguage, t } = useLanguage();
   const location = useLocation();
   const isEnglish = language === 'en';
+  const localized = (path: string) => localizedPath(path, language);
 
   const menuGroups: MenuGroup[] = [
     {
@@ -113,7 +115,7 @@ export default function Header({ openQuoteModal }: HeaderProps) {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  const isActive = (path: string) => location.pathname === path;
+  const isActive = (path: string) => location.pathname === localized(path);
 
   return (
     <header
@@ -125,7 +127,7 @@ export default function Header({ openQuoteModal }: HeaderProps) {
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between gap-3">
-          <Link to="/" aria-label="AR Studio" className="shrink-0 cursor-pointer">
+          <Link to={localized('/')} aria-label="AR Studio" className="shrink-0 cursor-pointer">
             <Logo size="md" />
           </Link>
 
@@ -133,7 +135,7 @@ export default function Header({ openQuoteModal }: HeaderProps) {
             {desktopLinks.map((item) => (
               <Link
                 key={item.path}
-                to={item.path}
+                to={localized(item.path)}
                 className={`relative rounded-full px-4 py-2 text-sm font-medium transition-colors ${
                   isActive(item.path) ? 'text-white' : 'text-zinc-400 hover:text-white'
                 }`}
@@ -213,8 +215,7 @@ export default function Header({ openQuoteModal }: HeaderProps) {
                           const active = isActive(item.path);
                           return (
                             <Link
-                              key={item.path}
-                              to={item.path}
+                              to={localized(item.path)}
                               onClick={() => setIsOpen(false)}
                               className={`flex items-center gap-3 rounded-xl px-3 py-3 transition-all ${
                                 active

@@ -47,13 +47,13 @@ export const agencyFeatures: Feature[] = [
 export const founders: TeamMember[] = [
   {
     name: 'Andrey',
-    role: 'Founder & Lead Designer',
-    bio: 'With an eye for luxurious aesthetics and sleek typography, Andrey crafts the custom visuals, animations, and high-conversion client experiences that make AR Studio websites stand out.',
+    role: 'Founder & Lead Developer',
+    bio: 'Andrey translates refined designs into fast, secure code. He focuses on technical structure, responsive optimization, and SEO-ready performance.',
   },
   {
     name: 'Rumen',
-    role: 'Founder & Lead Developer',
-    bio: 'Rumen translates sophisticated designs into lightning-fast, secure code. He specializes in responsive optimizations, SEO engineering, and seamless digital performance.',
+    role: 'Founder & Lead Designer',
+    bio: 'With an eye for luxurious aesthetics and clear typography, Rumen shapes the custom visuals, interface hierarchy, and client experience that make AR Studio websites stand out.',
   },
   {
     name: 'Nikolay',

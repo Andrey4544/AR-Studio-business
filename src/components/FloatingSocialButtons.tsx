@@ -27,6 +27,7 @@ export default function FloatingSocialButtons() {
     {
       name: 'Facebook',
       url: 'https://www.facebook.com/share/18n7DfUWJW/',
+      openInNewTab: true,
       icon: Facebook,
       color: 'text-white',
       bgColor: 'bg-[#1877F2]',
@@ -35,6 +36,7 @@ export default function FloatingSocialButtons() {
     {
       name: 'Instagram',
       url: 'https://www.instagram.com/arstudio.site?igsh=MWVuejR2ZWVjd3c1cw==',
+      openInNewTab: true,
       icon: Instagram,
       color: 'text-white',
       bgColor: 'bg-[#E1306C]',
@@ -43,6 +45,7 @@ export default function FloatingSocialButtons() {
     {
       name: 'TikTok',
       url: 'https://www.tiktok.com/@ar_studio_web?_r=1&_t=ZN-98m3jc1KODD',
+      openInNewTab: true,
       icon: TikTokIcon,
       color: 'text-white',
       bgColor: 'bg-[#121212]',
@@ -50,7 +53,8 @@ export default function FloatingSocialButtons() {
     },
     {
       name: 'Viber',
-      url: 'viber://chat?number=+359888616641',
+      url: 'viber://chat?number=%2B359888616641',
+      openInNewTab: false,
       icon: MessageCircle,
       color: 'text-white',
       bgColor: 'bg-[#7360F2]',
@@ -70,8 +74,8 @@ export default function FloatingSocialButtons() {
             <div key={social.name} className="relative flex h-14 items-center justify-end">
               <motion.a
                 href={social.url}
-                target="_blank"
-                rel="noopener noreferrer"
+                target={social.openInNewTab ? '_blank' : undefined}
+                rel={social.openInNewTab ? 'noopener noreferrer' : undefined}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
                 className={`

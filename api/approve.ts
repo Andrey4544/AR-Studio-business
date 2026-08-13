@@ -66,7 +66,21 @@ export default async function handler(req: any, res: any) {
     const currentContent = Buffer.from(fileInfo.content, 'base64').toString('utf8');
     const reviews = JSON.parse(currentContent);
 
-    // 2. Add the new review
+    // 2. An approval link may be opened more than once by a person, an email
+    // client, or a security scanner. The signed review ID is stable, so it is
+    // the idempotency key: the same review must never be appended twice.
+    const alreadyApproved = reviews.some((existing: any) => existing?.id === review.id);
+    if (alreadyApproved) {
+      return res.status(200).send(`
+        <div style="font-family: sans-serif; text-align: center; padding: 50px; background-color: #0c0a09; color: #e4e4e7; height: 100vh;">
+          <h1 style="color: #10b981;">Отзивът вече е одобрен</h1>
+          <p>Отзивът на <strong>${review.name}</strong> вече е публикуван. Не е добавен повторно.</p>
+          <br>
+          <a href="https://www.ar-studio.site/otzivy" style="color: #3b82f6; text-decoration: none;">← Към отзивите</a>
+        </div>
+      `);
+    }
+
     reviews.push(review);
     const updatedContent = JSON.stringify(reviews, null, 2);
 

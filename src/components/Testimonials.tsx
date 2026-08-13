@@ -9,6 +9,20 @@ import { Sparkles, Quote, Star, MessageSquarePlus } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import ReviewForm from './ReviewForm';
 
+function uniqueReviews(reviews: any[]) {
+  const seen = new Set<string>();
+
+  return reviews.filter((review: any) => {
+    const identity = review?.id
+      ? `id:${review.id}`
+      : `legacy:${review?.timestamp || ''}|${review?.name || ''}|${review?.text || ''}`;
+
+    if (seen.has(identity)) return false;
+    seen.add(identity);
+    return true;
+  });
+}
+
 export default function Testimonials() {
   const { language, t } = useLanguage();
   const [reviews, setReviews] = useState<any[]>([]);
@@ -19,7 +33,7 @@ export default function Testimonials() {
       const response = await fetch('/api/reviews');
       if (response.ok) {
         const data = await response.json();
-        setReviews(data);
+        setReviews(uniqueReviews(Array.isArray(data) ? data : []));
       }
     } catch (error) {
       console.error('Error fetching reviews:', error);

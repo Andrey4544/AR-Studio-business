@@ -5,6 +5,24 @@ import crypto from 'crypto';
 
 const APPROVE_SECRET = process.env.APPROVE_SECRET || 'ar-studio-secret-2026';
 
+function uniqueApprovedReviews(reviews: any[]) {
+  const seen = new Set<string>();
+
+  return reviews.filter((review: any) => {
+    if (review?.status !== 'approved') return false;
+
+    // Review IDs are generated when the review is submitted and are included in
+    // the signed approval link. Fall back to immutable fields for legacy data.
+    const identity = review?.id
+      ? `id:${review.id}`
+      : `legacy:${review?.timestamp || ''}|${review?.name || ''}|${review?.text || ''}`;
+
+    if (seen.has(identity)) return false;
+    seen.add(identity);
+    return true;
+  });
+}
+
 const sendEmailNotification = async (subject: string, htmlContent: string) => {
   const smtpTo = process.env.SMTP_TO || 'abelev48@gmail.com';
   const smtpUser = process.env.SMTP_USER;
@@ -53,7 +71,7 @@ export default async function handler(req: any, res: any) {
       const filePath = path.join(process.cwd(), 'reviews.json');
       const fileData = fs.readFileSync(filePath, 'utf8');
       const reviews = JSON.parse(fileData);
-      return res.status(200).json(reviews.filter((r: any) => r.status === 'approved'));
+      return res.status(200).json(uniqueApprovedReviews(Array.isArray(reviews) ? reviews : []));
     } catch (error) {
       return res.status(200).json([]);
     }

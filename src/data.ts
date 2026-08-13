@@ -26,8 +26,8 @@ export const agencyFeatures: Feature[] = [
   },
   {
     id: 'seo-friendly',
-    title: 'SEO Friendly',
-    description: 'Built with search engine optimization at its core. Rank high in Plovdiv & Bulgaria google search results.',
+    title: 'Search-ready Foundation',
+    description: 'Built with a clear structure, useful page content, internal links, and technical SEO foundations that help search engines understand your business.',
     iconName: 'Search',
   },
   {

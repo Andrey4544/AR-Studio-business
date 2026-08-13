@@ -143,10 +143,19 @@ const servicePages = {
   },
 } satisfies Record<string, ServicePage>;
 
+const serviceRouteSlugs: Record<keyof typeof servicePages, string> = {
+  'website-plovdiv': 'izrabotka-na-sait-plovdiv',
+  'restaurant-website-plovdiv': 'sait-za-restorant-plovdiv',
+  'beauty-salon-website-plovdiv': 'sait-za-kozmetichen-salon-plovdiv',
+  'hotel-website-plovdiv': 'sait-za-hotel-plovdiv',
+  'law-firm-website-bulgaria': 'sait-za-advokatska-kantora',
+  'ecommerce-website-bulgaria': 'izrabotka-na-onlayn-magazin',
+};
+
 export default function ServiceLandingPage({ serviceKey, openQuoteModal }: ServiceLandingPageProps) {
   const { language } = useLanguage();
   const page = servicePages[serviceKey];
-  const canonical = `${SITE_URL}/uslugi/${serviceKey}`;
+  const canonical = `${SITE_URL}/uslugi/${serviceRouteSlugs[serviceKey]}`;
   const faqSchema = page.faq.map((item) => ({
     '@type': 'Question',
     name: item.question,

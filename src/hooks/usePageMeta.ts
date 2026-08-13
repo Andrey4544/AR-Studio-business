@@ -13,7 +13,7 @@ interface PageMetaProps {
 
 const siteName = 'AR Studio';
 export const SITE_URL = 'https://www.ar-studio.site';
-export const DEFAULT_IMAGE = `${SITE_URL}/assets/logo.png`;
+export const DEFAULT_IMAGE = `${SITE_URL}/assets/logo.webp`;
 const defaultImage = DEFAULT_IMAGE;
 const defaultCanonical = `${SITE_URL}/`;
 

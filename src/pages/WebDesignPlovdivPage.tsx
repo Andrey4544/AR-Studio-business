@@ -27,7 +27,7 @@ export default function WebDesignPlovdivPage({ openQuoteModal }: WebDesignPlovdi
       ? 'web design Plovdiv, website development Plovdiv, web design Bulgaria, custom website Bulgaria, AR Studio'
       : 'уеб дизайн Пловдив, изработка на сайтове Пловдив, уебсайт Пловдив, уеб дизайн България, онлайн магазин Пловдив, AR Studio',
     canonical,
-    ogImage: 'https://www.ar-studio.site/assets/logo.png',
+    ogImage: 'https://www.ar-studio.site/assets/logo.webp',
   });
 
   useStructuredData('web-design-plovdiv-service', {

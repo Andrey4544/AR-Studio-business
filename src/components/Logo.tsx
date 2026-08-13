@@ -27,7 +27,7 @@ export default function Logo({ className = '', showText = true, size = 'md' }: L
   return (
     <div className={`flex items-center gap-3 select-none ${className}`}>
       <img
-        src="/assets/logo.png"
+        src="/assets/logo.webp"
         alt="AR Studio Logo"
         className={`${sizeClasses[size]} shrink-0 object-contain`}
       />

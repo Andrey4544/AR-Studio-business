@@ -13,6 +13,20 @@
       "permanent": true
     }
   ],
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=86400, stale-while-revalidate=604800" }
+      ]
+    },
+    {
+      "source": "/favicon.png",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=86400, stale-while-revalidate=604800" }
+      ]
+    }
+  ],
   "rewrites": [
     {
       "source": "/api/contact",
@@ -31,8 +45,48 @@
       "destination": "/api/quote"
     },
     {
-      "source": "/((?!api/).*)",
-      "destination": "/index.html"
+      "source": "/za-nas",
+      "destination": "/za-nas/index.html"
+    },
+    {
+      "source": "/uslugi",
+      "destination": "/uslugi/index.html"
+    },
+    {
+      "source": "/web-design-plovdiv",
+      "destination": "/web-design-plovdiv/index.html"
+    },
+    {
+      "source": "/portfolio",
+      "destination": "/portfolio/index.html"
+    },
+    {
+      "source": "/zashto-nas",
+      "destination": "/zashto-nas/index.html"
+    },
+    {
+      "source": "/otzivy",
+      "destination": "/otzivy/index.html"
+    },
+    {
+      "source": "/kontakti",
+      "destination": "/kontakti/index.html"
+    },
+    {
+      "source": "/chzv",
+      "destination": "/chzv/index.html"
+    },
+    {
+      "source": "/blog",
+      "destination": "/blog/index.html"
+    },
+    {
+      "source": "/blog/:slug",
+      "destination": "/blog/:slug/index.html"
+    },
+    {
+      "source": "/uslugi/:slug",
+      "destination": "/uslugi/:slug/index.html"
     }
   ]
 }

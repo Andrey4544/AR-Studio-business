@@ -11,8 +11,8 @@ import { usePageMeta } from '../hooks/usePageMeta';
 export default function WhyUsPage() {
   usePageMeta({
     title: 'Защо нас | AR Studio - Преимущества и предложение',
-    description: 'Защо да изберете AR Studio? Бързо, качествено и достъпно. Без авансово плащане, 100% гарантия и дългосрочна поддръжка.',
-    keywords: 'защо нас, преимущества, качество, цена, гарантия',
+    description: 'Защо да изберете AR Studio? Директна комуникация, ясен процес, мобилен дизайн, SEO основа и възможност за поддръжка след публикуването.',
+    keywords: 'уеб дизайн Пловдив, защо AR Studio, процес за изработка на сайт, поддръжка на сайт',
     canonical: 'https://www.ar-studio.site/zashto-nas'
   });
 

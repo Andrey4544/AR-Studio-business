@@ -11,8 +11,8 @@ import { usePageMeta } from '../hooks/usePageMeta';
 export default function TestimonialsPage() {
   usePageMeta({
     title: 'Отзиви | AR Studio - Мнения на клиентите',
-    description: 'Прочетете отзивите на нашите доволни клиенти. 100% положителни отзиви от ресторанти, хотели, адвокати и други успешни бизнеси.',
-    keywords: 'отзиви, мнения, клиенти, доволни, успех',
+    description: 'Прочетете публикуваните с разрешение отзиви за AR Studio и научете как да споделите собствената си обратна връзка за уеб проекта.',
+    keywords: 'отзиви за уеб дизайн, мнения на клиенти, AR Studio Пловдив, обратна връзка за сайт',
     canonical: 'https://www.ar-studio.site/otzivy'
   });
 

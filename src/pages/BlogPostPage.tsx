@@ -33,7 +33,7 @@ export default function BlogPostPage() {
         '@type': 'BlogPosting',
         'headline': post.title,
         'description': language === 'en' ? post.descriptionEn : post.description,
-        'image': post.ogImage || 'https://www.ar-studio.site/assets/logo.png',
+        'image': post.ogImage || 'https://www.ar-studio.site/assets/logo.webp',
         'datePublished': post.date,
         'author': {
           '@type': 'Person',
@@ -44,7 +44,7 @@ export default function BlogPostPage() {
           'name': 'AR Studio',
           'logo': {
             '@type': 'ImageObject',
-            'url': 'https://www.ar-studio.site/assets/logo.png'
+            'url': 'https://www.ar-studio.site/assets/logo.webp'
           }
         },
         'mainEntityOfPage': {

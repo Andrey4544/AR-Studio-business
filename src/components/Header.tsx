@@ -241,18 +241,29 @@ export default function Header({ openQuoteModal }: HeaderProps) {
                   <p className="text-sm text-zinc-400">
                     {isEnglish ? 'Have a project in mind?' : 'Имате проект наум?'}
                   </p>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setIsOpen(false);
-                      openQuoteModal();
-                    }}
-                    className="inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-blue-500"
-                  >
-                    <PhoneCall className="h-4 w-4" />
-                    {t('freeQuote')}
-                    <ArrowUpRight className="h-4 w-4" />
-                  </button>
+                  <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
+                    <button
+                      type="button"
+                      onClick={toggleLanguage}
+                      className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/[0.04] px-4 py-3 text-sm font-semibold text-zinc-200 transition-colors hover:border-blue-400/40 hover:bg-blue-500/10 hover:text-white"
+                      aria-label={isEnglish ? 'Switch language' : 'Смяна на езика'}
+                    >
+                      <Globe className="h-4 w-4 text-blue-300" />
+                      <span>{isEnglish ? 'Български' : 'English'}</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setIsOpen(false);
+                        openQuoteModal();
+                      }}
+                      className="inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-blue-500"
+                    >
+                      <PhoneCall className="h-4 w-4" />
+                      {t('freeQuote')}
+                      <ArrowUpRight className="h-4 w-4" />
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>

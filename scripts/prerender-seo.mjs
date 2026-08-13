@@ -25,7 +25,7 @@ const serviceLinks = [
 
 const routes = {
   '/': {
-    title: 'Уеб дизайн и изработка на сайтове в Пловдив | AR Studio',
+    title: 'AR Studio | Уеб дизайн и изработка на сайтове в Пловдив',
     description: 'AR Studio създава бързи и персонализирани уебсайтове за бизнеси в Пловдив и цяла България. Поискайте безплатна консултация за сайт или онлайн магазин.',
     h1: 'Уеб дизайн и изработка на сайтове в Пловдив',
     summary: 'AR Studio е бутиково студио за уеб дизайн и разработка. Създаваме ясни, бързи и мобилни сайтове, които представят услугите Ви и улесняват следващото действие на клиента.',
@@ -255,16 +255,19 @@ function schemaFor(route, page) {
       '@type': 'ProfessionalService',
       '@id': `${SITE}/#business`,
       name: 'AR Studio',
+      alternateName: 'AR Studio Web Craftsmanship',
+      legalName: 'AR Studio',
       url: SITE,
       logo: `${SITE}/assets/logo.webp`,
       image: `${SITE}/assets/logo.webp`,
       description: page.description,
+      slogan: 'Уеб дизайн и разработка в Пловдив',
       telephone: ['+359888616641', '+359888379886'],
       email: 'designbyandrey@gmail.com',
       areaServed: [{ '@type': 'City', name: 'Пловдив' }, { '@type': 'Country', name: 'България' }],
       serviceType: ['Уеб дизайн', 'Изработка на сайтове', 'Онлайн магазини', 'Техническа SEO основа'],
       sameAs: ['https://www.facebook.com/share/18n7DfUWJW/', 'https://www.instagram.com/arstudio.site', 'https://www.tiktok.com/@ar_studio_web'],
-    }, { '@type': 'WebSite', '@id': `${SITE}/#website`, url: SITE, name: 'AR Studio', inLanguage: 'bg-BG', publisher: { '@id': `${SITE}/#business` } });
+    }, { '@type': 'WebSite', '@id': `${SITE}/#website`, url: SITE, name: 'AR Studio', alternateName: 'AR Studio — Уеб дизайн и изработка на сайтове в Пловдив', inLanguage: 'bg-BG', publisher: { '@id': `${SITE}/#business` } });
   } else if (page.schemaType === 'service') {
     base['@graph'].push({ '@type': 'Service', '@id': `${url}#service`, name: page.h1, serviceType: page.h1, description: page.description, provider: { '@id': `${SITE}/#business` }, areaServed: [{ '@type': 'City', name: 'Пловдив' }, { '@type': 'Country', name: 'България' }], url });
   } else if (page.schemaType === 'article') {

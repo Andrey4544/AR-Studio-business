@@ -17,7 +17,7 @@ interface HomePageProps {
 
 export default function HomePage({ openQuoteModal }: HomePageProps) {
   usePageMeta({
-    title: 'Уеб дизайн и изработка на сайтове в Пловдив | AR Studio',
+    title: 'AR Studio | Уеб дизайн и изработка на сайтове в Пловдив',
     description: 'AR Studio създава бързи, персонализирани и SEO-ready уебсайтове за бизнеси в Пловдив и цяла България. Заявете безплатна консултация за сайт или онлайн магазин.',
     keywords: 'уеб дизайн Пловдив, изработка на сайтове Пловдив, уеб дизайн България, бизнес сайт, онлайн магазин, SEO оптимизация',
     canonical: 'https://www.ar-studio.site/'

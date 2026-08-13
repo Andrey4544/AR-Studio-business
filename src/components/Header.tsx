@@ -306,7 +306,7 @@ export default function Header({ openQuoteModal }: HeaderProps) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[70] bg-[#060608]/98 backdrop-blur-2xl"
+            className="fixed inset-0 z-[70] isolate overflow-hidden bg-[#060608] backdrop-blur-2xl"
             role="dialog"
             aria-modal="true"
             aria-label={isEnglish ? 'Site navigation' : 'Навигация в сайта'}

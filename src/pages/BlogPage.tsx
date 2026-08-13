@@ -82,12 +82,12 @@ export default function BlogPage() {
             ))}
           </div>
 
-          {/* Coming Soon */}
+          {/* Editorial note */}
           <div className="mt-16 p-8 bg-gradient-to-r from-blue-500/10 to-indigo-500/10 border border-blue-500/20 rounded-xl text-center">
             <p className="text-zinc-400">
-              {language === 'en' 
-                ? 'More articles coming soon. Subscribe for updates!'
-                : 'Още статии идват скоро. Следете за обновления!'}
+              {language === 'en'
+                ? 'We add practical articles gradually, focusing on questions that matter to Bulgarian business owners.'
+                : 'Добавяме практични материали постепенно, като се фокусираме върху въпроси, важни за собствениците на български бизнеси.'}
             </p>
           </div>
         </div>

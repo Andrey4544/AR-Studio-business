@@ -5,7 +5,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Facebook, Instagram, X, Share2, MessageCircle } from 'lucide-react';
+import { Facebook, Instagram, X, Share2, MessageCircle, Phone } from 'lucide-react';
 
 const TikTokIcon = ({ className }: { className?: string }) => (
   <svg className={className} fill="currentColor" viewBox="0 0 24 24">
@@ -59,6 +59,15 @@ export default function FloatingSocialButtons() {
       color: 'text-white',
       bgColor: 'bg-[#7360F2]',
       borderColor: 'border-purple-200/50'
+    },
+    {
+      name: 'Обади се',
+      url: 'tel:+359888616641',
+      openInNewTab: false,
+      icon: Phone,
+      color: 'text-white',
+      bgColor: 'bg-[#16A34A]',
+      borderColor: 'border-emerald-200/50'
     }
   ];
 

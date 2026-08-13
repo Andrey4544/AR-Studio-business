@@ -152,12 +152,14 @@ export default function Header({ openQuoteModal }: HeaderProps) {
 
           <div className="flex items-center justify-end gap-2 sm:gap-3">
             <button
+              type="button"
               onClick={toggleLanguage}
-              className="hidden sm:flex items-center gap-2 rounded-full border border-white/10 bg-zinc-900/50 px-3 py-2 text-xs font-semibold text-zinc-300 transition-all hover:border-blue-400/30 hover:text-white"
+              className="flex items-center rounded-lg border border-white/10 bg-zinc-900/60 px-2.5 py-2 text-[11px] font-bold tracking-wide transition-all hover:border-blue-400/35 hover:bg-zinc-800"
               aria-label={isEnglish ? 'Switch language' : 'Смяна на езика'}
             >
-              <Globe className="h-3.5 w-3.5" />
-              <span>{language === 'bg' ? 'BG' : 'EN'}</span>
+              <span className={language === 'bg' ? 'text-white' : 'text-zinc-500'}>БГ</span>
+              <span className="mx-1.5 text-zinc-600">/</span>
+              <span className={language === 'en' ? 'text-white' : 'text-zinc-500'}>EN</span>
             </button>
 
             <button

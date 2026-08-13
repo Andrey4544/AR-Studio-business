@@ -72,18 +72,19 @@ export function usePageMeta({
 
     const schemaId = 'page-structured-data';
     const existingSchema = document.getElementById(schemaId);
+    const schemaWasManagedByPage = Boolean(jsonLd);
     if (jsonLd) {
       const script = (existingSchema as HTMLScriptElement | null) || document.createElement('script');
       script.id = schemaId;
       script.type = 'application/ld+json';
       script.textContent = JSON.stringify(jsonLd);
       if (!existingSchema) document.head.appendChild(script);
-    } else {
-      existingSchema?.remove();
     }
 
     return () => {
-      document.getElementById(schemaId)?.remove();
+      if (schemaWasManagedByPage) {
+        document.getElementById(schemaId)?.remove();
+      }
     };
   }, [title, description, keywords, ogImage, canonical, ogType, noIndex, jsonLd]);
 }

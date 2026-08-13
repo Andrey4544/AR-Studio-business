@@ -31,6 +31,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     localStorage.setItem('ar_studio_lang', language);
+    document.documentElement.lang = language === 'bg' ? 'bg' : 'en';
   }, [language]);
 
   const toggleLanguage = () => {

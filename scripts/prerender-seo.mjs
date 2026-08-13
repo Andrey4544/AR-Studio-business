@@ -279,10 +279,10 @@ function schemaFor(route, page) {
 }
 
 function staticBody(route, page) {
-  const nav = navLinks.map(([label, href]) => `<a href="${href}">${escapeHtml(label)}</a>`).join(' · ');
+  const nav = navLinks.map(([label, href]) => `<a href="${href}">${escapeHtml(label)}</a>`).join('');
   const bullets = page.bullets.map((item) => `<li>${escapeHtml(item)}</li>`).join('');
   const relatedServices = serviceLinks.map(([href, label]) => `<a href="${href}">${escapeHtml(label)}</a>`).join(' · ');
-  return `<main><article><nav aria-label="Основна навигация">${nav}</nav><p><a href="/">AR Studio</a> · Уеб дизайн и разработка в Пловдив</p><h1>${escapeHtml(page.h1)}</h1><p>${escapeHtml(page.summary)}</p><p><a href="/kontakti">Поискайте безплатна консултация</a> · <a href="/portfolio">Разгледайте портфолиото</a></p><section><h2>${escapeHtml(page.h2)}</h2><ul>${bullets}</ul></section><section><h2>Свързани услуги</h2><p>${relatedServices}</p></section></article></main>`;
+  return `<main class="seo-prerender"><div class="seo-prerender__frame"><header class="seo-prerender__header"><a class="seo-prerender__brand" href="/" aria-label="AR Studio — Начало"><span class="seo-prerender__mark" aria-hidden="true">AR</span><span>AR Studio</span></a><nav class="seo-prerender__nav" aria-label="Основна навигация">${nav}</nav></header><article class="seo-prerender__hero"><p class="seo-prerender__eyebrow">Пловдив, България · Уеб дизайн студио</p><h1>${escapeHtml(page.h1)}</h1><p class="seo-prerender__summary">${escapeHtml(page.summary)}</p><p class="seo-prerender__actions"><a class="seo-prerender__button seo-prerender__button--primary" href="/kontakti">Поискайте безплатна консултация</a><a class="seo-prerender__button" href="/portfolio">Разгледайте портфолиото</a></p></article><section class="seo-prerender__content" aria-label="Полезна информация"><section class="seo-prerender__card"><h2>${escapeHtml(page.h2)}</h2><ul>${bullets}</ul></section><section class="seo-prerender__card"><h2>Свързани услуги</h2><p class="seo-prerender__related">${relatedServices}</p></section></section></div></main>`;
 }
 
 function updateHead(html, route, page) {

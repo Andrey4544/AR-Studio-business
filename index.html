@@ -6,6 +6,42 @@
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <style id="seo-prerender-critical-css">
+      :root { background: #050505; color-scheme: dark; }
+      #root > .seo-prerender {
+        box-sizing: border-box;
+        min-height: 100svh;
+        padding: clamp(1.25rem, 4vw, 3.5rem);
+        overflow: hidden;
+        color: #e4e4e7;
+        font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+        background:
+          radial-gradient(circle at 82% 12%, rgba(37, 99, 235, .20), transparent 28rem),
+          radial-gradient(circle at 8% 92%, rgba(30, 64, 175, .14), transparent 25rem),
+          #050505;
+      }
+      .seo-prerender *, .seo-prerender *::before, .seo-prerender *::after { box-sizing: border-box; }
+      .seo-prerender__frame { width: min(100%, 72rem); margin: 0 auto; }
+      .seo-prerender__header { display: flex; align-items: center; justify-content: space-between; gap: 1.25rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,.09); }
+      .seo-prerender__brand { display: inline-flex; align-items: center; gap: .65rem; color: #fff; font-size: .92rem; font-weight: 700; letter-spacing: .11em; text-decoration: none; text-transform: uppercase; white-space: nowrap; }
+      .seo-prerender__mark { display: inline-grid; width: 2rem; height: 2rem; place-items: center; border: 1px solid rgba(147, 197, 253, .6); border-radius: .45rem; color: #bfdbfe; font-size: .7rem; letter-spacing: 0; }
+      .seo-prerender__nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: .35rem .8rem; font-size: .74rem; }
+      .seo-prerender__nav a, .seo-prerender__related a { color: #a1a1aa; text-decoration: none; }
+      .seo-prerender__nav a:hover, .seo-prerender__related a:hover { color: #fff; }
+      .seo-prerender__hero { max-width: 52rem; padding: clamp(4rem, 13vh, 8rem) 0 clamp(2.5rem, 7vh, 4.5rem); }
+      .seo-prerender__eyebrow { margin: 0 0 1rem; color: #93c5fd; font-family: ui-monospace, SFMono-Regular, monospace; font-size: .7rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+      .seo-prerender h1 { max-width: 52rem; margin: 0; color: #fff; font-family: Georgia, "Times New Roman", serif; font-size: clamp(2.35rem, 7vw, 5rem); line-height: 1.04; letter-spacing: -.04em; }
+      .seo-prerender__summary { max-width: 43rem; margin: 1.5rem 0 0; color: #c4c4cc; font-size: clamp(1rem, 2vw, 1.18rem); line-height: 1.75; }
+      .seo-prerender__actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2rem; }
+      .seo-prerender__button { display: inline-flex; align-items: center; min-height: 2.9rem; padding: .75rem 1.05rem; border: 1px solid rgba(255,255,255,.14); border-radius: 999px; color: #fff; font-size: .88rem; font-weight: 700; text-decoration: none; }
+      .seo-prerender__button--primary { border-color: #fff; background: #fff; color: #050505; }
+      .seo-prerender__content { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .85fr); gap: 1rem; }
+      .seo-prerender__card { min-height: 10rem; padding: 1.35rem; border: 1px solid rgba(255,255,255,.1); border-radius: 1rem; background: rgba(24,24,27,.55); }
+      .seo-prerender h2 { margin: 0 0 .85rem; color: #fff; font-size: 1rem; }
+      .seo-prerender ul { margin: 0; padding-left: 1.1rem; color: #a1a1aa; font-size: .9rem; line-height: 1.75; }
+      .seo-prerender__related { margin: 0; color: #a1a1aa; font-size: .9rem; line-height: 1.75; }
+      @media (max-width: 42rem) { .seo-prerender__header { align-items: flex-start; flex-direction: column; } .seo-prerender__nav { justify-content: flex-start; } .seo-prerender__content { grid-template-columns: 1fr; } }
+    </style>
 
     <title>Уеб дизайн и изработка на сайтове в Пловдив | AR Studio</title>
     <meta name="description" content="AR Studio създава бързи, персонализирани и SEO-ready уебсайтове за бизнеси в Пловдив и цяла България. Заявете безплатна консултация за сайт, онлайн магазин или дигитално присъствие." />

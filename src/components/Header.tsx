@@ -9,14 +9,11 @@ import { AnimatePresence, motion } from 'motion/react';
 import {
   ArrowUpRight,
   BriefcaseBusiness,
-  ChevronRight,
   CircleHelp,
-  Facebook,
   FileText,
   Globe,
   House,
   Images,
-  Instagram,
   Layers3,
   Menu,
   MessageCircleHeart,
@@ -41,9 +38,7 @@ type MenuItem = {
 };
 
 type MenuGroup = {
-  eyebrow: string;
-  title: string;
-  description: string;
+  label: string;
   items: MenuItem[];
 };
 
@@ -56,135 +51,39 @@ export default function Header({ openQuoteModal }: HeaderProps) {
 
   const menuGroups: MenuGroup[] = [
     {
-      eyebrow: isEnglish ? 'DISCOVER' : 'РАЗГЛЕДАЙТЕ',
-      title: isEnglish ? 'Start with the essentials' : 'Започнете от най-важното',
-      description: isEnglish
-        ? 'The fastest path to understand our work and the right next step for your business.'
-        : 'Най-прекият път да видите как работим и коя е следващата правилна стъпка за вашия бизнес.',
+      label: isEnglish ? 'START HERE' : 'ЗАПОЧНЕТЕ ОТТУК',
       items: [
-        {
-          path: '/',
-          label: t('navHome'),
-          description: isEnglish ? 'A clear overview of AR Studio.' : 'Ясен поглед към AR Studio и начина ни на работа.',
-          icon: House,
-        },
-        {
-          path: '/uslugi',
-          label: t('navServices'),
-          description: isEnglish ? 'Websites, online stores and growth-focused digital solutions.' : 'Уебсайтове, онлайн магазини и дигитални решения за растеж.',
-          icon: Layers3,
-        },
-        {
-          path: '/web-design-plovdiv',
-          label: isEnglish ? 'Web design in Plovdiv' : 'Уеб дизайн в Пловдив',
-          description: isEnglish ? 'Our local web-design offer for ambitious businesses.' : 'Локално решение за бизнеси, които искат по-силно онлайн присъствие.',
-          icon: Sparkles,
-        },
+        { path: '/', label: t('navHome'), description: isEnglish ? 'Overview of AR Studio' : 'Преглед на AR Studio', icon: House },
+        { path: '/uslugi', label: t('navServices'), description: isEnglish ? 'All services and prices' : 'Всички услуги и цени', icon: Layers3 },
+        { path: '/web-design-plovdiv', label: isEnglish ? 'Web design in Plovdiv' : 'Уеб дизайн в Пловдив', description: isEnglish ? 'Local web design offer' : 'Локална услуга за уеб дизайн', icon: Sparkles },
       ],
     },
     {
-      eyebrow: isEnglish ? 'SOLUTIONS' : 'РЕШЕНИЯ',
-      title: isEnglish ? 'Choose your business direction' : 'Изберете посоката за вашия бизнес',
-      description: isEnglish
-        ? 'Specialised starting points for the most common website projects.'
-        : 'Специализирани отправни точки за най-честите типове уеб проекти.',
+      label: isEnglish ? 'SOLUTIONS FOR BUSINESS' : 'РЕШЕНИЯ ЗА БИЗНЕСА',
       items: [
-        {
-          path: '/uslugi/izrabotka-na-sait-plovdiv',
-          label: isEnglish ? 'Business website' : 'Фирмен уебсайт',
-          description: isEnglish ? 'A modern website that presents your business with confidence.' : 'Модерен сайт, който представя бизнеса ви уверено.',
-          icon: BriefcaseBusiness,
-        },
-        {
-          path: '/uslugi/izrabotka-na-onlayn-magazin',
-          label: isEnglish ? 'Online store' : 'Онлайн магазин',
-          description: isEnglish ? 'A fast, conversion-focused storefront for your products.' : 'Бърз и удобен магазин, създаден за продажби.',
-          icon: Images,
-        },
-        {
-          path: '/uslugi/sait-za-restorant-plovdiv',
-          label: isEnglish ? 'Restaurant website' : 'Сайт за ресторант',
-          description: isEnglish ? 'Menus, reservations and a stronger first impression.' : 'Меню, резервации и по-силно първо впечатление.',
-          icon: Sparkles,
-        },
-        {
-          path: '/uslugi/sait-za-kozmetichen-salon-plovdiv',
-          label: isEnglish ? 'Beauty salon website' : 'Сайт за козметичен салон',
-          description: isEnglish ? 'An elegant digital experience for beauty services.' : 'Елегантно дигитално изживяване за beauty услуги.',
-          icon: Sparkles,
-        },
-        {
-          path: '/uslugi/sait-za-hotel-plovdiv',
-          label: isEnglish ? 'Hotel website' : 'Сайт за хотел',
-          description: isEnglish ? 'A refined online home for stays and reservations.' : 'Премиум онлайн дом за настаняване и резервации.',
-          icon: BriefcaseBusiness,
-        },
-        {
-          path: '/uslugi/sait-za-advokatska-kantora',
-          label: isEnglish ? 'Law firm website' : 'Сайт за адвокатска кантора',
-          description: isEnglish ? 'Trust-building digital presence for legal practice.' : 'Дигитално присъствие, което изгражда доверие.',
-          icon: UserRound,
-        },
+        { path: '/uslugi/izrabotka-na-sait-plovdiv', label: isEnglish ? 'Business website' : 'Фирмен уебсайт', description: isEnglish ? 'Modern business presentation' : 'Модерно бизнес представяне', icon: BriefcaseBusiness },
+        { path: '/uslugi/izrabotka-na-onlayn-magazin', label: isEnglish ? 'Online store' : 'Онлайн магазин', description: isEnglish ? 'For product sales' : 'За продажба на продукти', icon: Images },
+        { path: '/uslugi/sait-za-restorant-plovdiv', label: isEnglish ? 'Restaurant website' : 'Сайт за ресторант', description: isEnglish ? 'Menu and reservations' : 'Меню и резервации', icon: Sparkles },
+        { path: '/uslugi/sait-za-kozmetichen-salon-plovdiv', label: isEnglish ? 'Beauty salon website' : 'Сайт за козметичен салон', description: isEnglish ? 'Beauty services online' : 'Beauty услуги онлайн', icon: Sparkles },
+        { path: '/uslugi/sait-za-hotel-plovdiv', label: isEnglish ? 'Hotel website' : 'Сайт за хотел', description: isEnglish ? 'For stays and bookings' : 'За настаняване и резервации', icon: BriefcaseBusiness },
+        { path: '/uslugi/sait-za-advokatska-kantora', label: isEnglish ? 'Law firm website' : 'Сайт за адвокатска кантора', description: isEnglish ? 'Trust-building digital presence' : 'Дигитално присъствие с доверие', icon: UserRound },
       ],
     },
     {
-      eyebrow: isEnglish ? 'PROOF & INSIGHT' : 'ДОКАЗАТЕЛСТВА И ИДЕИ',
-      title: isEnglish ? 'See the work behind the promise' : 'Вижте работата зад обещанието',
-      description: isEnglish
-        ? 'Explore real projects, client feedback and practical guidance for your next decision.'
-        : 'Разгледайте реални проекти, клиентски мнения и практични съвети за следващото си решение.',
+      label: isEnglish ? 'WORK & TRUST' : 'ПРОЕКТИ И ДОВЕРИЕ',
       items: [
-        {
-          path: '/portfolio',
-          label: t('navPortfolio'),
-          description: isEnglish ? 'Selected projects and visual directions.' : 'Подбрани проекти и визуални посоки.',
-          icon: Images,
-        },
-        {
-          path: '/otzivy',
-          label: t('navReviews'),
-          description: isEnglish ? 'Feedback from clients who have worked with us.' : 'Мнения от клиенти, работили с нас.',
-          icon: MessageCircleHeart,
-        },
-        {
-          path: '/blog',
-          label: isEnglish ? 'Blog & resources' : 'Блог и ресурси',
-          description: isEnglish ? 'Useful articles on websites, SEO and digital growth.' : 'Полезни статии за сайтове, SEO и дигитален растеж.',
-          icon: FileText,
-        },
+        { path: '/portfolio', label: t('navPortfolio'), description: isEnglish ? 'Selected completed projects' : 'Подбрани завършени проекти', icon: Images },
+        { path: '/otzivy', label: t('navReviews'), description: isEnglish ? 'Client feedback' : 'Мнения от клиенти', icon: MessageCircleHeart },
+        { path: '/blog', label: isEnglish ? 'Blog & resources' : 'Блог и ресурси', description: isEnglish ? 'Guides for website growth' : 'Полезни статии за растеж', icon: FileText },
       ],
     },
     {
-      eyebrow: isEnglish ? 'ABOUT & CONTACT' : 'ЗА НАС И КОНТАКТ',
-      title: isEnglish ? 'Get to know AR Studio' : 'Опознайте AR Studio',
-      description: isEnglish
-        ? 'Everything you need before starting a conversation with our team.'
-        : 'Всичко необходимо, преди да започнем разговор за вашия проект.',
+      label: isEnglish ? 'ABOUT & CONTACT' : 'ЗА НАС И КОНТАКТ',
       items: [
-        {
-          path: '/za-nas',
-          label: t('navAbout'),
-          description: isEnglish ? 'The people, principles and approach behind the studio.' : 'Хората, принципите и подходът зад студиото.',
-          icon: UsersRound,
-        },
-        {
-          path: '/zashto-nas',
-          label: t('navWhyUs'),
-          description: isEnglish ? 'What makes our process clear, focused and reliable.' : 'Какво прави процеса ни ясен, фокусиран и надежден.',
-          icon: Sparkles,
-        },
-        {
-          path: '/chzv',
-          label: t('navFaq'),
-          description: isEnglish ? 'Helpful answers before you begin.' : 'Полезни отговори, преди да започнете.',
-          icon: CircleHelp,
-        },
-        {
-          path: '/kontakti',
-          label: t('navContact'),
-          description: isEnglish ? 'Tell us about the project you have in mind.' : 'Разкажете ни за проекта, който имате предвид.',
-          icon: PhoneCall,
-        },
+        { path: '/za-nas', label: t('navAbout'), description: isEnglish ? 'The people behind the studio' : 'Хората зад студиото', icon: UsersRound },
+        { path: '/zashto-nas', label: t('navWhyUs'), description: isEnglish ? 'Our approach and process' : 'Нашият подход и процес', icon: Sparkles },
+        { path: '/chzv', label: t('navFaq'), description: isEnglish ? 'Frequently asked questions' : 'Често задавани въпроси', icon: CircleHelp },
+        { path: '/kontakti', label: t('navContact'), description: isEnglish ? 'Start a conversation' : 'Започнете разговор', icon: PhoneCall },
       ],
     },
   ];
@@ -203,17 +102,6 @@ export default function Header({ openQuoteModal }: HeaderProps) {
   }, []);
 
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [isOpen]);
-
-  useEffect(() => {
     setIsOpen(false);
   }, [location.pathname]);
 
@@ -229,13 +117,13 @@ export default function Header({ openQuoteModal }: HeaderProps) {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 z-50 w-full transition-all duration-300 ${
         isScrolled || isOpen
-          ? 'py-3 bg-luxury-black/95 border-b border-white/10 shadow-[0_12px_45px_rgba(0,0,0,0.32)] backdrop-blur-xl'
-          : 'py-5 bg-transparent'
+          ? 'bg-luxury-black/95 py-3 shadow-[0_12px_45px_rgba(0,0,0,0.32)] backdrop-blur-xl'
+          : 'bg-transparent py-5'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between gap-3">
           <Link to="/" aria-label="AR Studio" className="shrink-0 cursor-pointer">
             <Logo size="md" />
@@ -253,7 +141,7 @@ export default function Header({ openQuoteModal }: HeaderProps) {
                 {isActive(item.path) && (
                   <motion.span
                     layoutId="activeDesktopNavigation"
-                    className="absolute inset-0 rounded-full border border-blue-400/30 bg-blue-500/10 shadow-[0_0_20px_rgba(59,130,246,0.16)]"
+                    className="absolute inset-0 rounded-full border border-blue-400/30 bg-blue-500/10"
                     transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                   />
                 )}
@@ -282,13 +170,14 @@ export default function Header({ openQuoteModal }: HeaderProps) {
             </button>
 
             <button
+              type="button"
               onClick={() => setIsOpen((open) => !open)}
-              className={`group flex items-center gap-2 rounded-xl border px-3 py-2.5 text-sm font-semibold transition-all ${
+              className={`flex items-center gap-2 rounded-xl border px-3 py-2.5 text-sm font-semibold transition-all ${
                 isOpen
                   ? 'border-blue-400/50 bg-blue-500/15 text-white'
                   : 'border-white/10 bg-zinc-900/60 text-zinc-200 hover:border-blue-400/35 hover:bg-zinc-800 hover:text-white'
               }`}
-              aria-label={isOpen ? (isEnglish ? 'Close menu' : 'Затвори менюто') : isEnglish ? 'Open menu' : 'Отвори менюто'}
+              aria-label={isOpen ? (isEnglish ? 'Hide navigation' : 'Скрий менюто') : isEnglish ? 'Show navigation' : 'Покажи менюто'}
               aria-expanded={isOpen}
               aria-controls="site-navigation-panel"
             >
@@ -301,136 +190,73 @@ export default function Header({ openQuoteModal }: HeaderProps) {
 
       <AnimatePresence>
         {isOpen && (
-          <motion.div
+          <motion.nav
             id="site-navigation-panel"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[70] isolate overflow-hidden bg-[#060608] backdrop-blur-2xl"
-            role="dialog"
-            aria-modal="true"
-            aria-label={isEnglish ? 'Site navigation' : 'Навигация в сайта'}
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.18, ease: 'easeOut' }}
+            aria-label={isEnglish ? 'Full site navigation' : 'Пълна навигация в сайта'}
+            className="absolute left-0 right-0 top-full border-t border-white/10 bg-[#0a0a0c] shadow-[0_22px_50px_rgba(0,0,0,0.45)]"
           >
-            <motion.div
-              initial={{ opacity: 0, y: -24 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -24 }}
-              transition={{ duration: 0.24, ease: 'easeOut' }}
-              className="flex h-[100dvh] flex-col"
-            >
-              <div className="shrink-0 border-b border-white/10 bg-black/20">
-                <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-blue-400/20 bg-blue-500/10 text-blue-200">
-                      <Menu className="h-5 w-5" />
-                    </div>
-                    <div>
-                      <p className="text-[10px] font-bold tracking-[0.2em] text-blue-300">AR STUDIO</p>
-                      <p className="mt-0.5 text-sm font-semibold text-white">{isEnglish ? 'Explore the site' : 'Разгледайте сайта'}</p>
-                    </div>
-                  </div>
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+              <div className="max-h-[calc(100dvh-76px)] overflow-y-auto py-5 sm:py-6">
+                <div className="grid gap-5 lg:grid-cols-2 xl:grid-cols-4">
+                  {menuGroups.map((group) => (
+                    <section key={group.label} className="rounded-2xl border border-white/10 bg-white/[0.025] p-3 sm:p-4">
+                      <p className="mb-3 px-1 text-[10px] font-bold tracking-[0.16em] text-blue-300">{group.label}</p>
+                      <div className="space-y-1.5">
+                        {group.items.map((item) => {
+                          const Icon = item.icon;
+                          const active = isActive(item.path);
+                          return (
+                            <Link
+                              key={item.path}
+                              to={item.path}
+                              onClick={() => setIsOpen(false)}
+                              className={`flex items-center gap-3 rounded-xl px-3 py-3 transition-all ${
+                                active
+                                  ? 'bg-blue-500/15 text-white ring-1 ring-inset ring-blue-400/30'
+                                  : 'text-zinc-300 hover:bg-white/[0.07] hover:text-white'
+                              }`}
+                            >
+                              <span className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border ${
+                                active ? 'border-blue-400/30 bg-blue-500/15 text-blue-200' : 'border-white/10 bg-white/[0.03] text-zinc-400'
+                              }`}>
+                                <Icon className="h-4 w-4" />
+                              </span>
+                              <span className="min-w-0">
+                                <span className="block text-sm font-semibold">{item.label}</span>
+                                <span className="mt-0.5 block truncate text-xs text-zinc-500">{item.description}</span>
+                              </span>
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    </section>
+                  ))}
+                </div>
+
+                <div className="mt-5 flex flex-col gap-3 border-t border-white/10 pt-5 sm:flex-row sm:items-center sm:justify-between">
+                  <p className="text-sm text-zinc-400">
+                    {isEnglish ? 'Have a project in mind?' : 'Имате проект наум?'}
+                  </p>
                   <button
-                    onClick={() => setIsOpen(false)}
-                    className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.04] px-3 py-2 text-sm font-semibold text-zinc-200 transition-all hover:border-white/25 hover:bg-white/[0.08] hover:text-white"
+                    type="button"
+                    onClick={() => {
+                      setIsOpen(false);
+                      openQuoteModal();
+                    }}
+                    className="inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-blue-500"
                   >
-                    <X className="h-5 w-5" />
-                    <span>{isEnglish ? 'Close' : 'Затвори'}</span>
+                    <PhoneCall className="h-4 w-4" />
+                    {t('freeQuote')}
+                    <ArrowUpRight className="h-4 w-4" />
                   </button>
                 </div>
               </div>
-
-              <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain">
-                <div className="mx-auto max-w-7xl px-4 pb-10 pt-7 sm:px-6 sm:pt-10 lg:px-8">
-                  <div className="mb-8 flex flex-col justify-between gap-4 border-b border-white/10 pb-7 md:flex-row md:items-end">
-                    <div className="max-w-2xl">
-                      <p className="text-[10px] font-bold tracking-[0.22em] text-blue-300">{isEnglish ? 'NAVIGATION' : 'НАВИГАЦИЯ'}</p>
-                      <h2 className="mt-2 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-                        {isEnglish ? 'Find exactly what you need.' : 'Намерете точно това, което ви трябва.'}
-                      </h2>
-                    </div>
-                    <p className="max-w-md text-sm leading-6 text-zinc-400">
-                      {isEnglish
-                        ? 'The sections are organised by the natural path from first impression to project conversation.'
-                        : 'Разделите са подредени според естествения път от първото впечатление до разговора за проект.'}
-                    </p>
-                  </div>
-
-                  <div className="grid gap-7 xl:grid-cols-2 xl:gap-x-12 xl:gap-y-9">
-                    {menuGroups.map((group, groupIndex) => (
-                      <section key={group.title} className="border-t border-white/10 pt-5">
-                        <div className="mb-4 flex items-start gap-4">
-                          <span className="pt-0.5 text-xs font-bold tracking-[0.16em] text-blue-300/80">0{groupIndex + 1}</span>
-                          <div>
-                            <p className="text-[10px] font-bold tracking-[0.2em] text-zinc-500">{group.eyebrow}</p>
-                            <h3 className="mt-1 text-xl font-semibold text-white">{group.title}</h3>
-                            <p className="mt-1.5 max-w-xl text-sm leading-6 text-zinc-400">{group.description}</p>
-                          </div>
-                        </div>
-
-                        <div className="divide-y divide-white/10 border-y border-white/10">
-                          {group.items.map((item) => {
-                            const Icon = item.icon;
-                            const active = isActive(item.path);
-                            return (
-                              <Link
-                                key={item.path}
-                                to={item.path}
-                                className={`group/item flex items-center gap-4 px-2 py-4 transition-colors sm:px-3 ${
-                                  active ? 'bg-blue-500/[0.09]' : 'hover:bg-white/[0.045]'
-                                }`}
-                              >
-                                <div className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border transition-all ${
-                                  active
-                                    ? 'border-blue-400/45 bg-blue-500/15 text-blue-200 shadow-[0_0_24px_rgba(59,130,246,0.12)]'
-                                    : 'border-white/10 bg-white/[0.035] text-zinc-400 group-hover/item:border-blue-400/30 group-hover/item:text-blue-200'
-                                }`}>
-                                  <Icon className="h-5 w-5" />
-                                </div>
-                                <div className="min-w-0 flex-1">
-                                  <div className="flex items-center gap-2">
-                                    <span className="text-base font-semibold text-white sm:text-[17px]">{item.label}</span>
-                                    {active && <span className="rounded-full border border-blue-400/30 bg-blue-500/10 px-2 py-0.5 text-[10px] font-bold tracking-wide text-blue-200">{isEnglish ? 'HERE' : 'ТУК'}</span>}
-                                  </div>
-                                  <p className="mt-1 text-sm leading-5 text-zinc-400 group-hover/item:text-zinc-300">{item.description}</p>
-                                </div>
-                                <ChevronRight className="h-5 w-5 shrink-0 text-zinc-600 transition-all group-hover/item:translate-x-0.5 group-hover/item:text-blue-300" />
-                              </Link>
-                            );
-                          })}
-                        </div>
-                      </section>
-                    ))}
-                  </div>
-
-                  <div className="mt-10 grid gap-5 border-t border-white/10 pt-7 lg:grid-cols-[1fr_auto] lg:items-center">
-                    <div className="flex flex-wrap items-center gap-x-5 gap-y-3 text-sm text-zinc-400">
-                      <span className="font-medium text-zinc-300">{isEnglish ? 'Stay connected' : 'Свържете се с нас'}</span>
-                      <a href="https://www.facebook.com/share/18n7DfUWJW/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 transition-colors hover:text-blue-300">
-                        <Facebook className="h-4 w-4" /> Facebook
-                      </a>
-                      <a href="https://www.instagram.com/arstudio.site?igsh=MWVuejR2ZWVjd3c1cw==" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 transition-colors hover:text-pink-300">
-                        <Instagram className="h-4 w-4" /> Instagram
-                      </a>
-                      <button onClick={toggleLanguage} className="inline-flex items-center gap-2 transition-colors hover:text-white">
-                        <Globe className="h-4 w-4" /> {language === 'bg' ? 'BG' : 'EN'}
-                      </button>
-                    </div>
-                    <button
-                      onClick={() => {
-                        openQuoteModal();
-                        setIsOpen(false);
-                      }}
-                      className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600 px-5 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-500/20 transition-all hover:bg-blue-500 hover:shadow-blue-500/35 lg:w-auto"
-                    >
-                      <PhoneCall className="h-4 w-4" />
-                      {t('freeQuote')}
-                      <ArrowUpRight className="h-4 w-4" />
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
+            </div>
+          </motion.nav>
         )}
       </AnimatePresence>
     </header>

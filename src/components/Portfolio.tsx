@@ -136,6 +136,17 @@ export default function Portfolio({ onQuoteClick }: PortfolioProps) {
                   {project.description}
                 </p>
 
+                {project.businessProblem && (
+                  <div className="rounded-2xl border border-blue-400/15 bg-blue-500/[0.06] p-4 sm:p-5">
+                    <p className="mb-2 font-mono text-[10px] font-bold tracking-[0.18em] text-blue-300 uppercase">
+                      {language === 'en' ? 'The business problem it solves' : 'Какъв проблем решава'}
+                    </p>
+                    <p className="text-sm leading-relaxed text-zinc-300">
+                      {project.businessProblem}
+                    </p>
+                  </div>
+                )}
+
                 {/* Structured Client Requested Highlights */}
                 <div className="space-y-4 pt-4 border-t border-white/5">
                   <h4 className="text-xs font-mono font-bold uppercase text-zinc-500 tracking-wider">

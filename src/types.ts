@@ -36,6 +36,7 @@ export interface Project {
   imageUrl: string;
   highlights: string[];
   description: string;
+  businessProblem?: string;
   tags: string[];
 }
 

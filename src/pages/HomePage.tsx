@@ -8,6 +8,7 @@ import Hero from '../components/Hero';
 import TrustedMarquee from '../components/TrustedMarquee';
 import Features from '../components/Features';
 import FAQ from '../components/FAQ';
+import HowWeWork from '../components/HowWeWork';
 import PageTransition from '../components/PageTransition';
 import { usePageMeta } from '../hooks/usePageMeta';
 
@@ -31,6 +32,7 @@ export default function HomePage({ openQuoteModal }: HomePageProps) {
           onWorkClick={() => window.location.href = '/portfolio'}
           onAboutClick={() => window.location.href = '/za-nas'}
         />
+        <HowWeWork />
         <TrustedMarquee />
         <Features />
         <FAQ />

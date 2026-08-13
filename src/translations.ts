@@ -69,6 +69,15 @@ export interface TranslationDictionary {
   portfolioSubTitle: string;
   portfolioTitle: string;
   portfolioDesc: string;
+  processSubTitle: string;
+  processTitle: string;
+  processDesc: string;
+  processStep1Title: string;
+  processStep1Desc: string;
+  processStep2Title: string;
+  processStep2Desc: string;
+  processStep3Title: string;
+  processStep3Desc: string;
   featuredProjectTag: string;
 
   modalTitle: string;
@@ -147,6 +156,15 @@ export const staticTranslations: { en: TranslationDictionary; bg: TranslationDic
     portfolioSubTitle: 'SELECTED WORKS',
     portfolioTitle: 'Bespoke Websites Live & Serving Customers',
     portfolioDesc: 'Explore our recent premium digital works crafted to convert visitors into loyal clients.',
+    processSubTitle: 'A CLEARER WAY TO BUILD',
+    processTitle: 'How we turn an idea into a working website',
+    processDesc: 'A focused process with direct communication, thoughtful design, and a clear next step at every stage.',
+    processStep1Title: 'Start with the goal',
+    processStep1Desc: 'We learn what the business needs the website to achieve and who it needs to reach.',
+    processStep2Title: 'Shape the experience',
+    processStep2Desc: 'We organise the content, design the visual direction, and build the right functionality.',
+    processStep3Title: 'Launch with confidence',
+    processStep3Desc: 'We test the important details, prepare the site for launch, and stay available for its next chapter.',
     featuredProjectTag: 'Featured Project',
 
     modalTitle: 'Begin Your Digital Transition',
@@ -222,7 +240,16 @@ export const staticTranslations: { en: TranslationDictionary; bg: TranslationDic
 
     portfolioSubTitle: 'ИЗБРАНИ ПРОЕКТИ',
     portfolioTitle: 'Уникални уебсайтове на живо, обслужващие клиенти',
-    portfolioDesc: 'Изучете нашите скорошни премиум проекти, разработени да превръщат посетителите в лоялни клиенти.',
+    portfolioDesc: 'Разгледайте реални премиум проекти, създадени да помагат на бизнеса да представя услугите си и да улеснява следващото действие на клиента.',
+    processSubTitle: 'ЯСЕН ПЪТ КЪМ ДОБРИЯ САЙТ',
+    processTitle: 'Как превръщаме една идея в работещ сайт',
+    processDesc: 'Фокусиран процес с директна комуникация, премислен дизайн и ясна следваща стъпка на всеки етап.',
+    processStep1Title: 'Започваме с целта',
+    processStep1Desc: 'Разбираме какво трябва да постигне сайтът и до кои хора трябва да достигне бизнесът.',
+    processStep2Title: 'Изграждаме преживяването',
+    processStep2Desc: 'Подреждаме съдържанието, оформяме визуалната посока и разработваме нужната функционалност.',
+    processStep3Title: 'Публикуваме уверено',
+    processStep3Desc: 'Проверяваме важните детайли, подготвяме сайта за старт и оставаме насреща за следващото му развитие.',
     featuredProjectTag: 'Препоръчан проект',
 
     modalTitle: 'Започнете Вашия дигитален преход',
@@ -475,7 +502,8 @@ export const dynamicTranslations = {
           'Full legal and investment security information modules',
           'Premium mobile-first responsive design for elite clients',
         ],
-        description: 'A high-performance real estate platform developed for BelEstateGroup. The website features a sophisticated corporate identity, interactive property catalogs, and seamless lead generation tools, ensuring a premium experience for investors and property seekers in Bulgaria.',
+        description: 'A high-performance real estate platform developed for BelEstateGroup. The website gives the agency a place to publish and manage its own property listings, with clear contact paths for people interested in a viewing or consultation.',
+        businessProblem: 'The site reduces the need to rely only on paid property portals: BelEstateGroup can present its listings on its own website, while visitors can browse properties and contact the team more directly.',
         tags: ['Real Estate', 'Luxury Design', 'Interactive Catalog', 'Lead Generation'],
       },
       {
@@ -491,7 +519,8 @@ export const dynamicTranslations = {
           'Dynamic Product Showcase - Interactive galleries for fight gear',
           'New Portfolio Section - Showcase of latest equipment and collections',
         ],
-        description: 'A high-end e-commerce platform developed for CBL Fight Store, specializing in premium boxing and Muay Thai equipment. The store features a sleek dark aesthetic, intuitive navigation, and a robust shopping system designed for champions.',
+        description: 'A high-end e-commerce platform developed for CBL Fight Store, specializing in premium boxing and Muay Thai equipment. The store gives customers a clear way to discover products, place orders online, and shop beyond the physical store.',
+        businessProblem: 'The website solves the limitation of selling only in person by opening an additional online sales channel, so customers can explore the equipment and order whenever it is convenient for them.',
         tags: ['E-commerce', 'Boxing Gear', 'Luxury Design', 'Muay Thai'],
       },
       {
@@ -507,7 +536,8 @@ export const dynamicTranslations = {
           'Direct, zero-friction booking system',
           'Fast loading speed scoring 98+ on Google Lighthouse Mobile',
         ],
-        description: 'A luxurious custom-designed web experience developed for Tomato Restaurant. Featuring a high-contrast elegant dark theme, responsive typography, and custom animations that drive direct bookings and simplify table ordering via fully integrated QR menu technology.',
+        description: 'A luxurious custom-designed web experience developed for Tomato Restaurant. The site brings the menu, reservation option, location, atmosphere, and essential information together in one clear place, while the QR menu makes access especially convenient at the table.',
+        businessProblem: 'The website makes it easier for guests to view the menu, reserve a table without calling, and find the restaurant with clear location information. The Tomato team also shares that the site has helped bring more foreign visitors to the restaurant.',
         tags: ['Luxury Design', 'QR Menu Integration', 'Speed Optimized', 'Responsive Web'],
       },
       {
@@ -834,7 +864,8 @@ export const dynamicTranslations = {
           'Информационни модули за правна и инвестиционна сигурност',
           'Премиум адаптивен дизайн, оптимизиран за мобилни устройства',
         ],
-        description: 'Високоефективна платформа за недвижими имоти, разработена за BelEstateGroup. Сайтът разполага с изискана корпоративна идентичност, интерактивни каталози за имоти и инструменти за генериране на запитвания, осигурявайки премиум изживяване за инвеститори и купувачи.',
+        description: 'Високоефективна платформа за недвижими имоти, разработена за BelEstateGroup. Сайтът дава на агенцията собствено място за публикуване и управление на обяви, с ясни пътища за контакт при интерес към имот или консултация.',
+        businessProblem: 'Сайтът намалява зависимостта от платени портали: BelEstateGroup може да представя обявите си в собствена платформа, а посетителите да разглеждат имотите и да се свързват по-лесно с екипа.',
         tags: ['Недвижими имоти', 'Луксозен дизайн', 'Интерактивен каталог', 'Генериране на запитвания'],
       },
       {
@@ -850,7 +881,8 @@ export const dynamicTranslations = {
           'Динамично представяне - Интерактивни галерии за бойна екипировка',
           'Нова секция в портфолиото - Представяне на най-новите продукти и колекции',
         ],
-        description: 'Високотехнологична платформа за онлайн търговия, разработена за CBL Fight Store, специализирана в премиум екипировка за бокс и муай тай. Магазинът се отличава с изчистена тъмна естетика, интуитивна навигация и надеждна система за пазаруване, създадена за шампиони.',
+        description: 'Премиум онлайн магазин, разработен за CBL Fight Store, специализиран в екипировка за бокс и муай тай. Сайтът представя продуктите ясно и дава възможност за поръчки онлайн, извън физическия магазин.',
+        businessProblem: 'Уебсайтът решава ограничението на продажбите само на място, като отваря допълнителен онлайн канал, в който клиентите могат да разглеждат екипировката и да поръчват когато им е удобно.',
         tags: ['Онлайн магазин', 'Боксови стоки', 'Луксозен дизайн', 'Муай тай'],
       },
       {
@@ -866,7 +898,8 @@ export const dynamicTranslations = {
           'Директна система за онлайн резервации',
           'Светкавична скорост (98+ точки в Google Lighthouse)',
         ],
-        description: 'Луксозно уеб преживяване, разработено за ресторант Tomato. Включва елегантна тъмна тема, адаптивна типография и анимации, които стимулират резервациите и улесняват поръчките чрез QR технология.',
+        description: 'Луксозно уеб преживяване, разработено за ресторант Tomato. Сайтът събира менюто, възможността за резервация, локацията, атмосферата и важната информация на едно ясно място, а QR менюто улеснява достъпа до предложенията на масата.',
+        businessProblem: 'Сайтът улеснява гостите да разгледат менюто, да резервират маса без телефонно обаждане и да открият ресторанта чрез ясна локация. Екипът на Tomato споделя също, че сайтът е помогнал да започнат да посещават повече чуждестранни гости.',
         tags: ['Луксозен дизайн', 'QR меню', 'Бързина', 'Адаптивност'],
       },
       {

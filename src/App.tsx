@@ -11,6 +11,7 @@ import FloatingSocialButtons from './components/FloatingSocialButtons';
 import QuoteModal from './components/QuoteModal';
 import ScrollToTop from './components/ScrollToTop';
 import ConsentAnalytics from './components/ConsentAnalytics';
+import { trackAnalyticsEvent } from './lib/analytics';
 const HomePage = React.lazy(() => import('./pages/HomePage'));
 const AboutPage = React.lazy(() => import('./pages/AboutPage'));
 const ServicesPage = React.lazy(() => import('./pages/ServicesPage'));
@@ -24,6 +25,29 @@ const BlogPostPage = React.lazy(() => import('./pages/BlogPostPage'));
 const WebDesignPlovdivPage = React.lazy(() => import('./pages/WebDesignPlovdivPage'));
 const ServiceLandingPage = React.lazy(() => import('./pages/ServiceLandingPage'));
 
+function BrandedLoadingPreview() {
+  return (
+    <section className="relative flex min-h-[55vh] items-center justify-center overflow-hidden px-5 text-center" aria-busy="true" aria-live="polite">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,rgba(37,99,235,0.16),transparent_38%)]" />
+      <div className="relative max-w-2xl">
+        <p className="mb-5 font-mono text-[10px] font-semibold uppercase tracking-[0.22em] text-blue-300">
+          AR Studio · Пловдив, България
+        </p>
+        <h1 className="mb-5 font-serif text-3xl font-bold tracking-tight text-white sm:text-5xl">
+          Уеб дизайн и изработка на сайтове в Пловдив
+        </h1>
+        <p className="mx-auto max-w-xl text-sm leading-relaxed text-zinc-400 sm:text-base">
+          Персонализирани, бързи и удобни сайтове за българския бизнес.
+        </p>
+        <div className="mx-auto mt-8 flex w-32 gap-2" aria-hidden="true">
+          <span className="h-1 flex-1 rounded-full bg-blue-400/90" />
+          <span className="h-1 flex-1 rounded-full bg-blue-400/45" />
+          <span className="h-1 flex-1 rounded-full bg-blue-400/20" />
+        </div>
+      </div>
+    </section>
+  );
+}
 
 export default function App() {
   const [isQuoteModalOpen, setIsQuoteModalOpen] = React.useState<boolean>(false);
@@ -58,6 +82,7 @@ export default function App() {
   }, []);
 
   const openQuoteModalWithPlan = (planName?: string) => {
+    trackAnalyticsEvent('click_quote', { source: planName || 'general' });
     setSelectedPlanFromQuote(planName || '');
     setIsQuoteModalOpen(true);
   };
@@ -88,7 +113,7 @@ export default function App() {
         {/* Main Content Area with routing */}
         <main className="flex-grow">
           <React.Suspense
-            fallback={<div className="min-h-[55vh] flex items-center justify-center text-sm text-zinc-400">Loading AR Studio…</div>}
+            fallback={<BrandedLoadingPreview />}
           >
           <Routes>
             <Route path="/" element={<HomePage openQuoteModal={openQuoteModalWithPlan} />} />

@@ -109,6 +109,20 @@
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
+
+    <url>
+        <loc>https://www.ar-studio.site/blog/sobstven-sait-sreshtu-socialni-mrezhi</loc>
+        <lastmod>2026-08-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://www.ar-studio.site/blog/sait-za-agenciya-imoti-obqvi</loc>
+        <lastmod>2026-08-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
     <!-- Niche service landing pages -->
     <url><loc>https://www.ar-studio.site/uslugi/izrabotka-na-sait-plovdiv</loc><lastmod>2026-08-13</lastmod><changefreq>monthly</changefreq><priority>0.95</priority></url>
     <url><loc>https://www.ar-studio.site/uslugi/sait-za-restorant-plovdiv</loc><lastmod>2026-08-13</lastmod><changefreq>monthly</changefreq><priority>0.95</priority></url>

@@ -6,6 +6,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Facebook, Instagram, X, Share2, MessageCircle, Phone } from 'lucide-react';
+import { trackAnalyticsEvent } from '../lib/analytics';
 
 const TikTokIcon = ({ className }: { className?: string }) => (
   <svg className={className} fill="currentColor" viewBox="0 0 24 24">
@@ -87,6 +88,7 @@ export default function FloatingSocialButtons() {
                 rel={social.openInNewTab ? 'noopener noreferrer' : undefined}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
+                onClick={() => trackAnalyticsEvent(social.name === 'Обади се' ? 'click_phone' : social.name === 'Viber' ? 'click_viber' : 'click_social', { channel: social.name })}
                 className={`
                   flex items-center justify-end overflow-hidden rounded-l-2xl border-y border-l transition-colors duration-300
                   ${isHovered ? `${social.bgColor} ${social.borderColor} shadow-xl shadow-black/35` : 'border-white/10 bg-zinc-950'}
@@ -138,8 +140,9 @@ export default function FloatingSocialButtons() {
                   <motion.a
                     key={social.name}
                     href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    target={social.openInNewTab ? '_blank' : undefined}
+                    rel={social.openInNewTab ? 'noopener noreferrer' : undefined}
+                    onClick={() => trackAnalyticsEvent(social.name === 'Обади се' ? 'click_phone' : social.name === 'Viber' ? 'click_viber' : 'click_social', { channel: social.name })}
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.8 }}

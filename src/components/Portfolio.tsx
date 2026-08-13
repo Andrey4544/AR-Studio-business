@@ -8,6 +8,7 @@ import ImageCarousel from './ImageCarousel';
 import { motion } from 'motion/react';
 import { Sparkles, Globe, ArrowUpRight, Zap, Smartphone, QrCode } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { trackAnalyticsEvent } from '../lib/analytics';
 
 // Carousel images for Tomato Restaurant
 const tomatoCarouselImages = [
@@ -180,6 +181,7 @@ export default function Portfolio({ onQuoteClick }: PortfolioProps) {
                       href={project.url}
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={() => trackAnalyticsEvent('click_portfolio_live', { project: project.id })}
                       className="flex items-center gap-1.5 text-xs text-white font-semibold bg-zinc-900 border border-white/10 hover:border-white/20 hover:bg-zinc-850 px-5 py-3 rounded-xl transition-all duration-300 group cursor-pointer"
                     >
                       <span>{language === 'en' ? 'Live Website' : 'Уебсайт на живо'}</span>
@@ -239,81 +241,61 @@ export default function Portfolio({ onQuoteClick }: PortfolioProps) {
           );
         })}
 
-        {/* Future Client Projects grid slots */}
+        {/* Suitable business types */}
         <div className="border-t border-white/5 pt-16">
-          <div className="mb-8 p-1 sm:p-0">
-            <h4 className="text-xs font-mono font-bold uppercase text-zinc-500 tracking-wider">
-              {language === 'en' ? 'Future Placements • Join Us' : 'Бъдещи проекти • Присъединете се'}
+          <div className="mb-9 max-w-2xl">
+            <p className="mb-3 text-[10px] font-mono font-bold uppercase tracking-[0.18em] text-blue-400">
+              {language === 'en' ? 'BUILT AROUND YOUR GOAL' : 'СЪЗДАДЕН СПОРЕД ВАШАТА ЦЕЛ'}
+            </p>
+            <h4 className="font-serif text-2xl font-bold tracking-tight text-white sm:text-3xl">
+              {language === 'en' ? 'A website for a business like yours' : 'Сайт за бизнес като Вашия'}
             </h4>
+            <p className="mt-3 text-sm leading-relaxed text-zinc-400">
+              {language === 'en'
+                ? 'Every project starts from a specific business need: clearer enquiries, easier reservations, better presentation, or an additional sales channel.'
+                : 'Всеки проект започва от конкретна бизнес нужда: по-ясни запитвания, по-лесни резервации, по-добро представяне или допълнителен канал за продажби.'}
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 font-sans">
-            
-            {/* Slot 1 */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6 }}
-              whileHover={{ y: -6, scale: 1.01 }}
-              className="glass-panel border-dashed border-white/10 bg-zinc-950/10 p-12 rounded-3xl flex flex-col justify-between h-64 text-left relative group hover:border-blue-500/30 transition-all duration-300"
-            >
-              <div className="flex justify-between items-start">
-                <span className="px-3 py-1 bg-zinc-900 border border-white/5 text-zinc-500 font-mono font-semibold text-[9px] rounded-full uppercase tracking-wider">
-                  {language === 'en' ? 'Bespoke Placements // Slot 02' : 'Позиция за проект // Слот 02'}
-                </span>
-                <span className="text-xs text-zinc-600 font-mono">
-                  {language === 'en' ? 'Coming Soon' : 'Очаквайте скоро'}
-                </span>
-              </div>
-              <div>
-                <h4 className="text-lg font-bold text-zinc-300 font-sans group-hover:text-white transition-colors duration-300">
-                  {language === 'en' ? 'Elite Beauty & Spa Lounge' : 'Елитен Beauty & Spa салон'}
-                </h4>
-                <p className="text-zinc-500 text-xs mt-2 max-w-sm">
-                  {language === 'en' 
-                    ? 'Premium reservation pipelines, gorgeous aesthetic gallery grids, and local Plovdiv search maps optimization.' 
-                    : 'Премиум онлайн резервации, красиви галерии за услуги и локална оптимизация за карти в Пловдив.'}
-                </p>
-              </div>
-              <div className="h-px bg-white/5" />
-            </motion.div>
-
-            {/* Slot 2 */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              whileHover={{ y: -6, scale: 1.01 }}
-              className="glass-panel border-dashed border-white/10 bg-zinc-950/10 p-12 rounded-3xl flex flex-col justify-between h-64 text-left relative group hover:border-blue-500/30 transition-all duration-300"
-            >
-              <div className="flex justify-between items-start">
-                <span className="px-3 py-1 bg-zinc-900 border border-white/5 text-zinc-500 font-mono font-semibold text-[9px] rounded-full uppercase tracking-wider">
-                  {language === 'en' ? 'Bespoke Placements // Slot 03' : 'Позиция за проект // Слот 03'}
-                </span>
-                <span className="text-xs text-zinc-600 font-mono animate-pulse text-blue-400">
-                  {language === 'en' ? 'Available Space' : 'Свободно място'}
-                </span>
-              </div>
-              <div>
-                <h4 className="text-lg font-bold text-zinc-100 font-sans group-hover:text-blue-400 transition-colors duration-300">
-                  {language === 'en' ? 'Your Local Bulgarian Business' : 'Вашият български бизнес'}
-                </h4>
-                <p className="text-zinc-400 text-xs mt-2 max-w-sm">
-                  {language === 'en' 
-                    ? 'Bring your restaurant, law firm, dental office, or boutique hotel to life online. Zero payment until fully approved.' 
-                    : 'Дайте нов живот на ресторанта, кантората, кабинета или хотела си онлайн. Без плащане, докато не одобрите напълно.'}
-                </p>
-              </div>
-              <button
-                onClick={onQuoteClick}
-                className="text-xs font-semibold text-blue-500 text-left hover:text-blue-400 transition-colors cursor-pointer"
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-3 font-sans">
+            {[
+              {
+                number: '01',
+                title: language === 'en' ? 'Restaurants & hotels' : 'Ресторанти и хотели',
+                text: language === 'en' ? 'Menus, reservations, location details, photo galleries, and direct guest contact.' : 'Меню, резервации, локация, галерии и директен контакт с гостите.',
+              },
+              {
+                number: '02',
+                title: language === 'en' ? 'Professional services' : 'Професионални услуги',
+                text: language === 'en' ? 'Clear service pages, trust-building content, and a straightforward path to an enquiry.' : 'Ясни страници за услугите, съдържание за доверие и лесен път към запитване.',
+              },
+              {
+                number: '03',
+                title: language === 'en' ? 'Catalogues & online sales' : 'Каталози и онлайн продажби',
+                text: language === 'en' ? 'Property listings, product catalogues, online ordering, and practical contact options.' : 'Обяви за имоти, продуктови каталози, онлайн поръчки и удобни начини за контакт.',
+              },
+            ].map((businessType, index) => (
+              <motion.article
+                key={businessType.number}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-70px' }}
+                transition={{ duration: 0.5, delay: index * 0.07 }}
+                className="group rounded-2xl border border-white/10 bg-white/[0.025] p-6 transition-colors duration-300 hover:border-blue-400/30 hover:bg-white/[0.05]"
               >
-                {language === 'en' ? 'Claim This Space Now \u2192' : 'Заяви това място сега \u2192'}
-              </button>
-            </motion.div>
+                <span className="font-mono text-xs tracking-[0.2em] text-blue-300">{businessType.number}</span>
+                <h5 className="mt-8 font-serif text-xl font-semibold text-white">{businessType.title}</h5>
+                <p className="mt-3 text-sm leading-relaxed text-zinc-400">{businessType.text}</p>
+              </motion.article>
+            ))}
           </div>
+
+          <button
+            onClick={onQuoteClick}
+            className="mt-8 text-sm font-semibold text-blue-400 transition-colors hover:text-blue-300"
+          >
+            {language === 'en' ? 'Tell us about your business \u2192' : 'Разкажете ни за Вашия бизнес \u2192'}
+          </button>
         </div>
 
       </div>

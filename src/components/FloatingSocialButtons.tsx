@@ -28,33 +28,33 @@ export default function FloatingSocialButtons() {
       name: 'Facebook',
       url: 'https://www.facebook.com/share/18n7DfUWJW/',
       icon: Facebook,
-      color: 'text-blue-400',
-      bgColor: 'bg-blue-500/10',
-      borderColor: 'border-blue-500/20'
+      color: 'text-white',
+      bgColor: 'bg-[#1877F2]',
+      borderColor: 'border-blue-300/60'
     },
     {
       name: 'Instagram',
       url: 'https://www.instagram.com/arstudio.site?igsh=MWVuejR2ZWVjd3c1cw==',
       icon: Instagram,
-      color: 'text-pink-400',
-      bgColor: 'bg-pink-500/10',
-      borderColor: 'border-pink-500/20'
+      color: 'text-white',
+      bgColor: 'bg-[#E1306C]',
+      borderColor: 'border-pink-200/50'
     },
     {
       name: 'TikTok',
       url: 'https://www.tiktok.com/@ar_studio_web?_r=1&_t=ZN-98m3jc1KODD',
       icon: TikTokIcon,
       color: 'text-white',
-      bgColor: 'bg-white/10',
-      borderColor: 'border-white/20'
+      bgColor: 'bg-[#121212]',
+      borderColor: 'border-white/30'
     },
     {
       name: 'Viber',
       url: 'viber://chat?number=+359888616641',
       icon: MessageCircle,
-      color: 'text-purple-400',
-      bgColor: 'bg-purple-500/10',
-      borderColor: 'border-purple-500/20'
+      color: 'text-white',
+      bgColor: 'bg-[#7360F2]',
+      borderColor: 'border-purple-200/50'
     }
   ];
 
@@ -67,7 +67,7 @@ export default function FloatingSocialButtons() {
           const isHovered = hoveredIndex === index;
           
           return (
-            <div key={social.name} className="relative flex items-center justify-end h-12">
+            <div key={social.name} className="relative flex h-14 items-center justify-end">
               <motion.a
                 href={social.url}
                 target="_blank"
@@ -75,32 +75,32 @@ export default function FloatingSocialButtons() {
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
                 className={`
-                  flex items-center justify-end rounded-l-xl border-y border-l backdrop-blur-md transition-colors duration-300 overflow-hidden
-                  ${isHovered ? `${social.bgColor} ${social.borderColor} shadow-lg shadow-black/20` : 'bg-zinc-900/40 border-white/5'}
+                  flex items-center justify-end overflow-hidden rounded-l-2xl border-y border-l transition-colors duration-300
+                  ${isHovered ? `${social.bgColor} ${social.borderColor} shadow-xl shadow-black/35` : 'border-white/10 bg-zinc-950'}
                 `}
                 initial={false}
                 animate={{
-                  width: isHovered ? '160px' : '48px'
+                  width: isHovered ? '184px' : '56px'
                 }}
                 transition={{ type: 'spring', stiffness: 300, damping: 30 }}
               >
-                <div className="flex items-center w-[160px] h-full">
-                  <div className="flex-grow px-4 overflow-hidden">
+                <div className="flex h-full w-[184px] items-center">
+                  <div className="flex-grow overflow-hidden px-5">
                     <AnimatePresence>
                       {isHovered && (
                         <motion.span
                           initial={{ opacity: 0, x: 10 }}
                           animate={{ opacity: 1, x: 0 }}
                           exit={{ opacity: 0, x: 10 }}
-                          className={`block text-sm font-semibold tracking-wide whitespace-nowrap ${social.color}`}
+                          className={`block whitespace-nowrap text-base font-semibold tracking-wide ${social.color}`}
                         >
                           {social.name}
                         </motion.span>
                       )}
                     </AnimatePresence>
                   </div>
-                  <div className={`flex items-center justify-center w-12 h-12 shrink-0 ${social.color}`}>
-                    <Icon className="w-5 h-5" />
+                  <div className={`flex h-14 w-14 shrink-0 items-center justify-center ${social.color}`}>
+                    <Icon className="h-6 w-6" />
                   </div>
                 </div>
               </motion.a>
@@ -117,7 +117,7 @@ export default function FloatingSocialButtons() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 20 }}
-              className="absolute bottom-16 right-0 flex flex-col items-end gap-3"
+              className="absolute bottom-[4.5rem] right-0 flex flex-col items-end gap-4"
             >
               {socialLinks.map((social, index) => {
                 const Icon = social.icon;
@@ -131,13 +131,13 @@ export default function FloatingSocialButtons() {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.8 }}
                     transition={{ delay: index * 0.05 }}
-                    className="flex items-center justify-end gap-3"
+                    className="flex items-center justify-end gap-3.5"
                   >
-                    <span className="px-3 py-2 bg-zinc-900/90 border border-white/10 rounded-lg text-xs font-medium text-zinc-300 shadow-xl whitespace-nowrap">
+                    <span className="whitespace-nowrap rounded-xl border border-white/15 bg-zinc-950 px-4 py-2.5 text-sm font-semibold text-white shadow-xl">
                       {social.name}
                     </span>
-                    <div className={`w-12 h-12 flex items-center justify-center rounded-full bg-zinc-900/80 border border-white/10 ${social.color} shadow-xl shrink-0`}>
-                      <Icon className="w-5 h-5" />
+                    <div className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-full border ${social.bgColor} ${social.borderColor} ${social.color} shadow-xl shadow-black/35`}>
+                      <Icon className="h-6 w-6" />
                     </div>
                   </motion.a>
                 );

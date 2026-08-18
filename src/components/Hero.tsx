@@ -6,10 +6,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { ArrowRight, Sparkles, Zap, Shield, HelpCircle, Trophy, Globe } from 'lucide-react';
+import { ArrowRight, Flame, MapPin, Star } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { localizedPath } from '../lib/localizedRoutes';
-import TechBackground from './TechBackground';
 
 interface HeroProps {
   onQuoteClick: () => void;
@@ -19,138 +18,146 @@ interface HeroProps {
 
 export default function Hero({ onQuoteClick, onWorkClick, onAboutClick }: HeroProps) {
   const { language, t } = useLanguage();
+  const isEnglish = language === 'en';
+
+  const heroTitle = isEnglish
+    ? ['A digital presence', 'with character', 'built for growth']
+    : ['Дигитално присъствие', 'с характер', 'създадено за растеж'];
+
+  const stats = isEnglish
+    ? [
+        { value: '3–7', suffix: 'Days', label: 'Fast, focused delivery' },
+        { value: 'SEO', suffix: 'ready', label: 'Technical foundation' },
+        { value: '€250', suffix: 'from', label: 'Accessible starting rate' },
+        { value: '€0', suffix: 'upfront', label: 'Start without a deposit' },
+      ]
+    : [
+        { value: '3–7', suffix: 'дни', label: 'Бърза и фокусирана изработка' },
+        { value: 'SEO', suffix: 'ready', label: 'Техническа основа' },
+        { value: '€250', suffix: 'от', label: 'Достъпна начална цена' },
+        { value: '€0', suffix: 'аванс', label: 'Старт без авансово плащане' },
+      ];
 
   return (
-    <section className="relative min-h-screen pt-32 pb-20 flex items-center justify-center overflow-hidden bg-radial from-blue-950/10 via-luxury-black to-luxury-black">
-      {/* Dynamic Technology Constellation Canvas Background */}
-      <TechBackground />
+    <section className="relative isolate flex min-h-[760px] items-center overflow-hidden bg-[#07111b] pt-28 pb-24 sm:min-h-screen sm:pt-32">
+      {/* Full-bleed photographic visual. The source is local and versioned with the project. */}
+      <img
+        src="/assets/ar-studio-hero-chalet.jpg"
+        alt={isEnglish ? 'Warmly lit mountain chalet at blue hour' : 'Топло осветена планинска хижа в синия час'}
+        className="absolute inset-0 -z-30 h-full w-full object-cover object-[61%_center]"
+        fetchPriority="high"
+        decoding="async"
+      />
 
-      {/* Background Decorative Radial Glows */}
-      <div className="absolute top-[20%] left-[10%] w-[250px] sm:w-[450px] h-[250px] sm:h-[450px] rounded-full bg-blue-600/10 blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-[10%] right-[5%] w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] rounded-full bg-indigo-600/10 blur-[120px] pointer-events-none" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[linear-gradient(to_right,#1f293712_1px,transparent_1px),linear-gradient(to_bottom,#1f293712_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none" />
+      {/* Layered overlays keep the reference image mood while preserving readable HTML text. */}
+      <div className="absolute inset-0 -z-20 bg-[#06101a]/55" />
+      <div className="absolute inset-0 -z-20 bg-[linear-gradient(90deg,rgba(3,12,22,0.88)_0%,rgba(4,15,25,0.64)_42%,rgba(4,12,20,0.3)_76%,rgba(3,8,14,0.68)_100%)]" />
+      <div className="absolute inset-0 -z-20 bg-[linear-gradient(180deg,rgba(2,8,14,0.74)_0%,rgba(2,8,14,0.18)_30%,rgba(2,8,14,0.18)_55%,rgba(2,8,14,0.84)_100%)]" />
+      <div className="absolute inset-x-0 bottom-0 -z-10 h-44 bg-gradient-to-t from-[#05080c] via-[#05080c]/70 to-transparent" />
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_52%_40%,rgba(214,172,72,0.12),transparent_28%)]" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full text-center">
-        {/* Bulgaria Pride Badge */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-zinc-900/60 border border-white/5 backdrop-blur-sm mb-8"
-        >
-          <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-          <span className="flex h-2 w-3 rounded-sm bg-gradient-to-b from-white via-green-600 to-red-600 border border-white/10" title="Proudly Bulgaria" />
-          <span className="text-[10px] font-mono tracking-wider uppercase text-zinc-400">
-            {language === 'en' ? 'Plovdiv, Bulgaria • Web Design Studio' : 'Пловдив, България • Студио за уеб дизайн'}
-          </span>
-        </motion.div>
-
-        {/* Headline */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.1 }}
-          className="max-w-4xl mx-auto flex flex-col items-center"
-        >
-          <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-tight mb-4">
-            <span className="bg-gradient-to-r from-white via-zinc-200 to-zinc-400 bg-clip-text text-transparent silver-chrome">
-              {language === 'en' ? 'Web Design & Website Development in Plovdiv' : 'Уеб дизайн и изработка на сайтове в Пловдив'}
-            </span>
-          </h1>
-          <div className="font-mono text-xs sm:text-sm lg:text-base tracking-[0.22em] uppercase text-blue-400 font-semibold mb-8 glow-blue-text">
-            {language === 'en' ? 'AR Studio • Custom Websites for Bulgarian Businesses' : 'AR Studio • Персонализирани сайтове за българския бизнес'}
-          </div>
-        </motion.div>
-
-        {/* Subheadline */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="max-w-2xl mx-auto text-base sm:text-lg lg:text-xl text-zinc-400 leading-relaxed font-sans mb-10"
-        >
-          {t('heroSub')}
-        </motion.p>
-
-        <Link
-          to={localizedPath('/web-design-plovdiv', language)}
-          className="inline-flex items-center gap-2 text-sm font-semibold text-blue-300 hover:text-blue-100 transition-colors mb-10"
-        >
-          {language === 'en' ? 'Discover our web design services in Plovdiv' : 'Разгледайте услугите ни за уеб дизайн в Пловдив'}
-          <ArrowRight className="w-4 h-4" />
-        </Link>
-
-        {/* Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20"
-        >
-          <button
-            onClick={onQuoteClick}
-            className="w-full sm:w-auto px-8 py-4 bg-white hover:bg-zinc-200 text-luxury-black font-semibold text-sm rounded-full transition-all duration-300 shadow-xl shadow-white/5 hover:scale-[1.02] active:scale-[0.98]"
+      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center text-center">
+          {/* Reference-style trust badge */}
+          <motion.div
+            initial={{ opacity: 0, y: -12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55 }}
+            className="mb-7 inline-flex items-center gap-2 rounded-full border border-[#d1aa4f]/45 bg-[#0b1720]/75 px-4 py-2 text-[10px] font-semibold tracking-[0.08em] text-zinc-100 shadow-[0_8px_24px_rgba(0,0,0,0.2)] backdrop-blur-md sm:text-xs"
           >
-            {t('freeQuote')}
-          </button>
-          <button
-            onClick={onWorkClick}
-            className="w-full sm:w-auto px-8 py-4 bg-zinc-950 hover:bg-zinc-900 border border-white/10 hover:border-white/20 text-white font-medium text-sm rounded-full transition-all duration-300 backdrop-blur-sm flex items-center justify-center gap-2 group hover:scale-[1.02]"
+            <Star className="h-3.5 w-3.5 fill-[#e2bb57] text-[#e2bb57]" />
+            <span>{isEnglish ? 'Premium web design · Plovdiv, Bulgaria' : 'Премиум уеб дизайн · Пловдив, България'}</span>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.08 }}
+            className="max-w-4xl"
           >
-            <span>{t('viewWork')}</span>
-            <ArrowRight className="w-4 h-4 text-zinc-400 group-hover:translate-x-1 transition-transform" />
-          </button>
-        </motion.div>
+            <p className="mb-4 flex items-center justify-center gap-2 text-[10px] font-semibold uppercase tracking-[0.24em] text-[#e0bb63] sm:text-xs">
+              <MapPin className="h-3.5 w-3.5" />
+              {isEnglish ? 'AR Studio · Crafted in Plovdiv' : 'AR Studio · Създадено в Пловдив'}
+            </p>
 
-        {/* Trust Stats Indicator */}
+            <h1 className="font-serif text-[3rem] font-semibold leading-[0.98] tracking-[-0.045em] text-white drop-shadow-[0_4px_28px_rgba(0,0,0,0.45)] sm:text-6xl lg:text-[5.45rem]">
+              {heroTitle.map((line, index) => (
+                <React.Fragment key={line}>
+                  <span className={index === 1 ? 'text-[#f2f0e9]' : 'text-white'}>{line}</span>
+                  {index < heroTitle.length - 1 && <br />}
+                </React.Fragment>
+              ))}
+            </h1>
+          </motion.div>
+
+          <motion.p
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="mt-7 max-w-2xl text-sm leading-7 text-zinc-200/85 sm:text-base sm:leading-8 lg:text-lg"
+          >
+            {t('heroSub')}
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.28 }}
+            className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row"
+          >
+            <button
+              type="button"
+              onClick={onQuoteClick}
+              className="group inline-flex min-w-52 items-center justify-center gap-2 rounded-xl bg-[#d2ad52] px-6 py-3.5 text-sm font-bold text-[#17130a] shadow-[0_12px_30px_rgba(0,0,0,0.24)] transition-all duration-200 hover:bg-[#ebc866] active:scale-[0.98]"
+            >
+              {t('freeQuote')}
+              <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
+            </button>
+            <button
+              type="button"
+              onClick={onWorkClick}
+              className="group inline-flex min-w-52 items-center justify-center gap-2 rounded-xl border border-white/20 bg-[#0b1821]/72 px-6 py-3.5 text-sm font-semibold text-white backdrop-blur-md transition-all duration-200 hover:border-[#dfbb62]/65 hover:bg-[#102532]/85 active:scale-[0.98]"
+            >
+              {t('viewWork')}
+              <ArrowRight className="h-4 w-4 text-[#e0bb63] transition-transform duration-200 group-hover:translate-x-0.5" />
+            </button>
+          </motion.div>
+
+          <Link
+            to={localizedPath('/za-nas', language)}
+            onClick={onAboutClick}
+            className="mt-5 inline-flex items-center gap-2 text-xs font-semibold text-zinc-200/75 underline decoration-white/25 underline-offset-4 transition-colors hover:text-white"
+          >
+            <Flame className="h-3.5 w-3.5 text-[#e0bb63]" />
+            {isEnglish ? 'Meet the people behind the studio' : 'Запознайте се с екипа зад студиото'}
+          </Link>
+        </div>
+
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.4 }}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto"
+          transition={{ duration: 0.8, delay: 0.38 }}
+          className="relative z-10 mx-auto mt-16 grid max-w-5xl grid-cols-2 gap-2.5 sm:mt-20 sm:grid-cols-4 sm:gap-3"
         >
-          <div className="glass-panel p-6 rounded-2xl border border-white/5 flex flex-col items-center justify-center text-center">
-            <span className="text-3xl font-bold font-mono tracking-tight text-white mb-1">
-              3-7{" "}
-              <span className="text-xs font-sans text-blue-400 font-normal">
-                {language === 'en' ? 'Days' : 'Дни'}
-              </span>
-            </span>
-            <span className="text-[10px] uppercase font-mono tracking-wider text-zinc-500">
-              {language === 'en' ? '⚡ Ultra Fast Delivery' : '⚡ Изключително бърза изработка'}
-            </span>
-          </div>
-
-          <div className="glass-panel p-6 rounded-2xl border border-white/5 flex flex-col items-center justify-center text-center">
-            <span className="text-3xl font-bold font-mono tracking-tight text-white mb-1">
-              SEO
-            </span>
-            <span className="text-[10px] uppercase font-mono tracking-wider text-zinc-500">
-              {language === 'en' ? '🚀 Search-ready foundation' : '🚀 SEO-ready основа'}
-            </span>
-          </div>
-
-          <div className="glass-panel p-6 rounded-2xl border border-white/5 flex flex-col items-center justify-center text-center">
-            <span className="text-3xl font-bold font-mono tracking-tight text-white mb-1">
-              €250
-            </span>
-            <span className="text-[10px] uppercase font-mono tracking-wider text-zinc-500">
-              {language === 'en' ? '💰 Highly Affordable starting rate' : '💰 Изгодна начална цена'}
-            </span>
-          </div>
-
-          <div className="glass-panel p-6 rounded-2xl border border-white/5 flex flex-col items-center justify-center text-center">
-            <span className="text-3xl font-bold font-mono tracking-tight text-white mb-1">
-              €0{" "}
-              <span className="text-xs font-sans text-emerald-400 font-normal">
-                upfront
-              </span>
-            </span>
-            <span className="text-[10px] uppercase font-mono tracking-wider text-zinc-500">
-              {language === 'en' ? '🤝 No upfront payment' : '🤝 Без авансово плащане'}
-            </span>
-          </div>
+          {stats.map((stat) => (
+            <div
+              key={`${stat.value}-${stat.suffix}`}
+              className="rounded-xl border border-white/15 bg-[#091721]/70 px-4 py-4 text-left shadow-[0_10px_26px_rgba(0,0,0,0.18)] backdrop-blur-md sm:px-5 sm:py-5"
+            >
+              <div className="flex items-baseline gap-1.5 text-white">
+                <span className="font-mono text-xl font-semibold tracking-tight sm:text-2xl">{stat.value}</span>
+                <span className="text-[10px] font-semibold uppercase tracking-[0.12em] text-[#e0bb63]">{stat.suffix}</span>
+              </div>
+              <p className="mt-1.5 text-[10px] leading-4 text-zinc-300/70 sm:text-xs">{stat.label}</p>
+            </div>
+          ))}
         </motion.div>
+      </div>
+
+      <div className="absolute bottom-5 left-1/2 z-10 hidden -translate-x-1/2 items-center gap-3 text-[9px] font-semibold uppercase tracking-[0.22em] text-zinc-300/55 sm:flex">
+        <span className="h-px w-10 bg-white/25" />
+        {isEnglish ? 'Explore the studio' : 'Разгледайте студиото'}
+        <span className="h-px w-10 bg-white/25" />
       </div>
     </section>
   );

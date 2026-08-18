@@ -121,7 +121,7 @@ export default function Header({ openQuoteModal }: HeaderProps) {
     <header
       className={`fixed top-0 left-0 z-50 w-full transition-all duration-300 ${
         isScrolled || isOpen
-          ? 'bg-luxury-black/95 py-3 shadow-[0_12px_45px_rgba(0,0,0,0.32)] backdrop-blur-xl'
+          ? 'bg-[#07131b]/92 py-3 shadow-[0_12px_45px_rgba(0,0,0,0.32)] backdrop-blur-xl'
           : 'bg-transparent py-5'
       }`}
     >
@@ -131,7 +131,7 @@ export default function Header({ openQuoteModal }: HeaderProps) {
             <Logo size="md" />
           </Link>
 
-          <nav aria-label={isEnglish ? 'Primary navigation' : 'Основна навигация'} className="hidden xl:flex items-center gap-1 rounded-full border border-white/10 bg-zinc-900/50 p-1.5 backdrop-blur-sm">
+          <nav aria-label={isEnglish ? 'Primary navigation' : 'Основна навигация'} className="hidden xl:flex items-center gap-1 rounded-full border border-white/15 bg-[#091823]/58 p-1.5 backdrop-blur-md">
             {desktopLinks.map((item) => (
               <Link
                 key={item.path}
@@ -143,7 +143,7 @@ export default function Header({ openQuoteModal }: HeaderProps) {
                 {isActive(item.path) && (
                   <motion.span
                     layoutId="activeDesktopNavigation"
-                    className="absolute inset-0 rounded-full border border-blue-400/30 bg-blue-500/10"
+                    className="absolute inset-0 rounded-full border border-[#e0bb63]/35 bg-[#d2ad52]/10"
                     transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                   />
                 )}
@@ -166,7 +166,7 @@ export default function Header({ openQuoteModal }: HeaderProps) {
 
             <button
               onClick={openQuoteModal}
-              className="hidden sm:flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-2.5 text-xs font-semibold text-white shadow-lg shadow-blue-500/20 transition-all hover:bg-blue-500 hover:shadow-blue-500/35"
+              className="hidden sm:flex items-center justify-center gap-2 rounded-xl bg-[#d2ad52] px-4 py-2.5 text-xs font-bold text-[#17130a] shadow-lg shadow-black/20 transition-all hover:bg-[#ebc866] hover:shadow-[#d2ad52]/25"
             >
               <PhoneCall className="h-3.5 w-3.5" />
               <span>{t('freeQuote')}</span>

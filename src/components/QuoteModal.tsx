@@ -283,6 +283,9 @@ export default function QuoteModal({ isOpen, onClose }: QuoteModalProps) {
                         <option value="logo-design">
                           {language === 'en' ? 'Professional Logo Design (starting €100)' : 'Професионално лого (от €100)'}
                         </option>
+                        <option value="google-business">
+                          {language === 'en' ? 'Google Business Profile & Google Maps (starting €45)' : 'Google Business профил и Google Maps (от €45)'}
+                        </option>
                         <optgroup label={language === 'en' ? 'Luxury Bundles (Save Money)' : 'Пакетни предложения (Спестете пари)'}>
                           <option value="bundle-starter">
                             {language === 'en' ? 'Starter Pro Bundle (€350)' : 'Starter Pro Пакет (€350)'}
@@ -292,6 +295,15 @@ export default function QuoteModal({ isOpen, onClose }: QuoteModalProps) {
                           </option>
                           <option value="bundle-ultimate">
                             {language === 'en' ? 'Ultimate Digital Growth (€850)' : 'Ultimate Digital Growth Пакет (€850)'}
+                          </option>
+                          <option value="bundle-restaurant">
+                            {language === 'en' ? 'Restaurant & Hospitality Bundle (€600)' : 'Restaurant & Hospitality Пакет (€600)'}
+                          </option>
+                          <option value="bundle-ecommerce-launch">
+                            {language === 'en' ? 'E-commerce Launch Bundle (€700)' : 'E-commerce Launch Пакет (€700)'}
+                          </option>
+                          <option value="bundle-integrated-commerce">
+                            {language === 'en' ? 'Integrated Commerce Pro Bundle (€850)' : 'Integrated Commerce Pro Пакет (€850)'}
                           </option>
                         </optgroup>
                         <option value="custom">

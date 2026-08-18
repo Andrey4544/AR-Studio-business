@@ -284,7 +284,7 @@ export default function QuoteModal({ isOpen, onClose }: QuoteModalProps) {
                           {language === 'en' ? 'Professional Logo Design (starting €100)' : 'Професионално лого (от €100)'}
                         </option>
                         <option value="google-business">
-                          {language === 'en' ? 'Google Business Profile & Google Maps (starting €45)' : 'Google Business профил и Google Maps (от €45)'}
+                          {language === 'en' ? 'Google Business Profile & Google Maps (starting €60)' : 'Google Business профил и Google Maps (от €60)'}
                         </option>
                         <optgroup label={language === 'en' ? 'Luxury Bundles (Save Money)' : 'Пакетни предложения (Спестете пари)'}>
                           <option value="bundle-starter">

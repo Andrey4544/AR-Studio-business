@@ -36,8 +36,8 @@ export default function Services({ onQuoteClick }: ServicesProps) {
   return (
     <section className="py-24 bg-luxury-black relative overflow-hidden border-t border-white/5">
       {/* Ambient background glows */}
-      <div className="absolute top-[20%] left-[-15%] w-[400px] h-[400px] rounded-full bg-blue-900/5 blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-[20%] right-[-15%] w-[400px] h-[400px] rounded-full bg-indigo-900/5 blur-[120px] pointer-events-none" />
+      <div className="absolute top-[20%] left-[-15%] w-[400px] h-[400px] rounded-full bg-blue-900/10 blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-[20%] right-[-15%] w-[400px] h-[400px] rounded-full bg-indigo-900/10 blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         

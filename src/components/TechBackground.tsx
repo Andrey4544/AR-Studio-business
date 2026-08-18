@@ -25,7 +25,7 @@ export default function TechBackground() {
     const initParticles = (width: number, height: number) => {
       const particleCount = Math.min(Math.floor((width * height) / 15000), 80);
       particles = [];
-      const colors = ['rgba(59, 130, 246, 0.55)', 'rgba(99, 102, 241, 0.55)', 'rgba(14, 165, 233, 0.6)'];
+      const colors = ['rgba(59, 130, 246, 0.70)', 'rgba(99, 102, 241, 0.70)', 'rgba(14, 165, 233, 0.75)'];
       
       for (let i = 0; i < particleCount; i++) {
         particles.push({
@@ -76,7 +76,7 @@ export default function TechBackground() {
       ctx.clearRect(0, 0, width, height);
 
       // Draw subtle futuristic matrix-like grid lines for tech theme
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.02)';
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.03)';
       ctx.lineWidth = 1;
       const gridSize = 64;
       for (let x = 0; x < width; x += gridSize) {
@@ -117,7 +117,7 @@ export default function TechBackground() {
 
           if (distSq < maxDistSq) {
             const dist = Math.sqrt(distSq);
-            const alpha = (1 - dist / 100) * 0.22;
+            const alpha = (1 - dist / 100) * 0.28;
             ctx.strokeStyle = `rgba(99, 102, 241, ${alpha})`;
             ctx.lineWidth = 0.5;
             ctx.beginPath();
@@ -138,7 +138,7 @@ export default function TechBackground() {
             const dist = Math.sqrt(distSq);
             const force = (mouse.radius - dist) / mouse.radius;
             // Draw link to mouse
-            const lineAlpha = force * 0.14;
+            const lineAlpha = force * 0.18;
             ctx.strokeStyle = `rgba(59, 130, 246, ${lineAlpha})`;
             ctx.lineWidth = 0.65;
             ctx.beginPath();
@@ -159,7 +159,7 @@ export default function TechBackground() {
         ctx.fill();
 
         // Small outer pulse glow for nodes to look high tech and brighter
-        ctx.fillStyle = 'rgba(59, 130, 246, 0.08)';
+        ctx.fillStyle = 'rgba(59, 130, 246, 0.12)';
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size * 3.5, 0, Math.PI * 2);
         ctx.fill();
@@ -186,7 +186,7 @@ export default function TechBackground() {
     >
       <canvas
         ref={canvasRef}
-        className="w-full h-full block opacity-75 mix-blend-screen"
+        className="w-full h-full block opacity-90 mix-blend-screen"
         id="tech-bg-canvas"
       />
     </div>

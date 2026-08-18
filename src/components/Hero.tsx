@@ -26,9 +26,9 @@ export default function Hero({ onQuoteClick, onWorkClick, onAboutClick }: HeroPr
       <TechBackground />
 
       {/* Background Decorative Radial Glows */}
-      <div className="absolute top-[20%] left-[10%] w-[250px] sm:w-[450px] h-[250px] sm:h-[450px] rounded-full bg-blue-600/5 blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-[10%] right-[5%] w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] rounded-full bg-indigo-600/5 blur-[120px] pointer-events-none" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[linear-gradient(to_right,#1f293708_1px,transparent_1px),linear-gradient(to_bottom,#1f293708_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none" />
+      <div className="absolute top-[20%] left-[10%] w-[250px] sm:w-[450px] h-[250px] sm:h-[450px] rounded-full bg-blue-600/10 blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-[10%] right-[5%] w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] rounded-full bg-indigo-600/10 blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[linear-gradient(to_right,#1f293712_1px,transparent_1px),linear-gradient(to_bottom,#1f293712_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full text-center">
         {/* Bulgaria Pride Badge */}

@@ -83,7 +83,7 @@ export function usePageMeta({
     const resolvedDescription = englishMeta?.description || description;
     const resolvedKeywords = englishMeta?.keywords || keywords;
 
-    document.title = resolvedTitle;
+    document.title = 'Edelweiss';
 
     setMeta('name', 'description', resolvedDescription);
     setMeta('name', 'robots', noIndex ? 'noindex, nofollow' : 'index, follow');

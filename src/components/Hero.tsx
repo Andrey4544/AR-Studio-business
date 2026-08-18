@@ -50,10 +50,10 @@ export default function Hero({ onQuoteClick, onWorkClick, onAboutClick }: HeroPr
       />
 
       {/* Layered overlays keep the reference image mood while preserving readable HTML text. */}
-      <div className="absolute inset-0 -z-20 bg-[#06101a]/55" />
-      <div className="absolute inset-0 -z-20 bg-[linear-gradient(90deg,rgba(3,12,22,0.88)_0%,rgba(4,15,25,0.64)_42%,rgba(4,12,20,0.3)_76%,rgba(3,8,14,0.68)_100%)]" />
-      <div className="absolute inset-0 -z-20 bg-[linear-gradient(180deg,rgba(2,8,14,0.74)_0%,rgba(2,8,14,0.18)_30%,rgba(2,8,14,0.18)_55%,rgba(2,8,14,0.84)_100%)]" />
-      <div className="absolute inset-x-0 bottom-0 -z-10 h-44 bg-gradient-to-t from-[#05080c] via-[#05080c]/70 to-transparent" />
+      <div className="absolute inset-0 -z-20 bg-[#06101a]/20" />
+      <div className="absolute inset-0 -z-20 bg-[linear-gradient(90deg,rgba(3,12,22,0.45)_0%,rgba(4,15,25,0.24)_42%,rgba(4,12,20,0.08)_76%,rgba(3,8,14,0.36)_100%)]" />
+      <div className="absolute inset-0 -z-20 bg-[linear-gradient(180deg,rgba(2,8,14,0.36)_0%,rgba(2,8,14,0.06)_30%,rgba(2,8,14,0.03)_55%,rgba(2,8,14,0.48)_100%)]" />
+      <div className="absolute inset-x-0 bottom-0 -z-10 h-44 bg-gradient-to-t from-[#05080c]/85 via-[#05080c]/35 to-transparent" />
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_52%_40%,rgba(214,172,72,0.12),transparent_28%)]" />
 
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">

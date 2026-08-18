@@ -257,16 +257,19 @@ export default function QuoteModal({ isOpen, onClose }: QuoteModalProps) {
                         className="bg-zinc-950 border border-white/5 focus:border-blue-500 text-xs text-zinc-300 rounded-lg px-4 py-3.5 focus:outline-none transition-colors cursor-pointer"
                       >
                         <option value="basic">
-                          {language === 'en' ? 'Basic Website (starting €250)' : 'Икономичен уебсайт (от €250)'}
+                          {language === 'en' ? 'Basic Website (starting €250)' : 'Основен уебсайт (от €250)'}
                         </option>
                         <option value="standard">
-                          {language === 'en' ? 'Standard Website • Popular (starting €450)' : 'Професионален сайт • Популярен (от €450)'}
+                          {language === 'en' ? 'Standard Website • Popular (starting €450)' : 'Стандартен сайт • Най-добра сделка (от €450)'}
                         </option>
                         <option value="premium">
-                          {language === 'en' ? 'Premium website (starting €600)' : 'Луксозен уебсайт (от €600)'}
+                          {language === 'en' ? 'Premium Website (starting €600)' : 'Премиум сайт (от €600)'}
                         </option>
                         <option value="e-commerce">
-                          {language === 'en' ? 'E-commerce Store (starting €800)' : 'Онлайн магазин (от €800)'}
+                          {language === 'en' ? 'E-commerce Store (starting €600)' : 'Онлайн магазин (от €600)'}
+                        </option>
+                        <option value="integrated-store">
+                          {language === 'en' ? 'Website with Integrated Online Store (starting €800)' : 'Сайт с вграден онлайн магазин (от €800)'}
                         </option>
                         <option value="maintenance">
                           {language === 'en' ? 'Website Maintenance (starting €50/mo)' : 'Месечна поддръжка (от €50/месец)'}
@@ -278,7 +281,7 @@ export default function QuoteModal({ isOpen, onClose }: QuoteModalProps) {
                           {language === 'en' ? 'QR Code Menu & Integration (starting €80)' : 'QR код меню и интеграция (от €80)'}
                         </option>
                         <option value="logo-design">
-                          {language === 'en' ? 'Professional Logo Design (starting €150)' : 'Професионален дизайн на лого (от €150)'}
+                          {language === 'en' ? 'Professional Logo Design (starting €100)' : 'Професионално лого (от €100)'}
                         </option>
                         <optgroup label={language === 'en' ? 'Luxury Bundles (Save Money)' : 'Пакетни предложения (Спестете пари)'}>
                           <option value="bundle-starter">

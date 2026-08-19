@@ -29,7 +29,8 @@ export default function Services({ onQuoteClick }: ServicesProps) {
   };
 
   // Filter pricing plans
-  const webDesignPlans = pricingPlans.filter(p => !p.period && !p.bundle);
+  const webDesignPlans = pricingPlans.filter(p => !p.period && !p.bundle && !p.id.startsWith('redesign-'));
+  const redesignPlans = pricingPlans.filter(p => p.id.startsWith('redesign-'));
   const monthlyPlans = pricingPlans.filter(p => p.period && !p.bundle);
   const bundlePlans = pricingPlans.filter(p => p.bundle);
 
@@ -164,11 +165,84 @@ export default function Services({ onQuoteClick }: ServicesProps) {
           </div>
         </div>
 
-        {/* Section 2: Continuous Performance & Growth Packages */}
+        {/* Section 2: Website Redesign */}
         <div className="mb-20">
           <div className="flex items-center gap-3 mb-10 border-b border-white/5 pb-4">
             <span className="text-xs font-mono font-bold tracking-widest text-[#3B82F6] uppercase">
-              {language === 'en' ? '02 // Growth & Maintenance' : '02 // Поддръжка и развитие'}
+              {language === 'en' ? '02 // Website Redesign' : '02 // Редизайн на уебсайт'}
+            </span>
+            <span className="text-xs text-zinc-500">
+              {language === 'en' ? '(Transform your existing website)' : '(Нова визия и по-добро изживяване за съществуващ сайт)'}
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+            {redesignPlans.map((plan, index) => (
+              <motion.div
+                key={plan.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ y: -6, scale: 1.015 }}
+                className={`relative flex flex-col justify-between rounded-2xl p-8 border ${
+                  plan.popular
+                    ? 'bg-zinc-950/60 border-blue-500/30 shadow-xl shadow-blue-500/5 glow-blue'
+                    : 'bg-zinc-900/30 border-white/5'
+                } transition-all duration-300 hover:border-white/15`}
+              >
+                {plan.popular && (
+                  <span className="absolute top-4 right-4 bg-blue-600 text-white text-[10px] uppercase font-mono font-bold tracking-wider px-3 py-1 rounded-full">
+                    {language === 'en' ? 'Recommended' : 'Препоръчителен'}
+                  </span>
+                )}
+
+                <div>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3 tracking-tight">{plan.name}</h3>
+                  <p className="text-zinc-400 text-xs min-h-[36px] line-clamp-2 leading-relaxed mb-6 border-b border-white/5 pb-4 font-sans">
+                    {plan.scope}
+                  </p>
+
+                  <div className="flex items-baseline gap-1.5 mb-8">
+                    <span className="text-3xl sm:text-4xl font-bold font-mono tracking-tight text-white transition-all">
+                      {formatPrice(plan.price, currency)}
+                    </span>
+                    <span className="text-xs text-zinc-500 font-medium">
+                      {language === 'en' ? 'starting' : 'начална цена'}
+                    </span>
+                  </div>
+
+                  <ul className="space-y-3.5 mb-8">
+                    {plan.features.map((feat, idx) => (
+                      <li key={idx} className="flex items-start gap-2.5 text-xs text-zinc-300 font-sans leading-relaxed">
+                        <Check className="w-3.5 h-3.5 text-blue-500 shrink-0 mt-0.5" />
+                        <span>{feat}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <button
+                  onClick={() => onQuoteClick(plan.name)}
+                  className={`w-full py-3.5 rounded-xl font-semibold text-xs transition-all duration-300 flex items-center justify-center gap-1.5 cursor-pointer ${
+                    plan.popular
+                      ? 'bg-blue-600 hover:bg-blue-500 text-white shadow-xl shadow-blue-600/10'
+                      : 'bg-zinc-900 hover:bg-zinc-850 text-white border border-white/5'
+                  }`}
+                >
+                  <span>{language === 'en' ? `Select ${plan.name}` : `Избери ${plan.name}`}</span>
+                  <ArrowUpRight className="w-4 h-4" />
+                </button>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Section 3: Continuous Performance & Growth Packages */}
+        <div className="mb-20">
+          <div className="flex items-center gap-3 mb-10 border-b border-white/5 pb-4">
+            <span className="text-xs font-mono font-bold tracking-widest text-[#3B82F6] uppercase">
+              {language === 'en' ? '03 // Growth & Maintenance' : '03 // Поддръжка и развитие'}
             </span>
             <span className="text-xs text-zinc-500">
               {language === 'en' ? '(Monthly retention subscriptions)' : '(Месечни абонаменти)'}
@@ -237,7 +311,7 @@ export default function Services({ onQuoteClick }: ServicesProps) {
           </div>
         </div>
 
-        {/* Section 3: Luxury Bundles (MOVED TO BOTTOM) */}
+        {/* Section 4: Luxury Bundles (MOVED TO BOTTOM) */}
         <div className="mb-20">
           <div className="flex items-center gap-3 mb-10 border-b border-white/5 pb-4">
             <Gift className="w-4 h-4 text-emerald-400" />

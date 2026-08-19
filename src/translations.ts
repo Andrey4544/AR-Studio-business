@@ -294,7 +294,7 @@ export const dynamicTranslations = {
       {
         id: 'affordable-pricing',
         title: 'Affordable Pricing',
-        description: 'Top-tier digital agency quality at prices tailored for local businesses. Unmatched value starting from €250.',
+        description: 'Top-tier digital agency quality at prices tailored for local businesses. Unmatched value starting from €249.',
         iconName: 'DollarSign',
       },
       {
@@ -325,7 +325,7 @@ export const dynamicTranslations = {
       {
         id: 'basic',
         name: 'Basic Website',
-        price: '€250',
+        price: '€249',
         scope: 'A modern professional single page for presenting your business clearly and driving direct contact.',
         features: [
           '1 Page Custom Design',
@@ -340,7 +340,7 @@ export const dynamicTranslations = {
       {
         id: 'standard',
         name: 'Standard Website',
-        price: '€450',
+        price: '€449',
         popular: true,
         scope: 'A complete business presence with up to five pages, contact form, bilingual support and local SEO.',
         features: [
@@ -360,7 +360,7 @@ export const dynamicTranslations = {
       {
         id: 'premium',
         name: 'Premium Website',
-        price: '€600',
+        price: '€599',
         scope: 'An advanced custom website with everything in Standard plus premium digital functionality.',
         features: [
           'Everything from the Basic and Standard Websites',
@@ -379,7 +379,7 @@ export const dynamicTranslations = {
       {
         id: 'e-commerce',
         name: 'E-commerce Store',
-        price: '€600',
+        price: '€599',
         scope: 'A complete online store for products, orders, payments and catalogue management.',
         features: [
           'Custom E-commerce Design & Branding',
@@ -395,7 +395,7 @@ export const dynamicTranslations = {
       {
         id: 'integrated-store',
         name: 'Website with Integrated Online Store',
-        price: '€800',
+        price: '€799',
         scope: 'A complete business website with information pages and an integrated product store.',
         features: [
           'Everything from the Standard Website',
@@ -412,7 +412,7 @@ export const dynamicTranslations = {
       {
         id: 'redesign-simple',
         name: 'Simple Website Redesign',
-        price: '€180',
+        price: '€179',
         scope: 'Refresh your one-page website with a more modern design and a clearer path to enquiries.',
         features: [
           'Audit of the current website and its main weaknesses',
@@ -426,7 +426,7 @@ export const dynamicTranslations = {
       {
         id: 'redesign-5-pages',
         name: 'Redesign up to 5 Pages',
-        price: '€350',
+        price: '€349',
         popular: true,
         scope: 'A complete UX/UI redesign for a standard business website with up to five pages.',
         features: [
@@ -441,7 +441,7 @@ export const dynamicTranslations = {
       {
         id: 'redesign-10-pages',
         name: 'Redesign up to 10 Pages',
-        price: '€550',
+        price: '€549',
         scope: 'An extended redesign for businesses with more services, content and a more complex structure.',
         features: [
           'Full review of the current information architecture',
@@ -469,7 +469,7 @@ export const dynamicTranslations = {
       {
         id: 'maintenance',
         name: 'Website Maintenance',
-        price: '€50',
+        price: '€49',
         period: 'month',
         scope: 'Complete peace of mind. We handle the tech; you run the business.',
         features: [
@@ -483,7 +483,7 @@ export const dynamicTranslations = {
       {
         id: 'social',
         name: 'Social Media Management',
-        price: '€75',
+        price: '€79',
         period: 'month',
         scope: 'Grow your brand presence organically on Instagram, Facebook, and TikTok.',
         features: [
@@ -497,7 +497,7 @@ export const dynamicTranslations = {
       {
         id: 'combo',
         name: 'Website + Social Combo',
-        price: '€110',
+        price: '€119',
         period: 'month',
         scope: 'The ultimate digital growth accelerator for local Bulgarian restaurants and businesses.',
         features: [
@@ -511,7 +511,7 @@ export const dynamicTranslations = {
       {
         id: 'qr-code',
         name: 'QR Code Menu & Integration',
-        price: '€80',
+        price: '€79',
         scope: 'Modernize your restaurant or salon with contactless digital interaction.',
         features: [
           'Custom Branded QR Code Design',
@@ -524,7 +524,7 @@ export const dynamicTranslations = {
       {
         id: 'google-business',
         name: 'Google Business Profile & Google Maps',
-        price: '€60',
+        price: '€59',
         scope: 'Google Business Profile setup, configuration and basic support with accurate Google Maps placement.',
         features: [
           'Google Business Profile creation or setup',
@@ -536,7 +536,7 @@ export const dynamicTranslations = {
       {
         id: 'logo-design',
         name: 'Professional Logo Design',
-        price: '€100',
+        price: '€99',
         scope: 'A distinctive visual identity that helps your business look recognizable and professional.',
         features: [
           '3 Unique Logo Concepts',
@@ -549,86 +549,86 @@ export const dynamicTranslations = {
       {
         id: 'bundle-starter',
         name: 'Starter Pro Bundle',
-        price: '€350',
+        price: '€349',
         bundle: true,
         scope: 'The perfect foundation for a new business launch.',
         features: [
-          'Basic Website (€250 value)',
-          'Professional Logo Design (€100 value)',
-          'Google Business Profile & Google Maps (€60 value)',
-          'Save €60 instantly',
+          'Basic Website (€249 value)',
+          'Professional Logo Design (€99 value)',
+          'Google Business Profile & Google Maps (€59 value)',
+          'Save €58 instantly',
           'Fast 5-day delivery',
         ],
       },
       {
         id: 'bundle-business',
         name: 'Business Elite Bundle',
-        price: '€550',
+        price: '€549',
         bundle: true,
         popular: true,
         scope: 'Complete digital transformation for established businesses.',
         features: [
-          'Standard Website (€450 value)',
-          'Professional Logo Design (€100 value)',
-          '1 Month Free Maintenance (€50 value)',
-          'Google Business Profile & Google Maps (€60 value)',
-          'Save €110 instantly',
+          'Standard Website (€449 value)',
+          'Professional Logo Design (€99 value)',
+          '1 Month Free Maintenance (€49 value)',
+          'Google Business Profile & Google Maps (€59 value)',
+          'Save €107 instantly',
         ],
       },
       {
         id: 'bundle-ultimate',
         name: 'Ultimate Digital Growth',
-        price: '€850',
+        price: '€849',
         bundle: true,
         scope: 'Dominate your local market with elite web & social presence.',
         features: [
-          'Premium Website (€600 value)',
-          'Professional Logo Design (€100 value)',
-          '3 Months Combo Package (€330 value)',
-          'Google Business Profile & Google Maps (€60 value)',
-          'Save €240 instantly',
+          'Premium Website (€599 value)',
+          'Professional Logo Design (€99 value)',
+          '3 Months Combo Package (€357 value)',
+          'Google Business Profile & Google Maps (€59 value)',
+          'Save €265 instantly',
         ],
       },
       {
         id: 'bundle-restaurant',
         name: 'Restaurant & Hospitality Bundle',
-        price: '€600',
+        price: '€599',
         bundle: true,
         scope: 'A complete digital presence for restaurants, hotels, cafés, bars and salons.',
         features: [
-          'Standard Website (€450 value)',
-          'QR Menu & Integration (€80 value)',
-          'Professional Logo Design (€100 value)',
-          'Google Business Profile & Google Maps (€60 value)',
-          'Save €90 instantly',
+          'Standard Website (€449 value)',
+          'QR Menu & Integration (€79 value)',
+          'Professional Logo Design (€99 value)',
+          'Google Business Profile & Google Maps (€59 value)',
+          'Save €87 instantly',
         ],
       },
       {
         id: 'bundle-ecommerce-launch',
         name: 'E-commerce Launch Bundle',
-        price: '€700',
+        price: '€699',
         bundle: true,
         scope: 'A ready-to-launch foundation for brands starting professional online sales.',
         features: [
-          'E-commerce Store (€600 value)',
-          'Professional Logo Design (€100 value)',
-          '1 Month Social Media Support (€75 value)',
-          'Google Business Profile & Google Maps (€60 value)',
-          'Save €135 instantly',
+          'E-commerce Store (€599 value)',
+          'Professional Logo Design (€99 value)',
+          '1 Month Social Media Support (€79 value)',
+          'Google Business Profile & Google Maps (€59 value)',
+          'Save €137 instantly',
         ],
       },
       {
         id: 'bundle-integrated-commerce',
         name: 'Integrated Commerce Pro Bundle',
-        price: '€850',
+        price: '€849',
         bundle: true,
         scope: 'An advanced solution for businesses with both a physical presence and online sales.',
         features: [
-          'Website with Integrated Online Store (€800 value)',
-          'Professional Logo Design (€100 value)',
-          '1 Month Technical Maintenance (€50 value)',
-          'Google Business Profile & Google Maps (€60 value)',
-          'Save €160 instantly',
+          'Website with Integrated Online Store (€799 value)',
+          'Professional Logo Design (€99 value)',
+          '1 Month Technical Maintenance (€49 value)',
+          'Google Business Profile & Google Maps (€59 value)',
+          'Save €157 instantly',
         ],
       },
     ],
@@ -800,7 +800,7 @@ export const dynamicTranslations = {
       {
         id: 'affordable-pricing',
         title: 'Достъпни цени',
-        description: 'Качество на елитна дигитална агенция на цени за местния бизнес. Ненадмината стойност от €250.',
+        description: 'Качество на елитна дигитална агенция на цени за местния бизнес. Ненадмината стойност от €249.',
         iconName: 'DollarSign',
       },
       {
@@ -831,7 +831,7 @@ export const dynamicTranslations = {
       {
         id: 'basic',
         name: 'Основен уебсайт',
-        price: '€250',
+        price: '€249',
         scope: 'Една модерна и професионална страница за ясно представяне на Вашия бизнес и директен контакт.',
         features: [
           '1 страница с индивидуален дизайн',
@@ -846,7 +846,7 @@ export const dynamicTranslations = {
       {
         id: 'standard',
         name: 'Стандартен сайт',
-        price: '€450',
+        price: '€449',
         popular: true,
         scope: 'Пълно бизнес представяне с до пет страници, контактна форма, двуезичност и локално SEO.',
         features: [
@@ -866,7 +866,7 @@ export const dynamicTranslations = {
       {
         id: 'premium',
         name: 'Премиум сайт',
-        price: '€600',
+        price: '€599',
         scope: 'Разширен персонализиран сайт с всичко от Стандартния пакет и премиум дигитални функционалности.',
         features: [
           'Всичко от Основния и Стандартния сайт',
@@ -885,7 +885,7 @@ export const dynamicTranslations = {
       {
         id: 'e-commerce',
         name: 'Онлайн магазин',
-        price: '€600',
+        price: '€599',
         scope: 'Пълнофункционален онлайн магазин за продукти, поръчки, плащания и управление на каталог.',
         features: [
           'Персонализиран e-commerce дизайн и брандиране',
@@ -901,7 +901,7 @@ export const dynamicTranslations = {
       {
         id: 'integrated-store',
         name: 'Сайт с вграден онлайн магазин',
-        price: '€800',
+        price: '€799',
         scope: 'Пълен бизнес сайт с информационни страници и интегриран онлайн магазин за продажба на продукти.',
         features: [
           'Всичко от Стандартния сайт',
@@ -918,7 +918,7 @@ export const dynamicTranslations = {
       {
         id: 'redesign-simple',
         name: 'Редизайн на simple сайт',
-        price: '€180',
+        price: '€179',
         scope: 'Освежете своя едностраничен сайт с по-модерен дизайн и по-ясен път към запитване.',
         features: [
           'Анализ на текущия сайт и основните му слабости',
@@ -932,7 +932,7 @@ export const dynamicTranslations = {
       {
         id: 'redesign-5-pages',
         name: 'Редизайн до 5 страници',
-        price: '€350',
+        price: '€349',
         popular: true,
         scope: 'Пълен UX/UI редизайн на стандартен бизнес сайт до пет страници.',
         features: [
@@ -947,7 +947,7 @@ export const dynamicTranslations = {
       {
         id: 'redesign-10-pages',
         name: 'Редизайн до 10 страници',
-        price: '€550',
+        price: '€549',
         scope: 'Разширен редизайн за бизнеси с повече услуги, съдържание и по-сложна структура.',
         features: [
           'Пълен преглед на информационната архитектура',
@@ -975,7 +975,7 @@ export const dynamicTranslations = {
       {
         id: 'maintenance',
         name: 'Месечна поддръжка',
-        price: '€50',
+        price: '€49',
         period: 'месец',
         scope: 'Пълно спокойствие. Ние поемаме технологиите; Вие движите бизнеса си.',
         features: [
@@ -989,7 +989,7 @@ export const dynamicTranslations = {
       {
         id: 'social',
         name: 'Социални мрежи',
-        price: '€75',
+        price: '€79',
         period: 'месец',
         scope: 'Развийте бранда си органично в Instagram, Facebook и TikTok.',
         features: [
@@ -1003,7 +1003,7 @@ export const dynamicTranslations = {
       {
         id: 'combo',
         name: 'Сайт + Социални мрежи',
-        price: '€110',
+        price: '€119',
         period: 'месец',
         scope: 'Най-добрият ускорител на дигитален растеж за български заведения и бизнеси.',
         features: [
@@ -1017,7 +1017,7 @@ export const dynamicTranslations = {
       {
         id: 'qr-code',
         name: 'QR код меню и интеграция',
-        price: '€80',
+        price: '€79',
         scope: 'Модернизирайте Вашето заведение с безконтактно дигитално взаимодействие.',
         features: [
           'Персонализиран брандиран дизайн на QR кода',
@@ -1030,7 +1030,7 @@ export const dynamicTranslations = {
       {
         id: 'google-business',
         name: 'Google Business профил и Google Maps',
-        price: '€60',
+        price: '€59',
         scope: 'Създаване, настройка и основна поддръжка на Google Business профил с точно поставяне в Google Maps.',
         features: [
           'Създаване или настройка на Google Business профил',
@@ -1042,7 +1042,7 @@ export const dynamicTranslations = {
       {
         id: 'logo-design',
         name: 'Професионално лого',
-        price: '€100',
+        price: '€99',
         scope: 'Уникална визуална идентичност, която помага на бизнеса да изглежда разпознаваемо и професионално.',
         features: [
           '3 уникални концепции за лого',
@@ -1055,86 +1055,86 @@ export const dynamicTranslations = {
       {
         id: 'bundle-starter',
         name: 'Starter Pro Пакет',
-        price: '€350',
+        price: '€349',
         bundle: true,
         scope: 'Перфектната основа за стартиране на нов бизнес.',
         features: [
-          'Основен уебсайт (стойност €250)',
-          'Професионално лого (стойност €100)',
-          'Google Business профил и Google Maps (стойност €60)',
-          'Спестявате €60 веднага',
+          'Основен уебсайт (стойност €249)',
+          'Професионално лого (стойност €99)',
+          'Google Business профил и Google Maps (стойност €59)',
+          'Спестявате €58 веднага',
           'Бърза изработка до 5 дни',
         ],
       },
       {
         id: 'bundle-business',
         name: 'Business Elite Пакет',
-        price: '€550',
+        price: '€549',
         bundle: true,
         popular: true,
         scope: 'Пълна дигитална трансформация за утвърдени бизнеси.',
         features: [
-          'Стандартен уебсайт (стойност €450)',
-          'Професионално лого (стойност €100)',
-          '1 месец безплатна поддръжка (стойност €50)',
-          'Google Business профил и Google Maps (стойност €60)',
-          'Спестявате €110 веднага',
+          'Стандартен уебсайт (стойност €449)',
+          'Професионално лого (стойност €99)',
+          '1 месец безплатна поддръжка (стойност €49)',
+          'Google Business профил и Google Maps (стойност €59)',
+          'Спестявате €107 веднага',
         ],
       },
       {
         id: 'bundle-ultimate',
         name: 'Ultimate Digital Growth Пакет',
-        price: '€850',
+        price: '€849',
         bundle: true,
         scope: 'Доминирайте на местния пазар с елитно уеб и социално присъствие.',
         features: [
-          'Премиум уебсайт (стойност €600)',
-          'Професионално лого (стойност €100)',
-          '3 месеца Комбо пакет (стойност €330)',
-          'Google Business профил и Google Maps (стойност €60)',
-          'Спестявате €240 веднага',
+          'Премиум уебсайт (стойност €599)',
+          'Професионално лого (стойност €99)',
+          '3 месеца Комбо пакет (стойност €357)',
+          'Google Business профил и Google Maps (стойност €59)',
+          'Спестявате €265 веднага',
         ],
       },
       {
         id: 'bundle-restaurant',
         name: 'Restaurant & Hospitality Пакет',
-        price: '€600',
+        price: '€599',
         bundle: true,
         scope: 'Цялостно дигитално представяне за ресторанти, хотели, кафенета, барове и салони.',
         features: [
-          'Стандартен сайт (стойност €450)',
-          'QR меню и интеграция (стойност €80)',
-          'Професионално лого (стойност €100)',
-          'Google Business профил и Google Maps (стойност €60)',
-          'Спестявате €90 веднага',
+          'Стандартен сайт (стойност €449)',
+          'QR меню и интеграция (стойност €79)',
+          'Професионално лого (стойност €99)',
+          'Google Business профил и Google Maps (стойност €59)',
+          'Спестявате €87 веднага',
         ],
       },
       {
         id: 'bundle-ecommerce-launch',
         name: 'E-commerce Launch Пакет',
-        price: '€700',
+        price: '€699',
         bundle: true,
         scope: 'Готов старт за брандове, които искат да започнат професионални онлайн продажби.',
         features: [
-          'Онлайн магазин (стойност €600)',
-          'Професионално лого (стойност €100)',
-          '1 месец поддръжка на социалните мрежи (стойност €75)',
-          'Google Business профил и Google Maps (стойност €60)',
-          'Спестявате €135 веднага',
+          'Онлайн магазин (стойност €599)',
+          'Професионално лого (стойност €99)',
+          '1 месец поддръжка на социалните мрежи (стойност €79)',
+          'Google Business профил и Google Maps (стойност €59)',
+          'Спестявате €137 веднага',
         ],
       },
       {
         id: 'bundle-integrated-commerce',
         name: 'Integrated Commerce Pro Пакет',
-        price: '€850',
+        price: '€849',
         bundle: true,
         scope: 'Разширено решение за бизнес с физическо присъствие и онлайн продажби.',
         features: [
-          'Сайт с вграден онлайн магазин (стойност €800)',
-          'Професионално лого (стойност €100)',
-          '1 месец техническа поддръжка (стойност €50)',
-          'Google Business профил и Google Maps (стойност €60)',
-          'Спестявате €160 веднага',
+          'Сайт с вграден онлайн магазин (стойност €799)',
+          'Професионално лого (стойност €99)',
+          '1 месец техническа поддръжка (стойност €49)',
+          'Google Business профил и Google Maps (стойност €59)',
+          'Спестявате €157 веднага',
         ],
       },
     ],

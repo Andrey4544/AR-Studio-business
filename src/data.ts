@@ -66,7 +66,7 @@ export const pricingPlans: PricingPlan[] = [
   {
     id: 'basic',
     name: 'Basic Website',
-    price: '€250',
+    price: '€249',
     scope: 'Single interactive landing page crafted with modern luxury layouts.',
     features: [
       '1 Page Custom Design',
@@ -80,7 +80,7 @@ export const pricingPlans: PricingPlan[] = [
   {
     id: 'standard',
     name: 'Standard Website',
-    price: '€450',
+    price: '€449',
     popular: true,
     scope: 'Complete corporate or business multi-page/landing experience. Perfect for restaurants & salons.',
     features: [
@@ -95,7 +95,7 @@ export const pricingPlans: PricingPlan[] = [
   {
     id: 'premium',
     name: 'Premium Website',
-    price: '€600',
+    price: '€599',
     scope: 'Elite multi-page digital hub with fully custom modules and robust design guidelines.',
     features: [
       'Unlimited Pages / Endless Scroll Sections',
@@ -109,7 +109,7 @@ export const pricingPlans: PricingPlan[] = [
   {
     id: 'e-commerce',
     name: 'E-commerce Store',
-    price: '€800',
+    price: '€799',
     scope: 'Complete high-performance online store with secure payments and product management.',
     features: [
       'Custom E-commerce Design & Branding',
@@ -123,7 +123,7 @@ export const pricingPlans: PricingPlan[] = [
   {
     id: 'maintenance',
     name: 'Website Maintenance',
-    price: '€50',
+    price: '€49',
     period: 'month',
     scope: 'Complete peace of mind. We handle the tech; you run the business.',
     features: [
@@ -137,7 +137,7 @@ export const pricingPlans: PricingPlan[] = [
   {
     id: 'social',
     name: 'Social Media Management',
-    price: '€75',
+    price: '€79',
     period: 'month',
     scope: 'Grow your brand presence organically on Instagram, Facebook, and TikTok.',
     features: [
@@ -151,7 +151,7 @@ export const pricingPlans: PricingPlan[] = [
   {
     id: 'combo',
     name: 'Website + Social Combo',
-    price: '€110',
+    price: '€119',
     period: 'month',
     scope: 'The ultimate digital growth accelerator for local Bulgarian restaurants and businesses.',
     features: [
@@ -165,7 +165,7 @@ export const pricingPlans: PricingPlan[] = [
   {
     id: 'qr-code',
     name: 'QR Code Menu & Integration',
-    price: '€80',
+    price: '€79',
     scope: 'Modernize your restaurant or salon with contactless digital interaction.',
     features: [
       'Custom Branded QR Code Design',
@@ -178,7 +178,7 @@ export const pricingPlans: PricingPlan[] = [
   {
     id: 'logo-design',
     name: 'Professional Logo Design',
-    price: '€150',
+    price: '€149',
     scope: 'Bespoke visual identity that defines your luxury brand.',
     features: [
       '3 Unique Logo Concepts',
@@ -191,41 +191,41 @@ export const pricingPlans: PricingPlan[] = [
   {
     id: 'bundle-starter',
     name: 'Starter Pro Bundle',
-    price: '€350',
+    price: '€349',
     bundle: true,
     scope: 'The perfect foundation for a new business launch.',
     features: [
-      'Basic Website (€250 value)',
-      'Professional Logo Design (€150 value)',
-      'Save €50 instantly',
+      'Basic Website (€249 value)',
+      'Professional Logo Design (€149 value)',
+      'Save €49 instantly',
       'Fast 5-day delivery',
     ],
   },
   {
     id: 'bundle-business',
     name: 'Business Elite Bundle',
-    price: '€550',
+    price: '€549',
     bundle: true,
     popular: true,
     scope: 'Complete digital transformation for established businesses.',
     features: [
-      'Standard Website (€450 value)',
-      'Professional Logo Design (€150 value)',
-      '1 Month Free Maintenance (€50 value)',
-      'Save €100 instantly',
+      'Standard Website (€449 value)',
+      'Professional Logo Design (€149 value)',
+      '1 Month Free Maintenance (€49 value)',
+      'Save €98 instantly',
     ],
   },
   {
     id: 'bundle-ultimate',
     name: 'Ultimate Digital Growth',
-    price: '€850',
+    price: '€849',
     bundle: true,
     scope: 'Dominate your local market with elite web & social presence.',
     features: [
-      'Premium Website (€600 value)',
-      'Professional Logo Design (€150 value)',
-      '3 Months Combo Package (€330 value)',
-      'Save €230 instantly',
+      'Premium Website (€599 value)',
+      'Professional Logo Design (€149 value)',
+      '3 Months Combo Package (€357 value)',
+      'Save €256 instantly',
     ],
   },
 ];

@@ -634,6 +634,23 @@ export const dynamicTranslations = {
     ],
     featuredProjects: [
       {
+        id: 'mm-showroom',
+        title: 'MM Showroom',
+        category: 'Automotive Showroom Website',
+        url: 'https://mm-showroombg.com/',
+        imageUrl: 'mm_showroom_mockup',
+        highlights: [
+          'Premium automotive catalogue - Curated vehicles presented with a high-end visual experience',
+          'Lead generation forms - Trade-in, import, contact and leasing enquiries in one place',
+          'Leasing calculator - Interactive monthly payment estimation for prospective buyers',
+          'Showroom location - Clear Plovdiv location details and direct contact paths',
+          'Responsive experience - Designed for quick browsing on mobile and desktop',
+        ],
+        description: 'A premium automotive showroom website developed for MM Showroom. The platform combines vehicle discovery, trade-in and import enquiries, leasing guidance, contact options, and showroom information in one polished digital experience.',
+        businessProblem: 'The website gives MM Showroom an owned digital showroom where potential buyers can browse available vehicles, estimate leasing costs, request a trade-in, and contact the team without relying only on third-party listings.',
+        tags: ['Automotive', 'Showroom', 'Lead Generation', 'Leasing Calculator'],
+      },
+      {
         id: 'belestate-group',
         title: 'BelEstateGroup',
         category: 'Real Estate Agency Website',
@@ -1139,6 +1156,23 @@ export const dynamicTranslations = {
       },
     ],
     featuredProjects: [
+      {
+        id: 'mm-showroom',
+        title: 'MM Showroom',
+        category: 'Сайт за автошоурум',
+        url: 'https://mm-showroombg.com/',
+        imageUrl: 'mm_showroom_mockup',
+        highlights: [
+          'Премиум каталог автомобили - Подбрани автомобили с висок клас визуално представяне',
+          'Форми за запитвания - Изкупуване, внос, контакт и лизинг на едно място',
+          'Лизингов калкулатор - Ориентировъчно изчисление на месечната вноска',
+          'Локация на шоурума - Ясна информация за Пловдив и директен контакт',
+          'Адаптивно преживяване - Удобно разглеждане от телефон и компютър',
+        ],
+        description: 'Премиум уебсайт за автошоурум, разработен за MM Showroom. Платформата събира наличните автомобили, запитванията за изкупуване и внос, лизинговия калкулатор, контактите и информацията за шоурума в едно завършено дигитално преживяване.',
+        businessProblem: 'Сайтът дава на MM Showroom собствен дигитален шоурум, в който потенциалните клиенти могат да разглеждат автомобилите, да изчисляват ориентировъчен лизинг, да заявят изкупуване или внос и да се свържат с екипа без да разчитат само на външни платформи.',
+        tags: ['Автомобили', 'Автошоурум', 'Генериране на запитвания', 'Лизингов калкулатор'],
+      },
       {
         id: 'belestate-group',
         title: 'BelEstateGroup',

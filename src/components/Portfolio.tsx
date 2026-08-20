@@ -10,6 +10,16 @@ import { Sparkles, Globe, ArrowUpRight, Zap, Smartphone, QrCode } from 'lucide-r
 import { useLanguage } from '../context/LanguageContext';
 import { trackAnalyticsEvent } from '../lib/analytics';
 
+// Carousel images for MM Showroom
+const mmShowroomCarouselImages = [
+  { src: '/assets/mm-showroom-hero.webp', alt: 'MM Showroom начална страница за премиум автомобили в Пловдив' },
+  { src: '/assets/mm-showroom-listings.webp', alt: 'Каталог с налични автомобили на MM Showroom' },
+  { src: '/assets/mm-showroom-trade-in.webp', alt: 'Форма за изкупуване и trade-in на автомобили в MM Showroom' },
+  { src: '/assets/mm-showroom-location.webp', alt: 'Контакти и локация на MM Showroom в Пловдив' },
+  { src: '/assets/mm-showroom-leasing.webp', alt: 'Лизингов калкулатор на сайта на MM Showroom' },
+  { src: '/assets/mm-showroom-contact.webp', alt: 'Опции за директен контакт с MM Showroom' },
+];
+
 // Carousel images for Tomato Restaurant
 const tomatoCarouselImages = [
   { src: '/assets/tomato-new.webp', alt: 'Изработка на уебсайт за Ресторант Tomato Пловдив - Дизайн от AR Studio' },
@@ -108,6 +118,7 @@ export default function Portfolio({ onQuoteClick }: PortfolioProps) {
         {featuredProjects.map((project, index) => {
           const isEven = index % 2 === 0;
           let carouselImages = tomatoCarouselImages;
+          if (project.id === 'mm-showroom') carouselImages = mmShowroomCarouselImages;
           if (project.id === 'teddys-bar-grill') carouselImages = teddysCarouselImages;
           if (project.id === 'belestate-group') carouselImages = belestateCarouselImages;
           if (project.id === 'cbl-fight-store') carouselImages = cblCarouselImages;

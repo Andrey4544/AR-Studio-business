@@ -23,6 +23,18 @@ function uniqueReviews(reviews: any[]) {
   });
 }
 
+function compareReviewsByNewest(first: any, second: any) {
+  const firstTime = Date.parse(first?.timestamp || '');
+  const secondTime = Date.parse(second?.timestamp || '');
+
+  // Keep legacy reviews without a valid timestamp after dated reviews.
+  if (Number.isNaN(firstTime) && Number.isNaN(secondTime)) return 0;
+  if (Number.isNaN(firstTime)) return 1;
+  if (Number.isNaN(secondTime)) return -1;
+
+  return secondTime - firstTime;
+}
+
 export default function Testimonials() {
   const { language, t } = useLanguage();
   const [reviews, setReviews] = useState<any[]>([]);
@@ -33,7 +45,8 @@ export default function Testimonials() {
       const response = await fetch('/api/reviews');
       if (response.ok) {
         const data = await response.json();
-        setReviews(uniqueReviews(Array.isArray(data) ? data : []));
+        const uniqueReviewsList = uniqueReviews(Array.isArray(data) ? data : []);
+        setReviews(uniqueReviewsList.sort(compareReviewsByNewest));
       }
     } catch (error) {
       console.error('Error fetching reviews:', error);

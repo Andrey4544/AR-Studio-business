@@ -6,8 +6,15 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
+export type CarouselSlide = {
+  src: string;
+  alt: string;
+  type?: 'image' | 'video';
+  poster?: string;
+};
+
 interface ImageCarouselProps {
-  images: { src: string; alt: string }[];
+  images: CarouselSlide[];
   /** Auto-advance interval in milliseconds. Defaults to 6000. */
   interval?: number;
   className?: string;
@@ -54,12 +61,25 @@ export default function ImageCarousel({
             }`}
             aria-hidden={idx !== current}
           >
-            <img
-              src={img.src}
-              alt={img.alt}
-              className="w-full h-auto object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-              referrerPolicy="no-referrer"
-            />
+            {img.type === 'video' ? (
+              <video
+                controls
+                preload="metadata"
+                poster={img.poster}
+                aria-label={img.alt}
+                className="block w-full h-auto bg-zinc-950"
+              >
+                <source src={img.src} type="video/mp4" />
+                {img.alt}
+              </video>
+            ) : (
+              <img
+                src={img.src}
+                alt={img.alt}
+                className="w-full h-auto object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                referrerPolicy="no-referrer"
+              />
+            )}
           </div>
         ))}
 

@@ -34,6 +34,7 @@ export interface Project {
   category: string;
   url?: string;
   imageUrl: string;
+  videoUrl?: string;
   highlights: string[];
   description: string;
   businessProblem?: string;

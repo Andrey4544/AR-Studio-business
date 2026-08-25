@@ -6,7 +6,7 @@
 import React from 'react';
 import ImageCarousel from './ImageCarousel';
 import { motion } from 'motion/react';
-import { Sparkles, Globe, ArrowUpRight, Zap, Smartphone, QrCode } from 'lucide-react';
+import { Sparkles, Globe, ArrowUpRight, Zap, Smartphone, QrCode, PlayCircle } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { trackAnalyticsEvent } from '../lib/analytics';
 
@@ -72,6 +72,11 @@ const dimstanHydroCarouselImages = [
   { src: '/assets/dimstan-hydro-services-wide.webp', alt: 'Услуги и ценоразпис на ДимСтан Хидро Сървис' },
 ];
 
+// Evidence image for Enframe.bg speed optimisation
+const enframeCarouselImages = [
+  { src: '/assets/enframe-speed-optimization.png', alt: 'Enframe.bg с отворен Network панел за проверка на скоростта' },
+];
+
 interface PortfolioProps {
   onQuoteClick: () => void;
 }
@@ -131,6 +136,7 @@ export default function Portfolio({ onQuoteClick }: PortfolioProps) {
           if (project.id === 'belestate-group') carouselImages = belestateCarouselImages;
           if (project.id === 'cbl-fight-store') carouselImages = cblCarouselImages;
           if (project.id === 'dimstan-hydro') carouselImages = dimstanHydroCarouselImages;
+          if (project.id === 'enframe-speed-optimization') carouselImages = enframeCarouselImages;
 
           return (
             <div key={project.id} className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-24">
@@ -255,6 +261,31 @@ export default function Portfolio({ onQuoteClick }: PortfolioProps) {
                   <div className="relative mt-3">
                     <ImageCarousel images={carouselImages} interval={6000} />
                   </div>
+
+                  {project.videoUrl && (
+                    <div className="mt-4 overflow-hidden rounded-2xl border border-blue-400/15 bg-blue-500/[0.05]">
+                      <div className="flex items-center gap-3 border-b border-white/10 px-4 py-3">
+                        <PlayCircle className="h-4 w-4 text-blue-300" />
+                        <div>
+                          <p className="text-[10px] font-mono font-bold uppercase tracking-[0.16em] text-blue-300">
+                            {language === 'en' ? 'PERFORMANCE EVIDENCE' : 'ДОКАЗАТЕЛСТВО ЗА ПРОИЗВОДИТЕЛНОСТТА'}
+                          </p>
+                          <p className="mt-0.5 text-xs text-zinc-400">
+                            {language === 'en' ? 'Recorded navigation and loading test' : 'Запис на навигация и зареждане'}
+                          </p>
+                        </div>
+                      </div>
+                      <video
+                        controls
+                        preload="metadata"
+                        poster={project.id === 'enframe-speed-optimization' ? '/assets/enframe-speed-optimization.png' : undefined}
+                        className="block w-full bg-zinc-950"
+                      >
+                        <source src={project.videoUrl} type="video/mp4" />
+                        {language === 'en' ? 'Your browser does not support video playback.' : 'Вашият браузър не поддържа възпроизвеждане на видео.'}
+                      </video>
+                    </div>
+                  )}
                 </div>
               </motion.div>
             </div>

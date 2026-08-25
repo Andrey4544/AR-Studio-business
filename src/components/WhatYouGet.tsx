@@ -61,7 +61,7 @@ export default function WhatYouGet({ onQuoteClick }: WhatYouGetProps) {
                   {language === 'en' ? 'DIRECT COMMUNICATION' : 'ДИРЕКТНА КОМУНИКАЦИЯ'}
                 </p>
                 <h3 className="mt-2 text-xl font-semibold text-white">
-                  {language === 'en' ? 'First reply within 3–4 hours' : 'Първи отговор до 3–4 часа'}
+                  {language === 'en' ? 'First reply within 2–3 hours' : 'Първи отговор до 2–3 часа'}
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-zinc-300">
                   {language === 'en'

@@ -33,7 +33,7 @@ export const agencyFeatures: Feature[] = [
   {
     id: 'affordable-pricing',
     title: 'Affordable Pricing',
-    description: 'Top-tier digital agency quality at prices tailored for local businesses. Unmatched value starting from €250.',
+    description: 'Top-tier digital agency quality at prices tailored for local businesses. Starting value from €249.',
     iconName: 'DollarSign',
   },
   {
@@ -108,8 +108,8 @@ export const pricingPlans: PricingPlan[] = [
   },
   {
     id: 'e-commerce',
-    name: 'E-commerce Store',
-    price: '€799',
+    name:       'E-commerce Store',
+    price: '€599',
     scope: 'Complete high-performance online store with secure payments and product management.',
     features: [
       'Custom E-commerce Design & Branding',
@@ -178,7 +178,7 @@ export const pricingPlans: PricingPlan[] = [
   {
     id: 'logo-design',
     name: 'Professional Logo Design',
-    price: '€149',
+    price: '€99',
     scope: 'Bespoke visual identity that defines your luxury brand.',
     features: [
       '3 Unique Logo Concepts',
@@ -196,8 +196,8 @@ export const pricingPlans: PricingPlan[] = [
     scope: 'The perfect foundation for a new business launch.',
     features: [
       'Basic Website (€249 value)',
-      'Professional Logo Design (€149 value)',
-      'Save €49 instantly',
+      'Professional Logo Design (€99 value)',
+      'Save €58 instantly',
       'Fast 5-day delivery',
     ],
   },
@@ -210,9 +210,9 @@ export const pricingPlans: PricingPlan[] = [
     scope: 'Complete digital transformation for established businesses.',
     features: [
       'Standard Website (€449 value)',
-      'Professional Logo Design (€149 value)',
+      'Professional Logo Design (€99 value)',
       '1 Month Free Maintenance (€49 value)',
-      'Save €98 instantly',
+      'Save €107 instantly',
     ],
   },
   {
@@ -223,9 +223,9 @@ export const pricingPlans: PricingPlan[] = [
     scope: 'Dominate your local market with elite web & social presence.',
     features: [
       'Premium Website (€599 value)',
-      'Professional Logo Design (€149 value)',
+      'Professional Logo Design (€99 value)',
       '3 Months Combo Package (€357 value)',
-      'Save €256 instantly',
+      'Save €265 instantly',
     ],
   },
 ];

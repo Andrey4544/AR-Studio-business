@@ -111,9 +111,9 @@ export default function Hero({ onQuoteClick, onWorkClick, onAboutClick }: HeroPr
         >
           <div className="glass-panel p-6 rounded-2xl border border-white/5 flex flex-col items-center justify-center text-center">
             <span className="text-3xl font-bold font-mono tracking-tight text-white mb-1">
-              3-7{" "}
+              3–7{" "}
               <span className="text-xs font-sans text-blue-400 font-normal">
-                {language === 'en' ? 'Days' : 'Дни'}
+                {language === 'en' ? 'Working days' : 'Работни дни'}
               </span>
             </span>
             <span className="text-[10px] uppercase font-mono tracking-wider text-zinc-500">
@@ -132,7 +132,7 @@ export default function Hero({ onQuoteClick, onWorkClick, onAboutClick }: HeroPr
 
           <div className="glass-panel p-6 rounded-2xl border border-white/5 flex flex-col items-center justify-center text-center">
             <span className="text-3xl font-bold font-mono tracking-tight text-white mb-1">
-              €250
+              €249
             </span>
             <span className="text-[10px] uppercase font-mono tracking-wider text-zinc-500">
               {language === 'en' ? '💰 Highly Affordable starting rate' : '💰 Изгодна начална цена'}

@@ -118,7 +118,7 @@ export const staticTranslations: { en: TranslationDictionary; bg: TranslationDic
 
     heroTitleHighlight: 'Bespoke Web Design &',
     heroTitleText: 'Development in Plovdiv',
-    heroSub: 'Elevate your brand with luxurious, custom web design and professional software engineering. We build high-performance websites that rank on Google and convert visitors into clients.',
+    heroSub: 'High-performance websites for businesses in Plovdiv and Bulgaria — from €249, with a clear mobile-first experience and a 3–7 working day launch for standard projects.',
 
     featuresSubTitle: 'WHAT WE DELIVER',
     featuresTitle: 'Engineered for Elite Digital Performance',
@@ -145,13 +145,13 @@ export const staticTranslations: { en: TranslationDictionary; bg: TranslationDic
 
     contactSubTitle: 'GET IN TOUCH',
     contactTitle: "Let's Craft Your High-End Website Together",
-    contactDesc: 'Have questions or ready to launch? Fill out the brief below. Andrey or Rumen will respond directly within 3–4 hours during the working day.',
+    contactDesc: 'Have questions or ready to launch? Fill out the brief below. Andrey or Rumen will respond directly within 2–3 hours during the working day.',
     contactYourNamePlaceholder: 'e.g., Ivan Georgiev',
     contactEmailPlaceholder: 'e.g., ivan@gmail.com',
     contactPhonePlaceholder: 'e.g., 0888 123 456',
     contactMessagePlaceholder: 'Tell us about your brand vision...',
     contactSubmitting: 'Sending...',
-    contactSuccess: 'Message sent successfully. Andrey or Rumen will respond within 3–4 hours during the working day.',
+    contactSuccess: 'Message sent successfully. Andrey or Rumen will respond within 2–3 hours during the working day.',
 
     portfolioSubTitle: 'SELECTED WORKS',
     portfolioTitle: 'Bespoke Websites Live & Serving Customers',
@@ -203,7 +203,7 @@ export const staticTranslations: { en: TranslationDictionary; bg: TranslationDic
 
     heroTitleHighlight: 'Изработка на уебсайтове &',
     heroTitleText: 'Уеб дизайн в Пловдив',
-    heroSub: 'Професионална изработка на уебсайтове и луксозен уеб дизайн за Вашия бизнес. Създаваме бързи, SEO оптимизирани и модерни сайтове, които продават.',
+    heroSub: 'Бързи, SEO-ready и модерни сайтове за Вашия бизнес — от €249, с мобилно изживяване и готовност за старт за 3–7 работни дни при стандартен проект.',
 
     featuresSubTitle: 'КАКВО ПРЕДЛАГАМЕ',
     featuresTitle: 'Проектирани за елитно дигитално представяне',
@@ -226,20 +226,20 @@ export const staticTranslations: { en: TranslationDictionary; bg: TranslationDic
 
     testimonialsSubTitle: 'ОТЗИВИ ОТ КЛИЕНТИ',
     testimonialsTitle: 'Какво казват нашите доволни клиенти',
-    testimonialsDesc: 'Прочетете проверена обратна връзка от клиенти, които изберат да публикуват своя опит с AR Studio.',
+    testimonialsDesc: 'Прочетете проверена обратна връзка от клиенти, които избират да публикуват своя опит с AR Studio.',
 
     contactSubTitle: 'СВЪРЖЕТЕ СЕ С НАС',
     contactTitle: 'Нека създадем Вашия премиум уебсайт заедно',
-    contactDesc: 'Имате въпроси или сте готови да започнем? Попълнете кратката форма. Андрей или Румен ще Ви отговорят директно до 3–4 часа в рамките на работния ден.',
+    contactDesc: 'Имате въпроси или сте готови да започнем? Попълнете кратката форма. Андрей или Румен ще Ви отговорят директно до 2–3 часа в рамките на работния ден.',
     contactYourNamePlaceholder: 'напр., Иван Георгиев',
     contactEmailPlaceholder: 'напр., ivan@gmail.com',
     contactPhonePlaceholder: 'напр., 0888 123 456',
     contactMessagePlaceholder: 'Разкажете ни за визията на Вашия бранд...',
     contactSubmitting: 'Изпраща се...',
-    contactSuccess: 'Съобщението е изпратено успешно! Андрей или Румен ще Ви отговорят до 3–4 часа в рамките на работния ден.',
+    contactSuccess: 'Съобщението е изпратено успешно! Андрей или Румен ще Ви отговорят до 2–3 часа в рамките на работния ден.',
 
     portfolioSubTitle: 'ИЗБРАНИ ПРОЕКТИ',
-    portfolioTitle: 'Уникални уебсайтове на живо, обслужващие клиенти',
+    portfolioTitle: 'Уникални уебсайтове на живо, които обслужват клиенти',
     portfolioDesc: 'Разгледайте реални премиум проекти, създадени да помагат на бизнеса да представя услугите си и да улеснява следващото действие на клиента.',
     processSubTitle: 'ЯСЕН ПЪТ КЪМ ДОБРИЯ САЙТ',
     processTitle: 'Как превръщаме една идея в работещ сайт',
@@ -834,7 +834,7 @@ export const dynamicTranslations = {
       {
         id: 'affordable-pricing',
         title: 'Достъпни цени',
-        description: 'Качество на елитна дигитална агенция на цени за местния бизнес. Ненадмината стойност от €249.',
+        description: 'Качество на елитна дигитална агенция на цени за местния бизнес. Начални цени от €249.',
         iconName: 'DollarSign',
       },
       {
@@ -874,7 +874,7 @@ export const dynamicTranslations = {
           'Бутони за Viber, WhatsApp и телефонно обаждане',
           'Включване на всякаква необходима информация, текстове и снимки за Вашия бизнес, услуги, екип, история, портфолио, работно време, цени, контакти и други важни детайли',
           'Създаване и базова поддръжка на Google Business профил и поставяне в Google Maps',
-          'Бърза изработка до 3 работни дни',
+          'Изработка за 3–7 работни дни при стандартен проект',
         ],
       },
       {
@@ -894,7 +894,7 @@ export const dynamicTranslations = {
           'Включване на всякаква необходима информация, текстове и снимки за Вашия бизнес, услуги, екип, история, портфолио, работно време, цени, контакти и други важни детайли',
           'Създаване и поддръжка на Google Business профил и поставяне в Google Maps',
           'QR меню или резервационна система при необходимост',
-          'Изработка до 7 работни дни',
+          'Изработка за 3–7 работни дни при стандартен проект',
         ],
       },
       {
@@ -1278,7 +1278,7 @@ export const dynamicTranslations = {
       {
         id: 'fast-completion',
         title: 'Бързо завършване',
-        description: 'Ценим Вашето време. Процесът ни е оптимизиран да предава завършени сайтове в рамките на 3 до 7 работни дни.',
+        description: 'Ценим Вашето време. Процесът ни е оптимизиран да предава стандартни сайтове за 3–7 работни дни.',
       },
       {
         id: 'affordable-luxury',
@@ -1311,7 +1311,7 @@ export const dynamicTranslations = {
       {
         id: 'faq-1',
         question: 'Колко бързо ще бъде готов сайтът ми?',
-        answer: 'Обикновено между 3 и 7 работни дни за стандартни проекти. Премиум сайтовете и онлайн магазините могат да отнемат до 14 дни в зависимост от сложността.',
+        answer: 'Обикновено между 3 и 7 работни дни за стандартни проекти. При по-сложни сайтове и онлайн магазини срокът се уточнява според обхвата.',
       },
       {
         id: 'faq-2',

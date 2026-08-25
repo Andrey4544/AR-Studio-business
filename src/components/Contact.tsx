@@ -336,7 +336,7 @@ export default function Contact({ preselectedPlan = '' }: ContactProps) {
                     </h4>
                     <p className="text-sm font-semibold text-white mt-1 group-hover:text-blue-400 transition-colors">designbyandrey@gmail.com</p>
                     <span className="text-[10px] text-zinc-500 mt-1 block">
-                      {language === 'en' ? 'Response within 2 hours' : 'Отговор до 2 часа'}
+                      {language === 'en' ? 'Response within 2–3 hours' : 'Отговор до 2–3 часа'}
                     </span>
                   </div>
                 </a>

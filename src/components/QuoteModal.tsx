@@ -257,53 +257,53 @@ export default function QuoteModal({ isOpen, onClose }: QuoteModalProps) {
                         className="bg-zinc-950 border border-white/5 focus:border-blue-500 text-xs text-zinc-300 rounded-lg px-4 py-3.5 focus:outline-none transition-colors cursor-pointer"
                       >
                         <option value="basic">
-                          {language === 'en' ? 'Basic Website (starting €250)' : 'Основен уебсайт (от €250)'}
+                          {language === 'en' ? 'Basic Website (starting €249)' : 'Основен уебсайт (от €249)'}
                         </option>
                         <option value="standard">
-                          {language === 'en' ? 'Standard Website • Popular (starting €450)' : 'Стандартен сайт • Най-добра сделка (от €450)'}
+                          {language === 'en' ? 'Standard Website • Popular (starting €449)' : 'Стандартен сайт • Най-добра сделка (от €449)'}
                         </option>
                         <option value="premium">
-                          {language === 'en' ? 'Premium Website (starting €600)' : 'Премиум сайт (от €600)'}
+                          {language === 'en' ? 'Premium Website (starting €599)' : 'Премиум сайт (от €599)'}
                         </option>
                         <option value="e-commerce">
-                          {language === 'en' ? 'E-commerce Store (starting €600)' : 'Онлайн магазин (от €600)'}
+                          {language === 'en' ? 'E-commerce Store (starting €599)' : 'Онлайн магазин (от €599)'}
                         </option>
                         <option value="integrated-store">
-                          {language === 'en' ? 'Website with Integrated Online Store (starting €800)' : 'Сайт с вграден онлайн магазин (от €800)'}
+                          {language === 'en' ? 'Website with Integrated Online Store (starting €799)' : 'Сайт с вграден онлайн магазин (от €799)'}
                         </option>
                         <option value="maintenance">
-                          {language === 'en' ? 'Website Maintenance (starting €50/mo)' : 'Месечна поддръжка (от €50/месец)'}
+                          {language === 'en' ? 'Website Maintenance (starting €49/mo)' : 'Месечна поддръжка (от €49/месец)'}
                         </option>
                         <option value="combo">
-                          {language === 'en' ? 'Combo Website + Social package (starting €110/mo)' : 'Комбо сайт + Поддръжка (от €110/месец)'}
+                          {language === 'en' ? 'Website + Social Media (starting €119/mo)' : 'Сайт + Социални мрежи (от €119/месец)'}
                         </option>
                         <option value="qr-code">
-                          {language === 'en' ? 'QR Code Menu & Integration (starting €80)' : 'QR код меню и интеграция (от €80)'}
+                          {language === 'en' ? 'QR Code Menu & Integration (starting €79)' : 'QR код меню и интеграция (от €79)'}
                         </option>
                         <option value="logo-design">
-                          {language === 'en' ? 'Professional Logo Design (starting €100)' : 'Професионално лого (от €100)'}
+                          {language === 'en' ? 'Professional Logo Design (starting €99)' : 'Професионално лого (от €99)'}
                         </option>
                         <option value="google-business">
-                          {language === 'en' ? 'Google Business Profile & Google Maps (starting €60)' : 'Google Business профил и Google Maps (от €60)'}
+                          {language === 'en' ? 'Google Business Profile & Google Maps (starting €59)' : 'Google Business профил и Google Maps (от €59)'}
                         </option>
                         <optgroup label={language === 'en' ? 'Luxury Bundles (Save Money)' : 'Пакетни предложения (Спестете пари)'}>
                           <option value="bundle-starter">
-                            {language === 'en' ? 'Starter Pro Bundle (€350)' : 'Starter Pro Пакет (€350)'}
+                            {language === 'en' ? 'Starter Pro Bundle (€349)' : 'Starter Pro Пакет (€349)'}
                           </option>
                           <option value="bundle-business">
-                            {language === 'en' ? 'Business Elite Bundle (€550)' : 'Business Elite Пакет (€550)'}
+                            {language === 'en' ? 'Business Elite Bundle (€549)' : 'Business Elite Пакет (€549)'}
                           </option>
                           <option value="bundle-ultimate">
-                            {language === 'en' ? 'Ultimate Digital Growth (€850)' : 'Ultimate Digital Growth Пакет (€850)'}
+                            {language === 'en' ? 'Ultimate Digital Growth (€849)' : 'Ultimate Digital Growth Пакет (€849)'}
                           </option>
                           <option value="bundle-restaurant">
-                            {language === 'en' ? 'Restaurant & Hospitality Bundle (€600)' : 'Restaurant & Hospitality Пакет (€600)'}
+                            {language === 'en' ? 'Restaurant & Hospitality Bundle (€599)' : 'Restaurant & Hospitality Пакет (€599)'}
                           </option>
                           <option value="bundle-ecommerce-launch">
-                            {language === 'en' ? 'E-commerce Launch Bundle (€700)' : 'E-commerce Launch Пакет (€700)'}
+                            {language === 'en' ? 'E-commerce Launch Bundle (€699)' : 'E-commerce Launch Пакет (€699)'}
                           </option>
                           <option value="bundle-integrated-commerce">
-                            {language === 'en' ? 'Integrated Commerce Pro Bundle (€850)' : 'Integrated Commerce Pro Пакет (€850)'}
+                            {language === 'en' ? 'Integrated Commerce Pro Bundle (€849)' : 'Integrated Commerce Pro Пакет (€849)'}
                           </option>
                         </optgroup>
                         <option value="custom">

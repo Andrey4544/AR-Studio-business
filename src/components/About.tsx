@@ -117,8 +117,8 @@ export default function About() {
                     </h4>
                     <p className="text-xs text-zinc-400 mt-1">
                       {language === 'en' 
-                        ? 'Talk directly to Andrey and Rumen. We respond within 3–4 hours during the working day, without helpdesks or middle agents.'
-                        : 'Говорите директно с Андрей и Румен. Отговаряме до 3–4 часа в рамките на работния ден, без оператори и посредници.'}
+                        ? 'Talk directly to Andrey and Rumen. We respond within 2–3 hours during the working day, without helpdesks or middle agents.'
+                        : 'Говорите директно с Андрей и Румен. Отговаряме до 2–3 часа в рамките на работния ден, без оператори и посредници.'}
                     </p>
                   </div>
                 </div>
@@ -190,7 +190,7 @@ export default function About() {
               {
                 icon: Clock3,
                 title: language === 'en' ? 'Direct communication' : 'Директна комуникация',
-                text: language === 'en' ? 'You can ask questions while the project moves forward. We respond directly within 3–4 hours during the working day.' : 'Можете да задавате въпроси, докато проектът се движи напред. Отговаряме директно до 3–4 часа в рамките на работния ден.',
+                text: language === 'en' ? 'You can ask questions while the project moves forward. We respond directly within 2–3 hours during the working day.' : 'Можете да задавате въпроси, докато проектът се движи напред. Отговаряме директно до 2–3 часа в рамките на работния ден.',
               },
             ].map((item, index) => {
               const Icon = item.icon;

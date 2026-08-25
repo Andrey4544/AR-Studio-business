@@ -634,6 +634,23 @@ export const dynamicTranslations = {
     ],
     featuredProjects: [
       {
+        id: 'dimstan-hydro',
+        title: 'DimStan Hydro Service',
+        category: 'Borehole & Water Well Services Website',
+        url: 'https://dimstan-hydro.site/',
+        imageUrl: 'dimstan_hydro_mockup',
+        highlights: [
+          'Service-first landing page - Clear presentation of borehole cleaning, airlift maintenance, and new drilling',
+          'Transparent pricing - Cleaning from €250 and new boreholes from €55 per metre',
+          'Cost estimator - Interactive quote calculator for cleaning and drilling scenarios',
+          'Lead generation - Direct phone CTAs and inspection request form for the Burgas region',
+          'Local service coverage - Areas, partners, and practical contact details in one place',
+        ],
+        description: 'A focused service website developed for DimStan Hydro Service and HYDROSOND. It combines airlift cleaning, borehole diagnostics, new drilling, transparent pricing, and direct inspection requests in one practical digital experience for customers across the Burgas region.',
+        businessProblem: 'The website turns a technical, locally delivered service into a clear digital journey: visitors can understand warning signs, compare services and pricing, estimate costs, and contact the right specialist without searching through fragmented information.',
+        tags: ['Professional Services', 'Borehole Cleaning', 'Lead Generation', 'Cost Calculator'],
+      },
+      {
         id: 'mm-showroom',
         title: 'MM Showroom',
         category: 'Automotive Showroom Website',
@@ -1156,6 +1173,23 @@ export const dynamicTranslations = {
       },
     ],
     featuredProjects: [
+      {
+        id: 'dimstan-hydro',
+        title: 'ДимСтан - Хидро Сървис',
+        category: 'Сайт за сондажи и хидро услуги',
+        url: 'https://dimstan-hydro.site/',
+        imageUrl: 'dimstan_hydro_mockup',
+        highlights: [
+          'Почистване с еърлифт - Ясно представяне на почистване, профилактика и възстановяване на дебита',
+          'Нови сондажи - Информация за сондиране и работа в твърди и скалисти терени',
+          'Прозрачни цени - Почистване от 250 € и нов сондаж от 55 €/м',
+          'Калкулатор за разходи - Ориентировъчна цена според избраната услуга',
+          'Локални запитвания - Директни телефони, контактна форма и обхват в Бургаска област',
+        ],
+        description: 'Фокусиран уебсайт за услуги, разработен за ДимСтан Хидро Сървис и ХИДРОСОНД. Сайтът събира почистването с еърлифт, диагностиката на сондажи, новото сондиране, прозрачните цени и заявките за оглед в едно практично дигитално преживяване за клиенти от Бургас и областта.',
+        businessProblem: 'Сайтът превръща техническа и локална услуга в ясен дигитален път: посетителите могат да разпознаят сигналите за проблем, да сравнят услугите и цените, да изчислят ориентировъчен разход и да се свържат с правилния специалист без разпокъсана информация.',
+        tags: ['Професионални услуги', 'Почистване на сондажи', 'Генериране на запитвания', 'Калкулатор за цена'],
+      },
       {
         id: 'mm-showroom',
         title: 'MM Showroom',

@@ -64,6 +64,14 @@ const cblCarouselImages = [
   { src: '/assets/cbl-8.webp', alt: 'CBL Fight Store Cart and Products' },
 ];
 
+// Carousel images for DimStan Hydro Service
+const dimstanHydroCarouselImages = [
+  { src: '/assets/dimstan-hydro-machine.jpg', alt: 'Сондажна машина и почистване на сондаж за вода с еърлифт' },
+  { src: '/assets/dimstan-hydro-hero-wide.webp', alt: 'Начална страница на ДимСтан Хидро Сървис за сондажи за вода' },
+  { src: '/assets/dimstan-hydro-diagnostics-wide.webp', alt: 'Диагностика на водоизточника и сигнали за почистване на сондаж' },
+  { src: '/assets/dimstan-hydro-services-wide.webp', alt: 'Услуги и ценоразпис на ДимСтан Хидро Сървис' },
+];
+
 interface PortfolioProps {
   onQuoteClick: () => void;
 }
@@ -122,6 +130,7 @@ export default function Portfolio({ onQuoteClick }: PortfolioProps) {
           if (project.id === 'teddys-bar-grill') carouselImages = teddysCarouselImages;
           if (project.id === 'belestate-group') carouselImages = belestateCarouselImages;
           if (project.id === 'cbl-fight-store') carouselImages = cblCarouselImages;
+          if (project.id === 'dimstan-hydro') carouselImages = dimstanHydroCarouselImages;
 
           return (
             <div key={project.id} className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-24">

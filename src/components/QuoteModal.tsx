@@ -286,6 +286,15 @@ export default function QuoteModal({ isOpen, onClose }: QuoteModalProps) {
                         <option value="google-business">
                           {language === 'en' ? 'Google Business Profile & Google Maps (starting €59)' : 'Google Business профил и Google Maps (от €59)'}
                         </option>
+                        <option value="seo-optimization">
+                          {language === 'en' ? 'SEO Optimization for Existing Website (starting €89)' : 'SEO оптимизация на съществуващ уебсайт (от €89)'}
+                        </option>
+                        <option value="speed-optimization">
+                          {language === 'en' ? 'Speed Optimization for Existing Website (starting €89)' : 'Оптимизация на скоростта на съществуващ уебсайт (от €89)'}
+                        </option>
+                        <option value="seo-speed-bundle">
+                          {language === 'en' ? 'SEO + Speed Optimization Bundle (€139)' : 'Пакет SEO + оптимизация на скоростта (€139)'}
+                        </option>
                         <optgroup label={language === 'en' ? 'Luxury Bundles (Save Money)' : 'Пакетни предложения (Спестете пари)'}>
                           <option value="bundle-starter">
                             {language === 'en' ? 'Starter Pro Bundle (€349)' : 'Starter Pro Пакет (€349)'}

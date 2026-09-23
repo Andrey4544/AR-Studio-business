@@ -215,10 +215,11 @@ export default function Portfolio({ onQuoteClick }: PortfolioProps) {
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={() => trackAnalyticsEvent('click_portfolio_live', { project: project.id })}
-                      className="flex items-center gap-1.5 text-xs text-white font-semibold bg-zinc-900 border border-white/10 hover:border-white/20 hover:bg-zinc-850 px-5 py-3 rounded-xl transition-all duration-300 group cursor-pointer"
+                      className="group relative flex min-h-[56px] flex-1 items-center justify-center gap-3 overflow-hidden rounded-2xl border border-blue-300/50 bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-400 px-5 py-3 text-sm font-black text-white shadow-[0_10px_35px_rgba(37,99,235,0.28)] transition-all duration-300 hover:-translate-y-1 hover:border-cyan-200 hover:shadow-[0_14px_45px_rgba(34,211,238,0.34)] sm:flex-none sm:px-7"
                     >
-                      <span>{language === 'en' ? 'Live Website' : 'Уебсайт на живо'}</span>
-                      <ArrowUpRight className="w-4 h-4 text-zinc-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                      <span className="absolute inset-y-0 left-0 w-1/3 -translate-x-full skew-x-[-18deg] bg-white/25 transition-transform duration-700 group-hover:translate-x-[360%]" />
+                      <span className="relative flex items-center gap-2"><Globe className="h-4 w-4" />{language === 'en' ? 'Visit Live Website' : 'Посети истинския сайт'}</span>
+                      <ArrowUpRight className="relative h-5 w-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
                     </a>
                   )}
                   <button
@@ -266,7 +267,12 @@ export default function Portfolio({ onQuoteClick }: PortfolioProps) {
                   
                   {/* Image/video Carousel */}
                   <div className="relative mt-3">
-                    <ImageCarousel images={carouselImages} interval={6000} />
+                    <ImageCarousel
+                      images={carouselImages}
+                      interval={6000}
+                      imageHref={project.url}
+                      imageLinkLabel={language === 'en' ? 'Click to visit live website' : 'Кликни, за да посетиш истинския сайт'}
+                    />
                   </div>
                 </div>
               </motion.div>

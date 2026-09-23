@@ -18,12 +18,16 @@ interface ImageCarouselProps {
   /** Auto-advance interval in milliseconds. Defaults to 6000. */
   interval?: number;
   className?: string;
+  imageHref?: string;
+  imageLinkLabel?: string;
 }
 
 export default function ImageCarousel({
   images,
   interval = 6000,
   className = '',
+  imageHref,
+  imageLinkLabel = 'Visit website',
 }: ImageCarouselProps) {
   const [current, setCurrent] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
@@ -72,6 +76,18 @@ export default function ImageCarousel({
                 <source src={img.src} type="video/mp4" />
                 {img.alt}
               </video>
+            ) : imageHref ? (
+              <a href={imageHref} target="_blank" rel="noopener noreferrer" aria-label={`${imageLinkLabel}: ${img.alt}`} className="relative block cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-inset">
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  className="w-full h-auto object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                  referrerPolicy="no-referrer"
+                />
+                <span className="pointer-events-none absolute inset-x-4 bottom-4 flex items-center justify-center rounded-xl bg-black/70 px-4 py-3 text-xs font-semibold text-white opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100 sm:text-sm">
+                  {imageLinkLabel}
+                </span>
+              </a>
             ) : (
               <img
                 src={img.src}

@@ -5,15 +5,16 @@
 
 import React from 'react';
 import Hero from '../components/Hero';
-import TrustedMarquee from '../components/TrustedMarquee';
-import Features from '../components/Features';
-import FAQ from '../components/FAQ';
-import HowWeWork from '../components/HowWeWork';
-import WhatYouGet from '../components/WhatYouGet';
 import PageTransition from '../components/PageTransition';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useLanguage } from '../context/LanguageContext';
 import { localizedPath } from '../lib/localizedRoutes';
+
+const TrustedMarquee = React.lazy(() => import('../components/TrustedMarquee'));
+const Features = React.lazy(() => import('../components/Features'));
+const FAQ = React.lazy(() => import('../components/FAQ'));
+const HowWeWork = React.lazy(() => import('../components/HowWeWork'));
+const WhatYouGet = React.lazy(() => import('../components/WhatYouGet'));
 
 interface HomePageProps {
   openQuoteModal: (planName?: string) => void;
@@ -44,11 +45,13 @@ export default function HomePage({ openQuoteModal }: HomePageProps) {
           onWorkClick={() => window.location.href = localizedPath('/portfolio', language)}
           onAboutClick={() => window.location.href = localizedPath('/za-nas', language)}
         />
-        <HowWeWork />
-        <WhatYouGet onQuoteClick={() => openQuoteModal('Project Brief Conversation')} />
-        <TrustedMarquee />
-        <Features />
-        <FAQ />
+        <React.Suspense fallback={null}>
+          <HowWeWork />
+          <WhatYouGet onQuoteClick={() => openQuoteModal('Project Brief Conversation')} />
+          <TrustedMarquee />
+          <Features />
+          <FAQ />
+        </React.Suspense>
       </div>
     </PageTransition>
   );

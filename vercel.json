@@ -17,92 +17,48 @@
     {
       "source": "/assets/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=86400, stale-while-revalidate=604800" }
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" },
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" }
       ]
     },
     {
       "source": "/favicon.png",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=86400, stale-while-revalidate=604800" }
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
       ]
     }
   ],
   "rewrites": [
-    {
-      "source": "/api/contact",
-      "destination": "/api/contact"
-    },
-    {
-      "source": "/api/reviews",
-      "destination": "/api/reviews"
-    },
-    {
-      "source": "/api/approve",
-      "destination": "/api/approve"
-    },
-    {
-      "source": "/api/quote",
-      "destination": "/api/quote"
-    },
-    {
-      "source": "/za-nas",
-      "destination": "/za-nas/index.html"
-    },
-    {
-      "source": "/uslugi",
-      "destination": "/uslugi/index.html"
-    },
-    {
-      "source": "/web-design-plovdiv",
-      "destination": "/web-design-plovdiv/index.html"
-    },
-    {
-      "source": "/portfolio",
-      "destination": "/portfolio/index.html"
-    },
-    {
-      "source": "/zashto-nas",
-      "destination": "/zashto-nas/index.html"
-    },
-    {
-      "source": "/otzivy",
-      "destination": "/otzivy/index.html"
-    },
-    {
-      "source": "/kontakti",
-      "destination": "/kontakti/index.html"
-    },
-    {
-      "source": "/chzv",
-      "destination": "/chzv/index.html"
-    },
-    {
-      "source": "/blog",
-      "destination": "/blog/index.html"
-    },
-    {
-      "source": "/blog/:slug",
-      "destination": "/blog/:slug/index.html"
-    },
-    {
-      "source": "/uslugi/:slug",
-      "destination": "/uslugi/:slug/index.html"
-    },
-    {
-      "source": "/en",
-      "destination": "/en/index.html"
-    },
-    {
-      "source": "/en/:page",
-      "destination": "/en/:page/index.html"
-    },
-    {
-      "source": "/en/blog/:slug",
-      "destination": "/en/blog/:slug/index.html"
-    },
-    {
-      "source": "/en/services/:slug",
-      "destination": "/en/services/:slug/index.html"
-    }
+    { "source": "/api/contact", "destination": "/api/contact" },
+    { "source": "/api/reviews", "destination": "/api/reviews" },
+    { "source": "/api/approve", "destination": "/api/approve" },
+    { "source": "/api/quote", "destination": "/api/quote" },
+    { "source": "/za-nas", "destination": "/za-nas/index.html" },
+    { "source": "/uslugi", "destination": "/uslugi/index.html" },
+    { "source": "/web-design-plovdiv", "destination": "/web-design-plovdiv/index.html" },
+    { "source": "/portfolio", "destination": "/portfolio/index.html" },
+    { "source": "/zashto-nas", "destination": "/zashto-nas/index.html" },
+    { "source": "/otzivy", "destination": "/otzivy/index.html" },
+    { "source": "/kontakti", "destination": "/kontakti/index.html" },
+    { "source": "/brief", "destination": "/brief/index.html" },
+    { "source": "/chzv", "destination": "/chzv/index.html" },
+    { "source": "/blog", "destination": "/blog/index.html" },
+    { "source": "/blog/:slug", "destination": "/blog/:slug/index.html" },
+    { "source": "/uslugi/:slug", "destination": "/uslugi/:slug/index.html" },
+    { "source": "/en", "destination": "/en/index.html" },
+    { "source": "/en/:page", "destination": "/en/:page/index.html" },
+    { "source": "/en/blog/:slug", "destination": "/en/blog/:slug/index.html" },
+    { "source": "/en/services/:slug", "destination": "/en/services/:slug/index.html" }
   ]
 }

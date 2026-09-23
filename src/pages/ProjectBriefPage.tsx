@@ -5,6 +5,7 @@ import PageTransition from '../components/PageTransition';
 import { useLanguage } from '../context/LanguageContext';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { trackAnalyticsEvent } from '../lib/analytics';
+import { localizedPath } from '../lib/localizedRoutes';
 
 const goals = [
   { value: 'presentation', bg: 'По-добро представяне на бизнеса', en: 'A clearer presentation of the business' },
@@ -100,7 +101,7 @@ export default function ProjectBriefPage() {
                 ? 'Thank you for the clear information. Andrey or Rumen will review it and respond directly within the working day.'
                 : 'Благодарим за ясната информация. Андрей или Румен ще я прегледат и ще Ви отговорят директно в рамките на работния ден.'}
             </p>
-            <Link to="/" className="mt-8 inline-flex items-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-semibold text-zinc-950 transition-transform duration-150 hover:bg-zinc-200 active:scale-[0.97]">
+            <Link to={localizedPath('/', language)} className="mt-8 inline-flex items-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-semibold text-zinc-950 transition-transform duration-150 hover:bg-zinc-200 active:scale-[0.97]">
               {language === 'en' ? 'Back to the website' : 'Назад към сайта'}
             </Link>
           </div>
@@ -113,7 +114,7 @@ export default function ProjectBriefPage() {
     <PageTransition>
       <main className="min-h-screen bg-luxury-black px-4 pb-24 pt-32 sm:px-6">
         <div className="mx-auto max-w-4xl">
-          <Link to="/kontakti" className="inline-flex items-center gap-2 text-sm font-medium text-blue-300 transition-colors hover:text-blue-200">
+          <Link to={localizedPath('/kontakti', language)} className="inline-flex items-center gap-2 text-sm font-medium text-blue-300 transition-colors hover:text-blue-200">
             <ArrowLeft className="h-4 w-4" />
             {language === 'en' ? 'Back to contact' : 'Назад към контактите'}
           </Link>

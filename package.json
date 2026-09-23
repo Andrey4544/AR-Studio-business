@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "tsx server.ts",
     "build": "vite build && node scripts/build-server.mjs && node scripts/prerender-seo.mjs",
+    "verify:seo": "node scripts/verify-seo.mjs",
     "start": "node dist/server.cjs",
     "preview": "vite preview",
     "clean": "rm -rf dist server.js submissions_backup.json",

@@ -4,6 +4,7 @@ import { ArrowRight, Check, MessageCircle, Sparkles } from 'lucide-react';
 import PageTransition from '../components/PageTransition';
 import { useLanguage } from '../context/LanguageContext';
 import { DEFAULT_IMAGE, SITE_URL, usePageMeta } from '../hooks/usePageMeta';
+import { localizedPath } from '../lib/localizedRoutes';
 
 interface ServiceLandingPageProps {
   serviceKey: keyof typeof servicePages;
@@ -306,7 +307,7 @@ export default function ServiceLandingPage({ serviceKey, openQuoteModal }: Servi
             <div className="p-8 rounded-2xl bg-zinc-950/70 border border-white/10 self-start"><MessageCircle className="w-7 h-7 text-blue-400 mb-5" /><h2 className="text-2xl text-white font-bold mb-3">{language === 'en' ? 'Do you have a specific business in mind?' : 'Имаш конкретен бизнес?'}</h2><p className="text-zinc-400 leading-relaxed mb-6">{language === 'en' ? 'Send a short note about the business, goal, and timing. We will return with a relevant direction and next step rather than a generic template proposal.' : 'Изпрати ни кратка информация за бизнеса, целта и срока. Ще върнем подходяща посока и следваща стъпка, без да започваме с обща шаблонна оферта.'}</p><button onClick={() => openQuoteModal(page.title)} className="w-full px-5 py-3 bg-white text-black rounded-xl font-semibold hover:bg-zinc-200 transition-colors">{language === 'en' ? 'Start a conversation' : 'Започни разговор'}</button></div>
           </section>
 
-          <nav aria-label="Свързани страници" className="border-t border-white/10 pt-8 flex flex-wrap gap-3">{page.related.map((item) => <Link key={item.href} to={language === 'en' ? item.href.replace(/^\/(?!en)/, '/en/') : item.href} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900 text-zinc-300 hover:text-white hover:bg-blue-600/20 border border-white/5 transition-colors">{item.label}<ArrowRight className="w-3.5 h-3.5" /></Link>)}</nav>
+          <nav aria-label="Свързани страници" className="border-t border-white/10 pt-8 flex flex-wrap gap-3">{page.related.map((item) => <Link key={item.href} to={localizedPath(item.href, language)} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900 text-zinc-300 hover:text-white hover:bg-blue-600/20 border border-white/5 transition-colors">{item.label}<ArrowRight className="w-3.5 h-3.5" /></Link>)}</nav>
         </div>
       </div>
     </PageTransition>

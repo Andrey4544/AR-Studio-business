@@ -430,7 +430,7 @@ const sitemapEntries = Object.entries(routes).map(([route, page]) => {
   const alternates = bgRoute && enRoute
     ? `\n    <xhtml:link rel="alternate" hreflang="bg" href="${absoluteUrl(bgRoute)}" />\n    <xhtml:link rel="alternate" hreflang="en" href="${absoluteUrl(enRoute)}" />`
     : '';
-  return `  <url>\n    <loc>${absoluteUrl(route)}</loc>${alternates}\n    <lastmod>2026-08-14</lastmod>\n  </url>`;
+  return `  <url>\n    <loc>${absoluteUrl(route)}</loc>${alternates}\n  </url>`;
 }).join('\n');
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${sitemapEntries}\n</urlset>\n`;

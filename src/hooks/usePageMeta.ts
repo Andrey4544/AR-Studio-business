@@ -10,6 +10,7 @@ interface PageMetaProps {
   ogType?: 'website' | 'article';
   noIndex?: boolean;
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+  includeAlternates?: boolean;
 }
 
 const siteName = 'AR Studio';
@@ -68,6 +69,7 @@ export function usePageMeta({
   ogType = 'website',
   noIndex = false,
   jsonLd,
+  includeAlternates = true,
 }: PageMetaProps) {
   useEffect(() => {
     const currentPath = window.location.pathname.length > 1
@@ -99,8 +101,12 @@ export function usePageMeta({
       document.head.appendChild(canonicalLink);
     }
     canonicalLink.setAttribute('href', resolvedCanonical);
-    setLocaleLink('bg', bgUrl);
-    setLocaleLink('en', enUrl);
+    if (includeAlternates) {
+      setLocaleLink('bg', bgUrl);
+      setLocaleLink('en', enUrl);
+    } else {
+      document.querySelectorAll('link[data-ar-studio-hreflang]').forEach((element) => element.remove());
+    }
 
     setMeta('property', 'og:type', ogType);
     setMeta('property', 'og:title', resolvedTitle);
@@ -132,5 +138,5 @@ export function usePageMeta({
         document.getElementById(schemaId)?.remove();
       }
     };
-  }, [title, description, keywords, ogImage, canonical, ogType, noIndex, jsonLd]);
+  }, [title, description, keywords, ogImage, canonical, ogType, noIndex, jsonLd, includeAlternates]);
 }

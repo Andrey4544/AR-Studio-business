@@ -52,6 +52,8 @@
     { "source": "/otzivy", "destination": "/otzivy/index.html" },
     { "source": "/kontakti", "destination": "/kontakti/index.html" },
     { "source": "/brief", "destination": "/brief/index.html" },
+    { "source": "/resheniya", "destination": "/resheniya/index.html" },
+    { "source": "/resheniya/:slug", "destination": "/resheniya/:slug/index.html" },
     { "source": "/chzv", "destination": "/chzv/index.html" },
     { "source": "/blog", "destination": "/blog/index.html" },
     { "source": "/blog/:slug", "destination": "/blog/:slug/index.html" },

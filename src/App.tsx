@@ -25,6 +25,8 @@ const BlogPostPage = React.lazy(() => import('./pages/BlogPostPage'));
 const WebDesignPlovdivPage = React.lazy(() => import('./pages/WebDesignPlovdivPage'));
 const ServiceLandingPage = React.lazy(() => import('./pages/ServiceLandingPage'));
 const ProjectBriefPage = React.lazy(() => import('./pages/ProjectBriefPage'));
+const SeoLandingPage = React.lazy(() => import('./pages/SeoLandingPage'));
+const SeoSolutionsIndex = React.lazy(() => import('./pages/SeoLandingPage').then((module) => ({ default: module.SeoSolutionsIndex })));
 
 function BrandedLoadingPreview() {
   return (
@@ -132,6 +134,8 @@ export default function App() {
             <Route path="/otzivy" element={<TestimonialsPage />} />
             <Route path="/kontakti" element={<ContactPage selectedPlan={selectedPlanFromQuote} />} />
             <Route path="/brief" element={<ProjectBriefPage />} />
+            <Route path="/resheniya" element={<SeoSolutionsIndex />} />
+            <Route path="/resheniya/:slug" element={<SeoLandingPage />} />
             <Route path="/chzv" element={<FAQPage />} />
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/blog/:slug" element={<BlogPostPage />} />

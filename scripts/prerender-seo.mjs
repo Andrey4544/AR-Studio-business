@@ -3,6 +3,7 @@ import path from 'node:path';
 
 const DIST = path.resolve('dist');
 const SITE = 'https://www.ar-studio.site';
+const seoLandingPages = JSON.parse(fs.readFileSync(path.resolve('src/data/seoLandingPages.json'), 'utf8'));
 
 const navLinks = [
   ['Начало', '/'],
@@ -22,6 +23,7 @@ const serviceLinks = [
   ['/uslugi/sait-za-advokatska-kantora', 'Сайт за адвокатска кантора'],
   ['/uslugi/izrabotka-na-onlayn-magazin', 'Изработка на онлайн магазин'],
 ];
+const solutionLinks = [['/resheniya', 'Специализирани решения за бизнеси']];
 
 const routes = {
   '/': {
@@ -249,6 +251,27 @@ const routes = {
   },
 };
 
+for (const page of seoLandingPages) {
+  routes[`/resheniya/${page.slug}`] = {
+    title: page.title,
+    description: page.description,
+    h1: page.h1,
+    summary: page.intro,
+    h2: 'Какво включва решението',
+    bullets: page.outcomes,
+    schemaType: 'service',
+  };
+}
+routes['/resheniya'] = {
+  title: 'Специализирани решения за сайтове | AR Studio Пловдив',
+  description: 'Специализирани страници за сайтове на фирми, онлайн магазини, професионалисти и локални бизнеси в Пловдив и България.',
+  h1: 'Решения за различни видове бизнес',
+  summary: 'Изберете специализирана посока според бизнеса, аудиторията и целта на сайта. Всяка страница е отделна тема с практична структура, а не празен ключоводумен URL.',
+  h2: 'Специализирани направления',
+  bullets: seoLandingPages.map((page) => page.h1),
+  schemaType: 'webpage',
+};
+
 const englishRouteMap = {
   '/': '/en', '/za-nas': '/en/about', '/uslugi': '/en/services', '/web-design-plovdiv': '/en/web-design-plovdiv',
   '/uslugi/izrabotka-na-sait-plovdiv': '/en/services/website-development-plovdiv',
@@ -370,7 +393,7 @@ function staticBody(route, page) {
   const navItems = isEnglish ? [['Home', '/'], ['Services', '/uslugi'], ['Web Design in Plovdiv', '/web-design-plovdiv'], ['Portfolio', '/portfolio'], ['About', '/za-nas'], ['Blog', '/blog'], ['Contact', '/kontakti']] : navLinks;
   const nav = navItems.map(([label, href]) => `<a href="${localize(href)}">${escapeHtml(label)}</a>`).join('');
   const bullets = page.bullets.map((item) => `<li>${escapeHtml(item)}</li>`).join('');
-  const relatedServices = serviceLinks.map(([href, label]) => `<a href="${localize(href)}">${escapeHtml(isEnglish ? 'Specialised service' : label)}</a>`).join(' · ');
+  const relatedServices = [...serviceLinks, ...solutionLinks].map(([href, label]) => `<a href="${localize(href)}">${escapeHtml(isEnglish ? 'Specialised service' : label)}</a>`).join(' · ');
   const home = localize('/');
   const contact = localize('/kontakti');
   const portfolio = localize('/portfolio');

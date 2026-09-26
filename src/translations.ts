@@ -673,6 +673,17 @@ export const dynamicTranslations = {
     ],
     featuredProjects: [
       {
+        id: 'kalimera-aegina',
+        title: 'Kalimera Aegina',
+        category: 'Hotel & Studios Website',
+        url: 'https://kalimera-aegina.vercel.app/',
+        imageUrl: 'kalimera_aegina_mockup',
+        highlights: ['Accommodation showcase - Rooms and studios presented for different guests', 'Clear service path - Easy orientation and direct contact', 'Mobile-first experience - Designed for browsing on a phone', 'Practical structure - Essential information in one place'],
+        description: 'A hospitality website for Kalimera Aegina, presenting rooms, studios, amenities, location, and direct booking information.',
+        businessProblem: 'Guests can compare rooms, understand the location, and plan their stay before booking.',
+        tags: ['Hospitality', 'Hotel', 'Travel'],
+      },
+      {
         id: 'dimstan-hydro',
         title: 'DimStan Hydro Service',
         category: 'Borehole & Water Well Services Website',
@@ -833,17 +844,6 @@ export const dynamicTranslations = {
         description: 'An informative website for Mini Move, a sports and education centre for children aged 6 to 10 in Stara Zagora.',
         businessProblem: 'Parents can quickly understand the daily experience, what is included, and how to ask about registration.',
         tags: ['Education', 'Children', 'Sports'],
-      },
-      {
-        id: 'kalimera-aegina',
-        title: 'Kalimera Aegina',
-        category: 'Hotel & Studios Website',
-        url: 'https://kalimera-aegina.vercel.app/',
-        imageUrl: 'kalimera_aegina_mockup',
-        highlights: ['Accommodation showcase - Rooms and studios presented for different guests', 'Clear service path - Easy orientation and direct contact', 'Mobile-first experience - Designed for browsing on a phone', 'Practical structure - Essential information in one place'],
-        description: 'A hospitality website for Kalimera Aegina, presenting rooms, studios, amenities, location, and direct booking information.',
-        businessProblem: 'Guests can compare rooms, understand the location, and plan their stay before booking.',
-        tags: ['Hospitality', 'Hotel', 'Travel'],
       },
       {
         id: 'edelweiss',
@@ -1347,6 +1347,17 @@ export const dynamicTranslations = {
     ],
     featuredProjects: [
       {
+        id: 'kalimera-aegina',
+        title: 'Kalimera Aegina',
+        category: 'Сайт за хотел и студиа',
+        url: 'https://kalimera-aegina.vercel.app/',
+        imageUrl: 'kalimera_aegina_mockup',
+        highlights: ['Представяне на настаняването - Стаи и студиа за различни гости', 'Прозрачни услуги - Лесно ориентиране и директен контакт', 'Мобилно преживяване - Удобно разглеждане от телефон', 'Практична структура - Важната информация е на едно място'],
+        description: 'Сайт за Kalimera Aegina, който представя стаите, студиата, удобствата, локацията и директната резервация.',
+        businessProblem: 'Гостите сравняват стаите, разбират локацията и планират престоя си преди резервация.',
+        tags: ['Гостоприемство', 'Хотел', 'Пътуване'],
+      },
+      {
         id: 'dimstan-hydro',
         title: 'ДимСтан - Хидро Сървис',
         category: 'Сайт за сондажи и хидро услуги',
@@ -1507,17 +1518,6 @@ export const dynamicTranslations = {
         description: 'Информативен сайт за Mini Move, спортно-образователна занималня за деца от 6 до 10 години в Стара Загора.',
         businessProblem: 'Родителите бързо разбират как минава денят, какво е включено и как да попитат за записване.',
         tags: ['Образование', 'Деца', 'Спорт'],
-      },
-      {
-        id: 'kalimera-aegina',
-        title: 'Kalimera Aegina',
-        category: 'Сайт за хотел и студиа',
-        url: 'https://kalimera-aegina.vercel.app/',
-        imageUrl: 'kalimera_aegina_mockup',
-        highlights: ['Представяне на настаняването - Стаи и студиа за различни гости', 'Прозрачни услуги - Лесно ориентиране и директен контакт', 'Мобилно преживяване - Удобно разглеждане от телефон', 'Практична структура - Важната информация е на едно място'],
-        description: 'Сайт за Kalimera Aegina, който представя стаите, студиата, удобствата, локацията и директната резервация.',
-        businessProblem: 'Гостите сравняват стаите, разбират локацията и планират престоя си преди резервация.',
-        tags: ['Гостоприемство', 'Хотел', 'Пътуване'],
       },
       {
         id: 'edelweiss',

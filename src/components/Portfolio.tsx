@@ -72,39 +72,55 @@ const dimstanHydroCarouselImages = [
   { src: '/assets/dimstan-hydro-services-wide.webp', alt: 'Услуги и ценоразпис на ДимСтан Хидро Сървис' },
 ];
 
-// Carousel images for newly added client projects
+// Real project photography for the newly added client projects
 const briliantCleaningCarouselImages = [
   { src: '/assets/briliant-cleaning-hero.jpg', alt: 'Briliant Cleaning professional cleaning services website' },
   { src: '/assets/briliant-cleaning-home.jpg', alt: 'Briliant Cleaning residential cleaning project' },
-  { src: '/assets/briliant-cleaning-interior.jpg', alt: 'Briliant Cleaning interior cleaning project' },
+  { src: '/assets/briliant-cleaning-interior.jpg', alt: 'Briliant Cleaning luxury interior cleaning project' },
+  { src: '/assets/briliant-cleaning-services.jpg', alt: 'Briliant Cleaning home and business services' },
 ];
 const fortibusEngineeringCarouselImages = [
   { src: '/assets/fortibus-hero.jpg', alt: 'Fortibus Engineering CNC machined part' },
   { src: '/assets/fortibus-building.png', alt: 'Fortibus Engineering industrial facility' },
+  { src: '/assets/fortibus-facade.png', alt: 'Fortibus Engineering facility exterior' },
   { src: '/assets/fortibus-workshop.jpg', alt: 'Fortibus Engineering workshop' },
 ];
 const elitaweddingsCarouselImages = [
   { src: '/assets/elitaweddings-hero.jpg', alt: 'Elitaweddings wedding agency website' },
   { src: '/assets/elitaweddings-decor.jpg', alt: 'Elitaweddings wedding decoration' },
+  { src: '/assets/elitaweddings-decor-2.jpg', alt: 'Elitaweddings wedding decor detail' },
   { src: '/assets/elitaweddings-moment.jpg', alt: 'Elitaweddings wedding moment' },
+  { src: '/assets/elitaweddings-wedding.jpg', alt: 'Elitaweddings outdoor wedding ceremony' },
 ];
 const miniMoveCarouselImages = [
   { src: '/assets/mini-move-hero.jpg', alt: 'Mini Move sports and education centre website' },
   { src: '/assets/mini-move-gallery.jpg', alt: 'Mini Move children activity gallery' },
   { src: '/assets/mini-move-activity.jpg', alt: 'Mini Move educational activity' },
+  { src: '/assets/mini-move-fun.jpg', alt: 'Mini Move children fun activity' },
+  { src: '/assets/mini-move-sports.jpg', alt: 'Mini Move sports activity' },
+  { src: '/assets/mini-move-gymnastics.jpg', alt: 'Mini Move morning gymnastics activity' },
+  { src: '/assets/mini-move-base.jpg', alt: 'Mini Move activity space' },
 ];
 const kalimeraAeginaCarouselImages = [
-  { src: '/assets/kalimera-aegina-logo.png', alt: 'Kalimera Aegina hotel and studios website' },
+  { src: '/assets/kalimera-aegina/room-1.jpg', alt: 'Kalimera Aegina real room photo' },
+  { src: '/assets/kalimera-aegina/room-1-veranda.jpg', alt: 'Kalimera Aegina real veranda photo' },
+  { src: '/assets/kalimera-aegina/room-2.jpg', alt: 'Kalimera Aegina real accommodation photo' },
+  { src: '/assets/kalimera-aegina/room-3.jpg', alt: 'Kalimera Aegina real room detail' },
+  { src: '/assets/kalimera-aegina/room-4.jpg', alt: 'Kalimera Aegina real studio photo' },
 ];
 const edelweissCarouselImages = [
   { src: '/assets/edelweiss-hero.jpg', alt: 'Edelweiss boutique guest house website' },
   { src: '/assets/edelweiss-pool.jpg', alt: 'Edelweiss guest house pool and garden' },
   { src: '/assets/edelweiss-restaurant.jpg', alt: 'Edelweiss restaurant and tavern' },
+  { src: '/assets/edelweiss-room.jpg', alt: 'Edelweiss guest room' },
+  { src: '/assets/edelweiss-suite.jpg', alt: 'Edelweiss guest suite' },
 ];
 const stockyCarouselImages = [
   { src: '/assets/stocky-product.jpg', alt: 'Stocky phone accessories online store' },
   { src: '/assets/stocky-lifestyle.jpg', alt: 'Stocky phone accessory product' },
   { src: '/assets/stocky-glass.jpg', alt: 'Stocky tempered glass phone protector' },
+  { src: '/assets/stocky-armor.jpg', alt: 'Stocky protective phone case' },
+  { src: '/assets/stocky-camera.jpg', alt: 'Stocky camera lens protector' },
 ];
 
 // Evidence carousel for Enframe.bg speed optimisation

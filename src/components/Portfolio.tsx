@@ -72,6 +72,41 @@ const dimstanHydroCarouselImages = [
   { src: '/assets/dimstan-hydro-services-wide.webp', alt: 'Услуги и ценоразпис на ДимСтан Хидро Сървис' },
 ];
 
+// Carousel images for newly added client projects
+const briliantCleaningCarouselImages = [
+  { src: '/assets/briliant-cleaning-hero.jpg', alt: 'Briliant Cleaning professional cleaning services website' },
+  { src: '/assets/briliant-cleaning-home.jpg', alt: 'Briliant Cleaning residential cleaning project' },
+  { src: '/assets/briliant-cleaning-interior.jpg', alt: 'Briliant Cleaning interior cleaning project' },
+];
+const fortibusEngineeringCarouselImages = [
+  { src: '/assets/fortibus-hero.jpg', alt: 'Fortibus Engineering CNC machined part' },
+  { src: '/assets/fortibus-building.png', alt: 'Fortibus Engineering industrial facility' },
+  { src: '/assets/fortibus-workshop.jpg', alt: 'Fortibus Engineering workshop' },
+];
+const elitaweddingsCarouselImages = [
+  { src: '/assets/elitaweddings-hero.jpg', alt: 'Elitaweddings wedding agency website' },
+  { src: '/assets/elitaweddings-decor.jpg', alt: 'Elitaweddings wedding decoration' },
+  { src: '/assets/elitaweddings-moment.jpg', alt: 'Elitaweddings wedding moment' },
+];
+const miniMoveCarouselImages = [
+  { src: '/assets/mini-move-hero.jpg', alt: 'Mini Move sports and education centre website' },
+  { src: '/assets/mini-move-gallery.jpg', alt: 'Mini Move children activity gallery' },
+  { src: '/assets/mini-move-activity.jpg', alt: 'Mini Move educational activity' },
+];
+const kalimeraAeginaCarouselImages = [
+  { src: '/assets/kalimera-aegina-logo.png', alt: 'Kalimera Aegina hotel and studios website' },
+];
+const edelweissCarouselImages = [
+  { src: '/assets/edelweiss-hero.jpg', alt: 'Edelweiss boutique guest house website' },
+  { src: '/assets/edelweiss-pool.jpg', alt: 'Edelweiss guest house pool and garden' },
+  { src: '/assets/edelweiss-restaurant.jpg', alt: 'Edelweiss restaurant and tavern' },
+];
+const stockyCarouselImages = [
+  { src: '/assets/stocky-product.jpg', alt: 'Stocky phone accessories online store' },
+  { src: '/assets/stocky-lifestyle.jpg', alt: 'Stocky phone accessory product' },
+  { src: '/assets/stocky-glass.jpg', alt: 'Stocky tempered glass phone protector' },
+];
+
 // Evidence carousel for Enframe.bg speed optimisation
 const enframeCarouselSlides = {
   en: [
@@ -144,6 +179,13 @@ export default function Portfolio({ onQuoteClick }: PortfolioProps) {
           if (project.id === 'cbl-fight-store') carouselImages = cblCarouselImages;
           if (project.id === 'dimstan-hydro') carouselImages = dimstanHydroCarouselImages;
           if (project.id === 'enframe-speed-optimization') carouselImages = language === 'en' ? enframeCarouselSlides.en : enframeCarouselSlides.bg;
+          if (project.id === 'briliant-cleaning') carouselImages = briliantCleaningCarouselImages;
+          if (project.id === 'fortibus-engineering') carouselImages = fortibusEngineeringCarouselImages;
+          if (project.id === 'elitaweddings') carouselImages = elitaweddingsCarouselImages;
+          if (project.id === 'mini-move') carouselImages = miniMoveCarouselImages;
+          if (project.id === 'kalimera-aegina') carouselImages = kalimeraAeginaCarouselImages;
+          if (project.id === 'edelweiss') carouselImages = edelweissCarouselImages;
+          if (project.id === 'stocky') carouselImages = stockyCarouselImages;
 
           return (
             <div key={project.id} className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-24">

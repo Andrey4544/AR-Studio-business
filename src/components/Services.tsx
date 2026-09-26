@@ -50,7 +50,7 @@ export default function Services({ onQuoteClick }: ServicesProps) {
               {language === 'en' ? 'TRANSPARENT ESTIMATES' : 'ПРОЗРАЧНИ ЦЕНИ'}
             </span>
           </div>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 tracking-tight">
+          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 tracking-tight">
             {language === 'en' ? (
               <>
                 Plans Suited For <br />
@@ -66,7 +66,7 @@ export default function Services({ onQuoteClick }: ServicesProps) {
                 </span>
               </>
             )}
-          </h2>
+          </h1>
           <p className="text-zinc-300 text-sm sm:text-base leading-relaxed mb-8">
             {language === 'en'
               ? 'Choose a clear scope for your business website, landing page, online store or local digital presence. Each plan starts with a defined deliverable and a practical next step.'

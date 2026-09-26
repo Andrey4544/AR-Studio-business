@@ -16,13 +16,13 @@ export default function Services({ onQuoteClick }: ServicesProps) {
   const [currency, setCurrency] = useState<'EUR' | 'BGN'>('EUR');
   const { pricingPlans, t, language } = useLanguage();
 
-  // Helper converter for Bulgarian Lev (1 EUR = 2.0 BGN for simplicity)
+  // The Bulgarian lev is pegged to the euro at the official fixed rate.
   const formatPrice = (priceStr: string, activeCurrency: 'EUR' | 'BGN') => {
     const rawVal = parseInt(priceStr.replace(/[^0-9]/g, ''), 10);
     if (!rawVal) return priceStr;
 
     if (activeCurrency === 'BGN') {
-      const bgnVal = Math.round(rawVal * 2.0);
+      const bgnVal = Math.round(rawVal * 1.95583);
       return `${bgnVal} лв`;
     }
     return priceStr;
@@ -67,7 +67,12 @@ export default function Services({ onQuoteClick }: ServicesProps) {
               </>
             )}
           </h2>
-          <p className="text-zinc-400 text-sm sm:text-base mb-8">
+          <p className="text-zinc-300 text-sm sm:text-base leading-relaxed mb-8">
+            {language === 'en'
+              ? 'Choose a clear scope for your business website, landing page, online store or local digital presence. Each plan starts with a defined deliverable and a practical next step.'
+              : 'Изберете ясен обхват за Вашия бизнес сайт, landing page, онлайн магазин или локално дигитално присъствие. Всеки план започва с конкретен резултат и практична следваща стъпка.'}
+          </p>
+          <p className="text-zinc-500 text-xs sm:text-sm mb-8">
             {t('servicesDesc')}
           </p>
 

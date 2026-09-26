@@ -19,10 +19,10 @@ export default function WebDesignPlovdivPage({ openQuoteModal }: WebDesignPlovdi
   usePageMeta({
     title: isEnglish
       ? 'Web Design in Plovdiv | Custom Websites for Bulgarian Businesses | AR Studio'
-      : 'Уеб дизайн в Пловдив | Изработка на сайтове за бизнеса | AR Studio',
+      : 'Уеб дизайн и изработка на сайт в Пловдив | AR Studio',
     description: isEnglish
       ? 'AR Studio creates fast, bespoke websites for businesses in Plovdiv and Bulgaria. Explore web design, online store and SEO-ready website solutions, then request a free consultation.'
-      : 'AR Studio създава бързи и персонализирани уебсайтове за бизнеси в Пловдив и цяла България. Разгледайте уеб дизайн, онлайн магазини и SEO-ready решения и заявете безплатна консултация.',
+      : 'AR Studio изработва бизнес сайтове в Пловдив и цяла България с персонализиран дизайн, мобилна версия, ясни CTA и техническа SEO основа. Заявете безплатна консултация.',
     keywords: isEnglish
       ? 'web design Plovdiv, website development Plovdiv, web design Bulgaria, custom website Bulgaria, AR Studio'
       : 'уеб дизайн Пловдив, изработка на сайтове Пловдив, уебсайт Пловдив, уеб дизайн България, онлайн магазин Пловдив, AR Studio',
@@ -132,7 +132,7 @@ export default function WebDesignPlovdivPage({ openQuoteModal }: WebDesignPlovdi
               {isEnglish ? 'Plovdiv, Bulgaria • Web Design Studio' : 'Пловдив, България • Студио за уеб дизайн'}
             </div>
             <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-tight max-w-4xl">
-              {isEnglish ? 'Web Design in Plovdiv Built for Real Business Growth' : 'Уеб дизайн в Пловдив, създаден за реален растеж на бизнеса'}
+              {isEnglish ? 'Web Design in Plovdiv Built for Real Business Growth' : 'Уеб дизайн и изработка на сайт в Пловдив'}
             </h1>
             <p className="mt-7 max-w-3xl text-base sm:text-xl leading-relaxed text-zinc-300">
               {isEnglish

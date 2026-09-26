@@ -7,6 +7,7 @@ import React from 'react';
 import Services from '../components/Services';
 import PageTransition from '../components/PageTransition';
 import { usePageMeta } from '../hooks/usePageMeta';
+import { useStructuredData } from '../hooks/useStructuredData';
 
 interface ServicesPageProps {
   openQuoteModal: (planName?: string) => void;
@@ -14,10 +15,28 @@ interface ServicesPageProps {
 
 export default function ServicesPage({ openQuoteModal }: ServicesPageProps) {
   usePageMeta({
-    title: 'Уеб дизайн, сайтове и онлайн магазини | Пловдив | AR Studio',
-    description: 'Разгледайте услугите на AR Studio за уеб дизайн, бизнес сайтове, лендинг страници и онлайн магазини в Пловдив и цяла България. Прозрачни обхвати и ясни следващи стъпки.',
-    keywords: 'уеб дизайн услуги Пловдив, изработка на сайтове, бизнес сайт, онлайн магазин, лендинг страница, SEO основа',
+    title: 'Изработка на сайт в Пловдив | Уеб дизайн и онлайн магазини | AR Studio',
+    description: 'Разгледайте ясни планове за изработка на сайт в Пловдив: бизнес сайт, landing page, онлайн магазин, дигитално меню и поддръжка с мобилен дизайн и SEO основа.',
+    keywords: 'изработка на сайт Пловдив, изработка на уеб сайт Пловдив, уеб дизайн Пловдив, бизнес сайт, онлайн магазин, landing page',
     canonical: 'https://www.ar-studio.site/uslugi'
+  });
+  useStructuredData('services-page', {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    '@id': 'https://www.ar-studio.site/uslugi#services',
+    name: 'Услуги за изработка на сайт в Пловдив',
+    itemListElement: [
+      ['Изработка на бизнес сайт', '/uslugi/izrabotka-na-sait-plovdiv'],
+      ['Сайт за ресторант', '/uslugi/sait-za-restorant-plovdiv'],
+      ['Сайт за хотел', '/uslugi/sait-za-hotel-plovdiv'],
+      ['Сайт за козметичен салон', '/uslugi/sait-za-kozmetichen-salon-plovdiv'],
+      ['Изработка на онлайн магазин', '/uslugi/izrabotka-na-onlayn-magazin'],
+    ].map(([name, path], position) => ({
+      '@type': 'ListItem',
+      position: position + 1,
+      name,
+      url: `https://www.ar-studio.site${path}`,
+    })),
   });
 
   return (

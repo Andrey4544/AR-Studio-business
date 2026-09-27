@@ -129,6 +129,23 @@ export default function BlogPostPage() {
               />
             </div>
 
+            <nav aria-label={language === 'en' ? 'Related AR Studio resources' : 'Свързани ресурси на AR Studio'} className="mb-12 border-y border-white/10 py-6">
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.16em] text-blue-300">
+                {language === 'en' ? 'Continue exploring' : 'Продължете към'}
+              </p>
+              <div className="flex flex-wrap gap-x-5 gap-y-2 text-sm">
+                <Link to={localizedPath('/uslugi', language)} className="text-zinc-300 transition-colors hover:text-blue-300">
+                  {language === 'en' ? 'Website services and pricing' : 'Услуги и цени за сайт'}
+                </Link>
+                <Link to={localizedPath('/web-design-plovdiv', language)} className="text-zinc-300 transition-colors hover:text-blue-300">
+                  {language === 'en' ? 'Web design in Plovdiv' : 'Уеб дизайн в Пловдив'}
+                </Link>
+                <Link to={localizedPath('/portfolio', language)} className="text-zinc-300 transition-colors hover:text-blue-300">
+                  {language === 'en' ? 'Real projects' : 'Реални проекти'}
+                </Link>
+              </div>
+            </nav>
+
             {/* CTA */}
             <div className="mt-12 p-8 bg-gradient-to-r from-blue-500/10 to-indigo-500/10 border border-blue-500/20 rounded-xl text-center">
               <h3 className="text-xl font-bold text-white mb-2">

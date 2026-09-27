@@ -9,6 +9,7 @@ import PageTransition from '../components/PageTransition';
 import { useLanguage } from '../context/LanguageContext';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { getBlogPostsList } from '../data/blogData';
+import { localizedPath } from '../lib/localizedRoutes';
 import { Calendar, ArrowRight } from 'lucide-react';
 
 const blogPosts = getBlogPostsList();
@@ -36,8 +37,8 @@ export default function BlogPage() {
           
           {/* Header */}
           <div className="mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              {language === 'en' ? 'Our Blog' : 'Нашия блог'}
+              <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              {language === 'en' ? 'Our Blog' : 'Нашият блог'}
             </h1>
             <p className="text-lg text-zinc-400">
               {language === 'en' 
@@ -90,6 +91,18 @@ export default function BlogPage() {
                 : 'Добавяме практични материали постепенно, като се фокусираме върху въпроси, важни за собствениците на български бизнеси.'}
             </p>
           </div>
+
+          <nav aria-label={language === 'en' ? 'Next steps from the blog' : 'Следващи стъпки от блога'} className="mt-8 flex flex-wrap justify-center gap-3 text-sm font-semibold">
+            <Link to={localizedPath('/uslugi', language)} className="rounded-full bg-blue-600 px-4 py-2.5 text-white transition-colors hover:bg-blue-500">
+              {language === 'en' ? 'Website services and pricing' : 'Услуги и цени за сайт'}
+            </Link>
+            <Link to={localizedPath('/web-design-plovdiv', language)} className="rounded-full border border-white/15 px-4 py-2.5 text-zinc-200 transition-colors hover:border-blue-400/50 hover:text-white">
+              {language === 'en' ? 'Web design in Plovdiv' : 'Уеб дизайн в Пловдив'}
+            </Link>
+            <Link to={localizedPath('/brief', language)} className="rounded-full border border-white/15 px-4 py-2.5 text-zinc-200 transition-colors hover:border-blue-400/50 hover:text-white">
+              {language === 'en' ? 'Send a project brief' : 'Изпратете кратък бриф'}
+            </Link>
+          </nav>
         </div>
       </div>
     </PageTransition>

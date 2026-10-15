@@ -90,3 +90,40 @@ body {
 .hover-pause:hover .animate-marquee {
   animation-play-state: paused;
 }
+
+.page-confetti-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.page-confetti-piece {
+  position: absolute;
+  border-radius: 1px;
+  opacity: 0;
+  transform: translate(-50%, 0) rotate(0deg) scale(0.25);
+  animation: page-confetti-pop 1050ms cubic-bezier(0.14, 0.7, 0.25, 1) both;
+}
+
+@keyframes page-confetti-pop {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -8px) rotate(0deg) scale(0.2);
+  }
+  14% {
+    opacity: 1;
+    transform: translate(-50%, 12px) rotate(0deg) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + var(--confetti-x)), var(--confetti-y)) rotate(var(--confetti-rotation)) scale(0.82);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-confetti-layer {
+    display: none;
+  }
+}

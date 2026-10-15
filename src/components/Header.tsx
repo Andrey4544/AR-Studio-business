@@ -119,7 +119,7 @@ export default function Header({ openQuoteModal }: HeaderProps) {
 
   return (
     <header
-      className={`fixed top-0 left-0 z-50 w-full transition-all duration-300 ${
+      className={`fixed top-[32px] left-0 z-50 w-full transition-all duration-300 ${
         isScrolled || isOpen
           ? 'bg-luxury-black/95 py-3 shadow-[0_12px_45px_rgba(0,0,0,0.32)] backdrop-blur-xl'
           : 'bg-transparent py-5'

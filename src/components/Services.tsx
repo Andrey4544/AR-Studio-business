@@ -7,6 +7,7 @@ import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { Sparkles, Check, ArrowUpRight, AlertCircle, Gift } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { PROMOTION_ENDS_AT } from '../lib/promotion';
 
 interface ServicesProps {
   onQuoteClick: (planName?: string) => void;
@@ -14,7 +15,7 @@ interface ServicesProps {
 
 export default function Services({ onQuoteClick }: ServicesProps) {
   const [currency, setCurrency] = useState<'EUR' | 'BGN'>('EUR');
-  const promoEndsAt = new Date('2026-10-22T15:56:36+03:00').getTime();
+  const promoEndsAt = PROMOTION_ENDS_AT;
   const [remainingMs, setRemainingMs] = useState(() => Math.max(0, promoEndsAt - Date.now()));
   const { pricingPlans, t, language } = useLanguage();
 

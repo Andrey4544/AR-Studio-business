@@ -1,16 +1,28 @@
 import { useEffect, useState, type CSSProperties } from 'react';
 import { useLocation } from 'react-router-dom';
 
-const confettiPieces = Array.from({ length: 32 }, (_, index) => ({
-  id: index,
-  x: `${(index - 15.5) * 3}vw`,
-  y: `${120 + ((index * 43) % 180)}px`,
-  rotation: `${(index * 137) % 720}deg`,
-  delay: `${(index % 8) * 30}ms`,
-  width: `${5 + (index % 4) * 2}px`,
-  height: `${8 + (index % 5) * 2}px`,
-  color: ['#ef4444', '#dc2626', '#f87171', '#fb7185', '#fca5a5', '#fbbf24'][index % 6],
-}));
+const confettiColors = ['#ff1744', '#e11d48', '#f43f5e', '#ef4444', '#fecdd3', '#fbbf24'];
+const confettiPieces = Array.from({ length: 96 }, (_, index) => {
+  const emitter = index % 6;
+  const drift = ((Math.floor(index / 6) % 5) - 2) * 4.5;
+  const destinationY = 24 + ((index * 47) % 72);
+  return {
+    id: index,
+    originX: 8 + emitter * 16.8,
+    x: `${drift}vw`,
+    midX: `${drift * 0.45}vw`,
+    y: `${destinationY}vh`,
+    midY: `${destinationY * 0.5}vh`,
+    rotation: `${(index * 137) % 720}deg`,
+    midRotation: `${((index * 137) % 720) * 0.35}deg`,
+    delay: `${(index % 12) * 55}ms`,
+    duration: `${3200 + ((index * 73) % 1800)}ms`,
+    width: `${6 + (index % 4) * 2}px`,
+    height: `${10 + (index % 5) * 3}px`,
+    borderRadius: index % 5 === 0 ? '50%' : '1px',
+    color: confettiColors[index % confettiColors.length],
+  };
+});
 
 export default function PageConfetti() {
   const { pathname } = useLocation();
@@ -19,7 +31,7 @@ export default function PageConfetti() {
 
   useEffect(() => {
     setEnabled(true);
-    const timeout = window.setTimeout(() => setEnabled(false), 1600);
+    const timeout = window.setTimeout(() => setEnabled(false), 5900);
     setBurstId(id => id + 1);
     return () => window.clearTimeout(timeout);
   }, [pathname]);
@@ -33,14 +45,19 @@ export default function PageConfetti() {
           key={`${burstId}-${piece.id}`}
           className="page-confetti-piece"
           style={{
-            left: '50%',
+            left: `${piece.originX}%`,
             top: '38px',
             width: piece.width,
             height: piece.height,
+            borderRadius: piece.borderRadius,
             backgroundColor: piece.color,
             animationDelay: piece.delay,
+            animationDuration: piece.duration,
             '--confetti-x': piece.x,
+            '--confetti-mid-x': piece.midX,
+            '--confetti-mid-y': piece.midY,
             '--confetti-y': piece.y,
+            '--confetti-mid-rotation': piece.midRotation,
             '--confetti-rotation': piece.rotation,
           } as CSSProperties}
         />

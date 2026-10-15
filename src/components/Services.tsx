@@ -14,7 +14,16 @@ interface ServicesProps {
 
 export default function Services({ onQuoteClick }: ServicesProps) {
   const [currency, setCurrency] = useState<'EUR' | 'BGN'>('EUR');
+  const promoEndsAt = new Date('2026-10-22T15:56:36+03:00').getTime();
+  const [remainingMs, setRemainingMs] = useState(() => Math.max(0, promoEndsAt - Date.now()));
   const { pricingPlans, t, language } = useLanguage();
+
+  React.useEffect(() => {
+    const updateCountdown = () => setRemainingMs(Math.max(0, promoEndsAt - Date.now()));
+    updateCountdown();
+    const interval = window.setInterval(updateCountdown, 1000);
+    return () => window.clearInterval(interval);
+  }, [promoEndsAt]);
 
   // The Bulgarian lev is pegged to the euro at the official fixed rate.
   const formatPrice = (priceStr: string, activeCurrency: 'EUR' | 'BGN') => {
@@ -33,6 +42,32 @@ export default function Services({ onQuoteClick }: ServicesProps) {
   const redesignPlans = pricingPlans.filter(p => p.id.startsWith('redesign-'));
   const monthlyPlans = pricingPlans.filter(p => p.period && !p.bundle);
   const bundlePlans = pricingPlans.filter(p => p.bundle);
+  const promoActive = remainingMs > 0;
+  const countdown = [
+    Math.floor(remainingMs / 86400000),
+    Math.floor((remainingMs % 86400000) / 3600000),
+    Math.floor((remainingMs % 3600000) / 60000),
+    Math.floor((remainingMs % 60000) / 1000),
+  ].map(value => String(value).padStart(2, '0'));
+  const renderPrice = (price: string, note: string, noteClass = 'text-xs text-zinc-500 font-medium') => {
+    const originalValue = Number.parseInt(price.replace(/[^0-9]/g, ''), 10);
+    const original = formatPrice(price, currency);
+    const discounted = formatPrice(`€${Math.round(originalValue * 0.9)}`, currency);
+    return (
+      <div className="mb-8">
+        {promoActive ? (
+          <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
+            <del className="text-sm font-mono text-zinc-500">{original}</del>
+            <span className="rounded bg-red-500/15 px-1.5 py-0.5 text-[10px] font-bold tracking-wide text-red-300">−10%</span>
+            <span className="text-3xl sm:text-4xl font-bold font-mono tracking-tight text-white">{discounted}</span>
+          </div>
+        ) : (
+          <span className="text-3xl sm:text-4xl font-bold font-mono tracking-tight text-white">{original}</span>
+        )}
+        <span className={noteClass}>{note}</span>
+      </div>
+    );
+  };
 
   return (
     <section className="py-24 bg-luxury-black relative overflow-hidden border-t border-white/5">
@@ -41,6 +76,23 @@ export default function Services({ onQuoteClick }: ServicesProps) {
       <div className="absolute bottom-[20%] right-[-15%] w-[400px] h-[400px] rounded-full bg-indigo-900/10 blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="mb-12 overflow-hidden rounded-xl border border-red-500/30 bg-red-950/25 shadow-[0_0_35px_rgba(239,68,68,0.08)]">
+          <div className="h-1 w-full bg-red-600" />
+          <div className="flex flex-col items-center justify-between gap-3 px-5 py-4 text-center sm:flex-row sm:text-left">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-red-300">
+                {language === 'en' ? 'Limited-time offer · 10% off all Services prices' : 'Ограничена оферта · 10% отстъпка от всички цени в Услуги'}
+              </p>
+              <p className="mt-1 text-xs text-zinc-300">
+                {language === 'en' ? 'Seven days only — the offer ends when the timer reaches zero.' : 'Само за седем дни — офертата изтича, когато таймерът достигне нула.'}
+              </p>
+            </div>
+            <div className="shrink-0 font-mono text-xl font-bold tabular-nums text-white" role="timer" aria-label={language === 'en' ? 'Time remaining in promotion' : 'Оставащо време от промоцията'}>
+              {promoActive ? `${countdown[0]}:${countdown[1]}:${countdown[2]}:${countdown[3]}` : (language === 'en' ? 'OFFER ENDED' : 'ОФЕРТАТА ИЗТЕЧЕ')}
+              {promoActive && <span className="ml-2 text-[9px] font-medium uppercase tracking-wider text-red-300">{language === 'en' ? 'days : hrs : min : sec' : 'дни : ч : мин : сек'}</span>}
+            </div>
+          </div>
+        </div>
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -135,14 +187,7 @@ export default function Services({ onQuoteClick }: ServicesProps) {
                     {plan.scope}
                   </p>
 
-                  <div className="flex items-baseline gap-1.5 mb-8">
-                    <span className="text-3xl sm:text-4xl font-bold font-mono tracking-tight text-white transition-all">
-                      {formatPrice(plan.price, currency)}
-                    </span>
-                    <span className="text-xs text-zinc-500 font-medium">
-                      {language === 'en' ? 'starting' : 'начална цена'}
-                    </span>
-                  </div>
+                  {renderPrice(plan.price, language === 'en' ? 'starting' : 'начална цена')}
 
                   <ul className="space-y-3.5 mb-8">
                     {plan.features.map((feat, idx) => (
@@ -208,14 +253,7 @@ export default function Services({ onQuoteClick }: ServicesProps) {
                     {plan.scope}
                   </p>
 
-                  <div className="flex items-baseline gap-1.5 mb-8">
-                    <span className="text-3xl sm:text-4xl font-bold font-mono tracking-tight text-white transition-all">
-                      {formatPrice(plan.price, currency)}
-                    </span>
-                    <span className="text-xs text-zinc-500 font-medium">
-                      {language === 'en' ? 'starting' : 'начална цена'}
-                    </span>
-                  </div>
+                  {renderPrice(plan.price, language === 'en' ? 'starting' : 'начална цена')}
 
                   <ul className="space-y-3.5 mb-8">
                     {plan.features.map((feat, idx) => (
@@ -281,14 +319,7 @@ export default function Services({ onQuoteClick }: ServicesProps) {
                     {plan.scope}
                   </p>
 
-                  <div className="flex items-baseline gap-1.5 mb-8">
-                    <span className="text-3xl sm:text-4xl font-bold font-mono tracking-tight text-white">
-                      {formatPrice(plan.price, currency)}
-                    </span>
-                    <span className="text-xs text-zinc-500 font-mono">
-                      / {language === 'en' ? plan.period : (plan.period === 'month' ? 'месец' : plan.period)}
-                    </span>
-                  </div>
+                  {renderPrice(plan.price, `/ ${language === 'en' ? plan.period : (plan.period === 'month' ? 'месец' : plan.period)}`, 'block text-xs text-zinc-500 font-mono')}
 
                   <ul className="space-y-3.5 mb-8">
                     {plan.features.map((feat, idx) => (
@@ -355,14 +386,7 @@ export default function Services({ onQuoteClick }: ServicesProps) {
                     {plan.scope}
                   </p>
 
-                  <div className="flex items-baseline gap-1.5 mb-8">
-                    <span className="text-3xl sm:text-4xl font-bold font-mono tracking-tight text-white transition-all">
-                      {formatPrice(plan.price, currency)}
-                    </span>
-                    <span className="text-xs text-emerald-400 font-medium">
-                      {language === 'en' ? 'bundle price' : 'пакетна цена'}
-                    </span>
-                  </div>
+                  {renderPrice(plan.price, language === 'en' ? 'bundle price' : 'пакетна цена', 'block text-xs text-emerald-400 font-medium')}
 
                   <ul className="space-y-3.5 mb-8">
                     {plan.features.map((feat, idx) => (

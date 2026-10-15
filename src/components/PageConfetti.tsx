@@ -27,7 +27,7 @@ const confettiPieces = Array.from({ length: 96 }, (_, index) => {
 export default function PageConfetti() {
   const { pathname } = useLocation();
   const [burstId, setBurstId] = useState(0);
-  const [enabled, setEnabled] = useState(false);
+  const [enabled, setEnabled] = useState(true);
 
   useEffect(() => {
     setEnabled(true);

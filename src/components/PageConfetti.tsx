@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type CSSProperties } from 'react';
+import { useEffect, useState, type CSSProperties } from 'react';
 import { useLocation } from 'react-router-dom';
 
 const confettiPieces = Array.from({ length: 32 }, (_, index) => ({
@@ -16,19 +16,15 @@ export default function PageConfetti() {
   const { pathname } = useLocation();
   const [burstId, setBurstId] = useState(0);
   const [enabled, setEnabled] = useState(false);
-  const reducedMotion = useRef(false);
 
   useEffect(() => {
-    reducedMotion.current = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reducedMotion.current) return;
-
     setEnabled(true);
     const timeout = window.setTimeout(() => setEnabled(false), 1600);
     setBurstId(id => id + 1);
     return () => window.clearTimeout(timeout);
   }, [pathname]);
 
-  if (!enabled || reducedMotion.current) return null;
+  if (!enabled) return null;
 
   return (
     <div className="page-confetti-layer" aria-hidden="true">

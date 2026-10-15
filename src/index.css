@@ -99,7 +99,7 @@ body {
 .promo-marquee-track {
   display: flex;
   width: max-content;
-  animation: promo-marquee-scroll 18s linear infinite;
+  animation: promo-marquee-scroll 8s linear infinite;
   will-change: transform;
 }
 
@@ -138,10 +138,6 @@ body {
   .promo-marquee-item { gap: 0.5rem; font-size: 9px; letter-spacing: 0.045em; }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .promo-marquee-track { animation: none; }
-}
-
 .page-confetti-layer {
   position: fixed;
   inset: 0;
@@ -170,11 +166,5 @@ body {
   100% {
     opacity: 0;
     transform: translate(calc(-50% + var(--confetti-x)), var(--confetti-y)) rotate(var(--confetti-rotation)) scale(0.82);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .page-confetti-layer {
-    display: none;
   }
 }

@@ -23,19 +23,28 @@ export default function GlobalPromotionBar() {
     Math.floor((remainingMs % 60000) / 1000),
   ].map(value => String(value).padStart(2, '0'));
 
+  const offerText = language === 'en'
+    ? '10% OFF ALL SERVICES · LIMITED TIME'
+    : '10% ОТСТЪПКА ЗА ВСИЧКИ УСЛУГИ · ОГРАНИЧЕНО ВРЕМЕ';
+  const countdown = `${time[0]}:${time[1]}:${time[2]}:${time[3]}`;
+
   return (
-    <div className="fixed inset-x-0 top-0 z-[60] flex h-8 items-center justify-center border-b border-red-300/20 bg-red-700 px-3 text-white shadow-[0_2px_12px_rgba(127,29,29,0.35)]">
-      <div className="flex w-full max-w-7xl items-center justify-center gap-2 text-[10px] font-bold uppercase tracking-[0.08em] sm:gap-3 sm:text-xs sm:tracking-[0.12em]">
+    <div className="fixed inset-x-0 top-0 z-[60] flex h-8 items-center overflow-hidden border-b border-red-300/20 bg-red-700 text-white shadow-[0_2px_12px_rgba(127,29,29,0.35)]">
+      <div className="promo-marquee-viewport w-full" aria-label={language === 'en' ? 'Limited-time promotion countdown' : 'Таймер на промоцията с ограничено време'}>
         {remainingMs > 0 ? (
-          <>
-            <span className="whitespace-nowrap">{language === 'en' ? 'Limited time · 10% off all services' : 'Ограничено време · 10% отстъпка за всички услуги'}</span>
-            <span className="h-3 w-px shrink-0 bg-white/40" aria-hidden="true" />
-            <span className="whitespace-nowrap font-mono tabular-nums" role="timer" aria-label={language === 'en' ? 'Promotion countdown: days, hours, minutes, seconds' : 'Таймер на промоцията: дни, часове, минути, секунди'}>
-              {time[0]}:{time[1]}:{time[2]}:{time[3]}
-            </span>
-          </>
+          <div className="promo-marquee-track">
+            {[0, 1].map(copy => (
+              <div className="promo-marquee-item" key={copy} aria-hidden={copy === 1}>
+                <span>{offerText}</span>
+                <span aria-hidden="true" className="promo-marquee-separator">·</span>
+                <span className="font-mono tabular-nums" role={copy === 0 ? 'timer' : undefined} aria-label={copy === 0 ? (language === 'en' ? 'Promotion countdown: days, hours, minutes, seconds' : 'Таймер на промоцията: дни, часове, минути, секунди') : undefined}>
+                  {countdown}
+                </span>
+              </div>
+            ))}
+          </div>
         ) : (
-          <span className="whitespace-nowrap">{language === 'en' ? 'Limited-time offer ended' : 'Офертата с ограничено време изтече'}</span>
+          <div className="promo-marquee-ended">{language === 'en' ? 'Limited-time offer ended' : 'Офертата с ограничено време изтече'}</div>
         )}
       </div>
     </div>

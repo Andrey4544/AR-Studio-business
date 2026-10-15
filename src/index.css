@@ -91,6 +91,57 @@ body {
   animation-play-state: paused;
 }
 
+.promo-marquee-viewport {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.promo-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: promo-marquee-scroll 18s linear infinite;
+  will-change: transform;
+}
+
+.promo-marquee-item {
+  display: flex;
+  min-width: 100vw;
+  flex: 0 0 100vw;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding-inline: 0.5rem;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.promo-marquee-separator {
+  color: rgb(255 255 255 / 55%);
+}
+
+.promo-marquee-ended {
+  text-align: center;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@keyframes promo-marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (max-width: 420px) {
+  .promo-marquee-item { gap: 0.5rem; font-size: 9px; letter-spacing: 0.045em; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .promo-marquee-track { animation: none; }
+}
+
 .page-confetti-layer {
   position: fixed;
   inset: 0;
@@ -104,7 +155,7 @@ body {
   border-radius: 1px;
   opacity: 0;
   transform: translate(-50%, 0) rotate(0deg) scale(0.25);
-  animation: page-confetti-pop 1050ms cubic-bezier(0.14, 0.7, 0.25, 1) both;
+  animation: page-confetti-pop 1320ms cubic-bezier(0.14, 0.7, 0.25, 1) both;
 }
 
 @keyframes page-confetti-pop {

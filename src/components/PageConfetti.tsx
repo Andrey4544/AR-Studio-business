@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState, type CSSProperties } from 'react';
 import { useLocation } from 'react-router-dom';
 
-const confettiPieces = Array.from({ length: 24 }, (_, index) => ({
+const confettiPieces = Array.from({ length: 32 }, (_, index) => ({
   id: index,
-  x: `${(index - 11.5) * 5.1}vw`,
-  y: `${90 + ((index * 37) % 110)}px`,
+  x: `${(index - 15.5) * 3}vw`,
+  y: `${120 + ((index * 43) % 180)}px`,
   rotation: `${(index * 137) % 720}deg`,
-  delay: `${(index % 6) * 24}ms`,
+  delay: `${(index % 8) * 30}ms`,
   width: `${5 + (index % 4) * 2}px`,
   height: `${8 + (index % 5) * 2}px`,
   color: ['#ef4444', '#dc2626', '#f87171', '#fb7185', '#fca5a5', '#fbbf24'][index % 6],
@@ -23,7 +23,7 @@ export default function PageConfetti() {
     if (reducedMotion.current) return;
 
     setEnabled(true);
-    const timeout = window.setTimeout(() => setEnabled(false), 1150);
+    const timeout = window.setTimeout(() => setEnabled(false), 1600);
     setBurstId(id => id + 1);
     return () => window.clearTimeout(timeout);
   }, [pathname]);

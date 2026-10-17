@@ -63,6 +63,9 @@ export default function HomePage({ openQuoteModal }: HomePageProps) {
                 <Link to={localizedPath('/uslugi', language)} className="rounded-full bg-blue-600 px-4 py-2.5 text-white transition-colors hover:bg-blue-500">
                   {isEnglish ? 'Services and pricing' : 'Услуги и цени'}
                 </Link>
+                <Link to={localizedPath('/web-design-plovdiv', language)} className="rounded-full border border-white/15 px-4 py-2.5 text-zinc-200 transition-colors hover:border-blue-400/50 hover:text-white">
+                  {isEnglish ? 'Web design in Plovdiv' : 'Уеб дизайн в Пловдив'}
+                </Link>
                 <Link to={localizedPath('/portfolio', language)} className="rounded-full border border-white/15 px-4 py-2.5 text-zinc-200 transition-colors hover:border-blue-400/50 hover:text-white">
                   {isEnglish ? 'View portfolio' : 'Вижте портфолиото'}
                 </Link>

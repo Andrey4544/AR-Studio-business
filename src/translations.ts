@@ -721,7 +721,7 @@ export const dynamicTranslations = {
         id: 'belestate-group',
         title: 'BelEstateGroup',
         category: 'Real Estate Agency Website',
-        url: 'https://www.belestategroup.site/',
+        url: 'https://www.belestategroup.online/',
         imageUrl: 'belestate_group_mockup',
         highlights: [
           'Luxury property showcase with high-end visual aesthetics',
@@ -1395,7 +1395,7 @@ export const dynamicTranslations = {
         id: 'belestate-group',
         title: 'BelEstateGroup',
         category: 'Сайт за агенция за недвижими имоти',
-        url: 'https://www.belestategroup.site/',
+        url: 'https://www.belestategroup.online/',
         imageUrl: 'belestate_group_mockup',
         highlights: [
           'Луксозно представяне на имоти с висок клас естетика',

@@ -235,7 +235,7 @@ export const featuredProjects: Project[] = [
     id: 'belestate-group',
     title: 'BelEstateGroup',
     category: 'Real Estate Agency Website',
-    url: 'https://www.belestategroup.site/',
+    url: 'https://www.belestategroup.online/',
     imageUrl: 'belestate_group_mockup',
     highlights: [
       'Luxury property showcase with high-end visual aesthetics',

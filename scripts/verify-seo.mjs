@@ -36,6 +36,9 @@ const localLandingChecks = [
 for (const check of localLandingChecks) {
   const relative = path.join(check.route.replace(/^\//, ''), 'index.html');
   const html = fs.readFileSync(path.join(dist, relative), 'utf8');
+  const expectedCanonical = `https://www.ar-studio.site${check.route}`;
+  if (!html.includes(`<link rel="canonical" href="${expectedCanonical}"`)) throw new Error(`Wrong canonical URL in ${check.route}`);
+  if (!html.includes(`${expectedCanonical}#service`) || !html.includes(`${expectedCanonical}#faq`)) throw new Error(`Missing localized structured-data IDs in ${check.route}`);
   for (const phrase of check.expected) {
     if (!html.includes(phrase)) throw new Error(`Missing local landing page content "${phrase}" in ${check.route}`);
   }

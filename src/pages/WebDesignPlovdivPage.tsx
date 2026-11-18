@@ -11,12 +11,11 @@ interface WebDesignPlovdivPageProps {
   openQuoteModal: (planName?: string) => void;
 }
 
-const canonical = 'https://www.ar-studio.site/web-design-plovdiv';
-
 export default function WebDesignPlovdivPage({ openQuoteModal }: WebDesignPlovdivPageProps) {
   const { language } = useLanguage();
   const isEnglish = language === 'en';
   const pageCopy = webDesignPlovdivSeo[isEnglish ? 'en' : 'bg'];
+  const canonical = `https://www.ar-studio.site${isEnglish ? '/en/web-design-plovdiv' : '/web-design-plovdiv'}`;
 
   usePageMeta({
     title: pageCopy.title,
@@ -67,6 +66,7 @@ export default function WebDesignPlovdivPage({ openQuoteModal }: WebDesignPlovdi
   useStructuredData('web-design-plovdiv-faq', {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
+    '@id': `${canonical}#faq`,
     mainEntity: faqItems.map((item) => ({
       '@type': 'Question',
       name: item.question,
@@ -102,7 +102,7 @@ export default function WebDesignPlovdivPage({ openQuoteModal }: WebDesignPlovdi
                 {isEnglish ? 'Request a Free Consultation' : 'Заяви безплатна консултация'}
               </button>
               <Link
-                to="/portfolio"
+                to={isEnglish ? '/en/portfolio' : '/portfolio'}
                 className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl border border-white/15 hover:border-blue-400/60 hover:bg-white/5 transition-colors font-semibold text-sm"
               >
                 {isEnglish ? 'Explore our work' : 'Вижте нашите проекти'}
@@ -128,10 +128,10 @@ export default function WebDesignPlovdivPage({ openQuoteModal }: WebDesignPlovdi
                   : 'Подхождаме от бизнес целта Ви, след което я превръщаме в ясна структура на страниците, responsive дизайн и път към запитване. Разгледайте прозрачните ни услуги или ни изпратете кратко задание за персонализирана препоръка.'}
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <Link to="/uslugi" className="text-sm font-semibold text-blue-300 hover:text-blue-200 inline-flex items-center gap-1">
+                <Link to={isEnglish ? '/en/services' : '/uslugi'} className="text-sm font-semibold text-blue-300 hover:text-blue-200 inline-flex items-center gap-1">
                   {isEnglish ? 'Web design services and pricing' : 'Услуги и цени за уеб дизайн'} <ArrowRight className="w-4 h-4" />
                 </Link>
-                <Link to="/blog/kak-da-izberem-uebdizain-agenciya-plovdiv" className="text-sm font-semibold text-blue-300 hover:text-blue-200 inline-flex items-center gap-1">
+                <Link to={isEnglish ? '/en/blog/kak-da-izberem-uebdizain-agenciya-plovdiv' : '/blog/kak-da-izberem-uebdizain-agenciya-plovdiv'} className="text-sm font-semibold text-blue-300 hover:text-blue-200 inline-flex items-center gap-1">
                   {isEnglish ? 'How to choose a web design agency' : 'Как да изберете уеб дизайн агенция'} <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>

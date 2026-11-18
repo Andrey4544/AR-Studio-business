@@ -4,6 +4,7 @@ import path from 'node:path';
 const DIST = path.resolve('dist');
 const SITE = 'https://www.ar-studio.site';
 const seoLandingPages = JSON.parse(fs.readFileSync(path.resolve('src/data/seoLandingPages.json'), 'utf8'));
+const webDesignPlovdivSeo = JSON.parse(fs.readFileSync(path.resolve('src/data/webDesignPlovdivSeo.json'), 'utf8'));
 
 const navLinks = [
   ['Начало', '/'],
@@ -54,12 +55,7 @@ const routes = {
     schemaType: 'webpage',
   },
   '/web-design-plovdiv': {
-    title: 'Изработка на сайт и уеб дизайн в Пловдив | AR Studio',
-    description: 'Професионална изработка на сайт и уеб дизайн в Пловдив за бизнеси от цяла България. Мобилен дизайн, ясни CTA и техническа SEO основа. Заявете консултация.',
-    h1: 'Уеб дизайн и изработка на сайт в Пловдив',
-    summary: 'Планираме сайта около хората, които искате да привлечете, информацията, която трябва да разберат, и действието, което искате да предприемат.',
-    h2: 'Какво включва добрата основа',
-    bullets: ['Ясна структура на услугите и силно локално позициониране', 'Responsive дизайн за телефон, таблет и компютър', 'Технически SEO елементи и вътрешни връзки', 'Лесни контактни пътища за обаждане, запитване или резервация'],
+    ...webDesignPlovdivSeo.bg,
     schemaType: 'service',
   },
   '/portfolio': {
@@ -291,7 +287,7 @@ const englishOverrides = {
   '/': { title: 'AR Studio | Web Design & Website Development in Plovdiv', description: 'AR Studio creates fast, bespoke, search-ready websites for businesses in Plovdiv and Bulgaria.', h1: 'Web Design and Website Development in Plovdiv', summary: 'AR Studio is a boutique web design and development studio. We build clear, fast, mobile-friendly websites that explain your offer and make the next customer action easier.', h2: 'Services for local and growing businesses', bullets: ['Custom web design and business websites', 'Digital menus, QR integrations, and restaurant websites', 'Online stores and product catalogues', 'Technical SEO foundations, content, and support'] },
   '/za-nas': { title: 'About AR Studio | Design & Development Team in Plovdiv', description: 'Meet the direct design and development team behind AR Studio in Plovdiv.', h1: 'The team behind AR Studio', summary: 'AR Studio combines design, development, and practical communication for businesses that want a professional online presence without unnecessary complexity.', h2: 'How we work on a project', bullets: ['We start with the business goal and client needs', 'We organise content and structure before visual detail', 'We test the mobile experience, contact paths, and core SEO elements', 'We stay available for future development and support'] },
   '/uslugi': { title: 'Web Design, Websites & Online Stores | AR Studio Plovdiv', description: 'Explore AR Studio services for custom web design, business websites, online stores, and search-ready technical foundations.', h1: 'Web services for businesses in Plovdiv and Bulgaria', summary: 'We choose a scope around the project goal: enquiries, reservations, visits, sales, or a clearer presentation of a professional service.', h2: 'Specialised services', bullets: ['Business website development', 'Restaurant websites, menus, and reservations', 'Beauty, hotel, and professional service websites', 'Online stores and product catalogues'] },
-  '/web-design-plovdiv': { title: 'Web Design in Plovdiv | Custom Websites for Businesses | AR Studio', description: 'AR Studio creates fast, bespoke websites for businesses in Plovdiv and Bulgaria, with clear structure and search-ready foundations.', h1: 'Web design in Plovdiv for businesses with a clear goal', summary: 'We plan a site around the people you want to reach, the information they need, and the action you want them to take.', h2: 'What a strong foundation includes', bullets: ['Clear service structure and local positioning', 'Responsive design for phone, tablet, and desktop', 'Technical SEO elements and internal links', 'Easy contact paths for calls, enquiries, or bookings'] },
+  '/web-design-plovdiv': { ...webDesignPlovdivSeo.en },
   '/portfolio': { title: 'Portfolio | AR Studio Real Website Projects', description: 'Explore selected AR Studio web projects for real estate, restaurants, online retail, and local businesses.', h1: 'Portfolio: real website projects', summary: 'See how different business goals become a clear structure, visual direction, and useful website experience.', h2: 'Projects and directions', bullets: ['Tomato Restaurant — website, digital menu, and QR experience', 'BelEstateGroup — catalogue and real estate presentation', 'CBL Fight Store — product and e-commerce experience', 'Projects for local services, hospitality, and professional businesses'] },
   '/zashto-nas': { title: 'Why AR Studio | Direct Web Design Partnership', description: 'Learn how AR Studio works: direct communication, focused design, technical development, and a clear project process.', h1: 'A practical process and direct communication', summary: 'A strong website comes from a clear goal, the right structure, and careful checking. That is why we work in short stages with useful feedback.', h2: 'Reasons to start a conversation', bullets: ['Direct contact with the people designing and developing the work', 'Clear scope, timing, and next steps', 'Mobile-first approach and technical SEO preparation', 'A path for future website development'] },
   '/otzivy': { title: 'Client Reviews | AR Studio', description: 'Read client feedback published with permission and learn how to share your experience with AR Studio.', h1: 'Client feedback published with permission', summary: 'We show approved reviews and aim to present every piece of feedback clearly and fairly.', h2: 'Your experience matters', bullets: ['We publish only approved reviews', 'Each review is shown once', 'You can share feedback through the page form'] },
@@ -376,6 +372,9 @@ function schemaFor(route, page) {
     }, { '@type': 'WebSite', '@id': `${SITE}/#website`, url: SITE, name: 'AR Studio', alternateName: language === 'en' ? 'AR Studio — Web Design & Website Development in Plovdiv' : 'AR Studio — Уеб дизайн и изработка на сайтове в Пловдив', inLanguage: language === 'en' ? 'en' : 'bg', publisher: { '@id': `${SITE}/#business` } });
   } else if (page.schemaType === 'service') {
     base['@graph'].push({ '@type': 'Service', '@id': `${url}#service`, name: page.h1, serviceType: page.h1, description: page.description, provider: { '@id': `${SITE}/#business` }, areaServed: [{ '@type': 'City', name: 'Пловдив' }, { '@type': 'Country', name: 'България' }], url });
+    if (Array.isArray(page.faq) && page.faq.length) {
+      base['@graph'].push({ '@type': 'FAQPage', '@id': `${url}#faq`, mainEntity: page.faq.map((item) => ({ '@type': 'Question', name: item.question, acceptedAnswer: { '@type': 'Answer', text: item.answer } })) });
+    }
   } else if (page.schemaType === 'article') {
     base['@graph'].push({ '@type': 'Article', '@id': `${url}#article`, headline: page.h1, description: page.description, image: `${SITE}/assets/logo.webp`, datePublished: page.datePublished, author: { '@type': 'Organization', name: 'AR Studio', url: SITE }, publisher: { '@type': 'Organization', name: 'AR Studio', logo: { '@type': 'ImageObject', url: `${SITE}/assets/logo.webp` } }, mainEntityOfPage: url });
   } else if (page.schemaType === 'faq') {
@@ -392,7 +391,16 @@ function staticBody(route, page) {
   const localize = (href) => isEnglish ? englishRouteMap[href] || (href.startsWith('/blog/') ? `/en${href}` : href) : href;
   const navItems = isEnglish ? [['Home', '/'], ['Services', '/uslugi'], ['Web Design in Plovdiv', '/web-design-plovdiv'], ['Portfolio', '/portfolio'], ['About', '/za-nas'], ['Blog', '/blog'], ['Contact', '/kontakti']] : navLinks;
   const nav = navItems.map(([label, href]) => `<a href="${localize(href)}">${escapeHtml(label)}</a>`).join('');
-  const bullets = page.bullets.map((item) => `<li>${escapeHtml(item)}</li>`).join('');
+  const bullets = (page.bullets || page.benefits || []).map((item) => `<li>${escapeHtml(item)}</li>`).join('');
+  const projectsSection = Array.isArray(page.projects) && page.projects.length
+    ? `<section class="seo-prerender__card"><h2>${escapeHtml(page.projectsHeading)}</h2><p>${escapeHtml(page.projectsIntro)}</p><ul>${page.projects.map((project) => `<li><a href="${escapeHtml(project.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(project.name)}</a> — ${escapeHtml(project.category)}. ${escapeHtml(project.description)}</li>`).join('')}</ul></section>`
+    : '';
+  const pricingSection = page.pricing
+    ? `<section class="seo-prerender__card"><h2>${escapeHtml(page.pricingHeading)}</h2><h3>${escapeHtml(page.pricing.name)} — ${escapeHtml(isEnglish ? 'from ' : 'от ')}${escapeHtml(page.pricing.price)}</h3><p>${escapeHtml(page.pricing.scope)}</p><ul>${page.pricing.features.map((feature) => `<li>${escapeHtml(feature)}</li>`).join('')}</ul><p>${escapeHtml(page.pricing.note)}</p><p><a href="${localize('/uslugi')}">${escapeHtml(page.pricingLinkLabel)}</a></p></section>`
+    : '';
+  const faqSection = Array.isArray(page.faq) && page.faq.length
+    ? `<section class="seo-prerender__card"><h2>${escapeHtml(page.faqHeading)}</h2>${page.faq.map((item) => `<details><summary>${escapeHtml(item.question)}</summary><p>${escapeHtml(item.answer)}</p></details>`).join('')}</section>`
+    : '';
   const relatedServices = [...serviceLinks, ...solutionLinks].map(([href, label]) => `<a href="${localize(href)}">${escapeHtml(isEnglish ? 'Specialised service' : label)}</a>`).join(' · ');
   const home = localize('/');
   const contact = localize('/kontakti');
@@ -402,7 +410,7 @@ function staticBody(route, page) {
   const work = isEnglish ? 'Explore the portfolio' : 'Разгледайте портфолиото';
   const related = isEnglish ? 'Related services' : 'Свързани услуги';
   const navLabel = isEnglish ? 'Primary navigation' : 'Основна навигация';
-  return `<main class="seo-prerender"><div class="seo-prerender__frame"><header class="seo-prerender__header"><a class="seo-prerender__brand" href="${home}" aria-label="AR Studio"><span class="seo-prerender__mark" aria-hidden="true">AR</span><span>AR Studio</span></a><nav class="seo-prerender__nav" aria-label="${navLabel}">${nav}</nav></header><article class="seo-prerender__hero"><p class="seo-prerender__eyebrow">${eyebrow}</p><h1>${escapeHtml(page.h1)}</h1><p class="seo-prerender__summary">${escapeHtml(page.summary)}</p><p class="seo-prerender__actions"><a class="seo-prerender__button seo-prerender__button--primary" href="${contact}">${consultation}</a><a class="seo-prerender__button" href="${portfolio}">${work}</a></p></article><section class="seo-prerender__content" aria-label="${isEnglish ? 'Useful information' : 'Полезна информация'}"><section class="seo-prerender__card"><h2>${escapeHtml(page.h2)}</h2><ul>${bullets}</ul></section><section class="seo-prerender__card"><h2>${related}</h2><p class="seo-prerender__related">${relatedServices}</p></section></section></div></main>`;
+  return `<main class="seo-prerender"><div class="seo-prerender__frame"><header class="seo-prerender__header"><a class="seo-prerender__brand" href="${home}" aria-label="AR Studio"><span class="seo-prerender__mark" aria-hidden="true">AR</span><span>AR Studio</span></a><nav class="seo-prerender__nav" aria-label="${navLabel}">${nav}</nav></header><article class="seo-prerender__hero"><p class="seo-prerender__eyebrow">${eyebrow}</p><h1>${escapeHtml(page.h1)}</h1><p class="seo-prerender__summary">${escapeHtml(page.summary)}</p><p class="seo-prerender__actions"><a class="seo-prerender__button seo-prerender__button--primary" href="${contact}">${consultation}</a><a class="seo-prerender__button" href="${portfolio}">${work}</a></p></article><section class="seo-prerender__content" aria-label="${isEnglish ? 'Useful information' : 'Полезна информация'}"><section class="seo-prerender__card"><h2>${escapeHtml(page.h2)}</h2><ul>${bullets}</ul></section>${projectsSection}${pricingSection}${faqSection}<section class="seo-prerender__card"><h2>${related}</h2><p class="seo-prerender__related">${relatedServices}</p></section></section></div></main>`;
 }
 
 function updateHead(html, route, page) {

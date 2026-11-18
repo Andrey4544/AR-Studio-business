@@ -23,6 +23,24 @@ for (const url of uniqueUrls) {
   if (!/<h1>[^<]+<\/h1>/.test(html)) throw new Error(`Missing prerendered H1: ${pathname}`);
 }
 
+const localLandingChecks = [
+  {
+    route: '/web-design-plovdiv',
+    expected: ['Уеб дизайн Пловдив от €249 | AR Studio', 'Tomato Restaurant', 'BelEstateGroup', 'Базов едностраничен сайт', 'FAQPage'],
+  },
+  {
+    route: '/en/web-design-plovdiv',
+    expected: ['Web Design Plovdiv from €249 | AR Studio', 'Tomato Restaurant', 'BelEstateGroup', 'Basic one-page website', 'FAQPage'],
+  },
+];
+for (const check of localLandingChecks) {
+  const relative = path.join(check.route.replace(/^\//, ''), 'index.html');
+  const html = fs.readFileSync(path.join(dist, relative), 'utf8');
+  for (const phrase of check.expected) {
+    if (!html.includes(phrase)) throw new Error(`Missing local landing page content "${phrase}" in ${check.route}`);
+  }
+}
+
 const brokenEnglishRoutes = ['/en/uslugi', '/en/zashto-nas', '/en/kontakti'];
 for (const route of brokenEnglishRoutes) {
   if (urls.some((url) => new URL(url).pathname === route)) throw new Error(`Obsolete English route remains in sitemap: ${route}`);

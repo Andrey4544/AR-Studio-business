@@ -5,6 +5,7 @@ import PageTransition from '../components/PageTransition';
 import { useLanguage } from '../context/LanguageContext';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useStructuredData } from '../hooks/useStructuredData';
+import webDesignPlovdivSeo from '../data/webDesignPlovdivSeo.json';
 
 interface WebDesignPlovdivPageProps {
   openQuoteModal: (planName?: string) => void;
@@ -15,14 +16,11 @@ const canonical = 'https://www.ar-studio.site/web-design-plovdiv';
 export default function WebDesignPlovdivPage({ openQuoteModal }: WebDesignPlovdivPageProps) {
   const { language } = useLanguage();
   const isEnglish = language === 'en';
+  const pageCopy = webDesignPlovdivSeo[isEnglish ? 'en' : 'bg'];
 
   usePageMeta({
-    title: isEnglish
-      ? 'Web Design in Plovdiv | Custom Websites for Bulgarian Businesses | AR Studio'
-      : 'Изработка на сайт и уеб дизайн в Пловдив | AR Studio',
-    description: isEnglish
-      ? 'AR Studio creates fast, bespoke websites for businesses in Plovdiv and Bulgaria. Explore web design, online store and SEO-ready website solutions, then request a free consultation.'
-      : 'Професионална изработка на сайт и уеб дизайн в Пловдив за бизнеси от цяла България. Мобилен дизайн, ясни CTA и техническа SEO основа. Заявете консултация.',
+    title: pageCopy.title,
+    description: pageCopy.description,
     keywords: isEnglish
       ? 'web design Plovdiv, website development Plovdiv, web design Bulgaria, custom website Bulgaria, AR Studio'
       : 'уеб дизайн Пловдив, изработка на сайтове Пловдив, уебсайт Пловдив, уеб дизайн България, онлайн магазин Пловдив, AR Studio',
@@ -34,10 +32,8 @@ export default function WebDesignPlovdivPage({ openQuoteModal }: WebDesignPlovdi
     '@context': 'https://schema.org',
     '@type': 'Service',
     '@id': `${canonical}#service`,
-    name: isEnglish ? 'Web Design and Website Development in Plovdiv' : 'Уеб дизайн и изработка на сайтове в Пловдив',
-    description: isEnglish
-      ? 'Custom web design, website development, online stores, and technical SEO foundations for businesses in Plovdiv and across Bulgaria.'
-      : 'Персонализиран уеб дизайн, изработка на сайтове, онлайн магазини и техническа SEO основа за бизнеси в Пловдив и цяла България.',
+    name: pageCopy.h1,
+    description: pageCopy.description,
     url: canonical,
     provider: {
       '@type': 'ProfessionalService',
@@ -60,53 +56,13 @@ export default function WebDesignPlovdivPage({ openQuoteModal }: WebDesignPlovdi
     serviceType: isEnglish ? 'Web Design and Website Development' : 'Уеб дизайн и изработка на сайтове',
   });
 
-  const benefits = isEnglish
-    ? [
-        'A website shaped around your audience, offer and brand—not a generic template.',
-        'Mobile-first layouts, accessible contact paths and clear actions for potential clients.',
-        'Technical foundations for search visibility: page metadata, internal links and structured data.',
-        'Direct communication with the people designing and building your project.',
-      ]
-    : [
-        'Сайт, съобразен с Вашата аудитория, оферта и бранд — не шаблонно решение.',
-        'Mobile-first оформление, лесен контакт и ясни следващи стъпки за потенциалните клиенти.',
-        'Техническа основа за видимост: метаданни, вътрешни връзки и структурирани данни.',
-        'Директна комуникация с хората, които проектират и изграждат Вашия сайт.',
-      ];
+  const benefits = pageCopy.benefits;
 
   const suitableFor = isEnglish
     ? ['Professional service firms', 'Restaurants and hospitality', 'Retail and online stores', 'New ventures and established local brands']
     : ['Фирми за професионални услуги', 'Ресторанти, хотели и заведения', 'Търговци и онлайн магазини', 'Нови и утвърдени местни брандове'];
 
-  const faqItems = isEnglish
-    ? [
-        {
-          question: 'Do you work only with companies in Plovdiv?',
-          answer: 'No. AR Studio is based in Plovdiv and works with businesses across Bulgaria. Local clients can benefit from direct, practical communication, while remote projects follow the same clear process.',
-        },
-        {
-          question: 'What should a business prepare before requesting a website?',
-          answer: 'A short description of your services, your target customers, examples you like, basic brand assets and the actions you want visitors to take are enough to begin a useful conversation.',
-        },
-        {
-          question: 'Is SEO included in a new website?',
-          answer: 'Every project can begin with sound technical SEO foundations, such as mobile-friendly design, page metadata, logical internal links and search-friendly content structure. Ongoing content, local profile work and measurement build on that foundation.',
-        },
-      ]
-    : [
-        {
-          question: 'Работите ли само с фирми от Пловдив?',
-          answer: 'Не. AR Studio е базирано в Пловдив и работи с бизнеси от цяла България. За местните клиенти предлагаме директна и практична комуникация, а дистанционните проекти следват същия ясен процес.',
-        },
-        {
-          question: 'Какво трябва да подготви един бизнес преди запитване за сайт?',
-          answer: 'Достатъчни са кратко описание на услугите, идеалните Ви клиенти, примери за сайтове, които харесвате, базови бранд материали и действията, които искате посетителите да предприемат.',
-        },
-        {
-          question: 'Включва ли се SEO при изработката на нов сайт?',
-          answer: 'Всеки проект може да започне със здрава техническа SEO основа: mobile-friendly дизайн, метаданни, логични вътрешни връзки и структура на съдържанието. След това съдържанието, локалният профил и измерването развиват тази основа.',
-        },
-      ];
+  const faqItems = pageCopy.faq;
 
   useStructuredData('web-design-plovdiv-faq', {
     '@context': 'https://schema.org',
@@ -132,12 +88,10 @@ export default function WebDesignPlovdivPage({ openQuoteModal }: WebDesignPlovdi
               {isEnglish ? 'Plovdiv, Bulgaria • Web Design Studio' : 'Пловдив, България • Студио за уеб дизайн'}
             </div>
             <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-tight max-w-4xl">
-              {isEnglish ? 'Web Design in Plovdiv Built for Real Business Growth' : 'Уеб дизайн и изработка на сайт в Пловдив'}
+              {pageCopy.h1}
             </h1>
             <p className="mt-7 max-w-3xl text-base sm:text-xl leading-relaxed text-zinc-300">
-              {isEnglish
-                ? 'AR Studio designs and develops fast, distinctive websites for businesses that need a credible digital presence, clearer enquiries and a strong foundation for search visibility.'
-                : 'AR Studio проектира и изработва бързи и отличителни уебсайтове за бизнеси, които искат надеждно дигитално присъствие, по-ясни запитвания и стабилна основа за видимост в търсачките.'}
+              {pageCopy.summary}
             </p>
             <div className="mt-10 flex flex-col sm:flex-row gap-4">
               <button
@@ -222,6 +176,54 @@ export default function WebDesignPlovdivPage({ openQuoteModal }: WebDesignPlovdi
           </div>
         </section>
 
+        <section className="py-20 sm:py-24 border-y border-white/5 bg-zinc-950/60">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-3xl">
+              <p className="text-blue-400 font-mono text-xs tracking-[0.18em] uppercase mb-4">{isEnglish ? 'Selected work' : 'Избрани проекти'}</p>
+              <h2 className="font-serif text-3xl sm:text-5xl font-bold tracking-tight">{pageCopy.projectsHeading}</h2>
+              <p className="mt-5 text-zinc-400 leading-relaxed">{pageCopy.projectsIntro}</p>
+            </div>
+            <div className="grid md:grid-cols-2 gap-5 mt-10">
+              {pageCopy.projects.map((project) => (
+                <article key={project.name} className="rounded-2xl border border-white/10 bg-luxury-black p-6 sm:p-7">
+                  <p className="text-blue-300 font-mono text-xs uppercase tracking-wider">{project.category}</p>
+                  <h3 className="mt-3 font-serif text-2xl font-bold">
+                    <a href={project.url} target="_blank" rel="noopener noreferrer" className="hover:text-blue-300 transition-colors">{project.name}</a>
+                  </h3>
+                  <p className="mt-4 text-sm leading-relaxed text-zinc-400">{project.description}</p>
+                  <a href={project.url} target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-blue-300 hover:text-blue-200">
+                    {isEnglish ? 'Visit the live website' : 'Посетете работещия сайт'} <ArrowRight className="w-4 h-4" />
+                  </a>
+                </article>
+              ))}
+            </div>
+            <aside className="mt-8 rounded-2xl border border-blue-500/20 bg-blue-500/5 p-6 sm:p-8">
+              <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-6 items-start">
+                <div>
+                  <p className="text-blue-300 font-mono text-xs uppercase tracking-wider">{pageCopy.pricingHeading}</p>
+                  <h3 className="mt-3 font-serif text-2xl font-bold">{pageCopy.pricing.name}</h3>
+                  <p className="mt-3 text-3xl font-bold text-white">{isEnglish ? 'from ' : 'от '}{pageCopy.pricing.price}</p>
+                  <p className="mt-3 text-sm leading-relaxed text-zinc-300">{pageCopy.pricing.scope}</p>
+                  <Link to={isEnglish ? '/en/services' : '/uslugi'} className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-blue-300 hover:text-blue-200">
+                    {pageCopy.pricingLinkLabel} <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
+                <div>
+                  <ul className="space-y-3">
+                    {pageCopy.pricing.features.map((feature) => (
+                      <li key={feature} className="flex gap-3 text-sm leading-relaxed text-zinc-300">
+                        <CheckCircle2 className="w-5 h-5 shrink-0 text-emerald-400 mt-0.5" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="mt-5 text-xs leading-relaxed text-zinc-500">{pageCopy.pricing.note}</p>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </section>
+
         <section className="py-20 sm:py-24">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-[0.8fr_1.2fr] gap-12 items-start">
             <div>
@@ -244,7 +246,7 @@ export default function WebDesignPlovdivPage({ openQuoteModal }: WebDesignPlovdi
         <section className="py-20 sm:py-24 border-t border-white/5 bg-zinc-950/60">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <p className="text-blue-400 font-mono text-xs tracking-[0.18em] uppercase mb-4">{isEnglish ? 'Questions before you start' : 'Въпроси преди старта'}</p>
-            <h2 className="font-serif text-3xl sm:text-5xl font-bold tracking-tight mb-10">{isEnglish ? 'Web design in Plovdiv: common questions' : 'Уеб дизайн в Пловдив: често задавани въпроси'}</h2>
+            <h2 className="font-serif text-3xl sm:text-5xl font-bold tracking-tight mb-10">{pageCopy.faqHeading}</h2>
             <div className="space-y-4">
               {faqItems.map((item) => (
                 <details key={item.question} className="group rounded-xl border border-white/10 bg-luxury-black p-6">

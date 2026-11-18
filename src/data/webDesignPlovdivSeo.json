@@ -1,0 +1,126 @@
+{
+  "bg": {
+    "title": "Уеб дизайн Пловдив от €249 | AR Studio",
+    "description": "Изработка на уеб сайт в Пловдив от €249. Разгледайте реални проекти, мобилен дизайн и какво включва базовият план; поискайте безплатна консултация.",
+    "h1": "Уеб дизайн и изработка на сайтове в Пловдив",
+    "summary": "AR Studio проектира и изработва сайтове за бизнеси в Пловдив и цяла България. Базовият бизнес сайт започва от €249; обхватът и срокът се уточняват според проекта.",
+    "h2": "Какво получавате с уеб дизайн проект",
+    "benefits": [
+      "Структура и съдържание, съобразени с услугите, аудиторията и следващото действие на клиента.",
+      "Адаптивно оформление за телефон, таблет и компютър.",
+      "Техническа SEO основа: метаданни, вътрешни връзки и структурирана информация.",
+      "Директна комуникация с екипа, който проектира и разработва сайта."
+    ],
+    "projectsHeading": "Примери от реализирани уеб проекти",
+    "projectsIntro": "Вижте конкретни решения, които вече са представени в портфолиото на AR Studio.",
+    "projects": [
+      {
+        "name": "Tomato Restaurant",
+        "category": "Ресторант · Пловдив",
+        "description": "Уебсайт с интерактивно меню, QR меню за масите и директен път към резервация.",
+        "url": "https://www.tomatorestaurant.online/"
+      },
+      {
+        "name": "BelEstateGroup",
+        "category": "Недвижими имоти",
+        "description": "Сайт с каталог на имоти, търсене и филтри, представяне на агенцията и възможност за запитване за консултация.",
+        "url": "https://www.belestategroup.online/"
+      }
+    ],
+    "pricingHeading": "Ясна начална цена",
+    "pricing": {
+      "name": "Базов едностраничен сайт",
+      "price": "€249",
+      "scope": "Индивидуален дизайн на една страница с мобилна версия, контактна форма и WhatsApp/Viber интеграция.",
+      "features": [
+        "Адаптивен дизайн за мобилни устройства",
+        "Контактна и офертна форма",
+        "WhatsApp/Viber интеграция и техническа SEO основа",
+        "Посочен срок за базовия план: 3 работни дни"
+      ],
+      "note": "Крайната цена и срок се потвърждават според договорения обхват. По-сложните сайтове и интеграции се оценяват отделно."
+    },
+    "pricingLinkLabel": "Вижте всички услуги и цени",
+    "faqHeading": "Уеб дизайн в Пловдив: често задавани въпроси",
+    "faq": [
+      {
+        "question": "От колко започва цената на сайт?",
+        "answer": "Базовият едностраничен план започва от €249. Многостраничните сайтове, онлайн магазините и допълнителните интеграции се оценяват според обхвата; вижте всички планове в страницата „Услуги“."
+      },
+      {
+        "question": "Какво включва базовият план?",
+        "answer": "Една индивидуално оформена страница, адаптивен дизайн, контактна форма, WhatsApp/Viber интеграция, техническа SEO основа и посочен срок от 3 работни дни."
+      },
+      {
+        "question": "Работите ли само с фирми от Пловдив?",
+        "answer": "Не. AR Studio е базирано в Пловдив и работи с бизнеси от цяла България. Местните клиенти могат да общуват директно с екипа, а дистанционните проекти следват същия ясен процес."
+      },
+      {
+        "question": "Гарантирате ли конкретна позиция в Google?",
+        "answer": "Не обещаваме конкретна позиция или брой клиенти. Изграждаме техническа SEO основа, а видимостта зависи и от съдържанието, конкуренцията, авторитета на сайта и други фактори."
+      }
+    ]
+  },
+  "en": {
+    "title": "Web Design Plovdiv from €249 | AR Studio",
+    "description": "Custom business websites in Plovdiv from €249. Explore real projects, mobile-first design and the basic plan scope, then request a free consultation.",
+    "h1": "Web Design and Website Development in Plovdiv",
+    "summary": "AR Studio designs and builds websites for businesses in Plovdiv and across Bulgaria. The basic business website starts at €249; scope and timing depend on the project.",
+    "h2": "What a web design project includes",
+    "benefits": [
+      "Structure and content shaped around your services, audience and the visitor’s next step.",
+      "Responsive layouts for phones, tablets and desktop screens.",
+      "Technical SEO foundations: metadata, internal links and structured information.",
+      "Direct communication with the people designing and building your website."
+    ],
+    "projectsHeading": "Examples of delivered website projects",
+    "projectsIntro": "Explore specific solutions already presented in the AR Studio portfolio.",
+    "projects": [
+      {
+        "name": "Tomato Restaurant",
+        "category": "Restaurant · Plovdiv",
+        "description": "A restaurant website with an interactive menu, table QR menu access and a direct reservation path.",
+        "url": "https://www.tomatorestaurant.online/"
+      },
+      {
+        "name": "BelEstateGroup",
+        "category": "Real estate",
+        "description": "A real estate website with a property catalogue, search and filters, agency information and a consultation enquiry path.",
+        "url": "https://www.belestategroup.online/"
+      }
+    ],
+    "pricingHeading": "A clear starting price",
+    "pricing": {
+      "name": "Basic one-page website",
+      "price": "€249",
+      "scope": "Custom design for one page with a mobile version, contact form and WhatsApp/Viber integration.",
+      "features": [
+        "Responsive design for mobile devices",
+        "Contact and quote form",
+        "WhatsApp/Viber integration and technical SEO foundations",
+        "Stated turnaround for the basic plan: 3 working days"
+      ],
+      "note": "Final price and timing are confirmed for the agreed scope. More complex websites and integrations are estimated separately."
+    },
+    "pricingLinkLabel": "See all services and pricing",
+    "faqHeading": "Web design in Plovdiv: frequently asked questions",
+    "faq": [
+      {
+        "question": "What is the starting price for a website?",
+        "answer": "The basic one-page plan starts at €249. Multi-page websites, online stores and additional integrations are priced according to scope; see all plans on the Services page."
+      },
+      {
+        "question": "What is included in the basic plan?",
+        "answer": "One custom-designed page, responsive layout, contact form, WhatsApp/Viber integration, technical SEO foundations and a stated turnaround of 3 working days."
+      },
+      {
+        "question": "Do you work only with businesses in Plovdiv?",
+        "answer": "No. AR Studio is based in Plovdiv and works with businesses across Bulgaria. Local clients can speak directly with the team, while remote projects follow the same clear process."
+      },
+      {
+        "question": "Do you guarantee a specific Google ranking?",
+        "answer": "We do not promise a specific ranking or number of clients. We build technical SEO foundations; visibility also depends on content, competition, site authority and other factors."
+      }
+    ]
+  }
+}

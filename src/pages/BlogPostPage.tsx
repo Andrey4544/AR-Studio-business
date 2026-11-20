@@ -17,9 +17,15 @@ export default function BlogPostPage() {
   const { language } = useLanguage();
   const post = slug ? getBlogPostBySlug(slug) : null;
 
+  const pageTitle = post
+    ? language === 'en'
+      ? `${post.titleEn || post.title} | AR Studio Blog`
+      : post.metaTitle || `${post.title} | AR Studio Blog`
+    : language === 'en' ? 'Blog | AR Studio' : 'Блог | AR Studio';
+
   // Generate SEO meta tags
   usePageMeta({
-    title: post ? `${language === 'en' ? post.titleEn || post.title : post.title} | AR Studio Blog` : (language === 'en' ? 'Blog | AR Studio' : 'Блог | AR Studio'),
+    title: pageTitle,
     description: post ? (language === 'en' ? post.descriptionEn || post.description : post.description) : (language === 'en' ? 'Read practical articles about web design and digital growth.' : 'Прочетете нашите статии за уеб дизайн и дигитален маркетинг.'),
     keywords: post ? (language === 'en' ? post.keywordsEn || post.keywords : post.keywords) : (language === 'en' ? 'web design blog' : 'блог'),
     canonical: post ? `https://www.ar-studio.site/blog/${slug}` : 'https://www.ar-studio.site/blog',

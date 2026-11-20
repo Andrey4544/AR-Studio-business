@@ -44,6 +44,16 @@ for (const check of localLandingChecks) {
   }
 }
 
+const articleRoute = '/blog/kak-da-izberem-uebdizain-agenciya-plovdiv';
+const articleFile = path.join(dist, articleRoute.replace(/^\//, ''), 'index.html');
+const articleHtml = fs.readFileSync(articleFile, 'utf8');
+const articleTitle = 'Уеб дизайн агенция в Пловдив: 5 критерия | AR Studio';
+const articleDescription = 'Сравнете портфолио, процес, SEO основа, комуникация и цена, преди да изберете уеб дизайн агенция в Пловдив. Вижте 5 критерия и практични въпроси за избора.';
+const articleDescriptionTag = articleHtml.match(/<meta name="description"[^>]*>/)?.[0] || '';
+if (!articleHtml.includes(`<title>${articleTitle}</title>`)) throw new Error(`Wrong prerendered title in ${articleRoute}`);
+if (!articleDescriptionTag.includes(articleDescription)) throw new Error(`Wrong prerendered description in ${articleRoute}`);
+if (!articleHtml.includes('<h1>Как да изберете уеб дизайн агенция в Пловдив</h1>')) throw new Error(`Unexpected H1 in ${articleRoute}`);
+
 const brokenEnglishRoutes = ['/en/uslugi', '/en/zashto-nas', '/en/kontakti'];
 for (const route of brokenEnglishRoutes) {
   if (urls.some((url) => new URL(url).pathname === route)) throw new Error(`Obsolete English route remains in sitemap: ${route}`);

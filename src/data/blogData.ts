@@ -8,6 +8,7 @@ export interface BlogPost {
   slug: string;
   title: string;
   titleEn?: string;
+  metaTitle?: string;
   excerpt: string;
   excerptEn?: string;
   date: string;
@@ -135,6 +136,7 @@ export const blogPostsData: { [key: string]: BlogPost } = {
     slug: 'kak-da-izberem-uebdizain-agenciya-plovdiv',
     title: 'Как да изберете уеб дизайн агенция в Пловдив: практичен наръчник за бизнеса',
     titleEn: 'How to Choose a Web Design Agency in Plovdiv: A Practical Business Guide',
+    metaTitle: 'Уеб дизайн агенция в Пловдив: 5 критерия | AR Studio',
     excerpt: 'Практичен списък с въпроси, критерии и очаквани резултати, когато избирате партньор за нов сайт в Пловдив.',
     excerptEn: 'A practical framework of questions, criteria, and outcomes to consider when choosing a partner for a new website in Plovdiv.',
     date: '2026-08-11',
@@ -144,7 +146,7 @@ export const blogPostsData: { [key: string]: BlogPost } = {
     author: 'AR Studio',
     keywords: 'уеб дизайн агенция Пловдив, уеб дизайн Пловдив, изработка на сайтове Пловдив, избор на уеб дизайн, сайт за бизнес',
     keywordsEn: 'web design agency Plovdiv, web design Plovdiv, website development Plovdiv, choosing a web design agency, business website',
-    description: 'Практичен наръчник за избор на уеб дизайн агенция в Пловдив. Научете как да сравнявате портфолио, процес, SEO основа и комуникация преди новия си сайт.',
+    description: 'Сравнете портфолио, процес, SEO основа, комуникация и цена, преди да изберете уеб дизайн агенция в Пловдив. Вижте 5 критерия и практични въпроси за избора.',
     descriptionEn: 'A practical guide to choosing a web design agency in Plovdiv. Learn how to compare portfolios, process, SEO foundations, and communication before starting a new website.',
     content: `
       <h2>Новият сайт е бизнес решение, не просто визуален проект</h2>

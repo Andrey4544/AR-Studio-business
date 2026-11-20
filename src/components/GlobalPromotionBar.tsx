@@ -11,10 +11,13 @@ export default function GlobalPromotionBar() {
   const [remainingMs, setRemainingMs] = useState(getRemainingMs);
 
   useEffect(() => {
+    if (getRemainingMs() <= 0) return;
     const update = () => setRemainingMs(getRemainingMs());
     const interval = window.setInterval(update, 1000);
     return () => window.clearInterval(interval);
   }, []);
+
+  if (remainingMs <= 0) return null;
 
   const time = [
     Math.floor(remainingMs / 86400000),

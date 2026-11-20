@@ -77,23 +77,25 @@ export default function Services({ onQuoteClick }: ServicesProps) {
       <div className="absolute bottom-[20%] right-[-15%] w-[400px] h-[400px] rounded-full bg-indigo-900/10 blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="mb-12 overflow-hidden rounded-xl border border-red-500/30 bg-red-950/25 shadow-[0_0_35px_rgba(239,68,68,0.08)]">
-          <div className="h-1 w-full bg-red-600" />
-          <div className="flex flex-col items-center justify-between gap-3 px-5 py-4 text-center sm:flex-row sm:text-left">
-            <div>
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-red-300">
-                {language === 'en' ? 'Limited-time offer · 10% off all Services prices' : 'Ограничена оферта · 10% отстъпка от всички цени в Услуги'}
-              </p>
-              <p className="mt-1 text-xs text-zinc-300">
-                {language === 'en' ? 'Seven days only — the offer ends when the timer reaches zero.' : 'Само за седем дни — офертата изтича, когато таймерът достигне нула.'}
-              </p>
-            </div>
-            <div className="shrink-0 font-mono text-xl font-bold tabular-nums text-white" role="timer" aria-label={language === 'en' ? 'Time remaining in promotion' : 'Оставащо време от промоцията'}>
-              {promoActive ? `${countdown[0]}:${countdown[1]}:${countdown[2]}:${countdown[3]}` : (language === 'en' ? 'OFFER ENDED' : 'ОФЕРТАТА ИЗТЕЧЕ')}
-              {promoActive && <span className="ml-2 text-[9px] font-medium uppercase tracking-wider text-red-300">{language === 'en' ? 'days : hrs : min : sec' : 'дни : ч : мин : сек'}</span>}
+        {promoActive && (
+          <div className="mb-12 overflow-hidden rounded-xl border border-red-500/30 bg-red-950/25 shadow-[0_0_35px_rgba(239,68,68,0.08)]">
+            <div className="h-1 w-full bg-red-600" />
+            <div className="flex flex-col items-center justify-between gap-3 px-5 py-4 text-center sm:flex-row sm:text-left">
+              <div>
+                <p className="text-xs font-bold uppercase tracking-[0.18em] text-red-300">
+                  {language === 'en' ? 'Limited-time offer · 10% off all Services prices' : 'Ограничена оферта · 10% отстъпка от всички цени в Услуги'}
+                </p>
+                <p className="mt-1 text-xs text-zinc-300">
+                  {language === 'en' ? 'Seven days only — the offer ends when the timer reaches zero.' : 'Само за седем дни — офертата изтича, когато таймерът достигне нула.'}
+                </p>
+              </div>
+              <div className="shrink-0 font-mono text-xl font-bold tabular-nums text-white" role="timer" aria-label={language === 'en' ? 'Time remaining in promotion' : 'Оставащо време от промоцията'}>
+                {`${countdown[0]}:${countdown[1]}:${countdown[2]}:${countdown[3]}`}
+                <span className="ml-2 text-[9px] font-medium uppercase tracking-wider text-red-300">{language === 'en' ? 'days : hrs : min : sec' : 'дни : ч : мин : сек'}</span>
+              </div>
             </div>
           </div>
-        </div>
+        )}
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">

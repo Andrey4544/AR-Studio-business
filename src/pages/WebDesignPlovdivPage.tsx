@@ -176,6 +176,25 @@ export default function WebDesignPlovdivPage({ openQuoteModal }: WebDesignPlovdi
           </div>
         </section>
 
+        <section className="py-20 sm:py-24 border-y border-white/5">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-3xl">
+              <p className="text-blue-400 font-mono text-xs tracking-[0.18em] uppercase mb-4">{pageCopy.processEyebrow}</p>
+              <h2 className="font-serif text-3xl sm:text-5xl font-bold tracking-tight">{pageCopy.processHeading}</h2>
+              <p className="mt-5 text-zinc-400 leading-relaxed">{pageCopy.processIntro}</p>
+            </div>
+            <ol className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-10">
+              {pageCopy.processSteps.map((step, index) => (
+                <li key={step.title} className="rounded-2xl border border-white/10 bg-zinc-900/40 p-6">
+                  <span className="text-blue-300 font-mono text-xs tracking-widest">{String(index + 1).padStart(2, '0')}</span>
+                  <h3 className="mt-4 font-bold text-lg">{step.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-zinc-400">{step.description}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
         <section className="py-20 sm:py-24 border-y border-white/5 bg-zinc-950/60">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl">

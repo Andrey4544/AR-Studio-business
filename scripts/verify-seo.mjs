@@ -26,11 +26,11 @@ for (const url of uniqueUrls) {
 const localLandingChecks = [
   {
     route: '/web-design-plovdiv',
-    expected: ['Уеб дизайн Пловдив от €249 | AR Studio', 'Tomato Restaurant', 'BelEstateGroup', 'Базов едностраничен сайт', 'FAQPage'],
+    expected: ['Уеб дизайн Пловдив от €249 | AR Studio', 'Tomato Restaurant', 'BelEstateGroup', 'Базов едностраничен сайт', 'Как протича изработката на уеб сайт в Пловдив', 'FAQPage'],
   },
   {
     route: '/en/web-design-plovdiv',
-    expected: ['Web Design Plovdiv from €249 | AR Studio', 'Tomato Restaurant', 'BelEstateGroup', 'Basic one-page website', 'FAQPage'],
+    expected: ['Web Design Plovdiv from €249 | AR Studio', 'Tomato Restaurant', 'BelEstateGroup', 'Basic one-page website', 'How website development works in Plovdiv', 'FAQPage'],
   },
 ];
 for (const check of localLandingChecks) {

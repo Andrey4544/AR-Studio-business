@@ -41,6 +41,31 @@
       "note": "Крайната цена и срок се потвърждават според договорения обхват. По-сложните сайтове и интеграции се оценяват отделно."
     },
     "pricingLinkLabel": "Вижте всички услуги и цени",
+    "processEyebrow": "От запитване до публикуване",
+    "processHeading": "Как протича изработката на уеб сайт в Пловдив",
+    "processIntro": "AR Studio е базирано в Пловдив и работи с бизнеси в града и цяла България. Започваме с кратък разговор за целта, уточняваме обхвата и минаваме през ясни стъпки до публикуването.",
+    "processSteps": [
+      {
+        "title": "Кратък разговор за целта",
+        "description": "Уточняваме кои услуги ще представя сайтът, към кого е насочен и какво действие трябва да улесни: обаждане, запитване, резервация или покупка."
+      },
+      {
+        "title": "Структура и съдържание",
+        "description": "Подреждаме страниците и информацията така, че посетителят бързо да разбере какво предлагате и как да се свърже. Броят страници и нужните функции са част от договорения обхват."
+      },
+      {
+        "title": "Дизайн и разработка",
+        "description": "Изграждаме адаптивно оформление за телефон, таблет и компютър. Контактната форма, WhatsApp/Viber и другите елементи се включват според договорения план."
+      },
+      {
+        "title": "Проверка преди публикуване",
+        "description": "Проверяваме мобилния изглед, контактните форми и основните SEO елементи, преди сайтът да бъде публикуван."
+      },
+      {
+        "title": "Предаване и следващи стъпки",
+        "description": "Предаваме готовия сайт и показваме основните действия за работа с него. Ако Ви е нужна помощ след старта, можем да обсъдим подходяща поддръжка."
+      }
+    ],
     "faqHeading": "Уеб дизайн в Пловдив: често задавани въпроси",
     "faq": [
       {
@@ -103,6 +128,31 @@
       "note": "Final price and timing are confirmed for the agreed scope. More complex websites and integrations are estimated separately."
     },
     "pricingLinkLabel": "See all services and pricing",
+    "processEyebrow": "From enquiry to launch",
+    "processHeading": "How website development works in Plovdiv",
+    "processIntro": "AR Studio is based in Plovdiv and works with businesses in the city and across Bulgaria. We start with a short conversation about the goal, agree on scope and follow clear steps through launch.",
+    "processSteps": [
+      {
+        "title": "A short conversation about the goal",
+        "description": "We clarify which services the website should present, who it is for, and what action it should make easier: a call, enquiry, booking, or purchase."
+      },
+      {
+        "title": "Page structure and content",
+        "description": "We organize pages and information so visitors can quickly understand what you offer and how to contact you. Page count and required functions are part of the agreed scope."
+      },
+      {
+        "title": "Design and development",
+        "description": "We build a responsive layout for phones, tablets, and desktop. Contact forms, WhatsApp/Viber, and other elements are included according to the agreed plan."
+      },
+      {
+        "title": "Checks before launch",
+        "description": "We check the mobile layout, contact forms, and core SEO elements before the website is published."
+      },
+      {
+        "title": "Handover and next steps",
+        "description": "We hand over the finished website and explain the main steps for using it. If you need help after launch, we can discuss suitable maintenance."
+      }
+    ],
     "faqHeading": "Web design in Plovdiv: frequently asked questions",
     "faq": [
       {

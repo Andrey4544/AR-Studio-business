@@ -7,7 +7,7 @@ import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { Sparkles, Check, ArrowUpRight, AlertCircle, Gift } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
-import { PROMOTION_ENDS_AT } from '../lib/promotion';
+import { getDiscountedPrice, PROMOTION_DISCOUNT_PERCENT, PROMOTION_ENDS_AT } from '../lib/promotion';
 
 interface ServicesProps {
   onQuoteClick: (planName?: string) => void;
@@ -53,13 +53,13 @@ export default function Services({ onQuoteClick }: ServicesProps) {
   const renderPrice = (price: string, note: string, noteClass = 'text-xs text-zinc-500 font-medium') => {
     const originalValue = Number.parseInt(price.replace(/[^0-9]/g, ''), 10);
     const original = formatPrice(price, currency);
-    const discounted = formatPrice(`€${Math.round(originalValue * 0.9)}`, currency);
+    const discounted = formatPrice(`€${getDiscountedPrice(originalValue)}`, currency);
     return (
       <div className="mb-8">
         {promoActive ? (
           <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
             <del className="text-sm font-mono text-zinc-500">{original}</del>
-            <span className="rounded bg-red-500/15 px-1.5 py-0.5 text-[10px] font-bold tracking-wide text-red-300">−10%</span>
+            <span className="rounded bg-red-500/15 px-1.5 py-0.5 text-[10px] font-bold tracking-wide text-red-300">−{PROMOTION_DISCOUNT_PERCENT}%</span>
             <span className="text-3xl sm:text-4xl font-bold font-mono tracking-tight text-white">{discounted}</span>
           </div>
         ) : (
@@ -83,7 +83,7 @@ export default function Services({ onQuoteClick }: ServicesProps) {
             <div className="flex flex-col items-center justify-between gap-3 px-5 py-4 text-center sm:flex-row sm:text-left">
               <div>
                 <p className="text-xs font-bold uppercase tracking-[0.18em] text-red-300">
-                  {language === 'en' ? 'Limited-time offer · 10% off all Services prices' : 'Ограничена оферта · 10% отстъпка от всички цени в Услуги'}
+                  {language === 'en' ? `Limited-time offer · ${PROMOTION_DISCOUNT_PERCENT}% off all Services prices` : `Ограничена оферта · ${PROMOTION_DISCOUNT_PERCENT}% отстъпка от всички цени в Услуги`}
                 </p>
                 <p className="mt-1 text-xs text-zinc-300">
                   {language === 'en' ? 'Seven days only — the offer ends when the timer reaches zero.' : 'Само за седем дни — офертата изтича, когато таймерът достигне нула.'}

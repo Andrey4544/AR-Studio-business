@@ -9,6 +9,8 @@ import { motion } from 'motion/react';
 import { ArrowRight, Sparkles, Zap, Shield, HelpCircle, Trophy, Globe } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { localizedPath } from '../lib/localizedRoutes';
+import { getDiscountedPrice, PROMOTION_DISCOUNT_PERCENT } from '../lib/promotion';
+import { usePromotionStatus } from '../hooks/usePromotionStatus';
 import TechBackground from './TechBackground';
 
 interface HeroProps {
@@ -19,6 +21,16 @@ interface HeroProps {
 
 export default function Hero({ onQuoteClick, onWorkClick, onAboutClick }: HeroProps) {
   const { language, t } = useLanguage();
+  const { isActive: promoActive } = usePromotionStatus();
+  const heroSub = t('heroSub');
+  const displayedHeroSub = promoActive
+    ? heroSub.replace(
+        '€249',
+        language === 'en'
+          ? `€${getDiscountedPrice(249)} (regularly €249)`
+          : `€${getDiscountedPrice(249)} (редовно €249)`,
+      )
+    : heroSub;
 
   return (
     <section className="relative min-h-screen pt-32 pb-20 flex items-center justify-center overflow-hidden bg-radial from-blue-950/10 via-luxury-black to-luxury-black">
@@ -69,7 +81,7 @@ export default function Hero({ onQuoteClick, onWorkClick, onAboutClick }: HeroPr
           transition={{ duration: 0.8, delay: 0.2 }}
           className="max-w-2xl mx-auto text-base sm:text-lg lg:text-xl text-zinc-400 leading-relaxed font-sans mb-10"
         >
-          {t('heroSub')}
+          {displayedHeroSub}
         </motion.p>
 
         <Link
@@ -131,11 +143,20 @@ export default function Hero({ onQuoteClick, onWorkClick, onAboutClick }: HeroPr
           </div>
 
           <div className="glass-panel p-6 rounded-2xl border border-white/5 flex flex-col items-center justify-center text-center">
-            <span className="text-3xl font-bold font-mono tracking-tight text-white mb-1">
-              €249
-            </span>
+            {promoActive ? (
+              <div className="flex items-baseline gap-2 mb-1">
+                <del className="text-sm font-mono text-zinc-500">€249</del>
+                <span className="text-3xl font-bold font-mono tracking-tight text-white">€{getDiscountedPrice(249)}</span>
+              </div>
+            ) : (
+              <span className="text-3xl font-bold font-mono tracking-tight text-white mb-1">€249</span>
+            )}
             <span className="text-[10px] uppercase font-mono tracking-wider text-zinc-500">
-              {language === 'en' ? '💰 Highly Affordable starting rate' : '💰 Изгодна начална цена'}
+              {promoActive
+                ? language === 'en'
+                  ? `💰 ${PROMOTION_DISCOUNT_PERCENT}% off starting rate`
+                  : `💰 ${PROMOTION_DISCOUNT_PERCENT}% отстъпка от началната цена`
+                : language === 'en' ? '💰 Highly Affordable starting rate' : '💰 Изгодна начална цена'}
             </span>
           </div>
 

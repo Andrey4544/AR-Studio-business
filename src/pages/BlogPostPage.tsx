@@ -11,11 +11,26 @@ import { usePageMeta } from '../hooks/usePageMeta';
 import { getBlogPostBySlug } from '../data/blogData';
 import { Calendar, ArrowLeft } from 'lucide-react';
 import { localizedPath } from '../lib/localizedRoutes';
+import { getDiscountedPrice } from '../lib/promotion';
+import { usePromotionStatus } from '../hooks/usePromotionStatus';
 
 export default function BlogPostPage() {
   const { slug } = useParams<{ slug: string }>();
   const { language } = useLanguage();
+  const { isActive: promoActive } = usePromotionStatus();
   const post = slug ? getBlogPostBySlug(slug) : null;
+  const articleContent = post ? (language === 'en' ? post.contentEn || post.content : post.content) : '';
+  const displayedArticleContent = promoActive && post?.slug === 'kak-da-izberem-uebdizain-agenciya-plovdiv'
+    ? articleContent
+        .replace(
+          'с начална цена от €249',
+          `с редовна начална цена €249, а през седемдневната промоция — €${getDiscountedPrice(249)}`,
+        )
+        .replace(
+          'with a starting price of €249',
+          `with a regular starting price of €249, or €${getDiscountedPrice(249)} during the seven-day offer`,
+        )
+    : articleContent;
 
   const pageTitle = post
     ? language === 'en'
@@ -131,7 +146,7 @@ export default function BlogPostPage() {
             <div className="prose prose-invert max-w-none mb-12">
               <div 
                 className="text-zinc-300 space-y-4"
-                dangerouslySetInnerHTML={{ __html: language === 'en' ? post.contentEn || post.content : post.content }}
+                dangerouslySetInnerHTML={{ __html: displayedArticleContent }}
               />
             </div>
 

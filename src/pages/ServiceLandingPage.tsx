@@ -5,6 +5,8 @@ import PageTransition from '../components/PageTransition';
 import { useLanguage } from '../context/LanguageContext';
 import { DEFAULT_IMAGE, SITE_URL, usePageMeta } from '../hooks/usePageMeta';
 import { localizedPath } from '../lib/localizedRoutes';
+import { getDiscountedPriceFromLabel, PROMOTION_DISCOUNT_PERCENT } from '../lib/promotion';
+import { usePromotionStatus } from '../hooks/usePromotionStatus';
 
 interface ServiceLandingPageProps {
   serviceKey: keyof typeof servicePages;
@@ -219,7 +221,9 @@ const serviceRouteSlugs: Record<keyof typeof servicePages, string> = {
 
 export default function ServiceLandingPage({ serviceKey, openQuoteModal }: ServiceLandingPageProps) {
   const { language } = useLanguage();
+  const { isActive: promoActive } = usePromotionStatus();
   const page = language === 'en' ? englishServicePages[serviceKey] : servicePages[serviceKey];
+  const discountedPagePrice = getDiscountedPriceFromLabel(page.price);
   const canonical = `${SITE_URL}/uslugi/${serviceRouteSlugs[serviceKey]}`;
   const faqSchema = page.faq.map((item) => ({
     '@type': 'Question',
@@ -291,7 +295,21 @@ export default function ServiceLandingPage({ serviceKey, openQuoteModal }: Servi
             </section>
             <aside className="p-8 rounded-2xl bg-gradient-to-br from-blue-500/15 to-indigo-500/5 border border-blue-500/20">
               <p className="text-zinc-400 text-sm mb-2">{language === 'en' ? 'Starting investment' : 'Начална инвестиция'}</p>
-              <p className="text-4xl text-white font-bold mb-3">{page.price}</p>
+              {promoActive && discountedPagePrice ? (
+                <>
+                  <p className="text-sm text-zinc-500 line-through">{page.price}</p>
+                  <p className="mt-1 text-4xl text-white font-bold mb-3">{discountedPagePrice}</p>
+                </>
+              ) : (
+                <p className="text-4xl text-white font-bold mb-3">{page.price}</p>
+              )}
+              {promoActive && (
+                <p className="text-xs font-medium text-red-300 mb-3">
+                  {discountedPagePrice
+                    ? language === 'en' ? `${PROMOTION_DISCOUNT_PERCENT}% off during the limited-time offer` : `${PROMOTION_DISCOUNT_PERCENT}% отстъпка по време на кампанията`
+                    : language === 'en' ? `${PROMOTION_DISCOUNT_PERCENT}% off the agreed project price during the offer` : `${PROMOTION_DISCOUNT_PERCENT}% отстъпка от договорената цена по време на кампанията`}
+                </p>
+              )}
               <p className="text-sm text-zinc-400 leading-relaxed mb-6">{page.priceNote}</p>
               <p className="text-sm text-zinc-300 leading-relaxed">{page.audience}</p>
             </aside>

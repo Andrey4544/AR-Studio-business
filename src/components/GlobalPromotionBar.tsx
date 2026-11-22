@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { PROMOTION_ENDS_AT } from '../lib/promotion';
+import { PROMOTION_DISCOUNT_PERCENT, PROMOTION_ENDS_AT } from '../lib/promotion';
 
 function getRemainingMs() {
   return Math.max(0, PROMOTION_ENDS_AT - Date.now());
@@ -27,8 +27,8 @@ export default function GlobalPromotionBar() {
   ].map(value => String(value).padStart(2, '0'));
 
   const offerText = language === 'en'
-    ? '10% OFF ALL SERVICES · LIMITED TIME'
-    : '10% ОТСТЪПКА ЗА ВСИЧКИ УСЛУГИ · ОГРАНИЧЕНО ВРЕМЕ';
+    ? `${PROMOTION_DISCOUNT_PERCENT}% OFF ALL SERVICES · LIMITED TIME`
+    : `${PROMOTION_DISCOUNT_PERCENT}% ОТСТЪПКА ЗА ВСИЧКИ УСЛУГИ · ОГРАНИЧЕНО ВРЕМЕ`;
   const countdown = `${time[0]}:${time[1]}:${time[2]}:${time[3]}`;
 
   return (

@@ -6,6 +6,8 @@ import { useLanguage } from '../context/LanguageContext';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { useStructuredData } from '../hooks/useStructuredData';
 import webDesignPlovdivSeo from '../data/webDesignPlovdivSeo.json';
+import { getDiscountedPriceFromLabel, PROMOTION_DISCOUNT_PERCENT } from '../lib/promotion';
+import { usePromotionStatus } from '../hooks/usePromotionStatus';
 
 interface WebDesignPlovdivPageProps {
   openQuoteModal: (planName?: string) => void;
@@ -13,8 +15,10 @@ interface WebDesignPlovdivPageProps {
 
 export default function WebDesignPlovdivPage({ openQuoteModal }: WebDesignPlovdivPageProps) {
   const { language } = useLanguage();
+  const { isActive: promoActive } = usePromotionStatus();
   const isEnglish = language === 'en';
   const pageCopy = webDesignPlovdivSeo[isEnglish ? 'en' : 'bg'];
+  const discountedStartingPrice = getDiscountedPriceFromLabel(pageCopy.pricing.price);
   const canonical = `https://www.ar-studio.site${isEnglish ? '/en/web-design-plovdiv' : '/web-design-plovdiv'}`;
 
   usePageMeta({
@@ -221,7 +225,17 @@ export default function WebDesignPlovdivPage({ openQuoteModal }: WebDesignPlovdi
                 <div>
                   <p className="text-blue-300 font-mono text-xs uppercase tracking-wider">{pageCopy.pricingHeading}</p>
                   <h3 className="mt-3 font-serif text-2xl font-bold">{pageCopy.pricing.name}</h3>
-                  <p className="mt-3 text-3xl font-bold text-white">{isEnglish ? 'from ' : 'от '}{pageCopy.pricing.price}</p>
+                  {promoActive && discountedStartingPrice ? (
+                    <div className="mt-3">
+                      <p className="text-sm text-zinc-500 line-through">{isEnglish ? 'from ' : 'от '}{pageCopy.pricing.price}</p>
+                      <p className="mt-1 text-3xl font-bold text-white">{isEnglish ? 'from ' : 'от '}{discountedStartingPrice}</p>
+                      <p className="mt-2 text-xs font-medium text-red-300">
+                        {isEnglish ? `${PROMOTION_DISCOUNT_PERCENT}% off during the limited-time offer` : `${PROMOTION_DISCOUNT_PERCENT}% отстъпка по време на кампанията`}
+                      </p>
+                    </div>
+                  ) : (
+                    <p className="mt-3 text-3xl font-bold text-white">{isEnglish ? 'from ' : 'от '}{pageCopy.pricing.price}</p>
+                  )}
                   <p className="mt-3 text-sm leading-relaxed text-zinc-300">{pageCopy.pricing.scope}</p>
                   <Link to={isEnglish ? '/en/services' : '/uslugi'} className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-blue-300 hover:text-blue-200">
                     {pageCopy.pricingLinkLabel} <ArrowRight className="w-4 h-4" />

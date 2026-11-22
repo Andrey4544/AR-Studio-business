@@ -38,7 +38,7 @@ export default function GlobalPromotionBar() {
       <div className="promo-marquee-viewport w-full" aria-label={language === 'en' ? 'Limited-time promotion countdown' : 'Таймер на промоцията с ограничено време'}>
         {remainingMs > 0 ? (
           <div className="promo-marquee-track">
-            {[0, 1, 2, 3].map(copy => (
+            {Array.from({ length: 8 }, (_, copy) => (
               <div className="promo-marquee-item" key={copy} aria-hidden={copy > 0}>
                 <span className="promo-offer-full">{offerText}</span>
                 <span className="promo-offer-compact">{compactOfferText}</span>

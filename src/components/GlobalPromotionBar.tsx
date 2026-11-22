@@ -28,17 +28,20 @@ export default function GlobalPromotionBar() {
   const offerText = language === 'en'
     ? `${PROMOTION_DISCOUNT_PERCENT}% OFF ALL SERVICES · LIMITED TIME`
     : `${PROMOTION_DISCOUNT_PERCENT}% ОТСТЪПКА ЗА ВСИЧКИ УСЛУГИ · ОГРАНИЧЕНО ВРЕМЕ`;
+  const compactOfferText = language === 'en'
+    ? `${PROMOTION_DISCOUNT_PERCENT}% OFF ALL SERVICES`
+    : `${PROMOTION_DISCOUNT_PERCENT}% ОТСТЪПКА ЗА ВСИЧКИ УСЛУГИ`;
   const countdown = `${time[0]}:${time[1]}:${time[2]}:${time[3]}`;
 
   return (
-    <div className="fixed inset-x-0 top-0 z-[60] flex h-8 items-center overflow-hidden border-b border-red-300/20 bg-red-700 text-white shadow-[0_2px_12px_rgba(127,29,29,0.35)]">
+    <div className="fixed inset-x-0 top-0 z-[60] flex h-11 items-center overflow-hidden border-b border-red-300/25 bg-red-700 text-white shadow-[0_2px_14px_rgba(127,29,29,0.4)] md:h-12">
       <div className="promo-marquee-viewport w-full" aria-label={language === 'en' ? 'Limited-time promotion countdown' : 'Таймер на промоцията с ограничено време'}>
         {remainingMs > 0 ? (
           <div className="promo-marquee-track">
             {[0, 1].map(copy => (
               <div className="promo-marquee-item" key={copy} aria-hidden={copy === 1}>
-                <span>{offerText}</span>
-                <span aria-hidden="true" className="promo-marquee-separator">·</span>
+                <span className="promo-offer-full">{offerText}</span>
+                <span className="promo-offer-compact">{compactOfferText}</span>
                 <span className="font-mono tabular-nums" role={copy === 0 ? 'timer' : undefined} aria-label={copy === 0 ? (language === 'en' ? 'Promotion countdown: days, hours, minutes, seconds' : 'Таймер на промоцията: дни, часове, минути, секунди') : undefined}>
                   {countdown}
                 </span>

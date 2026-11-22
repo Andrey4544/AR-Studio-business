@@ -101,7 +101,7 @@ export default function App() {
       <div className="relative min-h-screen bg-[#050505] overflow-x-clip flex flex-col justify-between">
         
         {/* Slim Scroll Progress Bar */}
-        <div className="fixed top-8 left-0 w-full h-[3px] bg-zinc-950/40 z-[100] pointer-events-none">
+        <div className="fixed top-11 md:top-12 left-0 w-full h-[3px] bg-zinc-950/40 z-[100] pointer-events-none">
           <div
             className="h-full bg-gradient-to-r from-blue-500 via-indigo-500 to-blue-400 shadow-[0_0_8px_rgba(59,130,246,0.8)] transition-all duration-75"
             style={{ width: `${scrollProgress}%` }}

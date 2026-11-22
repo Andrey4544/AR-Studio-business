@@ -38,8 +38,8 @@ export default function GlobalPromotionBar() {
       <div className="promo-marquee-viewport w-full" aria-label={language === 'en' ? 'Limited-time promotion countdown' : 'Таймер на промоцията с ограничено време'}>
         {remainingMs > 0 ? (
           <div className="promo-marquee-track">
-            {[0, 1].map(copy => (
-              <div className="promo-marquee-item" key={copy} aria-hidden={copy === 1}>
+            {[0, 1, 2, 3].map(copy => (
+              <div className="promo-marquee-item" key={copy} aria-hidden={copy > 0}>
                 <span className="promo-offer-full">{offerText}</span>
                 <span className="promo-offer-compact">{compactOfferText}</span>
                 <span className="font-mono tabular-nums" role={copy === 0 ? 'timer' : undefined} aria-label={copy === 0 ? (language === 'en' ? 'Promotion countdown: days, hours, minutes, seconds' : 'Таймер на промоцията: дни, часове, минути, секунди') : undefined}>

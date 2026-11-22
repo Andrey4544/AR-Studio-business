@@ -7,7 +7,7 @@ import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { Sparkles, Check, ArrowUpRight, AlertCircle, Gift } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
-import { getDiscountedPrice, PROMOTION_DISCOUNT_PERCENT, PROMOTION_ENDS_AT } from '../lib/promotion';
+import { getDiscountedPrice, getPromotionRemainingMs, PROMOTION_DISCOUNT_PERCENT } from '../lib/promotion';
 
 interface ServicesProps {
   onQuoteClick: (planName?: string) => void;
@@ -15,16 +15,14 @@ interface ServicesProps {
 
 export default function Services({ onQuoteClick }: ServicesProps) {
   const [currency, setCurrency] = useState<'EUR' | 'BGN'>('EUR');
-  const promoEndsAt = PROMOTION_ENDS_AT;
-  const [remainingMs, setRemainingMs] = useState(() => Math.max(0, promoEndsAt - Date.now()));
+  const [remainingMs, setRemainingMs] = useState(getPromotionRemainingMs);
   const { pricingPlans, t, language } = useLanguage();
 
   React.useEffect(() => {
-    const updateCountdown = () => setRemainingMs(Math.max(0, promoEndsAt - Date.now()));
-    updateCountdown();
-    const interval = window.setInterval(updateCountdown, 1000);
+    if (remainingMs <= 0) return;
+    const interval = window.setInterval(() => setRemainingMs(getPromotionRemainingMs()), 1000);
     return () => window.clearInterval(interval);
-  }, [promoEndsAt]);
+  }, [remainingMs > 0]);
 
   // The Bulgarian lev is pegged to the euro at the official fixed rate.
   const formatPrice = (priceStr: string, activeCurrency: 'EUR' | 'BGN') => {

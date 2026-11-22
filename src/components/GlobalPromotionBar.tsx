@@ -1,21 +1,20 @@
 import { useEffect, useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { PROMOTION_DISCOUNT_PERCENT, PROMOTION_ENDS_AT } from '../lib/promotion';
-
-function getRemainingMs() {
-  return Math.max(0, PROMOTION_ENDS_AT - Date.now());
-}
+import { getPromotionRemainingMs, PROMOTION_DISCOUNT_PERCENT } from '../lib/promotion';
 
 export default function GlobalPromotionBar() {
   const { language } = useLanguage();
-  const [remainingMs, setRemainingMs] = useState(getRemainingMs);
+  const [remainingMs, setRemainingMs] = useState(getPromotionRemainingMs);
 
   useEffect(() => {
-    if (getRemainingMs() <= 0) return;
-    const update = () => setRemainingMs(getRemainingMs());
-    const interval = window.setInterval(update, 1000);
+    if (remainingMs <= 0) return;
+    const interval = window.setInterval(() => {
+      const nextRemainingMs = getPromotionRemainingMs();
+      setRemainingMs(nextRemainingMs);
+      if (nextRemainingMs <= 0) window.clearInterval(interval);
+    }, 1000);
     return () => window.clearInterval(interval);
-  }, []);
+  }, [remainingMs > 0]);
 
   if (remainingMs <= 0) return null;
 

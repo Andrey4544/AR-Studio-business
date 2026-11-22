@@ -11,7 +11,7 @@ import { usePageMeta } from '../hooks/usePageMeta';
 import { getBlogPostBySlug } from '../data/blogData';
 import { Calendar, ArrowLeft } from 'lucide-react';
 import { localizedPath } from '../lib/localizedRoutes';
-import { getDiscountedPrice } from '../lib/promotion';
+import { getDiscountedPrice, PROMOTION_DISCOUNT_PERCENT } from '../lib/promotion';
 import { usePromotionStatus } from '../hooks/usePromotionStatus';
 
 export default function BlogPostPage() {
@@ -141,6 +141,19 @@ export default function BlogPostPage() {
                 <span>{language === 'en' ? 'By' : 'От'} {post.author}</span>
               </div>
             </header>
+
+            {promoActive && (
+              <div className="mb-8 rounded-xl border border-red-500/25 bg-red-950/20 p-5">
+                <p className="text-sm font-semibold text-red-200">
+                  {language === 'en'
+                    ? `${PROMOTION_DISCOUNT_PERCENT}% off all services — websites from €${getDiscountedPrice(249)}, regularly €249. Seven days only.`
+                    : `${PROMOTION_DISCOUNT_PERCENT}% отстъпка за всички услуги — сайт от €${getDiscountedPrice(249)} вместо редовните €249. Само 7 дни.`}
+                </p>
+                <Link to={localizedPath('/uslugi', language)} className="mt-3 inline-flex text-sm font-semibold text-blue-300 transition-colors hover:text-blue-200">
+                  {language === 'en' ? 'View promotional service prices' : 'Вижте промоционалните цени на услугите'}
+                </Link>
+              </div>
+            )}
 
             {/* Article Content */}
             <div className="prose prose-invert max-w-none mb-12">
